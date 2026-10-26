@@ -1,0 +1,26 @@
+# 密钥与本地配置
+.env
+*.env
+!.env.example
+
+# 运行产物
+logs/
+output/
+*.log
+
+# 状态文件（记录哪些作品已经生成过）
+data/state.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
