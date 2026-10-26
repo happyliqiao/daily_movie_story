@@ -1,0 +1,92 @@
+name: 每日影视故事梗概
+
+# 每天北京时间 09:07 自动生成一篇故事梗概并发到邮箱
+# GitHub 的 cron 用 UTC，且整点是高峰（任务会排队延迟），故设在 01:07 UTC
+on:
+  schedule:
+    - cron: "7 1 * * *"
+  workflow_dispatch: # 也可以在页面上手动点「Run workflow」立刻跑一次
+
+# 同一时间只允许一个任务在跑
+concurrency:
+  group: daily-movie-story
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    name: 生成故事梗概并发送邮件
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 生成梗概并发邮件
+        env:
+          MOVIE_API_KEY: ${{ secrets.MOVIE_API_KEY }}
+          MOVIE_API_BASE: ${{ secrets.MOVIE_API_BASE }}
+          MOVIE_MODEL: ${{ secrets.MOVIE_MODEL }}
+          MOVIE_OUTPUT_DIR: output
+          MOVIE_SMTP_HOST: ${{ secrets.MOVIE_SMTP_HOST }}
+          MOVIE_SMTP_PORT: ${{ secrets.MOVIE_SMTP_PORT }}
+          MOVIE_SMTP_USER: ${{ secrets.MOVIE_SMTP_USER }}
+          MOVIE_SMTP_PASS: ${{ secrets.MOVIE_SMTP_PASS }}
+          MOVIE_SMTP_TO: ${{ secrets.MOVIE_SMTP_TO }}
+          MOVIE_SMTP_SSL: "1"
+        run: python run.py
+
+      - name: 提交生成结果回仓库
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A output data/state.json
+          if git diff --staged --quiet; then
+            echo "今天没有新内容，跳过提交"
+          else
+            git commit -m "chore: 更新 $(date +%Y-%m-%d) 的影视故事梗概"
+            git pull --rebase origin master || true
+            git push origin HEAD:master
+          fi
+
+      - name: 上传产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: movie-story-output
+          path: output/
+          retention-days: 30
+
+  publish:
+    name: 发布到网页版
+    needs: generate
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    continue-on-error: true # 网页发布失败不影响邮件
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 准备站点目录
+        run: |
+          mkdir -p _site
+          cp output/*.html _site/ 2>/dev/null || true
+          if [ -f "output/索引.html" ]; then
+            cp "output/索引.html" _site/index.html
+          fi
+          ls -la _site | head -20
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - uses: actions/deploy-pages@v4
