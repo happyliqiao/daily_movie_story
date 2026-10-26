@@ -99,6 +99,20 @@ def main(argv: list[str] | None = None) -> int:
     cfg.output_dir.mkdir(parents=True, exist_ok=True)
     log.info("今日作品：《%s》（%s%s）", item.title, item.kind, f" · {item.year}" if item.year else "")
 
+    # 文件名只依赖片名和日期，可以在生成前判断是否已存在，避免白白消耗接口额度
+    md_name = f"{run_date.isoformat()}_{render.safe_filename(item.title)}.md"
+    html_name = f"{run_date.isoformat()}_{render.safe_filename(item.title)}.html"
+    md_path = cfg.output_dir / md_name
+    html_path = cfg.output_dir / html_name
+
+    if md_path.exists() and not args.force:
+        log.warning("文件已存在，跳过：%s（如需覆盖加 --force）", md_path)
+        # 仍要记录轮播进度，否则片库会一直卡在这一部
+        if not args.title:
+            catalog.record_usage(state, item, run_date, [], override=False)
+            state.save(cfg.state_path)
+        return 0
+
     client = LLMClient(
         api_key=cfg.api_key,
         api_base=cfg.api_base,
@@ -141,6 +155,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if md_path.exists() and not args.force:
         log.warning("文件已存在，跳过：%s（如需覆盖加 --force）", md_path)
+        # 仍要记录轮播进度，否则片库会一直卡在这一部
+        if not args.title:
+            catalog.record_usage(state, item, run_date, [], override=False)
+            state.save(cfg.state_path)
         return 0
 
     write_atomic(md_path, render.render_markdown(doc, run_date))

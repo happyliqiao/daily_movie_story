@@ -1,4 +1,4 @@
-# 注册/更新 Windows 计划任务：每天固定时间自动生成影视故事梗概
+﻿# 注册/更新 Windows 计划任务：每天固定时间自动生成影视故事梗概
 # 用法：powershell -ExecutionPolicy Bypass -File .\scripts\install_task.ps1
 #       powershell -ExecutionPolicy Bypass -File .\scripts\install_task.ps1 -Time 08:30
 
