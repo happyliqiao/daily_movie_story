@@ -1,9 +1,0 @@
-feat: 新增邮件推送，生成内容自动发到邮箱
-
-- 新增 mailer.py：标准库 smtplib，支持 465 隐式 SSL 与 587 STARTTLS
-- 新增 render_email_html / render_email_text：内联样式的邮件正文（邮件客户端兼容）
-- 邮件主题：【每日影视故事梗概】《片名》日期｜共 N 段，附件带 .md 与 .html
-- 新增 store.py 快照机制：邮件失败可用 --resend 重发，不重新调用接口
-- 新增 --no-email / --resend 参数；SMTP 未配置时降级为跳过而不报错
-- 复用 ai_news_automation 里已有的 163 邮箱 SMTP 配置（smtp.163.com:465）
-- 自测从 16 项扩充到 19 项，覆盖邮件正文渲染与快照往返
