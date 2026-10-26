@@ -62,31 +62,42 @@ jobs:
           retention-days: 30
 
   publish:
-    name: 发布到网页版
+    name: 发布网页版到 gh-pages 分支
     needs: generate
     runs-on: ubuntu-latest
     permissions:
-      pages: write
-      id-token: write
+      contents: write
     continue-on-error: true # 网页发布失败不影响邮件
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          ref: master
 
-      - name: 准备站点目录
+      - name: 准备站点目录（只允许 html 文件）
         run: |
-          mkdir -p _site
-          cp output/*.html _site/ 2>/dev/null || true
-          if [ -f "output/索引.html" ]; then
-            cp "output/索引.html" _site/index.html
+          set -e
+          rm -rf /tmp/site && mkdir -p /tmp/site
+          cp output/*.html /tmp/site/
+          cp "output/索引.html" /tmp/site/index.html
+          # 安全闸：站点目录里只允许 .html，出现任何其他文件就中止
+          bad=$(find /tmp/site -type f ! -name '*.html' | head -5)
+          if [ -n "$bad" ]; then
+            echo "::error::站点目录出现非 html 文件，已中止：$bad"
+            exit 1
           fi
-          ls -la _site | head -20
+          ls -la /tmp/site
 
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-      - uses: actions/deploy-pages@v4
+      - name: 推送到 gh-pages 分支
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          cd /tmp/site
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "publish: 更新 $(date +%Y-%m-%d) 网页版"
+          # gh-pages 是纯生成目录，每次全量覆盖
+          git push -q --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" HEAD:gh-pages
+          echo "已推送到 gh-pages"

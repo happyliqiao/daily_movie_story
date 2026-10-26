@@ -46,10 +46,13 @@ movie_story_automation/
 │   ├── catalog.tsv       # 片库（标题/国家/类型/年份/题材/集数/剧情参考）
 │   └── snapshots/        # 生成结果快照，用于重发邮件
 ├── scripts/
-│   ├── run_daily.ps1     # 计划任务调用的运行脚本
+│   ├── run_daily.ps1     # 计划任务调用的脚本（云端优先，本机兜底）
 │   └── install_task.ps1  # 注册 Windows 计划任务
+├── .github/workflows/
+│   └── daily.yml         # 云端定时任务（GitHub Actions）
 ├── tests/
 │   └── test_core.py      # 离线自测（不调接口）
+├── output/               # 生成结果存档（云端提交回仓库）
 └── logs/                 # 每日运行日志
 ```
 
@@ -115,22 +118,32 @@ python run.py --resend --title 霸王别姬
 python -m unittest discover -s tests -v
 ```
 
-## 每天自动运行（Windows 计划任务）
+## 每天自动运行（云端，电脑关机也能跑）
+
+程序已部署在 **GitHub Actions** 上，每天北京时间 **09:07** 自动生成并把邮件发出去，**不需要你的电脑开机**。
+
+- 工作流：`.github/workflows/daily.yml`（cron `7 1 * * *` UTC）
+- 密钥存放在仓库的 GitHub Secrets（加密存储，不进代码库）
+- 产出物提交回 `output/` 目录存档
+- 网页版：<https://cdn.jsdelivr.net/gh/happyliqiao/daily_movie_story@master/output/>
+  （总索引是 `output/索引.html`，中文文件名在链接里需 URL 编码）
+- 手动触发一次：仓库页面的 Actions → 「每日影视故事梗概」→ Run workflow
+
+### 本机兜底（可选）
+
+本机也留了一个 Windows 计划任务「每日影视故事梗概」，每天 09:00 运行。它会先拉取云端结果：
+
+- 云端今天已经生成过 → 只把结果同步到本地 `E:\liqiaobac\每日影视故事梗概`，**不再重复生成、不重复发邮件**
+- 云端失败或没跑 → 本机兜底生成、发邮件，并把结果提交回仓库
 
 ```powershell
-# 注册任务，默认每天 09:30 自动生成一篇
-powershell -ExecutionPolicy Bypass -File .\scripts\install_task.ps1
-
-# 自定义时间
-powershell -ExecutionPolicy Bypass -File .\scripts\install_task.ps1 -Time 08:30
+# 注册/更新本机计划任务
+powershell -ExecutionPolicy Bypass -File .\scripts\install_task.ps1 -Time 09:00
 
 # 立即试跑一次
 Start-ScheduledTask -TaskName '每日影视故事梗概'
-```
 
-也可以手动跑今天的：
-
-```powershell
+# 手动跑今天的
 powershell -ExecutionPolicy Bypass -File .\scripts\run_daily.ps1
 ```
 
