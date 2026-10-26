@@ -10,6 +10,8 @@ output/
 
 # 状态文件（记录哪些作品已经生成过）
 data/state.json
+# 生成结果快照（用于失败后重发邮件）
+data/snapshots/
 
 # Python
 __pycache__/

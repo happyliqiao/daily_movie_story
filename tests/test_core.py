@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from moviestory import catalog, render  # noqa: E402
 from moviestory.config import Config  # noqa: E402
-from moviestory.generator import Outline, build_plan  # noqa: E402
+from moviestory.generator import Outline, Segment, build_plan  # noqa: E402
 from moviestory.llm import parse_json  # noqa: E402
 
 
@@ -151,6 +151,75 @@ class TestRender(unittest.TestCase):
             self.assertIn("测试片", md_path.read_text(encoding="utf-8"))
             # 索引页自身不应被计入
             self.assertEqual(len(render.collect_entries(out)), 1)
+
+
+class TestEmailAndSnapshot(unittest.TestCase):
+    def _doc(self):
+        item = catalog.Title(title="测试电影", kind="电影", year="2000", country="中国", genre="剧情")
+        outline = Outline(logline="一句话故事。", runtime_minutes=120, episodes=None,
+                          episode_minutes=None,
+                          characters=[{"name": "甲", "role": "主角", "desc": "(desc)"}],
+                          acts=[{"name": "开端", "desc": "介绍"}],
+                          turning_points=[{"at": "约第30分钟", "event": "转折"}],
+                          themes=["主题"], ending="结局。")
+        segments = [
+            Segment(index=1, range="00:00–00:10", title="开场", summary="正文内容。" * 10,
+                    events=["事件一"]),
+            Segment(index=2, range="00:10–00:20", title="发展", summary="正文内容。" * 10,
+                    events=[]),
+        ]
+        from datetime import datetime
+
+        from moviestory.generator import StoryDoc
+
+        return StoryDoc(item=item, outline=outline, segments=segments,
+                        segment_rule="共 2 段", generated_at=datetime(2026, 1, 1, 9, 0),
+                        model="test-model")
+
+    def test_email_html_contains_key_parts(self):
+        from datetime import date
+
+        from moviestory import render
+
+        doc = self._doc()
+        html = render.render_email_html(doc, date(2026, 1, 1))
+        self.assertIn("测试电影", html)
+        self.assertIn("一句话故事。", html)
+        self.assertIn("甲", html)
+        self.assertIn("第 1 段", html)
+        self.assertIn("00:00–00:10", html)
+        # 邮件正文必须是内联样式，不能依赖 <head> 里的 <style>
+        self.assertNotIn("<style>", html)
+
+    def test_email_text(self):
+        from datetime import date
+
+        from moviestory import render
+
+        text = render.render_email_text(self._doc(), date(2026, 1, 1))
+        self.assertIn("测试电影", text)
+        self.assertIn("分段梗概（共 2 段）", text)
+        self.assertIn("事件一", text)
+
+    def test_snapshot_roundtrip(self):
+        from datetime import date
+
+        from moviestory import store
+
+        doc = self._doc()
+        with tempfile.TemporaryDirectory() as tmp:
+            snapshot_dir = Path(tmp)
+            path = store.save_snapshot(doc, snapshot_dir, "2026-01-01")
+            self.assertTrue(path.exists())
+            found = store.find_snapshot(snapshot_dir, "测试电影")
+            self.assertIsNotNone(found)
+            loaded = store.load_snapshot(found)
+            self.assertEqual(loaded.item.title, doc.item.title)
+            self.assertEqual(len(loaded.segments), 2)
+            self.assertEqual(loaded.segments[0].title, "开场")
+            self.assertEqual(loaded.outline.themes, ["主题"])
+            # 原样类型还原
+            self.assertEqual(loaded.generated_at, doc.generated_at)
 
 
 if __name__ == "__main__":

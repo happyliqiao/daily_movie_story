@@ -9,12 +9,40 @@ import traceback
 from datetime import date, datetime
 from pathlib import Path
 
-from . import catalog, render
-from .config import load_config
-from .generator import generate
+from . import catalog, render, store
+from .config import Config, load_config
+from .generator import StoryDoc, generate
 from .llm import LLMClient, LLMError
+from .mailer import MailError, send_email
 
 log = logging.getLogger("moviestory")
+
+
+def send_story_email(doc: StoryDoc, run_date: date, cfg: Config,
+                     attachments: list[Path]) -> bool:
+    """把当天生成的梗概发到邮箱。返回是否发送成功。"""
+    if not cfg.smtp_host or not cfg.smtp_user or not cfg.smtp_pass:
+        log.warning("未配置 SMTP，跳过邮件发送（.env 里补 MOVIE_SMTP_* 即可）")
+        return True
+    subject = f"【每日影视故事梗概】《{doc.item.title}》{run_date.isoformat()}｜共 {len(doc.segments)} 段"
+    try:
+        send_email(
+            smtp_host=cfg.smtp_host,
+            smtp_port=cfg.smtp_port,
+            smtp_user=cfg.smtp_user,
+            smtp_pass=cfg.smtp_pass,
+            recipient=cfg.smtp_to or cfg.smtp_user,
+            subject=subject,
+            html_body=render.render_email_html(doc, run_date),
+            text_body=render.render_email_text(doc, run_date),
+            attachments=attachments,
+            use_ssl=cfg.smtp_ssl,
+        )
+    except MailError as exc:
+        log.error("邮件发送失败：%s", exc)
+        log.error("  正文已保存，可稍后用 --resend 重发")
+        return False
+    return True
 
 
 def setup_logging(log_dir: Path, verbose: bool) -> Path:
@@ -55,6 +83,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--list", "-l", action="store_true", help="列出片库并退出")
     p.add_argument("--dry-run", action="store_true", help="只生成大纲并打印分段计划，不落盘")
     p.add_argument("--no-index", action="store_true", help="不更新总索引页")
+    p.add_argument("--no-email", action="store_true", help="生成后不发送邮件")
+    p.add_argument("--resend", action="store_true",
+                   help="不重新生成，用上次的结果直接重发邮件")
     p.add_argument("--verbose", "-v", action="store_true", help="输出调试日志")
     return p
 
@@ -63,6 +94,23 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     cfg = load_config()
     log_file = setup_logging(cfg.log_dir, args.verbose)
+
+    # 重发邮件：不调用接口，直接用快照重发
+    if args.resend:
+        path = store.find_snapshot(cfg.snapshot_dir, args.title)
+        if not path:
+            log.error("找不到可重发的快照（目录：%s）", cfg.snapshot_dir)
+            return 2
+        try:
+            doc = store.load_snapshot(path)
+        except (OSError, ValueError, KeyError) as exc:
+            log.error("快照读取失败：%s", exc)
+            return 2
+        snap_date = datetime.strptime(path.stem.split("_")[0], "%Y-%m-%d").date()
+        atts = [p for p in (cfg.output_dir / f"{path.stem}.md",
+                            cfg.output_dir / f"{path.stem}.html") if p.exists()]
+        log.info("重发《%s》的邮件（%s）", doc.item.title, snap_date)
+        return 0 if send_story_email(doc, snap_date, cfg, atts) else 3
 
     if not args.list and not cfg.api_key:
         log.error("未配置 API Key。请在 %s 里设置 MOVIE_API_KEY", cfg.log_dir.parent / ".env")
@@ -153,14 +201,6 @@ def main(argv: list[str] | None = None) -> int:
     md_path = cfg.output_dir / md_name
     html_path = cfg.output_dir / html_name
 
-    if md_path.exists() and not args.force:
-        log.warning("文件已存在，跳过：%s（如需覆盖加 --force）", md_path)
-        # 仍要记录轮播进度，否则片库会一直卡在这一部
-        if not args.title:
-            catalog.record_usage(state, item, run_date, [], override=False)
-            state.save(cfg.state_path)
-        return 0
-
     write_atomic(md_path, render.render_markdown(doc, run_date))
     write_atomic(html_path, render.render_html(doc, run_date))
 
@@ -170,6 +210,11 @@ def main(argv: list[str] | None = None) -> int:
         except Exception as exc:  # noqa: BLE001
             log.warning("索引页更新失败（不影响正文）：%s", exc)
 
+    try:
+        store.save_snapshot(doc, cfg.snapshot_dir, run_date.isoformat())
+    except OSError as exc:
+        log.warning("快照保存失败（不影响正文）：%s", exc)
+
     catalog.record_usage(state, item, run_date, [md_name, html_name], bool(args.title))
     state.save(cfg.state_path)
 
@@ -178,6 +223,10 @@ def main(argv: list[str] | None = None) -> int:
     log.info("  HTML    ：%s", html_path)
     log.info("  日志    ：%s", log_file)
     print(f"\n{html_path}")
+
+    if not args.no_email:
+        if not send_story_email(doc, run_date, cfg, [md_path, html_path]):
+            return 3
     return 0
 
 

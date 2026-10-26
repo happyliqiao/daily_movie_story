@@ -37,6 +37,7 @@ class Config:
     output_dir: Path = PROJECT_ROOT / "output"
     catalog_path: Path = PROJECT_ROOT / "data" / "catalog.tsv"
     state_path: Path = PROJECT_ROOT / "data" / "state.json"
+    snapshot_dir: Path = PROJECT_ROOT / "data" / "snapshots"
     log_dir: Path = PROJECT_ROOT / "logs"
 
     # 分段规则
@@ -54,6 +55,14 @@ class Config:
     max_tokens: int = 8000
     timeout: int = 180
     max_retries: int = 4
+
+    # 邮件
+    smtp_host: str = ""
+    smtp_port: int = 465
+    smtp_user: str = ""
+    smtp_pass: str = ""
+    smtp_to: str = ""
+    smtp_ssl: bool = True
 
     extra: dict[str, str] = field(default_factory=dict)
 
@@ -104,5 +113,11 @@ def load_config() -> Config:
         temperature=_to_float(env.get("MOVIE_TEMPERATURE"), 0.65),
         timeout=_to_int(env.get("MOVIE_TIMEOUT"), 180),
         max_retries=_to_int(env.get("MOVIE_MAX_RETRIES"), 4),
+        smtp_host=pick("MOVIE_SMTP_HOST"),
+        smtp_port=_to_int(pick("MOVIE_SMTP_PORT"), 465),
+        smtp_user=pick("MOVIE_SMTP_USER"),
+        smtp_pass=pick("MOVIE_SMTP_PASS"),
+        smtp_to=pick("MOVIE_SMTP_TO"),
+        smtp_ssl=str(env.get("MOVIE_SMTP_SSL", "1")).strip() not in ("0", "false", "False"),
         extra=env,
     )

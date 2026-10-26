@@ -374,6 +374,230 @@ def render_html(doc: StoryDoc, run_date: date) -> str:
 """
 
 
+# ---------------------------------------------------------------- 邮件版
+
+EMAIL_TMPL = """<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title></head>
+<body style="margin:0;padding:0;background:#f4f5f7;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f5f7;padding:24px 0;">
+<tr><td align="center">
+<table role="presentation" width="680" cellpadding="0" cellspacing="0" style="width:680px;max-width:96%;background:#ffffff;border-radius:10px;overflow:hidden;font-family:'Microsoft YaHei','PingFang SC',Arial,sans-serif;color:#1b1f24;line-height:1.85;">
+<tr><td style="padding:28px 32px 20px;border-bottom:1px solid #e6e9ed;">
+<h1 style="margin:0 0 8px;font-size:26px;line-height:1.3;font-weight:700;">{title}<span style="font-size:16px;color:#8a929c;font-weight:400;"> {year}</span></h1>
+<div style="font-size:13px;color:#8a929c;">{meta}</div>
+</td></tr>
+
+<tr><td style="padding:24px 32px 8px;">
+<div style="padding:16px 18px;background:#fdf3f3;border-left:4px solid #b4262b;border-radius:6px;font-size:16px;line-height:1.85;">{logline}</div>
+</td></tr>
+
+{people}
+{acts}
+
+<tr><td style="padding:12px 32px 0;">
+<h2 style="margin:0 0 14px;font-size:13px;letter-spacing:2px;color:#8a929c;border-bottom:1px solid #e6e9ed;padding-bottom:8px;">分段梗概（共 {seg_count} 段）</h2>
+</td></tr>
+
+{segments}
+
+{turning}
+{themes}
+{ending}
+
+<tr><td style="padding:26px 32px 30px;border-top:1px solid #e6e9ed;margin-top:20px;">
+<div style="font-size:12.5px;color:#8a929c;line-height:1.8;">
+生成时间 {generated} ｜ 模型 {model}<br>
+内容由 AI 依据作品公开剧情整理，仅作阅读参考。完整文件见附件。
+</div>
+</td></tr>
+</table>
+</td></tr></table>
+</body></html>"""
+
+EMAIL_PEOPLE_TMPL = """
+<tr><td style="padding:16px 32px 0;">
+<h2 style="margin:0 0 12px;font-size:13px;letter-spacing:2px;color:#8a929c;border-bottom:1px solid #e6e9ed;padding-bottom:8px;">主要人物</h2>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font-size:14px;">
+{person_rows}
+</table>
+</td></tr>
+"""
+
+EMAIL_ACTS_TMPL = """
+<tr><td style="padding:16px 32px 0;">
+<h2 style="margin:0 0 12px;font-size:13px;letter-spacing:2px;color:#8a929c;border-bottom:1px solid #e6e9ed;padding-bottom:8px;">故事脉络</h2>
+{act_rows}
+</td></tr>
+"""
+
+EMAIL_SEG_TMPL = """
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:separate;margin:0 0 12px;">
+<tr><td style="background:#fafbfc;border:1px solid #e6e9ed;border-radius:8px;padding:16px 18px;">
+<div style="margin-bottom:8px;">
+<span style="display:inline-block;background:#b4262b;color:#ffffff;font-size:11px;padding:2px 8px;border-radius:4px;">第 {index} 段</span>
+<span style="font-size:12.5px;color:#8a929c;margin-left:8px;">{range}</span>
+<span style="font-size:16px;font-weight:600;margin-left:10px;">{seg_title}</span>
+</div>
+<div style="font-size:14.5px;line-height:1.9;color:#1b1f24;">{summary}</div>
+{events}
+</td></tr></table>
+"""
+
+EMAIL_EVENTS_TMPL = """<div style="margin-top:10px;">{event_chips}</div>"""
+
+EMAIL_EVENT_CHIP = """<span style="display:inline-block;background:#eef1f5;color:#6b7480;font-size:12px;padding:2px 9px;border-radius:4px;margin:0 6px 6px 0;">{text}</span>"""
+
+EMAIL_TABLE_TMPL = """
+<tr><td style="padding:16px 32px 0;">
+<h2 style="margin:0 0 12px;font-size:13px;letter-spacing:2px;color:#8a929c;border-bottom:1px solid #e6e9ed;padding-bottom:8px;">{heading}</h2>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font-size:14px;">
+{rows}
+</table>
+</td></tr>
+"""
+
+EMAIL_THEMES_TMPL = """
+<tr><td style="padding:16px 32px 0;">
+<h2 style="margin:0 0 12px;font-size:13px;letter-spacing:2px;color:#8a929c;border-bottom:1px solid #e6e9ed;padding-bottom:8px;">主题关键词</h2>
+<div>{chips}</div>
+</td></tr>
+"""
+
+EMAIL_ENDING_TMPL = """
+<tr><td style="padding:16px 32px 0;">
+<h2 style="margin:0 0 12px;font-size:13px;letter-spacing:2px;color:#8a929c;border-bottom:1px solid #e6e9ed;padding-bottom:8px;">结局走向</h2>
+<div style="padding:14px 16px;background:#f7f8fa;border-radius:6px;font-size:14.5px;line-height:1.9;">{ending}</div>
+</td></tr>
+"""
+
+
+def render_email_html(doc: StoryDoc, run_date: date) -> str:
+    item, outline = doc.item, doc.outline
+
+    meta_bits = [run_date.isoformat(), item.kind or "影视"]
+    for value in (item.country, item.genre, item.year):
+        if value:
+            meta_bits.append(value)
+    meta_bits.append(doc.segment_rule)
+
+    people = ""
+    if outline.characters:
+        rows = "".join(
+            '<tr>'
+            f'<td style="padding:9px 10px;border-bottom:1px solid #eef1f5;white-space:nowrap;">'
+            f'<b>{_e(ch["name"])}</b></td>'
+            f'<td style="padding:9px 10px;border-bottom:1px solid #eef1f5;color:#b4262b;font-size:13px;white-space:nowrap;">{_e(ch["role"])}</td>'
+            f'<td style="padding:9px 10px;border-bottom:1px solid #eef1f5;color:#5a626c;">{_e(ch["desc"])}</td>'
+            '</tr>'
+            for ch in outline.characters
+        )
+        people = EMAIL_PEOPLE_TMPL.format(person_rows=rows)
+
+    acts = ""
+    if outline.acts:
+        rows = "".join(
+            '<div style="margin:0 0 8px;font-size:14.5px;">'
+            f'<b style="color:#b4262b;">{i:02d}</b> '
+            f'<b style="margin:0 8px;">{_e(a["name"])}</b>'
+            f'<span style="color:#5a626c;">{_e(a["desc"])}</span></div>'
+            for i, a in enumerate(outline.acts, 1)
+        )
+        acts = EMAIL_ACTS_TMPL.format(act_rows=rows)
+
+    seg_parts = []
+    for seg in doc.segments:
+        events = ""
+        if seg.events:
+            chips = "".join(
+                EMAIL_EVENT_CHIP.format(text=_e(e)) for e in seg.events
+            )
+            events = EMAIL_EVENTS_TMPL.format(event_chips=chips)
+        seg_parts.append(EMAIL_SEG_TMPL.format(
+            index=seg.index,
+            range=_e(seg.range),
+            seg_title=_e(seg.title),
+            summary=_e(seg.summary),
+            events=events,
+        ))
+
+    turning = ""
+    if outline.turning_points:
+        rows = "".join(
+            f'<tr><td style="padding:9px 10px;border-bottom:1px solid #eef1f5;color:#8a929c;white-space:nowrap;">{_e(tp["at"])}</td>'
+            f'<td style="padding:9px 10px;border-bottom:1px solid #eef1f5;">{_e(tp["event"])}</td></tr>'
+            for tp in outline.turning_points
+        )
+        turning = EMAIL_TABLE_TMPL.format(heading="关键转折", rows=rows)
+
+    themes = ""
+    if outline.themes:
+        chips = "".join(
+            f'<span style="display:inline-block;background:#fdf3f3;color:#b4262b;font-size:13px;padding:3px 12px;border-radius:12px;margin:0 8px 8px 0;">{_e(t)}</span>'
+            for t in outline.themes
+        )
+        themes = EMAIL_THEMES_TMPL.format(chips=chips)
+
+    ending = ""
+    if outline.ending:
+        ending = EMAIL_ENDING_TMPL.format(ending=_e(outline.ending))
+
+    return EMAIL_TMPL.format(
+        title=_e(item.title),
+        year=_e(item.year),
+        meta=_e(" · ".join(meta_bits)),
+        logline=_e(outline.logline),
+        people=people,
+        acts=acts,
+        seg_count=len(doc.segments),
+        segments="".join(seg_parts),
+        turning=turning,
+        themes=themes,
+        ending=ending,
+        generated=f"{doc.generated_at:%Y-%m-%d %H:%M}",
+        model=_e(doc.model),
+    )
+
+
+def render_email_text(doc: StoryDoc, run_date: date) -> str:
+    """纯文本版，作为 HTML 的替代内容。"""
+    item, outline = doc.item, doc.outline
+    lines = [
+        f"《{item.title}》{('（' + item.year + '）') if item.year else ''}",
+        f"日期：{run_date.isoformat()} ｜ {item.kind} ｜ {item.genre} ｜ {doc.segment_rule}",
+        "",
+        "【一句话故事】",
+        outline.logline,
+        "",
+    ]
+    if outline.characters:
+        lines.append("【主要人物】")
+        for ch in outline.characters:
+            lines.append(f"  · {ch['name']}（{ch['role']}）—— {ch['desc']}")
+        lines.append("")
+    if outline.acts:
+        lines.append("【故事脉络】")
+        for i, act in enumerate(outline.acts, 1):
+            lines.append(f"  {i}. {act['name']} —— {act['desc']}")
+        lines.append("")
+    lines.append(f"【分段梗概（共 {len(doc.segments)} 段）】")
+    for seg in doc.segments:
+        lines.append("")
+        lines.append(f"第 {seg.index} 段 · {seg.range} · {seg.title}")
+        lines.append(seg.summary)
+        if seg.events:
+            lines.append("关键事件：" + " ｜ ".join(seg.events))
+    if outline.ending:
+        lines.extend(["", "【结局走向】", outline.ending])
+    lines.extend([
+        "",
+        f"生成时间 {doc.generated_at:%Y-%m-%d %H:%M} ｜ 模型 {doc.model}",
+        "内容由 AI 依据作品公开剧情整理，仅作阅读参考。",
+    ])
+    return "\n".join(lines)
+
+
 # ---------------------------------------------------------------- 索引页
 
 def collect_entries(output_dir: Path) -> list[dict]:

@@ -11,6 +11,7 @@
 - **自动选片**：按 `data/catalog.tsv` 片库顺序轮播，今天没生成过的就生成，全部轮完再从头循环。
 - **分段梗概**：先用一次调用生成全片大纲（一句话故事 / 主要人物 / 故事脉络 / 关键转折 / 主题），再分批生成每一段的剧情梗概。
 - **两种格式**：同一天生成 `日期_片名.md`（便于存档与再编辑）和 `日期_片名.html`（带分段导航、时间轴卡片、深浅色自适应，浏览器直接打开最好读）。
+- **邮件推送**：生成完自动把当天内容发到你的邮箱（正文是排好版的 HTML，另附 .md 和 .html 两个文件）。
 - **总索引**：每次生成后自动更新 `索引.md` / `索引.html`，点击即可跳到任意一天的作品。
 - **健壮**：自带重试、JSON 容错解析、字数质检（偏短的段落自动重写）、原子写入、详细日志。
 
@@ -37,10 +38,13 @@ movie_story_automation/
 │   ├── catalog.py        # 片库读取 + 每日选片轮播 + 状态记录
 │   ├── llm.py            # 大模型调用（重试 + JSON 容错）
 │   ├── generator.py      # 大纲 + 分批分段梗概
-│   ├── render.py         # Markdown / HTML / 索引页渲染
+│   ├── render.py         # Markdown / HTML / 邮件正文 / 索引页渲染
+│   ├── mailer.py         # SMTP 邮件发送
+│   ├── store.py          # 结果快照（支持失败后重发）
 │   └── main.py           # 命令行入口
 ├── data/
-│   └── catalog.tsv       # 片库（标题/国家/类型/年份/题材/集数/剧情参考）
+│   ├── catalog.tsv       # 片库（标题/国家/类型/年份/题材/集数/剧情参考）
+│   └── snapshots/        # 生成结果快照，用于重发邮件
 ├── scripts/
 │   ├── run_daily.ps1     # 计划任务调用的运行脚本
 │   └── install_task.ps1  # 注册 Windows 计划任务
@@ -75,6 +79,10 @@ movie_story_automation/
 | `MOVIE_TEMPERATURE` | 生成温度 | `0.65` |
 | `MOVIE_TIMEOUT` / `MOVIE_MAX_RETRIES` | 超时与重试 | `180` / `4` |
 | `MOVIE_BATCH_SIZE` / `TV_BATCH_SIZE` | 每批生成几段 | `8` / `6` |
+| `MOVIE_SMTP_HOST` / `MOVIE_SMTP_PORT` | 邮件服务器 | `smtp.163.com` / `465` |
+| `MOVIE_SMTP_USER` / `MOVIE_SMTP_PASS` | 发件邮箱与授权码 | 必填（163 用客户端授权码，不是登录密码） |
+| `MOVIE_SMTP_TO` | 收件邮箱 | 默认与发件人相同 |
+| `MOVIE_SMTP_SSL` | `1` = 465 隐式 SSL，`0` = 587 STARTTLS | `1` |
 
 > 模型与接口走 OpenAI 兼容协议，换成任意支持该协议的服务（DeepSeek、通义、GLM、本地 vLLM 等）只需改 `MOVIE_API_BASE` 和 `MOVIE_MODEL`。
 
@@ -95,6 +103,13 @@ python run.py --title 霸王别姬 --force
 
 # 列出片库
 python run.py --list
+
+# 生成但不发邮件
+python run.py --no-email
+
+# 邮件发失败了，用上次的结果重发（不重新调用接口、不烧额度）
+python run.py --resend
+python run.py --resend --title 霸王别姬
 
 # 离线自测（不消耗接口额度）
 python -m unittest discover -s tests -v
