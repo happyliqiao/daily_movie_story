@@ -25,6 +25,12 @@ SYSTEM_PROMPT = """你是一位资深影视解说编剧，专门把电影和电�
 # 单段字数下限：低于这个值的段落会被要求重写
 MIN_SUMMARY_CHARS = 150
 
+# 长度参照示例。
+# 弱模型（如免费的 GLM-4-Flash）不吃「不少于 N 字」这类抽象指令，但会模仿示例篇幅：
+# 实测同一段内容，无示例 93 字、带示例 156 字。这里给一段与任何作品无关的写法示范，
+# 只让它学「篇幅和信息密度」，并明确要求不要照抄内容。
+LENGTH_REFERENCE = """「一九二七年秋，沈砚之带着一封推荐信到省城报到，被分到城南的测绘队。队里人手不足，他白天跟着老测量员跑野外，晚上在油灯下整理图纸。第一次独立出任务时，他把两处标高记反，导致图纸返工，被队长当众训了半个钟头。他不服气，连着三天重测那一段，把误差压到最小，队长没再说什么，只是把他调去负责更难的河堤断面。同屋的赵霖劝他别太较真，他嘴上应着，第二天照旧天不亮就出门。入冬后河面结冰，队里停工，他借来几本旧教材自学，把落下的几何补上。」"""
+
 
 @dataclass
 class Segment:
@@ -270,14 +276,17 @@ class StoryGenerator:
                     )
 
         # 质检：字数偏短的段落重写一次
-        thin = [seg for seg in done.values() if len(seg.summary) < MIN_SUMMARY_CHARS]
+        floor = self.cfg.min_summary_chars
+        thin = [seg for seg in done.values() if len(seg.summary) < floor]
         if thin:
-            log.info("  质检：%s 段字数偏短，重写补足", len(thin))
+            log.info("  质检：%s 段字数不足 %s，重写补足", len(thin), floor)
             slot_map = {slot.index: slot for slot in slots}
+            # 重写目标比下限高一点，留出波动余量
+            target = min(240, floor + 30)
             for seg in thin:
                 try:
                     segs = self._write_batch(item, outline, [slot_map[seg.index]], total,
-                                             done, strict=False, min_chars=190)
+                                             done, strict=False, min_chars=target)
                 except LLMError as exc:
                     log.warning("  第 %s 段重写失败，保留原稿：%s", seg.index, exc)
                     continue
@@ -333,6 +342,11 @@ class StoryGenerator:
 5. events 给 2-4 条该段最关键的具体事件，每条不超过 15 字。
 6. range 字段原样照抄上面给的段落标签，不要改动。
 7. 必须输出 {len(batch)} 段，index 从 {batch[0].index} 连续到 {batch[-1].index}，不得缺漏。
+
+【长度参照】
+下面这段与本部作品无关，只用来参照「篇幅和信息密度」，绝对不要照抄它的内容、人名或情节：
+{LENGTH_REFERENCE}
+你写的每一段，篇幅都要和上面这段相当；明显短于它就视为不合格，需要补充具体细节写够。
 
 【输出格式】
 {{"segments":[{{"index":{batch[0].index},"range":"{batch[0].label}","title":"小标题","summary":"{min_chars}-240字的梗概","events":["事件1","事件2"]}}]}}"""

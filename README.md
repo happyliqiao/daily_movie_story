@@ -75,13 +75,14 @@ movie_story_automation/
 | --- | --- | --- |
 | `MOVIE_API_KEY` | 大模型 API Key（任意 OpenAI 兼容接口） | 必填 |
 | `MOVIE_API_BASE` | 接口地址 | `https://api.deepseek.com` |
-| `MOVIE_MODEL` | 模型名 | `deepseek-chat` |
+| `MOVIE_MODEL` | 模型名，可用逗号分隔成降级链（如 `glm-4-air,glm-4-flash`） | `deepseek-chat` |
 | `MOVIE_OUTPUT_DIR` | 生成文件存放目录 | `E:/liqiaobac/每日影视故事梗概` |
 | `MOVIE_SEGMENT_MINUTES` | 电影每多少分钟一段 | `10` |
 | `TV_SEGMENTS_PER_EPISODE` | 电视剧每集拆几段 | `2` |
 | `MOVIE_TEMPERATURE` | 生成温度 | `0.65` |
 | `MOVIE_TIMEOUT` / `MOVIE_MAX_RETRIES` | 超时与重试 | `180` / `4` |
 | `MOVIE_MAX_TOKENS` | 单次输出上限（免费模型常卡 4096） | `8000` |
+| `MOVIE_MIN_SUMMARY_CHARS` | 单段字数下限，低于此值重写一次 | `150`（免费模型建议 `140`） |
 | `MOVIE_BATCH_SIZE` / `TV_BATCH_SIZE` | 每批生成几段 | `8` / `6` |
 | `MOVIE_SMTP_HOST` / `MOVIE_SMTP_PORT` | 邮件服务器 | `smtp.163.com` / `465` |
 | `MOVIE_SMTP_USER` / `MOVIE_SMTP_PASS` | 发件邮箱与授权码 | 必填（163 用客户端授权码，不是登录密码） |
@@ -92,17 +93,26 @@ movie_story_automation/
 
 ### 免费模型（不花钱）
 
-**智谱 GLM-4-Flash**：永久免费、无 Token 上限，只限 1 个并发请求（本程序本来就是串行调用，不受影响）。
+到 <https://open.bigmodel.cn> 注册（需实名认证）→ 控制台 → API Keys → 创建密钥，然后改 `.env`：
 
-1. 到 <https://open.bigmodel.cn> 注册，完成实名认证
-2. 控制台 → API Keys → 创建密钥，复制
-3. 改 `.env` 三行：
+```ini
+MOVIE_API_KEY=你的智谱密钥
+MOVIE_API_BASE=https://open.bigmodel.cn/api/paas/v4
+MOVIE_MODEL=glm-4-air,glm-4-flash
+```
 
-   ```ini
-   MOVIE_API_KEY=你的智谱密钥
-   MOVIE_API_BASE=https://open.bigmodel.cn/api/paas/v4
-   MOVIE_MODEL=glm-4-flash
-   ```
+**为什么主用 `glm-4-air`、把 `glm-4-flash` 放在后面**——实测数据（同一部《霸王别姬》，17 段）：
+
+| 模型 | 每段字数（中位/最短） | 免费额度 | 单部耗时 |
+| --- | --- | --- | --- |
+| `glm-4-air` | **191 / 157** | 100 万 token / 月 | 约 3 分钟 |
+| `glm-4-flash` | 111 / 64 | 完全免费、不限量 | 约 6 分钟（含大面积重写） |
+
+`glm-4-flash` 虽然永久免费不限量，但**写不长**：加长度参照示例也只能到 100 字上下，段落会变成事件罗列、缺少细节。`glm-4-air` 能稳定写到 190 字，有动作有因果。
+
+`MOVIE_MODEL` 支持**逗号分隔的降级链**：前一个模型额度用尽、被限流或不可用时，程序自动切到下一个，云端无人值守也不会停摆。所以配成 `glm-4-air,glm-4-flash` —— 平时用质量好的 air，每月 100 万 token 用完了自动退回不限量的 flash，至少还能出稿。
+
+> 额度估算：一部电影约 1.8 万 token，86 集长剧约 8 万 token。100 万/月大概够 12 部长剧或 50 部电影。
 
 4. 先体检再跑：
 
@@ -110,11 +120,11 @@ movie_story_automation/
    python scripts/check_api.py
    ```
 
-   > 模型名报错的话，把 `glm-4-flash` 换成 `glm-4.7-flash` 再试，以平台文档的模型列表为准。
+   > 模型名报错的话，以平台文档的模型列表为准（`glm-4.7-flash` 也免费，但高峰期经常 429）。
 
 云端跑的话，同样把这三项更新到仓库 Secrets（`MOVIE_API_KEY` / `MOVIE_API_BASE` / `MOVIE_MODEL`）。
 
-> 免费模型的限流（RPM/TPM）比付费的低，长剧（100+ 段）耗时会更久，遇到 429 程序会自动退避重试。质量上也略逊于 DeepSeek，个别段落可能需要 `--force` 重跑。
+> 国产模型对革命历史、政治运动类题材有内容审查，可能返回 `contentFilter` 中断生成。程序会自动拆成单段重试、失败段落标注后继续，不会整篇崩掉，但这类作品偶尔会缺几段。
 
 ### 配置体检
 

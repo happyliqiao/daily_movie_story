@@ -21,7 +21,9 @@ jobs:
   generate:
     name: 生成故事梗概并发送邮件
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    # 免费模型（GLM-4-Flash）限 1 并发、速度也慢：实测 86 段约 23 分钟。
+    # 超长剧（150+ 段）会到 40 分钟以上，这里留足余量。
+    timeout-minutes: 90
     outputs:
       skip: ${{ steps.check.outputs.skip }}
     steps:

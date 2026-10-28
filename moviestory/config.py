@@ -55,6 +55,9 @@ class Config:
     max_tokens: int = 8000
     timeout: int = 180
     max_retries: int = 4
+    # 单段字数下限，低于此值会重写一次。
+    # DeepSeek 这类强模型用 150；免费模型（GLM-4-Flash）写不长，建议 120。
+    min_summary_chars: int = 150
 
     # 邮件
     smtp_host: str = ""
@@ -106,19 +109,20 @@ def load_config() -> Config:
         catalog_path=Path(catalog_path).expanduser(),
         state_path=PROJECT_ROOT / "data" / "state.json",
         log_dir=PROJECT_ROOT / "logs",
-        movie_segment_minutes=_to_int(env.get("MOVIE_SEGMENT_MINUTES"), 10),
-        tv_segments_per_episode=_to_int(env.get("TV_SEGMENTS_PER_EPISODE"), 2),
-        batch_size_movie=_to_int(env.get("MOVIE_BATCH_SIZE"), 8),
-        batch_size_tv=_to_int(env.get("TV_BATCH_SIZE"), 6),
-        temperature=_to_float(env.get("MOVIE_TEMPERATURE"), 0.65),
-        max_tokens=_to_int(env.get("MOVIE_MAX_TOKENS"), 8000),
-        timeout=_to_int(env.get("MOVIE_TIMEOUT"), 180),
-        max_retries=_to_int(env.get("MOVIE_MAX_RETRIES"), 4),
+        movie_segment_minutes=_to_int(pick("MOVIE_SEGMENT_MINUTES"), 10),
+        tv_segments_per_episode=_to_int(pick("TV_SEGMENTS_PER_EPISODE"), 2),
+        batch_size_movie=_to_int(pick("MOVIE_BATCH_SIZE"), 8),
+        batch_size_tv=_to_int(pick("TV_BATCH_SIZE"), 6),
+        temperature=_to_float(pick("MOVIE_TEMPERATURE"), 0.65),
+        max_tokens=_to_int(pick("MOVIE_MAX_TOKENS"), 8000),
+        min_summary_chars=_to_int(pick("MOVIE_MIN_SUMMARY_CHARS"), 150),
+        timeout=_to_int(pick("MOVIE_TIMEOUT"), 180),
+        max_retries=_to_int(pick("MOVIE_MAX_RETRIES"), 4),
         smtp_host=pick("MOVIE_SMTP_HOST"),
         smtp_port=_to_int(pick("MOVIE_SMTP_PORT"), 465),
         smtp_user=pick("MOVIE_SMTP_USER"),
         smtp_pass=pick("MOVIE_SMTP_PASS"),
         smtp_to=pick("MOVIE_SMTP_TO"),
-        smtp_ssl=str(env.get("MOVIE_SMTP_SSL", "1")).strip() not in ("0", "false", "False"),
+        smtp_ssl=str(pick("MOVIE_SMTP_SSL", "1")).strip() not in ("0", "false", "False"),
         extra=env,
     )
