@@ -108,6 +108,10 @@ class LLMClient:
 
     def chat(self, system: str, user: str, *, json_mode: bool = True,
              temperature: float | None = None, max_tokens: int | None = None) -> str:
+        # 免费/第三方接口常常不支持 response_format，或对 max_tokens 卡得更死。
+        # 这里维护可变状态，遇到兼容性报错就降级重试，而不是直接失败。
+        cur_json = json_mode
+        cur_max = max_tokens or self.max_tokens
         payload: dict = {
             "model": self.model,
             "messages": [
@@ -115,14 +119,16 @@ class LLMClient:
                 {"role": "user", "content": user},
             ],
             "temperature": self.temperature if temperature is None else temperature,
-            "max_tokens": max_tokens or self.max_tokens,
+            "max_tokens": cur_max,
             "stream": False,
         }
-        if json_mode:
+        if cur_json:
             payload["response_format"] = {"type": "json_object"}
 
         last_error: Exception | None = None
-        for attempt in range(1, self.max_retries + 1):
+        attempt = 1
+        downgrades = 0  # 兼容性降级次数，避免降级本身造成死循环
+        while attempt <= self.max_retries:
             try:
                 data = self._post(payload)
                 choices = data.get("choices") or []
@@ -139,13 +145,37 @@ class LLMClient:
                 except Exception:  # noqa: BLE001
                     pass
                 last_error = exc
+                low = detail.lower()
+
                 # 余额不足重试没有意义，直接给出可执行的提示
-                if exc.code == 402 or "insufficient_balance" in detail:
+                if exc.code == 402 or "insufficient_balance" in low:
                     raise LLMError(
                         "账户余额不足，模型接口拒绝请求（HTTP 402）。"
-                        "请到服务商后台充值后重试（DeepSeek：platform.deepseek.com → 充值）。"
+                        "请到服务商后台充值，或改用免费的智谱 GLM-4-Flash（见 README『免费模型』）。"
                         f"原始返回：{detail}"
                     ) from exc
+
+                # 兼容性降级 1：接口不认 response_format，关掉它靠提示词约束
+                if cur_json and downgrades < 2 and (
+                        "response_format" in low or "json_object" in low
+                        or "json mode" in low or "不支持" in detail and "格式" in detail):
+                    cur_json = False
+                    payload.pop("response_format", None)
+                    downgrades += 1
+                    log.warning("接口不支持 response_format，改为纯提示词约束 JSON（不消耗重试次数）")
+                    continue
+
+                # 兼容性降级 2：max_tokens 超出该模型上限，逐级调小
+                if downgrades < 3 and ("max_tokens" in low or "max tokens" in low
+                                       or "too large" in low or "超出" in detail):
+                    new_max = 4096 if cur_max > 4096 else max(1024, cur_max // 2)
+                    if new_max < cur_max:
+                        cur_max = new_max
+                        payload["max_tokens"] = cur_max
+                        downgrades += 1
+                        log.warning("max_tokens 超出模型上限，自动降到 %s 重试", cur_max)
+                        continue
+
                 # 4xx 里只有 429 值得重试
                 if exc.code not in (429, 500, 502, 503, 504):
                     raise LLMError(f"HTTP {exc.code}：{detail}") from exc
@@ -154,7 +184,8 @@ class LLMClient:
                 last_error = exc
                 log.warning("请求异常，第 %s 次重试：%s", attempt, exc)
 
-            if attempt < self.max_retries:
+            attempt += 1
+            if attempt <= self.max_retries:
                 wait = min(60, 2 ** attempt) + random.uniform(0, 1.5)
                 log.info("等待 %.1f 秒后重试…", wait)
                 time.sleep(wait)

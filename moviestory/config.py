@@ -111,6 +111,7 @@ def load_config() -> Config:
         batch_size_movie=_to_int(env.get("MOVIE_BATCH_SIZE"), 8),
         batch_size_tv=_to_int(env.get("TV_BATCH_SIZE"), 6),
         temperature=_to_float(env.get("MOVIE_TEMPERATURE"), 0.65),
+        max_tokens=_to_int(env.get("MOVIE_MAX_TOKENS"), 8000),
         timeout=_to_int(env.get("MOVIE_TIMEOUT"), 180),
         max_retries=_to_int(env.get("MOVIE_MAX_RETRIES"), 4),
         smtp_host=pick("MOVIE_SMTP_HOST"),

@@ -81,6 +81,7 @@ movie_story_automation/
 | `TV_SEGMENTS_PER_EPISODE` | 电视剧每集拆几段 | `2` |
 | `MOVIE_TEMPERATURE` | 生成温度 | `0.65` |
 | `MOVIE_TIMEOUT` / `MOVIE_MAX_RETRIES` | 超时与重试 | `180` / `4` |
+| `MOVIE_MAX_TOKENS` | 单次输出上限（免费模型常卡 4096） | `8000` |
 | `MOVIE_BATCH_SIZE` / `TV_BATCH_SIZE` | 每批生成几段 | `8` / `6` |
 | `MOVIE_SMTP_HOST` / `MOVIE_SMTP_PORT` | 邮件服务器 | `smtp.163.com` / `465` |
 | `MOVIE_SMTP_USER` / `MOVIE_SMTP_PASS` | 发件邮箱与授权码 | 必填（163 用客户端授权码，不是登录密码） |
@@ -88,6 +89,43 @@ movie_story_automation/
 | `MOVIE_SMTP_SSL` | `1` = 465 隐式 SSL，`0` = 587 STARTTLS | `1` |
 
 > 模型与接口走 OpenAI 兼容协议，换成任意支持该协议的服务（DeepSeek、通义、GLM、本地 vLLM 等）只需改 `MOVIE_API_BASE` 和 `MOVIE_MODEL`。
+
+### 免费模型（不花钱）
+
+**智谱 GLM-4-Flash**：永久免费、无 Token 上限，只限 1 个并发请求（本程序本来就是串行调用，不受影响）。
+
+1. 到 <https://open.bigmodel.cn> 注册，完成实名认证
+2. 控制台 → API Keys → 创建密钥，复制
+3. 改 `.env` 三行：
+
+   ```ini
+   MOVIE_API_KEY=你的智谱密钥
+   MOVIE_API_BASE=https://open.bigmodel.cn/api/paas/v4
+   MOVIE_MODEL=glm-4-flash
+   ```
+
+4. 先体检再跑：
+
+   ```bash
+   python scripts/check_api.py
+   ```
+
+   > 模型名报错的话，把 `glm-4-flash` 换成 `glm-4.7-flash` 再试，以平台文档的模型列表为准。
+
+云端跑的话，同样把这三项更新到仓库 Secrets（`MOVIE_API_KEY` / `MOVIE_API_BASE` / `MOVIE_MODEL`）。
+
+> 免费模型的限流（RPM/TPM）比付费的低，长剧（100+ 段）耗时会更久，遇到 429 程序会自动退避重试。质量上也略逊于 DeepSeek，个别段落可能需要 `--force` 重跑。
+
+### 配置体检
+
+换模型、换邮箱授权码之后，先跑这个（几秒出结果，不烧额度）：
+
+```bash
+python scripts/check_api.py            # 模型 + 邮件都查
+python scripts/check_api.py --skip-smtp  # 只查模型
+```
+
+它会逐项报告：基础连通、是否需要降级 `response_format`、`max_tokens` 上限、SMTP 能否登录，并给出对应建议。
 
 ## 使用
 
