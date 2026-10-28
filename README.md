@@ -110,6 +110,9 @@ python run.py --list
 # 生成但不发邮件
 python run.py --no-email
 
+# 生成失败时不发告警邮件
+python run.py --no-alert
+
 # 邮件发失败了，用上次的结果重发（不重新调用接口、不烧额度）
 python run.py --resend
 python run.py --resend --title 霸王别姬
@@ -120,14 +123,31 @@ python -m unittest discover -s tests -v
 
 ## 每天自动运行（云端，电脑关机也能跑）
 
-程序已部署在 **GitHub Actions** 上，每天北京时间 **09:07** 自动生成并把邮件发出去，**不需要你的电脑开机**。
+程序已部署在 **GitHub Actions** 上，目标时间是北京时间 **上午 9 点前后**，**不需要你的电脑开机**。
 
-- 工作流：`.github/workflows/daily.yml`（cron `7 1 * * *` UTC）
+- 工作流：`.github/workflows/daily.yml`
 - 密钥存放在仓库的 GitHub Secrets（加密存储，不进代码库）
 - 产出物提交回 `output/` 目录存档
 - 网页版：<https://cdn.jsdelivr.net/gh/happyliqiao/daily_movie_story@master/output/>
   （总索引是 `output/索引.html`，中文文件名在链接里需 URL 编码）
 - 手动触发一次：仓库页面的 Actions → 「每日影视故事梗概」→ Run workflow
+
+> **为什么要排多个时间点**：GitHub 免费 runner 的 schedule 在高峰期会排队延迟数小时
+> （实测设北京 09:07，实际拖到 14:49 才跑）。所以 cron 排了
+> `7 1,3,5,7,9,11 * * *` UTC —— 北京时间 **09:07 / 11:07 / 13:07 / 15:07 / 17:07 / 19:07** 各试一次。
+> 每次运行会先检查 `output/` 里是否已有当天日期的 `.md`，**已生成就秒退**，
+> 不会重复生成、也不会重复发邮件。这样即使某次被延迟，后面的班次也能补上。
+
+### 失败了会发告警邮件
+
+生成失败时（余额不足、Key 失效、接口超时等）程序会自动发一封 **【失败告警】** 邮件，包含：
+
+- 失败日期、作品名、失败环节、运行环境（云端 / 本机）
+- 具体失败原因
+- 按原因给出的处理建议（如余额不足直接给充值入口）
+
+这样不会再出现「任务静默失败、你自己发现今天没收到邮件」的情况。
+不想收告警可以加 `--no-email`，或者用 `--no-alert`（见下方命令说明）。
 
 ### 本机兜底（可选）
 

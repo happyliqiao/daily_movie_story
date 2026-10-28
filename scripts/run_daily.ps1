@@ -16,6 +16,11 @@ try {
     $OutputEncoding = [System.Text.Encoding]::UTF8
 } catch { }
 
+# Python 的 stdout 被重定向时默认按系统 locale（GBK）输出，
+# PowerShell 再按 UTF-8 解码就会变成乱码，这里强制 Python 用 UTF-8
+$env:PYTHONIOENCODING = 'utf-8'
+$env:PYTHONUTF8 = '1'
+
 # ---------- 读取本地输出目录（.env 里的 MOVIE_OUTPUT_DIR）----------
 $envFile = Join-Path $root '.env'
 $localOut = $null

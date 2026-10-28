@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 import sys
 import traceback
 from datetime import date, datetime
@@ -41,6 +42,76 @@ def send_story_email(doc: StoryDoc, run_date: date, cfg: Config,
     except MailError as exc:
         log.error("邮件发送失败：%s", exc)
         log.error("  正文已保存，可稍后用 --resend 重发")
+        return False
+    return True
+
+
+def _runtime_label() -> str:
+    """区分云端 / 本机，方便在告警里判断是哪个链路出的问题。"""
+    if os.environ.get("GITHUB_ACTIONS", "").lower() == "true":
+        return "GitHub Actions（云端）"
+    return "本机计划任务"
+
+
+def _advice_for(reason: str) -> list[str]:
+    """按失败原因给出可执行的下一步。"""
+    low = reason.lower()
+    if "余额不足" in reason or "insufficient_balance" in low or "402" in reason:
+        return [
+            "模型账户余额不足，先充值：DeepSeek 后台 platform.deepseek.com → 充值。",
+            "充值后立刻手动补跑今天的：在本机执行 python run.py。",
+            "云端用的也是同一个 key，充值后云端会自动恢复，不需要改配置。",
+        ]
+    if "401" in reason or "unauthorized" in low or "invalid api key" in low:
+        return [
+            "API Key 无效或已失效，检查 .env 里的 MOVIE_API_KEY。",
+            "如果刚轮换过密钥，记得同步更新 GitHub 仓库的 Secrets（MOVIE_API_KEY）。",
+            "改完执行 python run.py 补跑今天的。",
+        ]
+    if "429" in reason or "rate limit" in low:
+        return [
+            "触发接口频率或额度限制，等一段时间再跑。",
+            "在本机执行 python run.py 补跑今天的。",
+        ]
+    if "timeout" in low or "超时" in reason or "网络" in reason:
+        return [
+            "网络或接口超时，通常重跑即可。",
+            "在本机执行 python run.py 补跑今天的；云端可在 Actions 页面点 Run workflow。",
+        ]
+    return [
+        "先看本机日志：logs\\<日期>.log，里面有完整堆栈。",
+        "在本机执行 python run.py 补跑今天的。",
+        "如果连续失败，把日志发我，我来看。",
+    ]
+
+
+def send_alert_email(cfg: Config, *, title: str, stage: str, reason: str,
+                     run_date: date) -> bool:
+    """生成失败时发一封告警邮件，避免整条链路静默失败。"""
+    if not cfg.smtp_host or not cfg.smtp_user or not cfg.smtp_pass:
+        log.warning("未配置 SMTP，无法发送失败告警（仅写日志）")
+        return False
+    advice = _advice_for(reason)
+    where = _runtime_label()
+    try:
+        send_email(
+            smtp_host=cfg.smtp_host,
+            smtp_port=cfg.smtp_port,
+            smtp_user=cfg.smtp_user,
+            smtp_pass=cfg.smtp_pass,
+            recipient=cfg.smtp_to or cfg.smtp_user,
+            subject=f"【失败告警】每日影视故事梗概 {run_date.isoformat()}｜{stage}",
+            html_body=render.render_alert_html(
+                title=title, stage=stage, reason=reason, advice=advice,
+                run_date=run_date, where=where),
+            text_body=render.render_alert_text(
+                title=title, stage=stage, reason=reason, advice=advice,
+                run_date=run_date, where=where),
+            attachments=[],
+            use_ssl=cfg.smtp_ssl,
+        )
+    except MailError as exc:
+        log.error("失败告警邮件也没发出去：%s", exc)
         return False
     return True
 
@@ -84,6 +155,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--dry-run", action="store_true", help="只生成大纲并打印分段计划，不落盘")
     p.add_argument("--no-index", action="store_true", help="不更新总索引页")
     p.add_argument("--no-email", action="store_true", help="生成后不发送邮件")
+    p.add_argument("--no-alert", action="store_true", help="生成失败时不发告警邮件")
     p.add_argument("--resend", action="store_true",
                    help="不重新生成，用上次的结果直接重发邮件")
     p.add_argument("--verbose", "-v", action="store_true", help="输出调试日志")
@@ -113,7 +185,11 @@ def main(argv: list[str] | None = None) -> int:
         return 0 if send_story_email(doc, snap_date, cfg, atts) else 3
 
     if not args.list and not cfg.api_key:
-        log.error("未配置 API Key。请在 %s 里设置 MOVIE_API_KEY", cfg.log_dir.parent / ".env")
+        msg = "未配置 API Key，请检查 .env 里的 MOVIE_API_KEY"
+        log.error("%s（%s）", msg, cfg.log_dir.parent / ".env")
+        if not args.no_email and not args.no_alert:
+            send_alert_email(cfg, title="", stage="检查配置", reason=msg,
+                             run_date=date.today())
         return 2
 
     try:
@@ -190,10 +266,16 @@ def main(argv: list[str] | None = None) -> int:
         doc = generate(item, cfg, client)
     except LLMError as exc:
         log.error("生成失败：%s", exc)
+        if not args.no_email and not args.no_alert:
+            send_alert_email(cfg, title=item.title, stage="调用模型生成梗概",
+                             reason=str(exc), run_date=run_date)
         return 1
     except Exception as exc:  # noqa: BLE001
         log.error("生成过程异常：%s", exc)
         log.debug(traceback.format_exc())
+        if not args.no_email and not args.no_alert:
+            send_alert_email(cfg, title=item.title, stage="生成过程异常",
+                             reason=f"{type(exc).__name__}: {exc}", run_date=run_date)
         return 1
 
     md_name = render.build_filename(doc, run_date, "md")

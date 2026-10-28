@@ -1,10 +1,12 @@
 name: 每日影视故事梗概
 
-# 每天北京时间 09:07 自动生成一篇故事梗概并发到邮箱
-# GitHub 的 cron 用 UTC，且整点是高峰（任务会排队延迟），故设在 01:07 UTC
+# 目标：北京时间上午出稿。GitHub 的 cron 用 UTC，且免费 runner 的 schedule
+# 在高峰期会延迟数小时（实测设 09:07 曾延到 14:49 才跑），所以一天排 6 个时间点：
+# 北京时间 09:07 / 11:07 / 13:07 / 15:07 / 17:07 / 19:07。
+# 每次运行先检查今天是否已生成，已生成则秒退，不会重复发信。
 on:
   schedule:
-    - cron: "7 1 * * *"
+    - cron: "7 1,3,5,7,9,11 * * *"
   workflow_dispatch: # 也可以在页面上手动点「Run workflow」立刻跑一次
 
 # 同一时间只允许一个任务在跑
@@ -20,6 +22,8 @@ jobs:
     name: 生成故事梗概并发送邮件
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    outputs:
+      skip: ${{ steps.check.outputs.skip }}
     steps:
       - uses: actions/checkout@v4
 
@@ -27,7 +31,21 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: 检查今天是否已生成
+        id: check
+        run: |
+          today=$(TZ=Asia/Shanghai date +%Y-%m-%d)
+          echo "今天：$today"
+          if ls output/${today}_*.md >/dev/null 2>&1; then
+            echo "今天已有产出：$(ls output/${today}_*.md)"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "今天还没有产出，继续生成"
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: 生成梗概并发邮件
+        if: steps.check.outputs.skip != 'true'
         env:
           MOVIE_API_KEY: ${{ secrets.MOVIE_API_KEY }}
           MOVIE_API_BASE: ${{ secrets.MOVIE_API_BASE }}
@@ -42,6 +60,7 @@ jobs:
         run: python run.py
 
       - name: 提交生成结果回仓库
+        if: steps.check.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -55,6 +74,7 @@ jobs:
           fi
 
       - name: 上传产物
+        if: steps.check.outputs.skip != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: movie-story-output
@@ -64,6 +84,7 @@ jobs:
   publish:
     name: 发布网页版到 gh-pages 分支
     needs: generate
+    if: needs.generate.outputs.skip != 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: write

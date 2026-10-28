@@ -598,6 +598,92 @@ def render_email_text(doc: StoryDoc, run_date: date) -> str:
     return "\n".join(lines)
 
 
+# ---------------------------------------------------------------- 失败告警邮件
+
+
+def render_alert_html(*, title: str, stage: str, reason: str,
+                      advice: list[str], run_date: date,
+                      where: str = "") -> str:
+    """生成任务失败时的告警邮件正文（内联样式，兼容邮件客户端）。"""
+    cells = [
+        ("日期", run_date.isoformat()),
+        ("作品", title or "（未确定）"),
+        ("失败环节", stage),
+        ("运行环境", where or "未知"),
+    ]
+    rows = "".join(
+        f'<tr>'
+        f'<td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;'
+        f'font-size:13px;white-space:nowrap;vertical-align:top;">{_e(k)}</td>'
+        f'<td style="padding:8px 12px;border-bottom:1px solid #eee;color:#111;'
+        f'font-size:14px;">{_e(v)}</td>'
+        f'</tr>'
+        for k, v in cells
+    )
+    tips = "".join(
+        f'<li style="margin:6px 0;color:#333;font-size:14px;line-height:1.7;">{_e(a)}</li>'
+        for a in advice
+    )
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f5f5f7;">
+<div style="max-width:680px;margin:0 auto;padding:24px 16px;
+     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',
+     'Microsoft YaHei',sans-serif;">
+  <div style="background:#fff;border-radius:12px;overflow:hidden;
+       box-shadow:0 2px 12px rgba(0,0,0,.06);">
+    <div style="background:#c0392b;padding:20px 24px;">
+      <div style="color:#fff;font-size:18px;font-weight:600;">今日梗概生成失败</div>
+      <div style="color:rgba(255,255,255,.85);font-size:13px;margin-top:4px;">
+        每日影视故事梗概 · 自动告警
+      </div>
+    </div>
+    <div style="padding:20px 24px;">
+      <table style="width:100%;border-collapse:collapse;margin-bottom:18px;">{rows}</table>
+      <div style="background:#fdf2f2;border-left:3px solid #c0392b;border-radius:4px;
+           padding:12px 14px;margin-bottom:18px;">
+        <div style="color:#8b1e12;font-size:13px;font-weight:600;margin-bottom:6px;">失败原因</div>
+        <div style="color:#5a1410;font-size:14px;line-height:1.7;word-break:break-word;">
+          {_e(reason)}
+        </div>
+      </div>
+      <div style="color:#111;font-size:14px;font-weight:600;margin-bottom:8px;">怎么处理</div>
+      <ol style="margin:0;padding-left:22px;">{tips}</ol>
+    </div>
+    <div style="padding:14px 24px;background:#fafafa;border-top:1px solid #eee;
+         color:#999;font-size:12px;line-height:1.6;">
+      这封邮件由程序自动发出。修好之后可以手动补跑今天的：<br>
+      <code style="color:#555;">python run.py</code>（本机）或到 GitHub Actions 页面点 Run workflow（云端）。
+    </div>
+  </div>
+</div>
+</body></html>"""
+
+
+def render_alert_text(*, title: str, stage: str, reason: str,
+                      advice: list[str], run_date: date, where: str = "") -> str:
+    lines = [
+        "【每日影视故事梗概】今日生成失败",
+        "",
+        f"日期：{run_date.isoformat()}",
+        f"作品：{title or '（未确定）'}",
+        f"失败环节：{stage}",
+        f"运行环境：{where or '未知'}",
+        "",
+        "失败原因：",
+        reason,
+        "",
+        "怎么处理：",
+    ]
+    lines += [f"  {i}. {a}" for i, a in enumerate(advice, 1)]
+    lines += [
+        "",
+        "修好之后可以手动补跑今天的：python run.py（本机）",
+        "或到 GitHub Actions 页面点 Run workflow（云端）。",
+    ]
+    return "\n".join(lines)
+
+
 # ---------------------------------------------------------------- 索引页
 
 def collect_entries(output_dir: Path) -> list[dict]:

@@ -222,5 +222,46 @@ class TestEmailAndSnapshot(unittest.TestCase):
             self.assertEqual(loaded.generated_at, doc.generated_at)
 
 
+    def test_alert_email_render(self):
+        """失败告警邮件要把原因、处理建议、运行环境都写清楚。"""
+        from datetime import date
+
+        from moviestory import render
+
+        html = render.render_alert_html(
+            title="测试电影",
+            stage="调用模型生成梗概",
+            reason="账户余额不足，模型接口拒绝请求（HTTP 402）",
+            advice=["先充值", "再补跑"],
+            run_date=date(2026, 1, 1),
+            where="GitHub Actions（云端）",
+        )
+        self.assertIn("今日梗概生成失败", html)
+        self.assertIn("测试电影", html)
+        self.assertIn("账户余额不足", html)
+        self.assertIn("先充值", html)
+        self.assertIn("GitHub Actions（云端）", html)
+
+        text = render.render_alert_text(
+            title="测试电影",
+            stage="调用模型生成梗概",
+            reason="账户余额不足",
+            advice=["先充值"],
+            run_date=date(2026, 1, 1),
+        )
+        self.assertIn("今日生成失败", text)
+        self.assertIn("先充值", text)
+
+    def test_balance_advice_is_actionable(self):
+        """余额不足的错误要给出充值指引，而不是只回显原始 JSON。"""
+        from moviestory.main import _advice_for
+
+        tips = _advice_for('HTTP 402：{"type":"insufficient_balance_error"}')
+        self.assertTrue(any("充值" in t for t in tips))
+
+        tips = _advice_for("HTTP 401：Unauthorized")
+        self.assertTrue(any("API Key" in t for t in tips))
+
+
 if __name__ == "__main__":
     unittest.main()

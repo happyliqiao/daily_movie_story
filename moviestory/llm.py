@@ -139,6 +139,13 @@ class LLMClient:
                 except Exception:  # noqa: BLE001
                     pass
                 last_error = exc
+                # 余额不足重试没有意义，直接给出可执行的提示
+                if exc.code == 402 or "insufficient_balance" in detail:
+                    raise LLMError(
+                        "账户余额不足，模型接口拒绝请求（HTTP 402）。"
+                        "请到服务商后台充值后重试（DeepSeek：platform.deepseek.com → 充值）。"
+                        f"原始返回：{detail}"
+                    ) from exc
                 # 4xx 里只有 429 值得重试
                 if exc.code not in (429, 500, 502, 503, 504):
                     raise LLMError(f"HTTP {exc.code}：{detail}") from exc
