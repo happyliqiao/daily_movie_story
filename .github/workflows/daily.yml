@@ -59,6 +59,10 @@ jobs:
           MOVIE_SMTP_PASS: ${{ secrets.MOVIE_SMTP_PASS }}
           MOVIE_SMTP_TO: ${{ secrets.MOVIE_SMTP_TO }}
           MOVIE_SMTP_SSL: "1"
+          # 免费模型（glm-4-air）一次写 8 段会输出截断，必须小批次
+          MOVIE_BATCH_SIZE: "4"
+          TV_BATCH_SIZE: "4"
+          MOVIE_MIN_SUMMARY_CHARS: "140"
         run: python run.py
 
       - name: 提交生成结果回仓库
