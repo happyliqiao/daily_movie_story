@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>觉醒年代 · 分段故事梗概 · 2026-10-28</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>觉醒年代<span class="year">2021</span></h1>
+    <div class="chips"><span class="chip hot">2026-10-28</span><span class="chip">电视剧</span><span class="chip">中国</span><span class="chip">历史/革命</span><span class="chip">2021</span><span class="chip">电视剧共 43 集，单集约 45 分钟，每集拆 2 段，全剧共 86 段</span><span class="chip">20世纪初的中国</span></div>
+    <div class="logline">陈独秀、李大钊引领青年学生，在动荡年代探寻革命道路，面临时代困局与个人牺牲。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 86 段</h2>
+      <ol><li><a href="#seg1">新文化运动先驱</a></li>
+<li><a href="#seg2">新文化运动影响扩大</a></li>
+<li><a href="#seg3">新青年杂志影响扩大</a></li>
+<li><a href="#seg4">新文化运动的影响波及社会</a></li>
+<li><a href="#seg5">新思想影响校园</a></li>
+<li><a href="#seg6">新思想激荡校园</a></li>
+<li><a href="#seg7">北大讲演激发思想火花</a></li>
+<li><a href="#seg8">工人运动筹备</a></li>
+<li><a href="#seg9">工人俱乐部成立</a></li>
+<li><a href="#seg10">工人运动风起云涌</a></li>
+<li><a href="#seg11">工人俱乐部成立</a></li>
+<li><a href="#seg12">工人罢工成功</a></li>
+<li><a href="#seg13">工人运动高潮</a></li>
+<li><a href="#seg14">工人运动胜利</a></li>
+<li><a href="#seg15">李大钊北大演讲</a></li>
+<li><a href="#seg16">工人运动扩大影响</a></li>
+<li><a href="#seg17">工人运动再起航</a></li>
+<li><a href="#seg18">工人运动高潮</a></li>
+<li><a href="#seg19">工人运动新进展</a></li>
+<li><a href="#seg20">五四运动爆发</a></li>
+<li><a href="#seg21">五四运动高涨</a></li>
+<li><a href="#seg22">工人罢工胜利</a></li>
+<li><a href="#seg23">五四运动的后续影响</a></li>
+<li><a href="#seg24">工人运动高涨</a></li>
+<li><a href="#seg25">工人罢工胜利</a></li>
+<li><a href="#seg26">工人罢工升级</a></li>
+<li><a href="#seg27">工人罢工升级</a></li>
+<li><a href="#seg28">工人罢工胜利后的社会影响</a></li>
+<li><a href="#seg29">李大钊宣传马克思主义</a></li>
+<li><a href="#seg30">中共一大召开</a></li>
+<li><a href="#seg31">中共一大召开</a></li>
+<li><a href="#seg32">中共一大召开后续</a></li>
+<li><a href="#seg33">中共一大后续行动</a></li>
+<li><a href="#seg34">秘密宣传</a></li>
+<li><a href="#seg35">工人罢工运动爆发</a></li>
+<li><a href="#seg36">工人罢工升级</a></li>
+<li><a href="#seg37">五四运动影响扩大</a></li>
+<li><a href="#seg38">工人罢工胜利后的社会影响</a></li>
+<li><a href="#seg39">五四运动的后续影响</a></li>
+<li><a href="#seg40">五四运动的深远影响</a></li>
+<li><a href="#seg41">工人运动高潮</a></li>
+<li><a href="#seg42">工人罢工胜利</a></li>
+<li><a href="#seg43">工人运动再起波澜</a></li>
+<li><a href="#seg44">地下斗争升级</a></li>
+<li><a href="#seg45">中共地下党活动遭遇破坏</a></li>
+<li><a href="#seg46">地下斗争升级</a></li>
+<li><a href="#seg47">危机四伏的地下会议</a></li>
+<li><a href="#seg48">转移与坚守</a></li>
+<li><a href="#seg49">秘密转移</a></li>
+<li><a href="#seg50">秘密转移</a></li>
+<li><a href="#seg51">危机四伏的地下活动</a></li>
+<li><a href="#seg52">地下活动危机加剧</a></li>
+<li><a href="#seg53">危机中的转移</a></li>
+<li><a href="#seg54">危机四伏的地下活动</a></li>
+<li><a href="#seg55">秘密会议</a></li>
+<li><a href="#seg56">反击镇压</a></li>
+<li><a href="#seg57">秘密转移</a></li>
+<li><a href="#seg58">党组织重建</a></li>
+<li><a href="#seg59">中共一大召开</a></li>
+<li><a href="#seg60">中共一大圆满落幕</a></li>
+<li><a href="#seg61">秘密转移</a></li>
+<li><a href="#seg62">转移与行动</a></li>
+<li><a href="#seg63">中共一大后续行动</a></li>
+<li><a href="#seg64">工人阶级组织成立</a></li>
+<li><a href="#seg65">工人运动筹备</a></li>
+<li><a href="#seg66">工人运动爆发</a></li>
+<li><a href="#seg67">工人运动高潮</a></li>
+<li><a href="#seg68">工人运动受挫</a></li>
+<li><a href="#seg69">陈独秀被捕</a></li>
+<li><a href="#seg70">营救陈独秀</a></li>
+<li><a href="#seg71">陈独秀狱中坚持</a></li>
+<li><a href="#seg72">陈独秀狱中坚持</a></li>
+<li><a href="#seg73">营救行动受阻</a></li>
+<li><a href="#seg74">营救受阻</a></li>
+<li><a href="#seg75">营救计划再起航</a></li>
+<li><a href="#seg76">营救行动再起航</a></li>
+<li><a href="#seg77">营救行动再受阻</a></li>
+<li><a href="#seg78">营救计划再受阻</a></li>
+<li><a href="#seg79">工人运动新篇章</a></li>
+<li><a href="#seg80">工人运动大会</a></li>
+<li><a href="#seg81">工人运动新篇章</a></li>
+<li><a href="#seg82">革命力量壮大</a></li>
+<li><a href="#seg83">工人运动再升级</a></li>
+<li><a href="#seg84">工人运动高潮</a></li>
+<li><a href="#seg85">工人运动胜利</a></li>
+<li><a href="#seg86">工人运动胜利的果实</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">陈独秀</span><span class="r">主角</span></div><div class="d">新文化运动领袖，推动思想解放</div></div>
+<div class="person"><div><span class="n">李大钊</span><span class="r">主角</span></div><div class="d">革命先驱，坚定共产主义信仰</div></div>
+<div class="person"><div><span class="n">毛泽东</span><span class="r">关键配角</span></div><div class="d">青年才俊，投身革命运动</div></div>
+<div class="person"><div><span class="n">蔡元培</span><span class="r">关键配角</span></div><div class="d">教育家，支持新文化运动</div></div>
+<div class="person"><div><span class="n">鲁迅</span><span class="r">关键配角</span></div><div class="d">文学家，以笔为枪，批判时弊</div></div>
+<div class="person"><div><span class="n">周恩来</span><span class="r">关键配角</span></div><div class="d">革命青年，坚定革命信念</div></div>
+<div class="person"><div><span class="n">赵世炎</span><span class="r">关键配角</span></div><div class="d">革命烈士，为信仰献身</div></div>
+<div class="person"><div><span class="n">陈望道</span><span class="r">关键配角</span></div><div class="d">翻译家，传播马克思主义</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">新文化运动兴起</span><span class="ds">陈独秀、李大钊推动思想解放，影响青年学生</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">革命思想的传播</span><span class="ds">马克思主义传入中国，革命力量壮大</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">五四运动爆发</span><span class="ds">学生运动高涨，推动社会变革</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">共产党早期活动</span><span class="ds">中共一大召开，革命党派正式成立</span></div>
+<div class="act"><span class="idx">05</span><span class="nm">革命斗争的展开</span><span class="ds">共产党领导工人运动，革命形势发展</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·上</span>
+    <h3>新文化运动先驱</h3>
+  </div>
+  <p>陈独秀在上海创办《青年杂志》，发表《敬告青年》一文，倡导思想解放。李大钊在北京大学参与创办《新青年》杂志，传播新思想。两人在学术界引起热烈反响，吸引众多青年学生。陈独秀提出‘文学革命’主张，鲁迅开始文学创作。李大钊在北京大学举办讲座，讲解马克思主义。</p>
+  <div class="events"><span class="ev">陈独秀创办《青年杂志》</span><span class="ev">李大钊参与创办《新青年》</span><span class="ev">陈独秀倡导思想解放</span><span class="ev">鲁迅开始文学创作</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·下</span>
+    <h3>新文化运动影响扩大</h3>
+  </div>
+  <p>陈独秀在上海创办《青年杂志》，发表新文化运动宣言，引起社会广泛关注。李大钊在北京大学倡导思想解放，吸引众多青年才俊。毛泽东等青年才俊深受影响，开始探索革命道路。鲁迅以笔为枪，批判时弊，为革命事业发声。蔡元培支持新文化运动，推动教育改革。周恩来等革命青年坚定革命信念，投身革命运动。</p>
+  <div class="events"><span class="ev">陈独秀创办《青年杂志》</span><span class="ev">李大钊倡导思想解放</span><span class="ev">鲁迅批判时弊</span><span class="ev">蔡元培支持新文化运动</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第2集·上</span>
+    <h3>新青年杂志影响扩大</h3>
+  </div>
+  <p>陈独秀在上海创办《青年杂志》，发表《敬告青年》，倡导思想解放。李大钊在北京大学创办《新青年》杂志，传播新思想。两人在学术界引起热烈反响，吸引众多青年学生。毛泽东等青年才俊深受影响，开始探索革命道路。同时，蔡元培支持新文化运动，鲁迅以笔为枪，批判时弊。革命先驱们积极推动社会变革，为中国的未来奋斗。</p>
+  <div class="events"><span class="ev">陈独秀创办《青年杂志》</span><span class="ev">李大钊创办《新青年》</span><span class="ev">蔡元培支持新文化运动</span><span class="ev">鲁迅批判时弊</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·下</span>
+    <h3>新文化运动的影响波及社会</h3>
+  </div>
+  <p>陈独秀在上海的《青年杂志》发表《敬告青年》，倡导新思想，引起社会广泛关注。李大钊在北京大学宣传，吸引青年才俊。毛泽东等青年才俊深受影响，开始探索革命道路。蔡元培支持新文化运动，鲁迅以笔为枪，批判时弊。周恩来等革命青年坚定革命信念。新文化运动影响波及社会，激发人们对自由、民主的追求。</p>
+  <div class="events"><span class="ev">陈独秀发表《敬告青年》</span><span class="ev">李大钊宣传新思想</span><span class="ev">青年才俊探索革命道路</span><span class="ev">蔡元培支持新文化运动</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第3集·上</span>
+    <h3>新思想影响校园</h3>
+  </div>
+  <p>李大钊在北京大学创办《新青年》杂志，传播新思想，吸引青年才俊；蔡元培支持新文化运动，推动教育改革；毛泽东等青年才俊深受影响，开始探索革命道路。陈独秀在上海的《青年杂志》发表《敬告青年》，倡导思想解放，引发社会广泛关注。</p>
+  <div class="events"><span class="ev">李大钊创办《新青年》</span><span class="ev">蔡元培支持新文化运动</span><span class="ev">青年才俊探索革命道路</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第3集·下</span>
+    <h3>新思想激荡校园</h3>
+  </div>
+  <p>陈独秀在上海推动新文化运动，李大钊在北京大学传播新思想，影响青年才俊；蔡元培支持新文化运动，推动教育改革；毛泽东等青年才俊深受影响，开始探索革命道路。陈独秀在上海的《青年杂志》发表《敬告青年》，倡导新思想，引起社会广泛关注。李大钊在北京大学宣传，吸引青年才俊。毛泽东等青年才俊深受影响，开始探索革命道路。蔡元培支持新文化运动，推动教育改革，使北京大学成为新思想的重要阵地。</p>
+  <div class="events"><span class="ev">陈独秀推动新文化运动</span><span class="ev">李大钊传播新思想</span><span class="ev">毛泽东探索革命道路</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第4集·上</span>
+    <h3>北大讲演激发思想火花</h3>
+  </div>
+  <p>李大钊在北大讲演，激情澎湃地讲述马克思主义，引发学生热烈讨论。毛泽东、周恩来等青年才俊深受启发，开始关注工人运动。陈独秀与李大钊探讨革命道路，决定联合发起工人运动。鲁迅发表新文章，进一步揭露社会黑暗。</p>
+  <div class="events"><span class="ev">李大钊北大讲演</span><span class="ev">毛泽东等关注工人运动</span><span class="ev">陈独秀与李大钊探讨革命</span><span class="ev">鲁迅揭露社会黑暗</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第4集·下</span>
+    <h3>工人运动筹备</h3>
+  </div>
+  <p>陈独秀、李大钊与毛泽东、周恩来等青年才俊在陈独秀家中讨论工人运动，决定成立工人俱乐部。毛泽东前往湖南长沙，宣传新思想，招募工人。周恩来在上海组织工人罢工，李大钊在北京大学组织学生支持工人运动。陈独秀与李大钊共同起草《工人俱乐部宣言》，呼吁工人团结起来。</p>
+  <div class="events"><span class="ev">陈独秀等讨论工人运动</span><span class="ev">毛泽东招募工人</span><span class="ev">周恩来组织罢工</span><span class="ev">起草《工人俱乐部宣言》</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第5集·上</span>
+    <h3>工人俱乐部成立</h3>
+  </div>
+  <p>陈独秀、李大钊等人在陈独秀家中讨论工人运动，决定成立工人俱乐部。毛泽东前往湖南长沙宣传新思想，招募工人。周恩来在上海组织工人罢工，李大钊在北京大学宣传马克思主义，吸引更多青年才俊加入革命运动。</p>
+  <div class="events"><span class="ev">工人俱乐部成立</span><span class="ev">毛泽东招募工人</span><span class="ev">周恩来组织罢工</span><span class="ev">李大钊宣传马克思主义</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第5集·下</span>
+    <h3>工人运动风起云涌</h3>
+  </div>
+  <p>毛泽东在湖南长沙成功招募工人，工人俱乐部正式成立。周恩来在上海成功组织工人罢工，李大钊在北京大学继续宣传马克思主义，工人运动在全国范围内迅速发展。陈独秀与李大钊讨论工人运动的策略，决定扩大宣传范围，争取更多工人加入革命行列。</p>
+  <div class="events"><span class="ev">毛泽东招募工人</span><span class="ev">工人俱乐部成立</span><span class="ev">周恩来组织罢工</span><span class="ev">李大钊宣传马克思主义</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第6集·上</span>
+    <h3>工人俱乐部成立</h3>
+  </div>
+  <p>陈独秀、李大钊等人在陈独秀家中讨论工人运动，决定成立工人俱乐部。毛泽东前往湖南长沙宣传新思想，招募工人。周恩来在上海组织工人罢工，李大钊在北京大学宣传马克思主义，工人运动在全国范围内迅速发展。陈独秀与李大钊共同推动工人运动，寻求革命道路。</p>
+  <div class="events"><span class="ev">工人俱乐部成立</span><span class="ev">毛泽东招募工人</span><span class="ev">周恩来组织罢工</span><span class="ev">李大钊宣传马克思主义</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第6集·下</span>
+    <h3>工人罢工成功</h3>
+  </div>
+  <p>周恩来在上海成功组织工人罢工，争取权益。毛泽东在湖南长沙继续宣传新思想，工人俱乐部的影响力不断扩大。李大钊在北京大学发表演讲，强调工人阶级的重要性。陈独秀与李大钊讨论工人运动的发展策略。</p>
+  <div class="events"><span class="ev">周恩来组织罢工成功</span><span class="ev">毛泽东宣传新思想</span><span class="ev">李大钊强调工人阶级</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第7集·上</span>
+    <h3>工人运动高潮</h3>
+  </div>
+  <p>毛泽东在长沙组织工人罢工，周恩来在上海成功领导罢工，工人俱乐部影响力扩大；李大钊在北京大学发表演讲，强调工人阶级重要性；陈独秀与李大钊讨论工人运动策略。</p>
+  <div class="events"><span class="ev">毛泽东组织长沙罢工</span><span class="ev">周恩来领导上海罢工</span><span class="ev">李大钊强调工人阶级</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第7集·下</span>
+    <h3>工人运动胜利</h3>
+  </div>
+  <p>周恩来在上海成功领导工人罢工，争取到权益。毛泽东在长沙继续宣传新思想，工人俱乐部影响力扩大。李大钊在北京大学发表演讲，强调工人阶级的重要性。陈独秀与李大钊讨论工人运动策略，决定加强合作。</p>
+  <div class="events"><span class="ev">周恩来领导罢工成功</span><span class="ev">毛泽东宣传新思想</span><span class="ev">李大钊演讲强调工人阶级</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第8集·上</span>
+    <h3>李大钊北大演讲</h3>
+  </div>
+  <p>李大钊在北京大学发表演讲，强调工人阶级的重要性，激发学生们的革命热情。陈独秀与李大钊讨论工人运动策略，决定扩大宣传范围。毛泽东在长沙继续宣传新思想，工人俱乐部的影响力不断扩大。周恩来在上海成功领导工人罢工，争取到权益。</p>
+  <div class="events"><span class="ev">李大钊北大演讲</span><span class="ev">陈独秀讨论策略</span><span class="ev">毛泽东宣传新思想</span><span class="ev">周恩来领导罢工</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第8集·下</span>
+    <h3>工人运动扩大影响</h3>
+  </div>
+  <p>毛泽东在长沙继续宣传新思想，工人俱乐部影响力扩大。陈独秀与李大钊讨论工人运动策略，决定扩大宣传范围。周恩来在上海成功领导工人罢工，争取到权益。李大钊在北京大学发表演讲，强调工人阶级的重要性，激发学生们的革命热情。</p>
+  <div class="events"><span class="ev">毛泽东宣传新思想</span><span class="ev">陈独秀李大钊讨论策略</span><span class="ev">周恩来领导罢工成功</span><span class="ev">李大钊北大演讲</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第9集·上</span>
+    <h3>工人运动再起航</h3>
+  </div>
+  <p>周恩来领导工人罢工成功，争取权益。毛泽东在长沙扩大工人俱乐部影响力。李大钊在北京大学发表演讲，强调工人阶级重要性。陈独秀与李大钊讨论策略，决定扩大宣传范围。</p>
+  <div class="events"><span class="ev">周恩来领导工人罢工</span><span class="ev">毛泽东扩大工人俱乐部影响力</span><span class="ev">李大钊强调工人阶级重要性</span><span class="ev">陈独秀讨论扩大宣传</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第9集·下</span>
+    <h3>工人运动高潮</h3>
+  </div>
+  <p>周恩来在上海成功领导工人罢工，争取权益。毛泽东在长沙扩大工人俱乐部影响力。李大钊在北京大学发表演讲，强调工人阶级重要性。陈独秀与李大钊讨论策略，决定扩大宣传范围。工人运动进入高潮，各地工人纷纷响应，革命力量迅速壮大。</p>
+  <div class="events"><span class="ev">周恩来领导罢工成功</span><span class="ev">毛泽东扩大工人俱乐部影响力</span><span class="ev">李大钊强调工人阶级重要性</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">第10集·上</span>
+    <h3>工人运动新进展</h3>
+  </div>
+  <p>毛泽东在长沙积极宣传新思想，工人俱乐部影响力持续扩大。陈独秀与李大钊商讨工人运动策略，决定扩大宣传范围。周恩来在上海成功领导工人罢工，争取到权益。李大钊在北京大学发表演讲，强调工人阶级重要性。陈独秀与李大钊讨论策略，决定扩大宣传范围。</p>
+  <div class="events"><span class="ev">毛泽东长沙宣传新思想</span><span class="ev">陈独秀李大钊商讨策略</span><span class="ev">周恩来上海领导罢工成功</span><span class="ev">李大钊北大演讲</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">第10集·下</span>
+    <h3>五四运动爆发</h3>
+  </div>
+  <p>五四运动爆发，学生抗议政府签订不平等条约，陈独秀、李大钊等知识分子积极参与，推动运动发展。学生罢课、游行，要求政府废除不平等条约，抗议卖国行为。运动引发全国范围的反帝反封建情绪，为后续革命运动奠定基础。</p>
+  <div class="events"><span class="ev">五四运动爆发</span><span class="ev">学生罢课游行</span><span class="ev">陈独秀参与运动</span></div>
+</section>
+
+<section class="seg" id="seg21">
+  <div class="head">
+    <span class="no">第 21 段</span>
+    <span class="tm">第11集·上</span>
+    <h3>五四运动高涨</h3>
+  </div>
+  <p>五四运动在全国范围内高涨，学生罢课、游行，要求政府废除不平等条约。陈独秀、李大钊等知识分子积极参与，发表演讲，呼吁民众觉醒。周恩来在上海成功领导工人罢工，争取权益。毛泽东在长沙扩大工人俱乐部影响力，推动工人运动发展。</p>
+  <div class="events"><span class="ev">学生罢课游行</span><span class="ev">知识分子呼吁觉醒</span><span class="ev">周恩来领导工人罢工</span><span class="ev">毛泽东扩大工人俱乐部影响力</span></div>
+</section>
+
+<section class="seg" id="seg22">
+  <div class="head">
+    <span class="no">第 22 段</span>
+    <span class="tm">第11集·下</span>
+    <h3>工人罢工胜利</h3>
+  </div>
+  <p>周恩来在上海成功领导工人罢工，争取到权益。陈独秀、李大钊等知识分子发表演讲，呼吁民众觉醒。五四运动在全国范围内高涨，学生罢课、游行，要求政府废除不平等条约。李大钊在北京大学宣传马克思主义，推动革命思想传播。</p>
+  <div class="events"><span class="ev">周恩来领导罢工胜</span><span class="ev">知识分子发表演讲</span><span class="ev">五四运动全国高涨</span><span class="ev">李大钊宣传马克思主义</span></div>
+</section>
+
+<section class="seg" id="seg23">
+  <div class="head">
+    <span class="no">第 23 段</span>
+    <span class="tm">第12集·上</span>
+    <h3>五四运动的后续影响</h3>
+  </div>
+  <p>五四运动后，陈独秀、李大钊等知识分子继续推动思想解放，发表文章呼吁民众觉醒。周恩来在上海成功领导工人罢工，争取权益。运动引发全国范围内的社会变革，民众对政府的不满情绪高涨。李大钊在北京大学组织学生讨论会，深入探讨革命道路。陈独秀在上海创办《星期评论》，传播新思想。</p>
+  <div class="events"><span class="ev">陈独秀发表文章呼吁民众觉醒</span><span class="ev">周恩来领导工人罢工争取权益</span><span class="ev">李大钊组织学生讨论会探讨革命道路</span><span class="ev">陈独秀创办《星期评论》传播新思想</span></div>
+</section>
+
+<section class="seg" id="seg24">
+  <div class="head">
+    <span class="no">第 24 段</span>
+    <span class="tm">第12集·下</span>
+    <h3>工人运动高涨</h3>
+  </div>
+  <p>工人运动在全国范围内高涨，陈独秀、李大钊等知识分子积极参与。上海工人罢工取得胜利，周恩来成功领导。运动引发全国范围内的社会变革，民众对政府的不满情绪日益高涨。李大钊在北京大学发表演讲，呼吁工人团结起来。陈独秀在上海创办《劳动周刊》，宣传工人权益。</p>
+  <div class="events"><span class="ev">上海工人罢工胜利</span><span class="ev">李大钊演讲呼吁工人团结</span><span class="ev">陈独秀创办《劳动周刊》</span></div>
+</section>
+
+<section class="seg" id="seg25">
+  <div class="head">
+    <span class="no">第 25 段</span>
+    <span class="tm">第13集·上</span>
+    <h3>工人罢工胜利</h3>
+  </div>
+  <p>上海工人罢工取得初步胜利，共产党组织工人成立工会，社会广泛关注。毛泽东在湖南领导农民运动，组织农民协会，开展土地革命，遭遇地方豪强阻挠。周恩来秘密前往湖南，与毛泽东会面，商讨应对策略。赵世炎在南京组织学生抗议，要求释放被捕农民协会成员。</p>
+  <div class="events"><span class="ev">上海工人罢工胜利</span><span class="ev">毛泽东组织农民协会</span><span class="ev">周恩来与毛泽东会面</span><span class="ev">赵世炎组织学生抗议</span></div>
+</section>
+
+<section class="seg" id="seg26">
+  <div class="head">
+    <span class="no">第 26 段</span>
+    <span class="tm">第13集·下</span>
+    <h3>工人罢工升级</h3>
+  </div>
+  <p>上海工人罢工取得初步胜利后，共产党组织工人成立工会，进一步扩大罢工规模。同时，毛泽东在湖南继续领导农民运动，农民协会成员被捕。周恩来秘密前往湖南，与毛泽东会面，共同商讨应对策略。赵世炎在南京组织学生抗议，要求释放被捕学生。</p>
+  <div class="events"><span class="ev">上海工人罢工升级</span><span class="ev">毛泽东与周恩来会面</span><span class="ev">赵世炎组织学生抗议</span></div>
+</section>
+
+<section class="seg" id="seg27">
+  <div class="head">
+    <span class="no">第 27 段</span>
+    <span class="tm">第14集·上</span>
+    <h3>工人罢工升级</h3>
+  </div>
+  <p>上海工人罢工取得初步胜利后，共产党进一步组织工人成立工会，扩大罢工规模。毛泽东在湖南领导农民运动，遭遇地方豪强阻挠，农民协会成员被捕。周恩来秘密前往湖南，与毛泽东会面，商讨应对策略。陈独秀发表演讲，号召全国工人团结起来，争取自身权益。</p>
+  <div class="events"><span class="ev">上海工人罢工扩大</span><span class="ev">毛泽东湖南农民运动受阻</span><span class="ev">周恩来秘密前往湖南</span><span class="ev">陈独秀号召工人团结</span></div>
+</section>
+
+<section class="seg" id="seg28">
+  <div class="head">
+    <span class="no">第 28 段</span>
+    <span class="tm">第14集·下</span>
+    <h3>工人罢工胜利后的社会影响</h3>
+  </div>
+  <p>上海工人罢工取得胜利后，共产党组织工人成立工会，社会广泛关注。毛泽东在湖南领导农民运动，推行土地革命，但遭遇地方豪强阻挠。周恩来秘密前往湖南与毛泽东会面，共同商讨应对策略。赵世炎在南京组织学生抗议，要求释放被捕的农民协会成员。同时，陈独秀和李大钊在北京积极推动马克思主义的传播，影响更多青年。</p>
+  <div class="events"><span class="ev">上海工人罢工胜利</span><span class="ev">毛泽东湖南领导农民运动</span><span class="ev">周恩来与毛泽东会面</span><span class="ev">赵世炎组织学生抗议</span></div>
+</section>
+
+<section class="seg" id="seg29">
+  <div class="head">
+    <span class="no">第 29 段</span>
+    <span class="tm">第15集·上</span>
+    <h3>李大钊宣传马克思主义</h3>
+  </div>
+  <p>李大钊在北京大学公开演讲，宣传马克思主义思想，吸引众多学生和教师聆听。演讲中，他批判旧社会的不公，阐述共产主义理念，激发了青年学生的革命热情。同时，他秘密组织读书会，传播马克思主义著作，为革命思想的传播奠定了基础。李大钊的行动引起了当局的注意，但他坚定信念，继续推动革命思想的传播。</p>
+  <div class="events"><span class="ev">李大钊北大演讲马克思主义</span><span class="ev">组织读书会传播著作</span><span class="ev">引起当局注意</span></div>
+</section>
+
+<section class="seg" id="seg30">
+  <div class="head">
+    <span class="no">第 30 段</span>
+    <span class="tm">第15集·下</span>
+    <h3>中共一大召开</h3>
+  </div>
+  <p>中共一大在上海秘密召开，陈独秀、李大钊等革命先驱齐聚一堂，讨论党的纲领、章程和组织机构。会议通过了《中国共产党第一次全国代表大会决议案》，标志着中国共产党正式成立。同时，毛泽东、周恩来等青年革命者积极参与讨论，为党的未来发展贡献智慧。会议结束后，各地党组织迅速建立，革命力量迅速壮大。</p>
+  <div class="events"><span class="ev">中共一大召开</span><span class="ev">党纲党章通过</span><span class="ev">党组织迅速建立</span></div>
+</section>
+
+<section class="seg" id="seg31">
+  <div class="head">
+    <span class="no">第 31 段</span>
+    <span class="tm">第16集·上</span>
+    <h3>中共一大召开</h3>
+  </div>
+  <p>中共一大在上海秘密召开，陈独秀、李大钊等革命先驱齐聚一堂，讨论党的纲领、章程和组织机构。会议通过了《中国共产党第一次全国代表大会决议案》，标志着中国共产党正式成立。会议期间，代表们就革命目标、组织原则等问题展开激烈讨论，最终达成共识。会议结束后，代表们分头行动，将会议精神传达给各地党组织，推动革命事业的发展。</p>
+  <div class="events"><span class="ev">中共一大召开</span><span class="ev">通过党纲</span><span class="ev">革命先驱齐聚</span></div>
+</section>
+
+<section class="seg" id="seg32">
+  <div class="head">
+    <span class="no">第 32 段</span>
+    <span class="tm">第16集·下</span>
+    <h3>中共一大召开后续</h3>
+  </div>
+  <p>中共一大召开后，陈独秀等代表讨论并通过了党的纲领和章程，确立了党的组织机构和领导核心。会议结束后，代表们分头行动，李大钊返回北京大学继续宣传马克思主义，陈独秀则前往上海发展党组织。同时，毛泽东、周恩来等青年才俊也积极参与革命活动，为党的成立和发展贡献力量。</p>
+  <div class="events"><span class="ev">中共一大通过党纲章程</span><span class="ev">李大钊宣传马克思主义</span><span class="ev">陈独秀发展党组织</span></div>
+</section>
+
+<section class="seg" id="seg33">
+  <div class="head">
+    <span class="no">第 33 段</span>
+    <span class="tm">第17集·上</span>
+    <h3>中共一大后续行动</h3>
+  </div>
+  <p>中共一大结束后，陈独秀等人分头行动，李大钊返回北京大学继续宣传马克思主义，陈独秀则前往各地发展党组织。他们面临白色恐怖，但依然坚持传播革命思想。同时，毛泽东等青年才俊也受到革命思想的影响，开始积极参与革命活动。蔡元培、鲁迅等知识分子也纷纷加入革命阵营，共同为推翻封建统治而努力。</p>
+  <div class="events"><span class="ev">陈独秀分头行动</span><span class="ev">李大钊宣传马克思主义</span><span class="ev">青年才俊参与革命</span><span class="ev">知识分子加入阵营</span></div>
+</section>
+
+<section class="seg" id="seg34">
+  <div class="head">
+    <span class="no">第 34 段</span>
+    <span class="tm">第17集·下</span>
+    <h3>秘密宣传</h3>
+  </div>
+  <p>陈独秀在各地秘密发展党组织，李大钊在北京大学继续宣传马克思主义，两人通过信件交流革命思想。同时，毛泽东等青年学生积极参与革命活动，周恩来和赵世炎加入党组织。陈望道翻译的《共产党宣言》出版，革命思想进一步传播。</p>
+  <div class="events"><span class="ev">陈独秀秘密发展党组织</span><span class="ev">李大钊在北京大学宣传马克思主义</span><span class="ev">毛泽东等青年学生积极参与革命活动</span><span class="ev">周恩来和赵世炎加入党组织</span></div>
+</section>
+
+<section class="seg" id="seg35">
+  <div class="head">
+    <span class="no">第 35 段</span>
+    <span class="tm">第18集·上</span>
+    <h3>工人罢工运动爆发</h3>
+  </div>
+  <p>共产党领导工人运动，组织大规模罢工，工人抗议恶劣工作条件，要求改善待遇。罢工迅速蔓延至全国，社会舆论压力增大，政府被迫进行谈判。</p>
+  <div class="events"><span class="ev">工人罢工运动爆发</span><span class="ev">社会舆论压力增大</span><span class="ev">政府被迫谈判</span></div>
+</section>
+
+<section class="seg" id="seg36">
+  <div class="head">
+    <span class="no">第 36 段</span>
+    <span class="tm">第18集·下</span>
+    <h3>工人罢工升级</h3>
+  </div>
+  <p>工人罢工运动升级，全国各大城市工人响应，政府面临巨大压力。共产党积极组织罢工，工人代表与政府谈判，争取权益。陈独秀和李大钊密切关注局势，指导工人斗争策略。周恩来和赵世炎在工人中宣传革命思想，激发工人阶级的斗志。</p>
+  <div class="events"><span class="ev">工人罢工升级</span><span class="ev">政府面临压力</span><span class="ev">共产党指导斗争策略</span><span class="ev">周恩来宣传革命思想</span></div>
+</section>
+
+<section class="seg" id="seg37">
+  <div class="head">
+    <span class="no">第 37 段</span>
+    <span class="tm">第19集·上</span>
+    <h3>五四运动影响扩大</h3>
+  </div>
+  <p>五四运动后，全国各地学生和工人纷纷响应，举行抗议活动。陈独秀发表演讲，呼吁各界支持五四运动。李大钊组织北京大学学生罢课，抗议政府不回应学生诉求。</p>
+  <div class="events"><span class="ev">五四运动影响全国</span><span class="ev">陈独秀发表演讲</span><span class="ev">李大钊组织罢课</span></div>
+</section>
+
+<section class="seg" id="seg38">
+  <div class="head">
+    <span class="no">第 38 段</span>
+    <span class="tm">第19集·下</span>
+    <h3>工人罢工胜利后的社会影响</h3>
+  </div>
+  <p>工人罢工取得胜利后，社会舆论普遍支持，工人待遇得到改善。陈独秀、李大钊等共产党人积极推动，社会各阶层纷纷响应。毛泽东在湖南领导农民运动，农民运动也取得初步成果。周恩来等革命青年继续在各地开展宣传活动，革命形势迅速发展。同时，国际社会对中国的革命运动表示关注，共产国际派代表来华，与中国共产党进行交流合作。</p>
+  <div class="events"><span class="ev">工人待遇改善</span><span class="ev">农民运动取得成果</span><span class="ev">周恩来等革命青年继续宣传活动</span><span class="ev">共产国际派代表来华</span></div>
+</section>
+
+<section class="seg" id="seg39">
+  <div class="head">
+    <span class="no">第 39 段</span>
+    <span class="tm">第20集·上</span>
+    <h3>五四运动的后续影响</h3>
+  </div>
+  <p>五四运动后，全国各地学生和工人继续抗议，要求政府改革。陈独秀发表演讲，强调革命的重要性。李大钊组织北京大学学生罢课，抗议政府的不回应。毛泽东在湖南领导农民运动，农民运动取得初步成果。周恩来在上海参与工人罢工，争取工人权益。工人罢工取得胜利后，社会舆论普遍支持，工人待遇得到改善。共产党人积极推动社会变革，革命力量逐渐壮大。</p>
+  <div class="events"><span class="ev">陈独秀发表演讲</span><span class="ev">李大钊组织罢课</span><span class="ev">毛泽东领导农民运动</span><span class="ev">周恩来参与工人罢工</span></div>
+</section>
+
+<section class="seg" id="seg40">
+  <div class="head">
+    <span class="no">第 40 段</span>
+    <span class="tm">第20集·下</span>
+    <h3>五四运动的深远影响</h3>
+  </div>
+  <p>五四运动后，学生和工人运动持续高涨，全国各地纷纷响应。陈独秀发表演讲，强调革命的重要性。李大钊组织北京大学学生罢课，抗议政府的不回应。毛泽东在湖南领导农民运动，农民运动取得初步成果。工人罢工胜利后，社会舆论普遍支持，工人待遇得到改善。各界人士纷纷响应，社会各阶层积极参与革命运动。</p>
+  <div class="events"><span class="ev">陈独秀强调革命重要性</span><span class="ev">李大钊组织罢课抗议</span><span class="ev">毛泽东领导农民运动</span></div>
+</section>
+
+<section class="seg" id="seg41">
+  <div class="head">
+    <span class="no">第 41 段</span>
+    <span class="tm">第21集·上</span>
+    <h3>工人运动高潮</h3>
+  </div>
+  <p>工人罢工胜利后，工人阶级的权益得到进一步保障。陈独秀、李大钊等共产党人继续推动工人运动，组织工人罢工。毛泽东在湖南领导农民运动，农民运动也取得显著成果。周恩来、赵世炎等革命青年积极参与，革命力量不断壮大。陈望道翻译的《共产党宣言》出版，马克思主义在中国传播更广。</p>
+  <div class="events"><span class="ev">工人运动持续高涨</span><span class="ev">农民运动取得成果</span><span class="ev">《共产党宣言》出版</span></div>
+</section>
+
+<section class="seg" id="seg42">
+  <div class="head">
+    <span class="no">第 42 段</span>
+    <span class="tm">第21集·下</span>
+    <h3>工人罢工胜利</h3>
+  </div>
+  <p>工人罢工取得胜利，工人阶级权益得到保障。陈独秀、李大钊等共产党人继续推动工人运动，组织工人罢工。毛泽东在湖南领导农民运动，农民运动也取得显著成果。周恩来等人积极参与革命活动，革命力量不断壮大。</p>
+  <div class="events"><span class="ev">工人罢工胜利</span><span class="ev">农民运动取得成果</span><span class="ev">革命力量壮大</span></div>
+</section>
+
+<section class="seg" id="seg43">
+  <div class="head">
+    <span class="no">第 43 段</span>
+    <span class="tm">第22集·上</span>
+    <h3>工人运动再起波澜</h3>
+  </div>
+  <p>工人罢工胜利后，陈独秀、李大钊等共产党人继续推动工人运动，组织工人罢工。毛泽东在湖南领导农民运动，农民运动也取得显著成果。周恩来等人积极支持工人运动，与工人阶级紧密合作。同时，李大钊在北京大学宣传马克思主义，吸引更多青年学生加入革命队伍。陈独秀发表演讲，强调革命的重要性，激励人们继续奋斗。</p>
+  <div class="events"><span class="ev">工人罢工持续</span><span class="ev">农民运动取得成果</span><span class="ev">李大钊宣传马克思主义</span></div>
+</section>
+
+<section class="seg" id="seg44">
+  <div class="head">
+    <span class="no">第 44 段</span>
+    <span class="tm">第22集·下</span>
+    <h3>地下斗争升级</h3>
+  </div>
+  <p>共产党地下组织在陈独秀和李大钊的领导下，秘密召开会议，讨论如何应对反动派的镇压。周恩来和赵世炎参与会议，提出加强工人和学生的联合抗议。会议结束后，地下组织成员分散行动，继续秘密传播马克思主义，同时组织罢工和示威活动。陈望道成功翻译了《共产党宣言》，为地下组织提供了重要的理论武器。</p>
+  <div class="events"><span class="ev">地下组织召开会议</span><span class="ev">周恩来和赵世炎参与讨论</span><span class="ev">组织罢工和示威活动</span><span class="ev">翻译《共产党宣言》</span></div>
+</section>
+
+<section class="seg" id="seg45">
+  <div class="head">
+    <span class="no">第 45 段</span>
+    <span class="tm">第23集·上</span>
+    <h3>中共地下党活动遭遇破坏</h3>
+  </div>
+  <p>地下党组织秘密活动，陈独秀和李大钊在一家茶馆召开紧急会议，讨论反动派的监视。会议期间，赵世炎被捕，周恩来等人迅速转移，会议被迫中断。陈独秀和李大钊决定采取更严格的保密措施，同时寻求新的联络方式。</p>
+  <div class="events"><span class="ev">会议被迫中断</span><span class="ev">赵世炎被捕</span><span class="ev">组织转移</span></div>
+</section>
+
+<section class="seg" id="seg46">
+  <div class="head">
+    <span class="no">第 46 段</span>
+    <span class="tm">第23集·下</span>
+    <h3>地下斗争升级</h3>
+  </div>
+  <p>共产党地下组织在陈独秀和李大钊的领导下，秘密开展活动，宣传马克思主义。反动派加强镇压，共产党人赵世炎被捕，但他在狱中坚守信仰。陈望道成功翻译《共产党宣言》，为革命提供理论武器。周恩来积极参与地下活动，与反动派展开激烈斗争。</p>
+  <div class="events"><span class="ev">赵世炎被捕</span><span class="ev">《共产党宣言》翻译完成</span><span class="ev">周恩来参与地下活动</span></div>
+</section>
+
+<section class="seg" id="seg47">
+  <div class="head">
+    <span class="no">第 47 段</span>
+    <span class="tm">第24集·上</span>
+    <h3>危机四伏的地下会议</h3>
+  </div>
+  <p>陈独秀和李大钊在茶馆召开紧急会议，讨论反动派监视，赵世炎被捕，周恩来等人迅速转移。会议被迫中断，地下组织决定采取更严格的保密措施。陈望道成功翻译《共产党宣言》，为革命提供理论支持。</p>
+  <div class="events"><span class="ev">赵世炎被捕</span><span class="ev">会议被迫中断</span><span class="ev">陈望道翻译《共产党宣言》</span></div>
+</section>
+
+<section class="seg" id="seg48">
+  <div class="head">
+    <span class="no">第 48 段</span>
+    <span class="tm">第24集·下</span>
+    <h3>转移与坚守</h3>
+  </div>
+  <p>陈独秀和李大钊紧急转移，赵世炎在狱中坚守信仰，陈望道成功翻译《共产党宣言》。周恩来等人成功转移，陈独秀和李大钊在另一家茶馆继续讨论对策。地下组织加强保密措施，赵世炎在狱中坚持信仰，陈望道成功翻译《共产党宣言》，为革命传播马克思主义。</p>
+  <div class="events"><span class="ev">赵世炎被捕</span><span class="ev">周恩来等人转移</span><span class="ev">陈望道翻译《共产党宣言》</span></div>
+</section>
+
+<section class="seg" id="seg49">
+  <div class="head">
+    <span class="no">第 49 段</span>
+    <span class="tm">第25集·上</span>
+    <h3>秘密转移</h3>
+  </div>
+  <p>陈独秀等领导人转移至上海，利用暗号传递信息，组织工人罢工。周恩来逃脱后，继续参与地下活动。反动派加强镇压，地下斗争愈发激烈。陈独秀设法转移文件，避免党组织遭受重大损失。</p>
+  <div class="events"><span class="ev">陈独秀转移至上海</span><span class="ev">周恩来逃脱后继续活动</span><span class="ev">组织工人罢工</span><span class="ev">反动派加强镇压</span></div>
+</section>
+
+<section class="seg" id="seg50">
+  <div class="head">
+    <span class="no">第 50 段</span>
+    <span class="tm">第25集·下</span>
+    <h3>秘密转移</h3>
+  </div>
+  <p>陈独秀等领导人转移至上海，利用暗号传递信息，组织工人罢工，学生抗议，反动派加强镇压，地下斗争愈发激烈。陈独秀设法转移文件，避免党组织遭受重大损失。周恩来侥幸逃脱。赵世炎在狱中坚守信仰，继续宣传马克思主义。</p>
+  <div class="events"><span class="ev">陈独秀转移至上海</span><span class="ev">周恩来逃脱险境</span><span class="ev">赵世炎坚守信仰</span></div>
+</section>
+
+<section class="seg" id="seg51">
+  <div class="head">
+    <span class="no">第 51 段</span>
+    <span class="tm">第26集·上</span>
+    <h3>危机四伏的地下活动</h3>
+  </div>
+  <p>陈独秀和李大钊在上海秘密活动，利用暗号传递信息，组织工人罢工。周恩来逃脱后，继续领导学生抗议。反动派加强镇压，共产党人陈望道在翻译《共产党宣言》时被捕，党组织面临重大危机。</p>
+  <div class="events"><span class="ev">陈独秀李大钊上海秘密活动</span><span class="ev">周恩来领导学生抗议</span><span class="ev">陈望道被捕</span></div>
+</section>
+
+<section class="seg" id="seg52">
+  <div class="head">
+    <span class="no">第 52 段</span>
+    <span class="tm">第26集·下</span>
+    <h3>地下活动危机加剧</h3>
+  </div>
+  <p>陈独秀和李大钊在上海秘密活动，利用暗号传递信息，组织工人罢工。周恩来逃脱后，继续领导学生抗议。反动派加强镇压，共产党人陈望道在翻译《共产党宣言》时被捕，党组织面临危机。陈独秀设法转移文件，避免党组织遭受重大损失。周恩来在学生抗议活动中被捕，陈独秀和李大钊紧急商讨对策。</p>
+  <div class="events"><span class="ev">陈望道被捕</span><span class="ev">周恩来被捕</span><span class="ev">陈独秀转移文件</span></div>
+</section>
+
+<section class="seg" id="seg53">
+  <div class="head">
+    <span class="no">第 53 段</span>
+    <span class="tm">第27集·上</span>
+    <h3>危机中的转移</h3>
+  </div>
+  <p>陈独秀等领导人秘密转移至上海，利用暗号传递信息，组织工人罢工，学生抗议。反动派加强镇压，周恩来逃脱后继续领导学生抗议。陈望道在翻译《共产党宣言》时被捕，党组织面临严峻考验。陈独秀设法转移文件，避免党组织遭受重大损失。</p>
+  <div class="events"><span class="ev">陈独秀转移至上海</span><span class="ev">周恩来逃脱后继续领导抗议</span><span class="ev">陈望道被捕</span><span class="ev">陈独秀转移文件</span></div>
+</section>
+
+<section class="seg" id="seg54">
+  <div class="head">
+    <span class="no">第 54 段</span>
+    <span class="tm">第27集·下</span>
+    <h3>危机四伏的地下活动</h3>
+  </div>
+  <p>陈独秀和李大钊在上海秘密活动，利用暗号传递信息，组织工人罢工，同时发动学生抗议。反动派加强镇压，周恩来在转移途中被捕，陈独秀设法转移文件，避免党组织遭受重大损失。地下斗争愈发激烈，党员们面临严峻考验。</p>
+  <div class="events"><span class="ev">周恩来被捕</span><span class="ev">陈独秀转移文件</span><span class="ev">地下斗争加剧</span></div>
+</section>
+
+<section class="seg" id="seg55">
+  <div class="head">
+    <span class="no">第 55 段</span>
+    <span class="tm">第28集·上</span>
+    <h3>秘密会议</h3>
+  </div>
+  <p>陈独秀和李大钊在上海召开秘密会议，讨论反动派加强镇压后的对策。他们决定继续组织工人罢工和学生抗议，同时加强地下党组织的安全。会议中，陈独秀传达了上级的指示，要求更加谨慎行事。会议结束后，两人分别前往不同的地点继续活动。</p>
+  <div class="events"><span class="ev">陈独秀、李大钊召开秘密会议</span><span class="ev">决定加强地下党组织安全</span><span class="ev">传达上级指示</span></div>
+</section>
+
+<section class="seg" id="seg56">
+  <div class="head">
+    <span class="no">第 56 段</span>
+    <span class="tm">第28集·下</span>
+    <h3>反击镇压</h3>
+  </div>
+  <p>陈独秀和李大钊在上海秘密召开会议，决定加强地下党组织的防御。他们通过暗号传递信息，组织工人罢工，同时发动学生抗议。周恩来在狱中坚持斗争，陈望道在狱中完成《共产党宣言》的翻译。反动派加强镇压，周恩来设法逃脱，继续领导学生抗议。陈独秀设法转移文件，避免党组织遭受重大损失。</p>
+  <div class="events"><span class="ev">陈独秀李大钊召开秘密会议</span><span class="ev">周恩来在狱中坚持斗争</span><span class="ev">陈望道完成《共产党宣言》翻译</span><span class="ev">周恩来逃脱继续领导抗议</span></div>
+</section>
+
+<section class="seg" id="seg57">
+  <div class="head">
+    <span class="no">第 57 段</span>
+    <span class="tm">第29集·上</span>
+    <h3>秘密转移</h3>
+  </div>
+  <p>陈独秀和李大钊在上海秘密转移，以躲避反动派的追捕。他们在转移过程中，通过暗号与地下党组织保持联系，同时安排工人罢工和学生抗议活动。周恩来在狱中坚持斗争，陈望道在狱中完成《共产党宣言》的翻译工作。</p>
+  <div class="events"><span class="ev">陈独秀转移</span><span class="ev">李大钊转移</span><span class="ev">周恩来狱中斗争</span><span class="ev">陈望道完成翻译</span></div>
+</section>
+
+<section class="seg" id="seg58">
+  <div class="head">
+    <span class="no">第 58 段</span>
+    <span class="tm">第29集·下</span>
+    <h3>党组织重建</h3>
+  </div>
+  <p>陈独秀在转移文件和资料后，着手重建党组织。赵世炎的牺牲让党组织成员倍感悲痛，但革命信念更加坚定。李大钊通过暗号联系各地党组织，传达重建计划。陈望道在狱中完成《共产党宣言》的翻译，为传播马克思主义作出贡献。周恩来在狱中坚持斗争，成为革命精神的象征。</p>
+  <div class="events"><span class="ev">陈独秀重建党组织</span><span class="ev">赵世炎牺牲，革命信念坚定</span><span class="ev">李大钊联系各地党组织</span><span class="ev">陈望道完成《共产党宣言》翻译</span></div>
+</section>
+
+<section class="seg" id="seg59">
+  <div class="head">
+    <span class="no">第 59 段</span>
+    <span class="tm">第30集·上</span>
+    <h3>中共一大召开</h3>
+  </div>
+  <p>中共一大在上海秘密召开，代表们讨论革命方针，确定建立中国共产党。会议期间，陈独秀、李大钊等领导人阐述共产主义理念，强调工人阶级领导地位。会议决定成立中央局，选举陈独秀为总书记。</p>
+  <div class="events"><span class="ev">中共一大在上海召开</span><span class="ev">确定建立中国共产党</span><span class="ev">选举陈独秀为总书记</span></div>
+</section>
+
+<section class="seg" id="seg60">
+  <div class="head">
+    <span class="no">第 60 段</span>
+    <span class="tm">第30集·下</span>
+    <h3>中共一大圆满落幕</h3>
+  </div>
+  <p>中共一大在上海秘密召开，代表们讨论革命方针，确定建立中国共产党。陈独秀、李大钊等领导人阐述共产主义理念，强调工人阶级领导地位。会议决定成立中央局，选举陈独秀为中央局书记。会议圆满落幕，标志着中国共产党的正式成立。</p>
+  <div class="events"><span class="ev">中共一大召开</span><span class="ev">确定建立共产党</span><span class="ev">选举陈独秀为书记</span></div>
+</section>
+
+<section class="seg" id="seg61">
+  <div class="head">
+    <span class="no">第 61 段</span>
+    <span class="tm">第31集·上</span>
+    <h3>秘密转移</h3>
+  </div>
+  <p>陈独秀、李大钊等领导人秘密转移至新的办公地点，以避免敌人的追捕。他们在转移过程中，讨论了革命形势和下一步行动计划。同时，陈望道在狱中坚持完成《共产党宣言》的翻译工作，为党的理论建设贡献力量。</p>
+  <div class="events"><span class="ev">领导人秘密转移</span><span class="ev">讨论革命形势</span><span class="ev">陈望道狱中翻译《共产党宣言》</span></div>
+</section>
+
+<section class="seg" id="seg62">
+  <div class="head">
+    <span class="no">第 62 段</span>
+    <span class="tm">第31集·下</span>
+    <h3>转移与行动</h3>
+  </div>
+  <p>陈独秀、李大钊等领导人成功转移至新办公地点，讨论革命形势。陈望道在狱中坚持完成《共产党宣言》翻译。同时，毛泽东、周恩来等青年学生积极参与革命活动，宣传共产主义思想。革命力量逐渐壮大，为接下来的斗争做好准备。</p>
+  <div class="events"><span class="ev">领导人转移新地点</span><span class="ev">讨论革命形势</span><span class="ev">陈望道完成翻译</span><span class="ev">青年学生积极参与</span></div>
+</section>
+
+<section class="seg" id="seg63">
+  <div class="head">
+    <span class="no">第 63 段</span>
+    <span class="tm">第32集·上</span>
+    <h3>中共一大后续行动</h3>
+  </div>
+  <p>中共一大结束后，陈独秀等领导人积极策划革命行动。陈独秀和李大钊秘密会晤，讨论如何将共产主义理念付诸实践。他们决定成立工人阶级组织，以推动工人运动。同时，毛泽东和周恩来等青年学生继续在校园内外宣传共产主义思想，吸引更多青年投身革命。陈望道在狱中坚持完成《共产党宣言》的翻译工作，为传播马克思主义奠定基础。</p>
+  <div class="events"><span class="ev">陈独秀李大钊策划革命行动</span><span class="ev">成立工人阶级组织</span><span class="ev">青年学生宣传共产主义思想</span><span class="ev">陈望道完成《共产党宣言》翻译</span></div>
+</section>
+
+<section class="seg" id="seg64">
+  <div class="head">
+    <span class="no">第 64 段</span>
+    <span class="tm">第32集·下</span>
+    <h3>工人阶级组织成立</h3>
+  </div>
+  <p>陈独秀、李大钊决定成立工人阶级组织，推动工人运动。他们在新办公地点召开会议，邀请工人代表参与。毛泽东、周恩来等青年学生积极参与，宣传共产主义思想。会议决定开展罢工斗争，争取工人权益。陈望道在狱中完成《共产党宣言》翻译，秘密传递给革命同志。</p>
+  <div class="events"><span class="ev">成立工人阶级组织</span><span class="ev">召开会议邀请工人代表</span><span class="ev">开展罢工斗争</span></div>
+</section>
+
+<section class="seg" id="seg65">
+  <div class="head">
+    <span class="no">第 65 段</span>
+    <span class="tm">第33集·上</span>
+    <h3>工人运动筹备</h3>
+  </div>
+  <p>陈独秀、李大钊在新办公地点召开会议，筹备工人运动。他们邀请工人代表参与，讨论如何推动工人阶级觉醒。毛泽东、周恩来等青年学生积极参与，宣传共产主义思想。会议决定开展罢工，争取工人权益。同时，陈望道在狱中坚持完成《共产党宣言》翻译，为革命提供理论支持。</p>
+  <div class="events"><span class="ev">陈独秀李大钊筹备工人运动</span><span class="ev">召开工人代表会议</span><span class="ev">毛泽东周恩来参与宣传</span><span class="ev">陈望道狱中翻译《共产党宣言》</span></div>
+</section>
+
+<section class="seg" id="seg66">
+  <div class="head">
+    <span class="no">第 66 段</span>
+    <span class="tm">第33集·下</span>
+    <h3>工人运动爆发</h3>
+  </div>
+  <p>陈独秀、李大钊成功筹备工人运动，宣布罢工。工人们响应号召，纷纷加入罢工行列。毛泽东、周恩来等青年学生深入工厂，发动工人，鼓舞斗志。军阀政府调集军队镇压，工人运动面临严峻挑战。然而，工人们坚定信念，不畏强权，持续斗争。</p>
+  <div class="events"><span class="ev">工人罢工开始</span><span class="ev">青年学生发动工人</span><span class="ev">军阀政府镇压</span></div>
+</section>
+
+<section class="seg" id="seg67">
+  <div class="head">
+    <span class="no">第 67 段</span>
+    <span class="tm">第34集·上</span>
+    <h3>工人运动高潮</h3>
+  </div>
+  <p>陈独秀、李大钊成功筹备工人运动，宣布罢工。工人们响应号召，纷纷加入罢工行列。毛泽东、周恩来等青年学生深入工厂，发动工人，鼓舞斗志。军阀政府调集军队镇压，工人运动进入高潮。陈独秀发表演讲，号召工人团结一致，争取权益。</p>
+  <div class="events"><span class="ev">工人罢工开始</span><span class="ev">青年学生深入工厂</span><span class="ev">军阀政府镇压工人运动</span><span class="ev">陈独秀发表演讲</span></div>
+</section>
+
+<section class="seg" id="seg68">
+  <div class="head">
+    <span class="no">第 68 段</span>
+    <span class="tm">第34集·下</span>
+    <h3>工人运动受挫</h3>
+  </div>
+  <p>军阀政府调集军队镇压工人运动，陈独秀、李大钊等人组织工人进行抵抗。毛泽东、周恩来等青年学生冒险进入工厂，鼓舞士气。然而，在一次冲突中，陈独秀不幸被捕，工人运动受到严重打击。周恩来等人决定转移至安全地点，继续策划下一步行动。</p>
+  <div class="events"><span class="ev">陈独秀被捕</span><span class="ev">工人运动受挫</span><span class="ev">周恩来转移</span></div>
+</section>
+
+<section class="seg" id="seg69">
+  <div class="head">
+    <span class="no">第 69 段</span>
+    <span class="tm">第35集·上</span>
+    <h3>陈独秀被捕</h3>
+  </div>
+  <p>陈独秀在工人运动中不幸被捕，毛泽东、周恩来等人组织营救。李大钊领导工人继续罢工，军阀政府采取强硬措施，工人运动面临严峻挑战。陈望道等人秘密传递信息，寻求国际援助。</p>
+  <div class="events"><span class="ev">陈独秀被捕</span><span class="ev">工人继续罢工</span><span class="ev">军阀政府镇压</span></div>
+</section>
+
+<section class="seg" id="seg70">
+  <div class="head">
+    <span class="no">第 70 段</span>
+    <span class="tm">第35集·下</span>
+    <h3>营救陈独秀</h3>
+  </div>
+  <p>陈独秀被捕后，毛泽东、周恩来等人积极营救。他们与李大钊商议对策，同时秘密联系各界人士。陈望道等人也在国际社会寻求援助。在一次夜间行动中，毛泽东、周恩来成功救出陈独秀，但自身也受到轻伤。事件1：毛泽东、周恩来营救陈独秀；事件2：陈独秀成功获救；事件3：毛泽东、周恩来受伤</p>
+  
+</section>
+
+<section class="seg" id="seg71">
+  <div class="head">
+    <span class="no">第 71 段</span>
+    <span class="tm">第36集·上</span>
+    <h3>陈独秀狱中坚持</h3>
+  </div>
+  <p>陈独秀在狱中坚持宣传革命思想，与外界保持联系。毛泽东、周恩来等继续领导工人运动，李大钊秘密策划营救行动。陈望道在国际社会寻求援助。军阀政府加强镇压，革命形势严峻。</p>
+  <div class="events"><span class="ev">陈独秀狱中宣传革命</span><span class="ev">毛泽东领导工人运动</span><span class="ev">李大钊策划营救行动</span><span class="ev">陈望道寻求国际援助</span></div>
+</section>
+
+<section class="seg" id="seg72">
+  <div class="head">
+    <span class="no">第 72 段</span>
+    <span class="tm">第36集·下</span>
+    <h3>陈独秀狱中坚持</h3>
+  </div>
+  <p>陈独秀在狱中坚持宣传革命思想，与外界保持联系。毛泽东、周恩来等继续领导工人运动，李大钊秘密策划营救行动。陈望道在国际社会寻求援助。军阀政府加强镇压，革命形势严峻。陈独秀通过秘密信件鼓励同志们继续斗争，毛泽东在工人中组织抗议活动，李大钊成功联系到国际援助者。陈望道获得国际援助的承诺，为革命注入新的活力。</p>
+  <div class="events"><span class="ev">陈独秀狱中宣传革命思想</span><span class="ev">毛泽东领导工人抗议活动</span><span class="ev">李大钊策划营救行动</span><span class="ev">陈望道获得国际援助承诺</span></div>
+</section>
+
+<section class="seg" id="seg73">
+  <div class="head">
+    <span class="no">第 73 段</span>
+    <span class="tm">第37集·上</span>
+    <h3>营救行动受阻</h3>
+  </div>
+  <p>毛泽东、周恩来与李大钊商议营救陈独秀，但军阀政府加强戒备，行动受阻。陈望道在国际社会寻求援助，但效果有限。同时，毛泽东、周恩来继续领导工人运动，李大钊秘密策划新的营救计划。</p>
+  <div class="events"><span class="ev">军阀政府加强戒备</span><span class="ev">陈望道寻求国际援助</span><span class="ev">毛泽东周恩来继续领导工人运动</span></div>
+</section>
+
+<section class="seg" id="seg74">
+  <div class="head">
+    <span class="no">第 74 段</span>
+    <span class="tm">第37集·下</span>
+    <h3>营救受阻</h3>
+  </div>
+  <p>李大钊秘密策划营救陈独秀的行动受阻，军阀政府加强戒备。陈望道在国际社会寻求援助，但效果有限。同时，毛泽东、周恩来继续领导工人运动，李大钊秘密策划新的行动方案。</p>
+  <div class="events"><span class="ev">营救受阻</span><span class="ev">军阀加强戒备</span><span class="ev">陈望道寻求国际援助</span></div>
+</section>
+
+<section class="seg" id="seg75">
+  <div class="head">
+    <span class="no">第 75 段</span>
+    <span class="tm">第38集·上</span>
+    <h3>营救计划再起航</h3>
+  </div>
+  <p>李大钊秘密策划新的营救行动，毛泽东、周恩来继续领导工人运动。陈望道在国际社会寻求援助，获得一外国记者支持。同时，陈独秀在狱中坚持宣传革命思想，与外界保持联系。军阀政府加强镇压，革命形势依然严峻。</p>
+  <div class="events"><span class="ev">李大钊策划营救行动</span><span class="ev">毛泽东周恩来领导工人运动</span><span class="ev">陈望道获得外国记者支持</span><span class="ev">陈独秀狱中宣传革命</span></div>
+</section>
+
+<section class="seg" id="seg76">
+  <div class="head">
+    <span class="no">第 76 段</span>
+    <span class="tm">第38集·下</span>
+    <h3>营救行动再起航</h3>
+  </div>
+  <p>李大钊制定新的营救计划，毛泽东、周恩来继续领导工人运动。陈望道与外国记者合作，寻求国际援助。陈独秀在狱中坚持宣传革命思想，与外界保持联系。军阀政府加强戒备，但革命党人并未放弃营救计划。</p>
+  <div class="events"><span class="ev">李大钊制定营救计划</span><span class="ev">毛泽东周恩来领导工人运动</span><span class="ev">陈望道寻求国际援助</span><span class="ev">陈独秀狱中宣传革命思想</span></div>
+</section>
+
+<section class="seg" id="seg77">
+  <div class="head">
+    <span class="no">第 77 段</span>
+    <span class="tm">第39集·上</span>
+    <h3>营救行动再受阻</h3>
+  </div>
+  <p>李大钊的营救计划再次受阻，军阀政府加强戒备。陈望道与外国记者合作，寻求国际援助的努力遭遇挫折。陈独秀在狱中坚持宣传革命思想，与外界保持联系，但局势日益严峻。毛泽东、周恩来继续领导工人运动，面对重重困难，他们坚定信念，寻找新的斗争策略。</p>
+  <div class="events"><span class="ev">李大钊营救计划受阻</span><span class="ev">陈望道寻求国际援助受挫</span><span class="ev">陈独秀狱中坚持宣传</span><span class="ev">毛泽东周恩来领导工人运动</span></div>
+</section>
+
+<section class="seg" id="seg78">
+  <div class="head">
+    <span class="no">第 78 段</span>
+    <span class="tm">第39集·下</span>
+    <h3>营救计划再受阻</h3>
+  </div>
+  <p>李大钊的营救计划再次受阻，军阀政府加强戒备。陈望道与外国记者合作寻求国际援助的努力遭遇挫折。陈独秀在狱中坚持宣传革命思想，与外界保持联系，但局势日益严峻。毛泽东和周恩来继续领导工人运动，面临重重困难。国际援助无望，革命形势愈发严峻。</p>
+  <div class="events"><span class="ev">李大钊营救受阻</span><span class="ev">陈望道寻求国际援助受挫</span><span class="ev">陈独秀狱中坚持革命思想</span></div>
+</section>
+
+<section class="seg" id="seg79">
+  <div class="head">
+    <span class="no">第 79 段</span>
+    <span class="tm">第40集·上</span>
+    <h3>工人运动新篇章</h3>
+  </div>
+  <p>陈独秀和李大钊在上海成立工人运动委员会，制定新策略。武汉工人领袖赵世炎成功发动罢工，各地工人响应。赵世炎发表演讲，号召工人团结。共产党在上海举行工人运动大会，号召工人阶级联合起来。</p>
+  <div class="events"><span class="ev">赵世炎发动武汉罢工</span><span class="ev">各地工人响应</span><span class="ev">共产党成立工人运动委员会</span></div>
+</section>
+
+<section class="seg" id="seg80">
+  <div class="head">
+    <span class="no">第 80 段</span>
+    <span class="tm">第40集·下</span>
+    <h3>工人运动大会</h3>
+  </div>
+  <p>共产党在上海举行工人运动大会，号召全国工人团结起来。陈独秀发表演讲，强调工人阶级在革命中的重要作用。大会决定成立全国工人联合会，以加强工人阶级的团结和力量。同时，各地工人运动领袖也纷纷发表演讲，号召工人阶级为争取自身权益和革命胜利而斗争。赵世炎在武汉成功发动罢工，各地工人纷纷响应，工人运动进入新的高潮。</p>
+  <div class="events"><span class="ev">陈独秀发表演讲</span><span class="ev">成立全国工人联合会</span><span class="ev">赵世炎发动武汉罢工</span></div>
+</section>
+
+<section class="seg" id="seg81">
+  <div class="head">
+    <span class="no">第 81 段</span>
+    <span class="tm">第41集·上</span>
+    <h3>工人运动新篇章</h3>
+  </div>
+  <p>陈独秀和李大钊在上海成立工人运动委员会，制定新策略。武汉工人领袖赵世炎成功发动罢工，各地工人响应。赵世炎发表演讲，号召工人团结。共产党在上海举行工人运动大会，号召全国工人团结起来。陈独秀发表演讲，强调工人阶级在革命中的重要作用。大会决定成立全国工人联合会，以加强工人阶级的团结和力量。同时，赵世炎在武汉发表演讲，号召工人团结。</p>
+  <div class="events"><span class="ev">陈独秀成立工人运动委员会</span><span class="ev">赵世炎发动武汉罢工</span><span class="ev">全国工人联合会成立</span></div>
+</section>
+
+<section class="seg" id="seg82">
+  <div class="head">
+    <span class="no">第 82 段</span>
+    <span class="tm">第41集·下</span>
+    <h3>革命力量壮大</h3>
+  </div>
+  <p>随着工人运动的胜利，共产党和革命力量迅速壮大。陈独秀、李大钊等积极发展党员，扩大党组织。毛泽东等青年才俊也纷纷加入革命队伍，革命力量日益强大。</p>
+  <div class="events"><span class="ev">革命力量壮大</span><span class="ev">发展党员，扩大党组织</span><span class="ev">青年才俊加入革命队伍</span></div>
+</section>
+
+<section class="seg" id="seg83">
+  <div class="head">
+    <span class="no">第 83 段</span>
+    <span class="tm">第42集·上</span>
+    <h3>工人运动再升级</h3>
+  </div>
+  <p>陈独秀和李大钊在上海成立工人运动委员会，制定新策略。武汉工人领袖赵世炎成功发动罢工，各地工人响应。赵世炎发表演讲，号召工人团结。共产党在上海举行工人运动大会，号召全国工人团结起来。陈独秀发表演讲，强调工人阶级在革命中的重要作用。大会决定成立全国工人联合会，以加强工人阶级的团结和力量。同时，毛泽东等青年才俊也纷纷加入革命队伍，革命力量日益强大。</p>
+  <div class="events"><span class="ev">陈独秀发表演讲</span><span class="ev">赵世炎发动罢工</span><span class="ev">成立全国工人联合会</span></div>
+</section>
+
+<section class="seg" id="seg84">
+  <div class="head">
+    <span class="no">第 84 段</span>
+    <span class="tm">第42集·下</span>
+    <h3>工人运动高潮</h3>
+  </div>
+  <p>陈独秀和李大钊推动下，工人运动达到高潮。上海工人罢工成功，武汉工人领袖赵世炎成功发动罢工，各地工人响应。赵世炎发表演讲，号召工人团结。共产党在上海举行工人运动大会，号召全国工人联合起来。</p>
+  <div class="events"><span class="ev">上海工人罢工成功</span><span class="ev">武汉工人领袖赵世炎发动罢工</span><span class="ev">共产党举行工人运动大会</span></div>
+</section>
+
+<section class="seg" id="seg85">
+  <div class="head">
+    <span class="no">第 85 段</span>
+    <span class="tm">第43集·上</span>
+    <h3>工人运动胜利</h3>
+  </div>
+  <p>陈独秀、李大钊在上海成功领导工人运动，罢工取得胜利。赵世炎在武汉发动罢工，各地工人响应。共产党在上海举行工人运动大会，号召全国工人团结起来。工人运动取得初步胜利，革命力量得到壮大。</p>
+  <div class="events"><span class="ev">工人运动取得胜利</span><span class="ev">赵世炎发动武汉罢工</span><span class="ev">共产党召开工人运动大会</span></div>
+</section>
+
+<section class="seg" id="seg86">
+  <div class="head">
+    <span class="no">第 86 段</span>
+    <span class="tm">第43集·下</span>
+    <h3>工人运动胜利的果实</h3>
+  </div>
+  <p>陈独秀、李大钊在上海成功领导工人运动，罢工取得胜利。赵世炎在武汉发动罢工，各地工人响应。共产党在上海举行工人运动大会，号召全国工人团结起来。工人运动取得初步胜利。陈独秀发表讲话，强调工人阶级在革命中的重要作用。周恩来在大会上发表演讲，鼓舞工人阶级的斗志。工人运动成为革命的重要力量。</p>
+  <div class="events"><span class="ev">工人运动胜利</span><span class="ev">陈独秀发表讲话</span><span class="ev">周恩来鼓舞工人</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第6集</td><td>陈独秀创办《新青年》，开启新文化运动</td></tr><tr><td>约第15集</td><td>李大钊在北京大学宣传马克思主义</td></tr><tr><td>约第20集</td><td>五四运动爆发，学生抗议政府</td></tr><tr><td>约第30集</td><td>中共一大召开，共产党正式成立</td></tr><tr><td>约第35集</td><td>共产党领导工人运动，取得初步胜利</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">思想解放</span><span class="theme">革命信仰</span><span class="theme">时代变革</span><span class="theme">青年力量</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">共产党领导人民取得革命胜利，开启新纪元</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-10-28 16:28 · 模型 glm-4-flash · 共 86 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
