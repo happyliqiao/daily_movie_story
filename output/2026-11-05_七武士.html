@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>七武士 · 分段故事梗概 · 2026-11-05</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>七武士<span class="year">1954</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-05</span><span class="chip">电影</span><span class="chip">日本</span><span class="chip">动作/历史</span><span class="chip">1954</span><span class="chip">电影片长约 207 分钟，按每 10 分钟一段切分，共 20 段</span><span class="chip">日本战国时代，贫困山村</span></div>
+    <div class="logline">贫困村庄雇请七名武士抵御山贼，武士们训练村民、布置防御，在生死战中面对阶层隔阂与牺牲。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 20 段</h2>
+      <ol><li><a href="#seg1">山贼洗劫村庄</a></li>
+<li><a href="#seg2">村民四处求援</a></li>
+<li><a href="#seg3">勘兵卫寻找同伴</a></li>
+<li><a href="#seg4">七武士集结</a></li>
+<li><a href="#seg5">七武士启程</a></li>
+<li><a href="#seg6">村庄初印象</a></li>
+<li><a href="#seg7">防御工事建设</a></li>
+<li><a href="#seg8">山贼首次试探</a></li>
+<li><a href="#seg9">菊千代身份暴露</a></li>
+<li><a href="#seg10">村民训练开始</a></li>
+<li><a href="#seg11">山贼增兵备战</a></li>
+<li><a href="#seg12">决战前夜</a></li>
+<li><a href="#seg13">山贼初袭村庄</a></li>
+<li><a href="#seg14">战后商议对策</a></li>
+<li><a href="#seg15">山贼二次进攻</a></li>
+<li><a href="#seg16">久藏牺牲</a></li>
+<li><a href="#seg17">久藏战死沙场</a></li>
+<li><a href="#seg18">山贼疯狂报复</a></li>
+<li><a href="#seg19">村民拿起武器</a></li>
+<li><a href="#seg20">决战胜利与牺牲</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">勘兵卫</span><span class="r">主角</span></div><div class="d">落魄武士领袖，为荣誉而战</div></div>
+<div class="person"><div><span class="n">菊千代</span><span class="r">关键配角</span></div><div class="d">冒牌武士，真实身份是农民</div></div>
+<div class="person"><div><span class="n">胜四郎</span><span class="r">关键配角</span></div><div class="d">年轻武士，追求武艺成长</div></div>
+<div class="person"><div><span class="n">久藏</span><span class="r">关键配角</span></div><div class="d">剑术高超的沉默武士</div></div>
+<div class="person"><div><span class="n">利吉</span><span class="r">对手</span></div><div class="d">山贼首领，凶残贪婪</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">村庄求援</span><span class="ds">村民四处寻找武士，勘兵卫组建七人团队</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">备战训练</span><span class="ds">武士们训练村民，布置防御工事</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">初次交锋</span><span class="ds">山贼首次进攻，武士击退敌人</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">决战前夕</span><span class="ds">山贼增兵，村民与武士共同准备最后战斗</span></div>
+<div class="act"><span class="idx">05</span><span class="nm">生死决战</span><span class="ds">武士们与山贼展开殊死搏斗，牺牲惨重</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>山贼洗劫村庄</h3>
+  </div>
+  <p>战国时代的日本，一个偏远贫困的山村遭受山贼袭击。山贼首领利吉带领部下洗劫村庄，抢走粮食和财物，还掳走了几名村民。村民们惊慌逃散，房屋被烧毁，农田被践踏。村庄长老们意识到必须寻找武士来保护家园，否则村庄将面临毁灭。村民们凑集了仅有的粮食和钱财，决定派人四处寻找愿意帮助他们的武士。山贼离去前威胁村民，不久后会回来带走所有年轻女子，村庄陷入绝望的恐惧中。</p>
+  <div class="events"><span class="ev">山贼洗劫</span><span class="ev">村庄被毁</span><span class="ev">村民恐慌</span><span class="ev">长老决策</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:21</span>
+    <h3>村民四处求援</h3>
+  </div>
+  <p>村庄派出三名代表前往城镇寻找武士。他们穿过荒野和森林，历经艰辛到达城镇。在城镇里，他们四处打听，询问是否有武士愿意接受他们的雇佣。大多数武士都嘲笑他们支付的报酬太少，不屑一顾。村民们失望之余，在一个酒馆里遇到了勘兵卫，一位曾经显赫但如今落魄的武士。勘兵卫虽然穷困潦倒，但仍然保持着武士的尊严。村民们恳求他帮助，起初勘兵卫拒绝了，但看到村民的真诚和绝望，他最终同意考虑他们的请求。</p>
+  <div class="events"><span class="ev">村民进城</span><span class="ev">四处碰壁</span><span class="ev">遇见勘兵卫</span><span class="ev">初步请求</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:21–00:31</span>
+    <h3>勘兵卫寻找同伴</h3>
+  </div>
+  <p>勘兵卫决定帮助村民，但他知道仅凭自己无法对抗山贼。他开始在城镇中寻找其他愿意加入的武士。首先，他找到了久藏，一位剑术高超但沉默寡言的武士。久藏被勘兵卫的诚意打动，同意加入。接着，他们遇到了胜四郎，一个年轻气盛、渴望证明自己的年轻武士。胜四郎被勘兵卫的武艺和人格魅力折服，决定跟随他。同时，一个自称武士的粗野男子菊千代也加入了他们，尽管他的武士身份存疑。勘兵卫意识到需要更多武士，继续寻找能够加入他们的人。</p>
+  <div class="events"><span class="ev">寻找武士</span><span class="ev">久藏加入</span><span class="ev">胜四郎追随</span><span class="ev">菊千代加入</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:31–00:41</span>
+    <h3>七武士集结</h3>
+  </div>
+  <p>勘兵卫继续招募武士，最终又找到了三位武士，加上之前的四人，组成了七人团队。七位武士各有特点：勘兵卫是经验丰富的领袖，久藏是剑术大师，胜四郎是年轻学徒，菊千代是个冒牌武士但勇猛过人，其他三位武士也各有所长。七人一起前往村庄，途中他们对这次任务有不同的看法。有的武士是为了金钱，有的为了荣誉，有的则只是为了寻求刺激。当他们接近村庄时，看到了被山贼破坏的景象，意识到任务的艰巨性。村民们看到七位武士的到来，既希望又怀疑，担心这些武士是否真的能帮助他们。</p>
+  <div class="events"><span class="ev">七人成行</span><span class="ev">各怀心思</span><span class="ev">接近村庄</span><span class="ev">村民疑虑</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:41–00:52</span>
+    <h3>七武士启程</h3>
+  </div>
+  <p>勘兵卫带领六名武士离开城镇，前往贫困村庄。途中他们经过一片荒野，菊千代骑马时表现出不适应，引起其他武士的嘲笑。胜四郎对村庄充满好奇，不断询问村民的情况。久藏沉默地走在队伍前方，似乎对即将到来的战斗已有预感。勘兵卫向众人解释村庄的困境，强调这次任务不仅是为钱，更是为了守护弱者。队伍在一处河边休息时，村民们送来食物表示感谢，但村民们对武士们的到来既期待又恐惧。菊千代与一位村民发生争执，暴露了他对农民生活的熟悉，引起勘兵卫的怀疑。队伍继续前行，远处隐约可见村庄的轮廓，气氛变得凝重。</p>
+  <div class="events"><span class="ev">武士启程</span><span class="ev">村民送食</span><span class="ev">菊千代争执</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:52–01:02</span>
+    <h3>村庄初印象</h3>
+  </div>
+  <p>七武士抵达贫困村庄，眼前景象令人震惊。房屋破败，土地贫瘠，村民面黄肌瘦。勘兵卫观察村庄地形，发现地势易守难攻，但也缺乏足够的防御工事。村民们对武士们的到来既感激又紧张，特别是看到菊千代粗鲁的行为后更加怀疑。胜四郎被村庄的贫困景象触动，开始理解村民的处境。久藏独自勘察周围环境，注意到山贼可能进攻的方向。勘兵卫与村长商议防御计划，发现村民几乎没有任何战斗经验。当晚，村民们为武士们准备了简单的晚餐，但食物匮乏令武士们感到不安。菊千代在酒桌上表现得格外活跃，透露出对村庄的熟悉，加深了其他武士的疑虑。</p>
+  <div class="events"><span class="ev">勘察地形</span><span class="ev">村民晚宴</span><span class="ev">菊千代疑点</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:02–01:12</span>
+    <h3>防御工事建设</h3>
+  </div>
+  <p>勘兵卫带领武士们开始布置村庄防御。他们指挥村民加固房屋，挖掘壕沟，设置陷阱。久藏负责训练村民使用简单的武器，胜四郎则帮助年轻人学习基本战斗技巧。勘兵卫注意到村民对武士既依赖又防备的态度，尤其是对菊千代的排斥。菊千代主动参与防御工事建设，但他的行为方式与其他武士格格不入，经常引起村民的不满。勘兵卫私下与菊千交谈，暗示他已经察觉到菊千代的真实身份。村民们在武士指导下学习战斗技巧，但进展缓慢，许多人表现出恐惧。勘兵卫决定分批训练村民，先培养骨干力量。夜晚，山贼的篝火在远处可见，村民们的恐惧加剧。</p>
+  <div class="events"><span class="ev">防御建设</span><span class="ev">村民训练</span><span class="ev">菊千代身份</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:12–01:23</span>
+    <h3>山贼首次试探</h3>
+  </div>
+  <p>山贼派出一小队人马试探村庄防御。久藏带领胜四郎和几名村民埋伏在村口，成功击退了这股敌人。战斗中，胜四郎初次体验实战，表现出勇气但缺乏经验。勘兵卫观察到山贼的战术特点，意识到敌人实力远超预期。战斗结束后，村民们庆祝小胜，但武士们清楚这只是开始。菊千代在战斗中表现出色，使用农民熟悉的战术，进一步加深了勘兵卫的怀疑。勘兵卫召集武士们商议对策，决定加强村庄薄弱环节。村民们开始对武士产生信任，尤其是看到胜四郎的勇敢表现。夜晚，七武士在村口轮流值守，警惕山贼的大规模进攻。</p>
+  <div class="events"><span class="ev">山贼试探</span><span class="ev">胜四郎初战</span><span class="ev">战术分析</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:23–01:33</span>
+    <h3>菊千代身份暴露</h3>
+  </div>
+  <p>勘兵卫发现菊千代藏在队伍中，质问其真实身份。菊千代承认自己是农民，却坚持要参与战斗。村民们得知真相后态度转变，不再信任这个冒牌武士。勘兵卫面临抉择，最终同意让菊千代留下，但要求他证明自己的价值。菊千代愤怒地揭露农民被迫为山贼提供粮食的真相，村民们震惊无言。勘兵卫意识到山贼与村民的复杂关系，调整了防御策略。</p>
+  <div class="events"><span class="ev">菊千代身份暴露</span><span class="ev">村民信任危机</span><span class="ev">揭露山贼真相</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:33–01:44</span>
+    <h3>村民训练开始</h3>
+  </div>
+  <p>武士们开始系统训练村民使用武器。久藏严格教导农民使用长矛，胜四郎负责年轻人学习基本剑术。菊千代积极参与训练，虽然技艺粗糙但热情高涨。勘兵卫注意到村民间的分歧，尤其是年轻农民与老人之间的冲突。他组织村民共同挖掘壕沟，建造防御工事，增强团队凝聚力。村民们逐渐适应战斗训练，但内心仍对山贼充满恐惧。</p>
+  <div class="events"><span class="ev">武士训练村民</span><span class="ev">团队凝聚力建设</span><span class="ev">村民恐惧与矛盾</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:44–01:54</span>
+    <h3>山贼增兵备战</h3>
+  </div>
+  <p>山贼首领利吉得知村庄有武士驻守，决定增派人手。他派出更多手下侦察村庄，并准备大规模进攻。勘兵卫察觉到山贼的动向，加强防御部署。武士们分工明确，久藏负责村口防御，胜四郎训练年轻村民使用弓箭。村民们在武士指导下加固房屋，设置陷阱。菊千代主动承担侦察任务，冒险潜入山贼营地获取情报，为村庄防御提供关键信息。</p>
+  <div class="events"><span class="ev">山贼增兵</span><span class="ev">防御部署加强</span><span class="ev">菊千代侦察敌情</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:54–02:04</span>
+    <h3>决战前夜</h3>
+  </div>
+  <p>山贼大军逼近村庄，气氛紧张。勘兵卫召集武士和村民开会，制定最后防御计划。久藏提议利用地形优势，在村口设伏。胜四郎请求参与正面战斗，勘兵卫同意但要求他保持冷静。村民们准备最后的物资，妇女儿童撤离到安全地带。菊千代向勘兵卫坦白自己的真实身份和过去，表达为村庄牺牲的决心。勘兵卫认可他的勇气，两人达成默契。夜幕降临，村庄进入临战状态。</p>
+  <div class="events"><span class="ev">山贼大军逼近</span><span class="ev">防御计划制定</span><span class="ev">村民撤离准备</span><span class="ev">菊千代坦白身份</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">02:04–02:15</span>
+    <h3>山贼初袭村庄</h3>
+  </div>
+  <p>黎明时分，山贼首次发动进攻，久藏带领部分武士在村口迎敌。山贼人数众多，攻势凶猛，久藏凭借精湛剑术接连击退数名敌人。胜四郎在战斗中表现出色，但过于激进险些陷入险境。勘兵卫及时指挥其他村民利用地形优势，用竹枪和陷阱阻击敌人。菊千代虽然武艺不精，但勇气可嘉，用火把制造混乱。经过激烈战斗，山贼首次进攻被击退，但村庄也遭受了一定损失。战斗结束后，武士们检查伤亡情况，加固防御工事，准备应对更大规模的进攻。</p>
+  <div class="events"><span class="ev">山贼初袭</span><span class="ev">久藏迎敌</span><span class="ev">胜四郎逞勇</span><span class="ev">村民反击</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:15–02:25</span>
+    <h3>战后商议对策</h3>
+  </div>
+  <p>战斗结束后，勘兵卫召集所有武士和村民首领商议对策。久藏认为山贼受挫后必定会增兵，建议加强村口防御。胜四郎在战斗中体验到实战的残酷，向勘兵卫请教更多战斗技巧。菊千代提出利用村民熟悉地形的优势设置更多陷阱。勘兵卫肯定了大家的建议，并决定调整防御策略，将主力集中在村口和主要通道。同时，他派胜四郎和另一名武士前往附近村庄寻求援助。村民们开始积极准备防御物资，加固房屋，制作武器。气氛紧张但有序，每个人都知道更大的战斗即将来临。</p>
+  <div class="events"><span class="ev">战后会议</span><span class="ev">调整策略</span><span class="ev">胜四郎求援</span><span class="ev">村民备战</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">02:25–02:35</span>
+    <h3>山贼二次进攻</h3>
+  </div>
+  <p>傍晚时分，山贼卷土重来，人数比上次更多，装备也更精良。利吉亲自带队，攻势更加猛烈。久藏带领武士在村口顽强抵抗，但山贼人数占优，防线逐渐被突破。胜四郎和另一名武士及时返回，带来少量援军，暂时稳住了局势。菊千代带领村民使用火油和简易武器从侧翼骚扰，分散山贼注意力。战斗异常激烈，多名武士受伤，村民也有伤亡。勘兵卫冷静指挥，利用地形优势延缓山贼进攻。在久藏的英勇战斗下，山贼的第二次进攻再次被击退，但村庄防御工事已严重受损，武士们也损失惨重。</p>
+  <div class="events"><span class="ev">山贼再袭</span><span class="ev">久藏苦战</span><span class="ev">胜四郎返援</span><span class="ev">防线告急</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">02:35–02:46</span>
+    <h3>久藏牺牲</h3>
+  </div>
+  <p>夜幕降临，山贼第三次发动进攻，这次他们突破了村口防线。久藏为掩护村民撤退，独自留下来断后。他与多名山贼展开殊死搏斗，剑术发挥到极致，连续击杀数名敌人。然而，山贼人数众多，久藏最终寡不敌众，被利吉亲手杀害。胜四郎目睹久藏牺牲，悲愤交加，不顾一切冲上前为久藏报仇。勘兵卫及时制止了他，指出保存实力更为重要。久藏的牺牲让所有人深受震动，但也激发了村民的斗志。勘兵卫重新部署防御，准备迎接最后的决战。村民们拿起武器，与武士们并肩作战，誓死保卫家园。</p>
+  <div class="events"><span class="ev">久藏断后</span><span class="ev">力战而亡</span><span class="ev">胜四郎悲愤</span><span class="ev">村民奋起</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">02:46–02:56</span>
+    <h3>久藏战死沙场</h3>
+  </div>
+  <p>久藏在山贼围攻下独自断后，展现惊人剑术，连续击杀多名敌人。最终因寡不敌众被山贼包围，身中数剑仍坚持战斗。勘兵卫带领村民撤离时听到久藏的喊声，回头看到久藏倒下的身影。胜四郎目睹久藏牺牲，内心深受震撼。菊千代看到久藏战死，愤怒地冲向山贼，被其他武士拉回。久藏的牺牲使七武士团队实力大减，士气低落。村民们为久藏的英勇感到悲痛，同时也意识到战争的残酷性。</p>
+  <div class="events"><span class="ev">久藏断后</span><span class="ev">身中数剑</span><span class="ev">武士悲痛</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">02:56–03:06</span>
+    <h3>山贼疯狂报复</h3>
+  </div>
+  <p>利吉见久藏已死，下令山贼疯狂报复，烧毁村庄房屋。山贼闯入村民家中抢夺财物，伤害不愿抵抗的村民。勘兵卫带领剩余武士组织村民撤退到村后的高地。胜四郎在战斗中展现出成长，协助指挥村民撤离。菊千代愤怒地拿起武器与山贼战斗，虽然不是真正的武士，但勇气可嘉。山贼的暴行让村民意识到必须拿起武器自卫。勘兵卫看到村庄被毁，内心沉重，但仍保持冷静，思考对策。</p>
+  <div class="events"><span class="ev">村庄被焚</span><span class="ev">村民撤离</span><span class="ev">菊千代战斗</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">03:06–03:17</span>
+    <h3>村民拿起武器</h3>
+  </div>
+  <p>在勘兵卫的号召下，村民开始拿起农具和简陋武器自卫。年轻村民组成队伍，跟随武士学习基本战斗技巧。胜四郎耐心教导村民如何使用武器，分享战斗经验。菊千代虽然身份暴露，但仍积极参与防御工作，赢得村民尊重。勘兵卫重新部署防御，利用地形优势设下陷阱。村民们从最初的恐惧到逐渐勇敢，展现出保卫家园的决心。利吉看到村民反抗，更加愤怒，准备发动最后总攻。</p>
+  <div class="events"><span class="ev">村民武装</span><span class="ev">胜四郎教导</span><span class="ev">防御部署</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">03:17–03:27</span>
+    <h3>决战胜利与牺牲</h3>
+  </div>
+  <p>山贼发动最后总攻，双方展开激烈战斗。勘兵卫与利吉单挑，身负重伤但仍坚持战斗。菊千代为保护村民英勇牺牲，临死前承认自己农民身份却无悔。胜四郎在战斗中展现出真正的武士精神，击杀多名山贼。剩余武士与村民并肩作战，最终击溃山贼。战斗结束后，勘兵卫失去武士身份，但精神得到传承。胜四郎踏上修行之路，村民得以保全村庄。武士与村民共同埋葬牺牲者，展现出超越阶层的友谊。</p>
+  <div class="events"><span class="ev">单挑重伤</span><span class="ev">菊千代牺牲</span><span class="ev">村民胜利</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>勘兵卫同意帮助村民，组建七人团队</td></tr><tr><td>约第60分钟</td><td>菊千代身份暴露，村民与武士产生矛盾</td></tr><tr><td>约第120分钟</td><td>山贼首次进攻，武士们展示实力</td></tr><tr><td>约第150分钟</td><td>久藏被杀，武士团队遭受重创</td></tr><tr><td>约第180分钟</td><td>勘兵卫重伤，村民拿起武器参与战斗</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">荣誉</span><span class="theme">牺牲</span><span class="theme">阶级</span><span class="theme">勇气</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">勘兵卫幸存但失去武士身份，村民得以保全，菊千代牺牲，胜四郎踏上武士修行之路，武士精神得以传承。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-05 17:21 · 模型 glm-4-air,glm-4-flash · 共 20 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
