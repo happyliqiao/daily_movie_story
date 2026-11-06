@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>你的名字 · 分段故事梗概 · 2026-11-06</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>你的名字<span class="year">2016</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-06</span><span class="chip">电影</span><span class="chip">日本</span><span class="chip">动画/爱情</span><span class="chip">2016</span><span class="chip">电影片长约 106 分钟，按每 10 分钟一段切分，共 11 段</span><span class="chip">现代日本，乡村与东京</span></div>
+    <div class="logline">乡村少女三叶与东京少年泷梦中交换身体，跨越时空寻找彼此，共同面对小镇灾难的命运。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 11 段</h2>
+      <ol><li><a href="#seg1">彗星划过天空</a></li>
+<li><a href="#seg2">梦中初次交换</a></li>
+<li><a href="#seg3">第3段</a></li>
+<li><a href="#seg4">第4段</a></li>
+<li><a href="#seg5">现实初遇确认</a></li>
+<li><a href="#seg6">寻找对方下落</a></li>
+<li><a href="#seg7">彗星灾难预兆</a></li>
+<li><a href="#seg8">时间循环秘密</a></li>
+<li><a href="#seg9">彗星灾难预警</a></li>
+<li><a href="#seg10">时间线重逢</a></li>
+<li><a href="#seg11">彗星之夜的重逢</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">立花泷</span><span class="r">主角</span></div><div class="d">东京建筑系学生，寻找梦中三叶</div></div>
+<div class="person"><div><span class="n">三叶</span><span class="r">主角</span></div><div class="d">乡村少女，梦中体验东京生活</div></div>
+<div class="person"><div><span class="n">宫水神社巫女</span><span class="r">关键配角</span></div><div class="d">揭示口嚼酒与时间循环秘密</div></div>
+<div class="person"><div><span class="n">奥寺美纪</span><span class="r">关键配角</span></div><div class="d">泷的同事，帮助寻找三叶</div></div>
+<div class="person"><div><span class="n">敕使河原</span><span class="r">关键配角</span></div><div class="d">三叶好友，协助拯救小镇</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">梦境交换</span><span class="ds">三叶与泷频繁梦中交换身体，了解彼此生活</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">寻找对方</span><span class="ds">泷与三叶分别寻找梦中对方，确认真实存在</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">彗星灾难</span><span class="ds">发现小镇将被彗星毁灭，尝试改变历史</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">时间重逢</span><span class="ds">跨越三年时间，在彗星之夜重逢相认</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>彗星划过天空</h3>
+  </div>
+  <p>影片以彗星划过夜空的壮丽景象开始。镜头随后转向乡村小镇，少女三叶正在宫水神社帮忙，她对东京的生活充满向往。三叶与好友敕使河原、司讨论着即将到来的传统祭典。同时，东京的少年泷在建筑系学习，与同事奥寺美纪共事，对未来的职业感到迷茫。三叶对镇上传统的神社祭祀活动感到厌烦，尤其是对父亲作为镇长的责任感到不满。她渴望逃离小镇，前往东京生活。影片通过平行剪辑展示了两位主角截然不同的日常生活。</p>
+  <div class="events"><span class="ev">彗星划过天空</span><span class="ev">三叶向往东京</span><span class="ev">泷学习建筑</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:19</span>
+    <h3>梦中初次交换</h3>
+  </div>
+  <p>三叶在梦中发现自己身处东京，以泷的身体醒来，对陌生的环境感到困惑。她发现自己是个男生，在陌生的房间醒来，还看到了镜子中的自己。与此同时，泷也在梦中发现自己身处乡村，以三叶的身体醒来，同样感到震惊。三叶在东京尝试使用泷的身体，去了学校，还与泷的朋友交流。泷在乡村则体验了三叶的日常生活，包括帮忙做家务和参加神社活动。两人都以为这只是梦，但梦中体验却异常真实。</p>
+  <div class="events"><span class="ev">三叶梦中变男生</span><span class="ev">泷梦中变女生</span><span class="ev">初次体验对方生活</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:19–00:29</span>
+    <h3>第3段</h3>
+  </div>
+  <p>三叶和泷继续经历梦中交换身体的生活。三叶在泷的身体里学会了使用筷子，还尝试给泷的朋友留下笔记。泷在三叶的身体里则学会了编织，还帮助三叶的朋友。三叶开始记录在东京的生活细节，包括泷的喜好和习惯。泷也记录了三叶的日常生活，包括她喜欢的食物和她的朋友们。两人开始在梦中交流，通过笔记和留言的方式了解对方。三叶对泷的生活越来越感兴趣，而泷也开始对三叶的乡村生活产生感情。</p>
+  <div class="events"><span class="ev">梦中交流</span><span class="ev">记录对方生活</span><span class="ev">编织与筷子</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:29–00:39</span>
+    <h3>第4段</h3>
+  </div>
+  <p>三叶和泷的梦中交换变得频繁，两人开始在梦中约定见面地点和时间。三叶在梦中来到东京的车站，等待泷的出现，但两人总是错过。泷也在梦中来到乡村的湖边，希望能见到三叶。三叶开始怀疑梦中的经历是否真实，她试图通过笔记和留言来确认对方的存在。同时，三叶的父亲宣布她将继承宫水神社的巫女职责，这让三叶更加不满。三叶决定在梦中告诉泷自己的真实身份，并询问泷的名字，但梦醒后她却忘记了这一切。</p>
+  <div class="events"><span class="ev">约定见面</span><span class="ev">错过彼此</span><span class="ev">神社巫女职责</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:39–00:48</span>
+    <h3>现实初遇确认</h3>
+  </div>
+  <p>泷在东京街头偶然看到一个女孩背影，觉得似曾相识，便追了上去。女孩回头，泷惊讶地发现她就是梦中三叶。两人简短交谈，泷确认三叶真实存在，三叶却对泷毫无印象。泷试图解释梦中之事，但三叶困惑不解。两人交换了联系方式，约定再次见面。泷兴奋不已，终于找到了梦中女孩，而三叶则对这场偶遇感到莫名的熟悉感。</p>
+  <div class="events"><span class="ev">泷追上三叶</span><span class="ev">确认对方存在</span><span class="ev">交换联系方式</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:48–00:58</span>
+    <h3>寻找对方下落</h3>
+  </div>
+  <p>泷回到东京后，开始寻找三叶的下落。他根据梦中记忆，查到三叶可能来自岐阜县系守町。泷向同事奥寺美纪求助，美纪帮他查询了相关资料。同时，三叶在乡村也感到困惑，她开始在梦中更加频繁地体验东京生活，并尝试记录下梦中的细节。三叶的朋友们发现她最近行为异常，特别是敕使河原注意到三叶经常在梦中提到东京的事情。</p>
+  <div class="events"><span class="ev">泷查询三叶信息</span><span class="ev">美纪协助查找</span><span class="ev">三叶记录梦境</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">00:58–01:07</span>
+    <h3>彗星灾难预兆</h3>
+  </div>
+  <p>泷在图书馆偶然发现系守町将在彗星坠落时被毁灭的新闻。他意识到三叶可能面临危险，决定立即前往系守町。与此同时，三叶在梦中看到彗星坠落的恐怖景象，她将这个梦告诉了朋友们。三叶的祖母宫水神社巫女告诉她，彗星坠落每120年发生一次，而她们家族与这个现象有着神秘的联系。三叶开始怀疑自己与泷的梦中交换可能不仅仅是巧合。</p>
+  <div class="events"><span class="ev">泷发现彗星新闻</span><span class="ev">三叶预知灾难</span><span class="ev">巫女揭示联系</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:07–01:17</span>
+    <h3>时间循环秘密</h3>
+  </div>
+  <p>宫水巫女向三叶解释了口嚼酒的秘密，喝了这种酒后可以连接过去与现在。三叶意识到自己和泷可能通过某种方式跨越了时间。她决定尝试拯救即将被彗星摧毁的家乡。同时，泷也赶到了系守町，但发现这里的一切都与他梦中见到的不同。他四处寻找三叶，却遇到了三叶的朋友敕使河原。两人交谈中，泷逐渐理解了自己与三叶之间的联系，以及即将到来的灾难。</p>
+  <div class="events"><span class="ev">巫女解释口嚼酒</span><span class="ev">三叶决定拯救</span><span class="ev">泷抵达系守町</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:17–01:27</span>
+    <h3>彗星灾难预警</h3>
+  </div>
+  <p>泷到达系守町，发现小镇已被彗星摧毁的痕迹。他四处寻找三叶，却无人认识这个名字。在宫水神社，泷遇到巫女，得知三叶已在三年前的彗星灾难中去世。泷不相信，决定回到灾难发生的当天。三叶和朋友们计划拯救小镇，他们试图疏散居民，但无人相信彗星会坠落。三叶决定喝下口嚼酒，尝试与泷取得联系，但未能成功。</p>
+  <div class="events"><span class="ev">泷到达系守町</span><span class="ev">发现彗星痕迹</span><span class="ev">三叶已去世</span><span class="ev">尝试联系失败</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:27–01:36</span>
+    <h3>时间线重逢</h3>
+  </div>
+  <p>泷在彗星坠落当天的神社中醒来，发现自己回到了过去。他急忙赶往小镇，试图警告人们撤离。三叶和朋友们也意识到灾难即将来临，决定组织疏散。在混乱中，泷终于找到了三叶，两人相认并决定一起拯救镇民。他们分头行动，泷前往神社关闭结界，三叶带领居民撤离。在彗星即将坠落的最后一刻，泷成功完成了使命，但三叶却被彗星的碎片击中。泷抱着三叶，两人交换了名字，三叶在泷怀中消失。泷醒来后发现自己回到了东京，失去了关于三叶的记忆，但心中始终有一种莫名的牵挂。</p>
+  <div class="events"><span class="ev">泷回到过去</span><span class="ev">三叶泷相认</span><span class="ev">组织居民撤离</span><span class="ev">三叶被彗星击中</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:36–01:46</span>
+    <h3>彗星之夜的重逢</h3>
+  </div>
+  <p>泷终于找到了三叶，两人在神社中相遇，通过手腕上的绳结确认了彼此的身份。泷向三叶解释了他们跨越时空的相遇，以及三叶在彗星灾难中去世的事实。三叶决定接受命运，但泷坚持要改变历史。两人一起回到神社，喝下宫水巫女准备的口嚼酒，成功连接到三年前的彗星坠落时刻。他们发现彗星分裂成两半，一块坠落在小镇，另一块则被大气层燃烧殆尽。三叶建议让全镇居民疏散到神社，而泷则用绳子绑住自己的手腕，与三叶一起返回现实。</p>
+  <div class="events"><span class="ev">绳结确认身份</span><span class="ev">喝口嚼酒连接过去</span><span class="ev">发现彗星分裂</span><span class="ev">居民疏散计划</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>三叶与泷首次在现实中相遇，确认对方存在</td></tr><tr><td>约第45分钟</td><td>宫水巫女揭示口嚼酒与时间循环秘密</td></tr><tr><td>约第60分钟</td><td>彗星即将毁灭小镇，三叶等人决定拯救</td></tr><tr><td>约第75分钟</td><td>泷与三叶在时间线中失去联系</td></tr><tr><td>约第90分钟</td><td>彗星之夜，两人终于重逢相认</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">命运与选择</span><span class="theme">时空交错</span><span class="theme">灾难与拯救</span><span class="theme">青春与成长</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">彗星灾难被改变，小镇得救。多年后，泷与三叶在东京街头重逢，两人相认并交换姓名。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-06 16:43 · 模型 glm-4-air,glm-4-flash · 共 11 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
