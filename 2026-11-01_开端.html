@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>开端 · 分段故事梗概 · 2026-11-01</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>开端<span class="year">2022</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-01</span><span class="chip">电视剧</span><span class="chip">中国</span><span class="chip">悬疑/科幻</span><span class="chip">2022</span><span class="chip">电视剧共 15 集，单集约 45 分钟，每集拆 2 段，全剧共 30 段</span><span class="chip">现代中国城市</span></div>
+    <div class="logline">李诗情和肖鹤云在公交车爆炸中陷入时间循环，必须找出爆炸真相并打破循环，拯救车上所有人的生命。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 30 段</h2>
+      <ol><li><a href="#seg1">循环初体验</a></li>
+<li><a href="#seg2">联手调查线索</a></li>
+<li><a href="#seg3">第3段</a></li>
+<li><a href="#seg4">第4段</a></li>
+<li><a href="#seg5">肖鹤云加入调查</a></li>
+<li><a href="#seg6">关键线索浮现</a></li>
+<li><a href="#seg7">循环次数增加</a></li>
+<li><a href="#seg8">身份逐渐暴露</a></li>
+<li><a href="#seg9">卢笛身份疑云</a></li>
+<li><a href="#seg10">肖鹤云遇险</a></li>
+<li><a href="#seg11">马国兴现身</a></li>
+<li><a href="#seg12">陶映红身份曝光</a></li>
+<li><a href="#seg13">卢笛的秘密</a></li>
+<li><a href="#seg14">陶映红的动机</a></li>
+<li><a href="#seg15">马国兴的关联</a></li>
+<li><a href="#seg16">阻止计划制定</a></li>
+<li><a href="#seg17">陶映红现身</a></li>
+<li><a href="#seg18">炸弹位置锁定</a></li>
+<li><a href="#seg19">循环中的较量</a></li>
+<li><a href="#seg20">真相与抉择</a></li>
+<li><a href="#seg21">炸弹拆除受阻</a></li>
+<li><a href="#seg22">循环中的较量</a></li>
+<li><a href="#seg23">真相与抉择</a></li>
+<li><a href="#seg24">身份曝光</a></li>
+<li><a href="#seg25">生死时速</a></li>
+<li><a href="#seg26">炸弹拆除危机</a></li>
+<li><a href="#seg27">生死对峙</a></li>
+<li><a href="#seg28">真相与救赎</a></li>
+<li><a href="#seg29">生死抉择</a></li>
+<li><a href="#seg30">循环终结</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">李诗情</span><span class="r">主角</span></div><div class="d">大学生，意外获得时间循环能力，寻求真相</div></div>
+<div class="person"><div><span class="n">肖鹤云</span><span class="r">主角</span></div><div class="d">游戏设计师，与李诗情共同破解循环</div></div>
+<div class="person"><div><span class="n">卢笛</span><span class="r">关键配角</span></div><div class="d">公交车司机，隐藏着不为人知的秘密</div></div>
+<div class="person"><div><span class="n">陶映红</span><span class="r">对手</span></div><div class="d">复仇者，策划公交车爆炸</div></div>
+<div class="person"><div><span class="n">张成</span><span class="r">关键配角</span></div><div class="d">警察，追查爆炸案真相</div></div>
+<div class="person"><div><span class="n">马国兴</span><span class="r">关键配角</span></div><div class="d">公交车乘客，与爆炸案有关</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">循环开始</span><span class="ds">李诗情和肖鹤云遭遇爆炸，发现时间循环</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">探索真相</span><span class="ds">两人调查车上乘客，寻找爆炸线索</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">危机升级</span><span class="ds">循环次数增加，乘客身份逐渐暴露</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">真相大白</span><span class="ds">发现陶映红复仇动机，准备阻止爆炸</span></div>
+<div class="act"><span class="idx">05</span><span class="nm">结局抉择</span><span class="ds">打破循环，面对新的生活挑战</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·上</span>
+    <h3>循环初体验</h3>
+  </div>
+  <p>大学生李诗情乘坐公交车去参加面试，途中遭遇公交车爆炸。她惊恐地发现自己回到了早晨，再次乘坐同一辆公交车，再次经历爆炸。这种循环让她感到困惑和恐惧。第二次循环中，她尝试改变自己的行动，提前下车，却发现自己仍被带回车上，经历爆炸。第三次循环中，她注意到一名男子肖鹤云也表现出同样的困惑，似乎也在经历相同的时间循环。两人开始交流，确认彼此都经历了多次爆炸和重生。</p>
+  <div class="events"><span class="ev">李诗情遇爆炸</span><span class="ev">发现时间循环</span><span class="ev">遇见肖鹤云</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·下</span>
+    <h3>联手调查线索</h3>
+  </div>
+  <p>李诗情和肖鹤云意识到他们被困在时间循环中，必须找出爆炸真相才能打破循环。两人决定合作调查车上乘客。他们注意到公交车司机卢笛行为异常，接电话时表情紧张。同时，他们发现一名乘客马国兴偷偷观察卢笛。李诗情尝试与卢笛交谈，但对方反应冷淡。在一次循环中，肖鹤云试图提前疏散乘客，却遭到其他乘客的质疑和嘲笑。循环再次重启，两人意识到必须在有限时间内找到关键线索。李诗情发现公交车上有可疑包裹，但位置在每次循环中都会变化。</p>
+  <div class="events"><span class="ev">合作调查乘客</span><span class="ev">发现可疑包裹</span><span class="ev">卢笛行为异常</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第2集·上</span>
+    <h3>第3段</h3>
+  </div>
+  <p>李诗情和肖鹤云继续调查公交车上的可疑人物。他们注意到一名女乘客陶映红经常接听电话，情绪激动。在一次循环中，肖鹤云试图接近陶映红，却被她拒绝。两人还发现一名乘客张成是警察，似乎也在暗中调查什么。李诗情尝试与张成交谈，但对方不愿透露信息。随着循环次数增加，两人开始记录每次循环中的变化，试图找出规律。他们发现每次循环中，卢笛都会在特定时间接听一个神秘电话，接完电话后表情变得异常。</p>
+  <div class="events"><span class="ev">发现陶映红异常</span><span class="ev">接触警察张成</span><span class="ev">记录循环变化</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·下</span>
+    <h3>第4段</h3>
+  </div>
+  <p>李诗情和肖鹤云决定分头行动，调查不同可疑人物。李诗情继续关注卢笛，发现他在接电话后会偷偷查看一个黑色背包。肖鹤云则跟踪陶映红，发现她经常去一家医院。在一次循环中，两人试图在爆炸前找到并拆除可疑物品，但因时间不够而失败。循环重启后，他们决定改变策略，尝试在爆炸发生后寻找线索。他们发现每次爆炸后，卢笛的背包都会多出一个计时器。两人意识到时间紧迫，必须在下一次循环中找到阻止爆炸的方法。张成警官开始注意到两人的异常行为，开始暗中调查他们。</p>
+  <div class="events"><span class="ev">发现计时器</span><span class="ev">医院调查线索</span><span class="ev">张成暗中调查</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第3集·上</span>
+    <h3>肖鹤云加入调查</h3>
+  </div>
+  <p>李诗情和肖鹤云正式合作调查公交车爆炸案。肖鹤云相信自己也是循环者，决定帮助李诗情找出真相。两人开始系统记录每次循环中乘客的异常行为，发现卢笛接电话后总是显得心事重重，而陶映红则频繁接听电话并情绪激动。在一次循环中，肖鹤云故意制造小混乱，观察所有乘客的反应，发现一名叫马国兴的乘客对异常情况格外关注。两人决定分头行动，李诗情继续跟踪卢笛，肖鹤云则调查陶映红和马国兴。</p>
+  <div class="events"><span class="ev">肖鹤云确认循环</span><span class="ev">记录乘客异常</span><span class="ev">分头调查线索</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第3集·下</span>
+    <h3>关键线索浮现</h3>
+  </div>
+  <p>李诗情发现卢笛在接电话后会偷偷查看一个黑色背包，里面似乎装有某种电子设备。肖鹤云跟踪陶映红到一家医院，发现她与一名医生激烈争执，情绪失控。在一次循环中，肖鹤云试图与马国兴交谈，但对方反应冷淡。两人还注意到公交车上有两名乘客似乎互相认识，但每次循环都刻意保持距离。李诗情和肖鹤云开始怀疑爆炸可能与医疗纠纷有关，陶映红可能是受害者家属。他们决定在下一次循环中更密切观察这些可疑人物，寻找更多证据。</p>
+  <div class="events"><span class="ev">卢笛藏有电子设备</span><span class="ev">陶映红医院争执</span><span class="ev">发现乘客关联性</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第4集·上</span>
+    <h3>循环次数增加</h3>
+  </div>
+  <p>李诗情和肖鹤云经历了更多次循环，开始感到疲惫和精神压力。卢笛的异常行为更加明显，他接电话时会离开驾驶座，长时间不在驾驶位。肖鹤云发现马国兴每次都会在特定站点下车，且总是带着一个公文包。在一次循环中，李诗情冒险接近陶映红，发现她手机里存着一张孩子的照片，表情悲伤。两人还注意到公交车上有乘客对卢笛的异常行为有所察觉，但选择沉默。李诗情和肖鹤云开始怀疑车上有人知道内情但选择隐瞒。</p>
+  <div class="events"><span class="ev">循环次数增加</span><span class="ev">卢笛行为明显</span><span class="ev">发现陶映红照片</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第4集·下</span>
+    <h3>身份逐渐暴露</h3>
+  </div>
+  <p>在一次循环中，肖鹤云意外与马国兴发生冲突，发现对方有一定的格斗能力。李诗情发现卢笛接电话的内容与公交路线调整有关，怀疑有人故意制造事故。陶映红的情绪波动越来越大，在一次循环中甚至当众哭泣。李诗情和肖鹤云意识到时间有限，决定采取更直接的方式调查。肖鹤云故意在公交车上制造混乱，试图引出真相。结果发现马国兴似乎与卢笛认识，两人之间有某种交易。李诗情和肖鹤云开始怀疑爆炸可能与这两人的秘密有关。</p>
+  <div class="events"><span class="ev">马国兴格斗能力</span><span class="ev">卢笛路线异常</span><span class="ev">发现乘客交易</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第5集·上</span>
+    <h3>卢笛身份疑云</h3>
+  </div>
+  <p>李诗情和肖鹤云决定分头行动，调查卢笛和陶映红。李诗情假装乘客接近卢笛，发现他每次接电话后都会紧张地查看黑色背包。肖鹤云则跟踪陶映红到她工作的学校，发现她是一名心理辅导老师，正在对一名学生进行特殊辅导。李诗情在一次循环中故意制造混乱，接近卢笛的背包，发现里面有一个自制定时装置。卢笛察觉到李诗情的异常，开始警觉起来。肖鹤云通过调查发现陶映红有一个女儿多年前在公交车事故中丧生，怀疑她的复仇与此有关。两人决定在下一轮循环中更加密切地监视这两个人。</p>
+  <div class="events"><span class="ev">发现定时装置</span><span class="ev">陶映红身份曝光</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第5集·下</span>
+    <h3>肖鹤云遇险</h3>
+  </div>
+  <p>在一次循环中，肖鹤云试图接近卢笛的背包时被发现，卢笛将他带到无人处质问。肖鹤情急之下透露自己知道公交车爆炸的事，卢笛震惊不已。与此同时，李诗情发现陶映红正在学校准备某种化学物质，可能与爆炸物有关。肖鹤云说服卢笛合作，透露自己也在经历时间循环，两人达成暂时同盟。卢笛承认他的确在接听神秘电话，但坚持自己与爆炸无关。李诗情通过观察发现马国兴与卢笛有过秘密接触，怀疑两人可能有关联。循环结束时，肖鹤云和李诗情决定下次循环中重点关注马国兴和卢笛的关系，以及陶映红的化学物质用途。</p>
+  <div class="events"><span class="ev">肖鹤云被劫持</span><span class="ev">化学物质发现</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第6集·上</span>
+    <h3>马国兴现身</h3>
+  </div>
+  <p>新一轮循环开始，李诗情和肖鹤云更加系统地收集信息。李诗情注意到马国兴每次都会在特定站点下车，并且会与一个神秘人物短暂会面。肖鹤云则发现卢笛接电话的内容与公交路线调整有关，而且对方似乎在指挥他做什么。在一次循环中，肖鹤云故意制造事故，让公交车延误，观察到卢笛因此变得异常焦虑。李诗情通过调查发现马国兴是一名前警察，因调查一起公交车腐败案而被开除，这让他对公交车系统怀有仇恨。陶映红的行为变得更加异常，她开始频繁进出公交调度中心。李诗情和肖鹤云意识到，马国兴、卢笛和陶映红可能有着共同的复仇目标，他们必须找出三人的具体计划。</p>
+  <div class="events"><span class="ev">马国兴身份揭露</span><span class="ev">路线调整疑云</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第6集·下</span>
+    <h3>陶映红身份曝光</h3>
+  </div>
+  <p>李诗情和肖鹤云继续调查，发现陶映红是马国兴的前妻，因女儿在学校被霸凌而精神崩溃。李诗情冒险接近陶映红，套出她策划爆炸是为了报复那些伤害过她女儿的人。同时，肖鹤云发现卢笛是陶映红的帮手，负责在公交车上放置炸弹。两人意识到时间紧迫，必须在下一次循环中找到炸弹并拆除。李诗情决定冒险与陶映红对峙，试图说服她放弃复仇计划。肖鹤云则集中精力寻找卢笛的背包，确认炸弹位置。两人分工合作，为阻止爆炸做最后准备。</p>
+  <div class="events"><span class="ev">陶映红身份揭露</span><span class="ev">复仇动机曝光</span><span class="ev">炸弹位置确认</span><span class="ev">对峙计划制定</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第7集·上</span>
+    <h3>卢笛的秘密</h3>
+  </div>
+  <p>李诗情和肖鹤云在公交车上继续调查卢笛。李诗情注意到卢笛的黑色背包异常沉重，每次接电话后都会紧张地检查它。肖鹤云则发现卢笛接电话的内容与公交路线有关，似乎在确认时间点。在一次循环中，李诗情冒险靠近卢笛的背包，发现里面藏有电子设备和计时器。与此同时，肖鹤云跟踪卢笛下车，发现他前往一处偏僻的仓库。两人决定分头行动，李诗情继续观察车上其他乘客，肖鹤云则前往仓库探查。卢笛察觉到有人在跟踪他，行为变得更加警惕。</p>
+  <div class="events"><span class="ev">背包藏秘密</span><span class="ev">跟踪去仓库</span><span class="ev">发现电子设备</span><span class="ev">卢笛警惕提升</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第7集·下</span>
+    <h3>陶映红的动机</h3>
+  </div>
+  <p>肖鹤云潜入卢笛的仓库，发现里面堆满了制作炸弹的材料和公交路线图。他正要拍照取证时被卢笛发现，两人对峙中肖鹤云被制服。与此同时，李诗情在公交车上发现陶映红情绪异常，她正在用手机记录着什么。新一轮循环开始后，李诗情决定直接与陶映红对话，质问她为何要策划爆炸。陶映红情绪激动，透露她的女儿因公交车事故丧生，而肇事司机正是马国兴。陶映红声称这是她复仇计划的一部分。李诗情和肖鹤云意识到时间紧迫，必须找到阻止爆炸的方法。</p>
+  <div class="events"><span class="ev">仓库发现炸弹</span><span class="ev">陶映红坦白</span><span class="ev">女儿复仇动机</span><span class="ev">寻找阻止方法</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第8集·上</span>
+    <h3>马国兴的关联</h3>
+  </div>
+  <p>李诗情和肖鹤云开始调查马国兴与陶映红女儿的关联。他们发现马国兴是一名公交车司机，曾在一次事故中导致多人伤亡，其中包括陶映红的女儿。张成警官也在调查这起旧案，发现马国兴当时存在酒驾嫌疑，但证据不足。李诗情在一次循环中故意接近马国兴，发现他对陶映红的女儿有愧疚之情。肖鹤云则查到马国兴与卢笛有过接触，卢笛可能是受雇于陶映红。两人意识到陶映红利用了卢笛对马国兴的仇恨，让他成为执行爆炸计划的工具。</p>
+  <div class="events"><span class="ev">马国兴酒驾疑点</span><span class="ev">愧疚心理暴露</span><span class="ev">卢笛受雇于人</span><span class="ev">仇恨利用链条</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第8集·下</span>
+    <h3>阻止计划制定</h3>
+  </div>
+  <p>李诗情和肖鹤云决定分头行动，李诗情继续在公交车上收集信息，肖鹤云则前往陶映红可能出现的地点。李诗情发现卢笛在车上安装了炸弹，定时器设在下午三点。肖鹤云找到陶映红，试图说服她放弃复仇，但陶映红执意不肯。在新一轮循环中，两人制定了详细计划：李诗情负责疏散乘客并解除炸弹，肖鹤云则负责拖延时间并寻找陶映红。张成警官根据李诗情的匿名举报开始调查马国兴的旧案。卢笛察觉到计划有变，提前启动了炸弹倒计时，情况变得更加危急。</p>
+  <div class="events"><span class="ev">发现炸弹位置</span><span class="ev">说服陶映红失败</span><span class="ev">制定阻止计划</span><span class="ev">炸弹倒计时启动</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第9集·上</span>
+    <h3>陶映红现身</h3>
+  </div>
+  <p>肖鹤云找到陶映红，质问她为何要策划公交车爆炸。陶映红情绪激动，承认自己是为了报复马国兴，因为马国兴驾驶的公交车曾导致她女儿死亡。肖鹤云试图劝阻，但陶映红不为所动。与此同时，李诗情在公交车上发现卢笛行为异常，暗中跟踪他。卢笛察觉到李诗情的监视，开始对她产生怀疑。李诗情与肖鹤云通过电话沟通，决定联手阻止爆炸。两人计划在炸弹引爆前找到并拆除炸弹，同时也要阻止陶映红的复仇计划。张成警官根据线索追踪到陶映红的藏身之处，但被陶映红逃脱。</p>
+  <div class="events"><span class="ev">陶映红认罪</span><span class="ev">肖李沟通</span><span class="ev">张成追踪</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第9集·下</span>
+    <h3>炸弹位置锁定</h3>
+  </div>
+  <p>李诗情在公交车上仔细搜寻，终于发现炸弹被藏在座椅下方。她记下炸弹的位置和定时器设置，准备在下一次循环中拆除。肖鹤云则继续调查陶映红的背景，发现她曾是大学教授，女儿死后精神崩溃。卢笛对李诗情产生怀疑，开始暗中监视她的一举一动。李诗情察觉到卢笛的监视，设法摆脱他的跟踪。两人再次循环开始，李诗情和肖鹤云决定在下一次循环中采取行动。他们制定了详细的计划，李诗情负责在公交车上拆除炸弹，肖鹤云则负责阻止陶映红。张成警官通过调查发现马国兴与陶映红女儿的死亡确实有关，但认为马国兴并非直接责任人。</p>
+  <div class="events"><span class="ev">炸弹被发现</span><span class="ev">卢笛监视</span><span class="ev">计划制定</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">第10集·上</span>
+    <h3>循环中的较量</h3>
+  </div>
+  <p>新一轮循环开始，李诗情和肖鹤云按照计划行动。李诗情在公交车上寻找机会拆除炸弹，但卢笛的严密监视让她难以施展。肖鹤云前往陶映红可能出现的地方，但陶映红早已转移。张成警官继续调查公交车爆炸案，发现了一些可疑线索。李诗情发现卢笛在车上安装了第二个炸弹，位置更加隐蔽。她将这一信息告知肖鹤云，两人调整计划。陶映红突然出现在公交车上，引起乘客骚动。李诗情趁机寻找拆除第一个炸弹的机会，但被卢笛发现。两人对峙中，李诗情巧妙地分散了卢笛的注意力，成功拆除了第一个炸弹。</p>
+  <div class="events"><span class="ev">双炸弹发现</span><span class="ev">李卢对峙</span><span class="ev">第一个拆除</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">第10集·下</span>
+    <h3>真相与抉择</h3>
+  </div>
+  <p>李诗情成功拆除第一个炸弹后，肖鹤云赶到现场与她会合。两人决定联手对付卢笛和陶映红。张成警官根据线索追踪到陶映红的藏身之处，准备实施抓捕。陶映红在公交车上情绪失控，准备引爆第二个炸弹。李诗情和肖鹤云发现第二个炸弹被藏在车顶，必须在爆炸前拆除。肖鹤云冒险爬上车顶，成功拆除炸弹。与此同时，张成警官逮捕了陶映红。卢笛试图逃跑，但被张成抓获。公交车爆炸危机解除，李诗情和肖鹤云成功打破时间循环。两人经历多次循环后，关系变得更加亲密，决定共同面对未来的挑战。车上乘客的秘密也逐渐被揭开，每个人都面临自己的抉择。</p>
+  <div class="events"><span class="ev">双炸弹拆除</span><span class="ev">陶映红被捕</span><span class="ev">循环打破</span></div>
+</section>
+
+<section class="seg" id="seg21">
+  <div class="head">
+    <span class="no">第 21 段</span>
+    <span class="tm">第11集·上</span>
+    <h3>炸弹拆除受阻</h3>
+  </div>
+  <p>李诗情在公交车上寻找机会拆除炸弹，但卢笛的严密监视让她难以施展。肖鹤云前往陶映红可能出现的地方，但陶映红早已转移。张成警官根据线索追踪到陶映红的藏身之处，准备实施抓捕。陶映红在公交车上情绪失控，对乘客表现出异常的关注。李诗情和肖鹤云意识到时间紧迫，决定改变策略，试图在循环中找到更多关于陶映红的信息。</p>
+  <div class="events"><span class="ev">监视严密</span><span class="ev">陶映红转移</span><span class="ev">情绪失控</span><span class="ev">改变策略</span></div>
+</section>
+
+<section class="seg" id="seg22">
+  <div class="head">
+    <span class="no">第 22 段</span>
+    <span class="tm">第11集·下</span>
+    <h3>循环中的较量</h3>
+  </div>
+  <p>新一轮循环开始，李诗情和肖鹤云按照计划行动。李诗情在公交车上寻找机会拆除炸弹，但卢笛的严密监视让她难以施展。肖鹤云前往陶映红可能出现的地方，但陶映红早已转移。张成警官根据线索追踪到陶映红的藏身之处，准备实施抓捕。陶映红在公交车上情绪失控，对乘客表现出异常的关注。李诗情和肖鹤云意识到时间紧迫，决定改变策略，试图在循环中找到更多关于陶映红的信息。</p>
+  <div class="events"><span class="ev">循环重启</span><span class="ev">计划行动</span><span class="ev">转移藏身</span><span class="ev">情绪失控</span></div>
+</section>
+
+<section class="seg" id="seg23">
+  <div class="head">
+    <span class="no">第 23 段</span>
+    <span class="tm">第12集·上</span>
+    <h3>真相与抉择</h3>
+  </div>
+  <p>李诗情成功拆除第一个炸弹后，肖鹤云赶到现场与她会合。两人决定联手对付卢笛和陶映红。张成警官根据线索追踪到陶映红的藏身之处，准备实施抓捕。陶映红在公交车上情绪失控，暗示她的女儿曾遭遇不公。李诗情和肖鹤云开始调查陶映红的背景，发现她曾是大学教授，女儿因校园暴力自杀。他们意识到陶映红的复仇动机与公交车上的某位乘客有关。</p>
+  <div class="events"><span class="ev">拆除炸弹</span><span class="ev">联手行动</span><span class="ev">追踪藏身</span><span class="ev">背景调查</span></div>
+</section>
+
+<section class="seg" id="seg24">
+  <div class="head">
+    <span class="no">第 24 段</span>
+    <span class="tm">第12集·下</span>
+    <h3>身份曝光</h3>
+  </div>
+  <p>李诗情和肖鹤云发现陶映红身份曝光，揭露复仇动机。陶映红在公交车上情绪崩溃，承认自己策划爆炸是为了报复导致女儿死亡的乘客。张成警官赶到现场，准备逮捕陶映红。卢笛试图阻止警察，被制服。李诗情和肖鹤云意识到必须找到陶映红放置的第二个炸弹，否则爆炸仍会发生。两人开始在公交车和周围区域紧急搜寻，时间一分一秒过去。</p>
+  <div class="events"><span class="ev">身份曝光</span><span class="ev">情绪崩溃</span><span class="ev">准备逮捕</span><span class="ev">搜寻炸弹</span></div>
+</section>
+
+<section class="seg" id="seg25">
+  <div class="head">
+    <span class="no">第 25 段</span>
+    <span class="tm">第13集·上</span>
+    <h3>生死时速</h3>
+  </div>
+  <p>李诗情和肖鹤云在公交车上与陶映红对峙，试图阻止爆炸发生。陶映红情绪激动，手持引爆器威胁所有人。肖鹤云试图与陶映红谈判，了解她的复仇动机。李诗情暗中寻找炸弹位置，但陶映红时刻警惕，不给她任何机会。张成警官带领警力赶到，但不敢贸然行动，以免刺激陶映红引爆炸弹。车上乘客陷入恐慌，卢笛试图控制局面，但也被陶映红挟持。李诗情发现炸弹就在公交车座椅下，时间紧迫，她必须想出办法拆除炸弹同时确保所有人安全。肖鹤云继续与陶映红周旋，试图分散她的注意力，为李诗情创造机会。</p>
+  <div class="events"><span class="ev">对峙陶映红</span><span class="ev">寻找炸弹</span><span class="ev">警方赶到</span><span class="ev">乘客恐慌</span></div>
+</section>
+
+<section class="seg" id="seg26">
+  <div class="head">
+    <span class="no">第 26 段</span>
+    <span class="tm">第13集·下</span>
+    <h3>炸弹拆除危机</h3>
+  </div>
+  <p>李诗情在公交车座位下方发现第二个炸弹，时间紧迫。肖鹤云与陶映红对峙，试图分散她的注意力。李诗情迅速拆除炸弹，但陶映红情绪失控，准备引爆装置。张成警官带领警察赶到现场，与肖鹤云联手制服陶映红。卢笛试图逃跑，被张成抓获。公交车上的乘客惊魂未定，李诗情和肖鹤云成功阻止了第二次爆炸。陶映红被带走前，透露自己还有后手，暗示爆炸计划并未完全结束。李诗情和肖鹤云意识到危机尚未解除，必须找出陶映红最后的手段。</p>
+  <div class="events"><span class="ev">发现炸弹</span><span class="ev">拆除成功</span><span class="ev">制服陶映红</span><span class="ev">危机未解</span></div>
+</section>
+
+<section class="seg" id="seg27">
+  <div class="head">
+    <span class="no">第 27 段</span>
+    <span class="tm">第14集·上</span>
+    <h3>生死对峙</h3>
+  </div>
+  <p>张成警官带领特警队迅速包围公交车，与肖鹤云和李诗情形成里应外合之势。肖鹤云继续与陶映红对话，试图了解她的完整复仇动机。陶映红情绪激动，透露她的女儿小雅因公交车事故去世，而车上乘客马国兴正是肇事司机。李诗情暗中观察乘客反应，发现马国兴神色慌张。肖鹤云提出让陶映红放下仇恨，承诺会为她讨回公道。陶映红陷入挣扎，手中的引爆器时紧时松。李诗情趁机向张成传递信息，指出炸弹可能不止一个。特警队准备破门而入，肖鹤云继续拖延时间，希望找到拆除炸弹的方法。陶映红突然情绪崩溃，大喊着要所有人陪葬。</p>
+  <div class="events"><span class="ev">特警包围</span><span class="ev">对峙拖延</span><span class="ev">揭露真相</span></div>
+</section>
+
+<section class="seg" id="seg28">
+  <div class="head">
+    <span class="no">第 28 段</span>
+    <span class="tm">第14集·下</span>
+    <h3>真相与救赎</h3>
+  </div>
+  <p>陶映红情绪崩溃，讲述女儿小雅因公交车司机卢笛的疏忽而丧生的往事。卢笛承认自己当时疲劳驾驶，但拒绝认罪。肖鹤云试图劝解陶映红，李诗情则寻找剩余炸弹。张成警官下令疏散乘客，特警队准备强攻。在最后一刻，李诗情发现最后一个炸弹藏在车顶通风口，肖鹤云冒险拆除。陶映红在女儿照片前情绪崩溃，放弃引爆。警察逮捕陶映红，卢笛也被带走调查。李诗情和肖鹤云终于打破时间循环，公交车恢复正常运行，车上乘客的生命得以保全。</p>
+  <div class="events"><span class="ev">陶映红道出真相</span><span class="ev">李诗情拆除炸弹</span><span class="ev">时间循环打破</span></div>
+</section>
+
+<section class="seg" id="seg29">
+  <div class="head">
+    <span class="no">第 29 段</span>
+    <span class="tm">第15集·上</span>
+    <h3>生死抉择</h3>
+  </div>
+  <p>李诗情在公交车座位下发现第二个炸弹，肖鹤云与陶映红对峙，试图说服她放弃复仇。陶映红情绪激动，手持引爆器威胁引爆。李诗情试图拆除炸弹，但时间紧迫。张成警官带领特警赶到现场，准备强行突入。卢笛突然出现，试图帮助陶映红，却被肖鹤云制服。陶映红女儿的照片从她口袋中掉落，引发众人同情。李诗情成功拆除炸弹，但陶映红仍不放弃，声称还有第三个炸弹。肖鹤云试图安抚陶映红，了解她的完整复仇计划。张成警官下令疏散乘客，但李诗情意识到还有更危险的事情即将发生。</p>
+  <div class="events"><span class="ev">发现炸弹</span><span class="ev">对峙陶映红</span><span class="ev">拆除炸弹</span><span class="ev">第三个威胁</span></div>
+</section>
+
+<section class="seg" id="seg30">
+  <div class="head">
+    <span class="no">第 30 段</span>
+    <span class="tm">第15集·下</span>
+    <h3>循环终结</h3>
+  </div>
+  <p>李诗情和肖鹤云发现陶映红将第三个炸弹绑在自己身上，准备与公交车同归于尽。陶映红讲述女儿被公交车撞死的真相，情绪崩溃。肖鹤云试图与陶映红谈判，劝她放下仇恨。李诗情发现陶映红女儿的死亡与马国兴有关。张成警官找到马国兴，质问他当年的责任。马国兴承认自己酒后驾驶，但坚称是意外。陶映红得知真相后情绪更加激动，准备引爆炸弹。李诗情和肖鹤云在最后一刻成功制服陶映红，拆除炸弹。时间循环终于打破，公交车安全到站。李诗情和肖鹤云走出车厢，面对新的生活，车上乘客的秘密也逐渐被揭开。</p>
+  <div class="events"><span class="ev">第三个炸弹</span><span class="ev">真相揭露</span><span class="ev">制服陶映红</span><span class="ev">循环结束</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集</td><td>李诗情首次经历爆炸，发现时间循环</td></tr><tr><td>第5集</td><td>肖鹤云加入调查，两人合作破解循环</td></tr><tr><td>第9集</td><td>发现卢笛与爆炸案的关联</td></tr><tr><td>第12集</td><td>陶映红身份曝光，揭露复仇动机</td></tr><tr><td>第14集</td><td>找到阻止爆炸的方法，准备行动</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">时间循环</span><span class="theme">复仇与宽恕</span><span class="theme">人性探索</span><span class="theme">命运与选择</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">李诗情和肖鹤云成功阻止爆炸，打破时间循环，但两人面临新的生活挑战，车上乘客的秘密也逐渐被揭开。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-01 07:28 · 模型 glm-4-air,glm-4-flash · 共 30 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

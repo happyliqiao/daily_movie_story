@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>觉醒年代 · 分段故事梗概 · 2026-10-28</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>觉醒年代<span class="year">2021</span></h1>
+    <div class="chips"><span class="chip hot">2026-10-28</span><span class="chip">电视剧</span><span class="chip">中国</span><span class="chip">历史/革命</span><span class="chip">2021</span><span class="chip">电视剧共 43 集，单集约 45 分钟，每集拆 2 段，全剧共 86 段</span><span class="chip">1915-1921年中国</span></div>
+    <div class="logline">陈独秀、李大钊等知识分子在乱世中探索救国之路，经历思想碰撞与理想实践，最终点燃中国革命火种。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 86 段</h2>
+      <ol><li><a href="#seg1">陈独秀创办《新青年》</a></li>
+<li><a href="#seg2">北大革新与思想碰撞</a></li>
+<li><a href="#seg3">鲁迅与《狂人日记》</a></li>
+<li><a href="#seg4">李大钊发表《庶民的胜利》</a></li>
+<li><a href="#seg5">李大钊北大任教</a></li>
+<li><a href="#seg6">鲁迅创作《狂人日记》</a></li>
+<li><a href="#seg7">守旧派反击新文化</a></li>
+<li><a href="#seg8">新文化阵营扩大</a></li>
+<li><a href="#seg9">蔡元培主持北大改革</a></li>
+<li><a href="#seg10">白话文与文言文之争</a></li>
+<li><a href="#seg11">李大钊传播马克思主义</a></li>
+<li><a href="#seg12">李大钊发表《我的马克思主义观》</a></li>
+<li><a href="#seg13">北大校务会议争论</a></li>
+<li><a href="#seg14">鲁迅发表《狂人日记》</a></li>
+<li><a href="#seg15">李大钊研究马克思主义</a></li>
+<li><a href="#seg16">北大图书馆论战</a></li>
+<li><a href="#seg17">北大课堂改革受阻</a></li>
+<li><a href="#seg18">鲁迅演讲震动校园</a></li>
+<li><a href="#seg19">李大钊研读马克思主义</a></li>
+<li><a href="#seg20">思想交锋白热化</a></li>
+<li><a href="#seg21">李大钊发表马克思主义观</a></li>
+<li><a href="#seg22">陈独秀赴沪考察工人运动</a></li>
+<li><a href="#seg23">鲁迅创作《阿Q正传》</a></li>
+<li><a href="#seg24">毛泽东组织工人夜校</a></li>
+<li><a href="#seg25">陈独秀考察工人生活</a></li>
+<li><a href="#seg26">陈独秀与孙中山会晤</a></li>
+<li><a href="#seg27">毛泽东组织工人罢工</a></li>
+<li><a href="#seg28">鲁迅继续创作批判作品</a></li>
+<li><a href="#seg29">李大钊演讲遭冲击</a></li>
+<li><a href="#seg30">陈李转向马克思主义</a></li>
+<li><a href="#seg31">陈独秀南下考察</a></li>
+<li><a href="#seg32">陈独秀被捕入狱</a></li>
+<li><a href="#seg33">陈独秀获救出狱</a></li>
+<li><a href="#seg34">陈独秀出狱后演讲</a></li>
+<li><a href="#seg35">陈独秀李大钊深入交谈</a></li>
+<li><a href="#seg36">陈独秀转向马克思主义</a></li>
+<li><a href="#seg37">巴黎和会消息传回</a></li>
+<li><a href="#seg38">各地共产主义小组成立</a></li>
+<li><a href="#seg39">陈独秀出狱后的思想转变</a></li>
+<li><a href="#seg40">陈独秀出狱后演讲</a></li>
+<li><a href="#seg41">陈独秀赴上海</a></li>
+<li><a href="#seg42">上海共产主义小组成立</a></li>
+<li><a href="#seg43">李大钊指导青年</a></li>
+<li><a href="#seg44">各地建党筹备</a></li>
+<li><a href="#seg45">陈独秀被捕入狱</a></li>
+<li><a href="#seg46">陈独获释转向革命</a></li>
+<li><a href="#seg47">毛泽东湖南建党</a></li>
+<li><a href="#seg48">各地小组筹备建党</a></li>
+<li><a href="#seg49">陈独秀筹备建党</a></li>
+<li><a href="#seg50">建党方案确定</a></li>
+<li><a href="#seg51">陈独秀起草党纲</a></li>
+<li><a href="#seg52">李大钊组织马克思主义研究会</a></li>
+<li><a href="#seg53">陈独秀起草宣言</a></li>
+<li><a href="#seg54">宣言定稿</a></li>
+<li><a href="#seg55">陈独秀抵达广州</a></li>
+<li><a href="#seg56">陈独秀广州教育改革</a></li>
+<li><a href="#seg57">共产国际代表抵达</a></li>
+<li><a href="#seg58">各地代表汇聚上海</a></li>
+<li><a href="#seg59">陈独秀赴沪</a></li>
+<li><a href="#seg60">秘密筹备建党</a></li>
+<li><a href="#seg61">上海会议筹备</a></li>
+<li><a href="#seg62">陈独秀确立党纲</a></li>
+<li><a href="#seg63">党纲草案讨论</a></li>
+<li><a href="#seg64">党纲最终确定</a></li>
+<li><a href="#seg65">各地代表齐聚上海</a></li>
+<li><a href="#seg66">建党章程起草</a></li>
+<li><a href="#seg67">党纲最终确定</a></li>
+<li><a href="#seg68">中共一大于法租界召开</a></li>
+<li><a href="#seg69">上海会议召开</a></li>
+<li><a href="#seg70">分歧与讨论</a></li>
+<li><a href="#seg71">章程起草</a></li>
+<li><a href="#seg72">党章最终确立</a></li>
+<li><a href="#seg73">党章定稿争议</a></li>
+<li><a href="#seg74">代表们激烈讨论</a></li>
+<li><a href="#seg75">建党大会召开</a></li>
+<li><a href="#seg76">建党大会完成</a></li>
+<li><a href="#seg77">党纲最终确定</a></li>
+<li><a href="#seg78">代表表决通过</a></li>
+<li><a href="#seg79">会后分工安排</a></li>
+<li><a href="#seg80">革命火种燎原</a></li>
+<li><a href="#seg81">陈独秀南下广东</a></li>
+<li><a href="#seg82">李大钊北方建党</a></li>
+<li><a href="#seg83">工人运动蓬勃发展</a></li>
+<li><a href="#seg84">革命力量汇聚上海</a></li>
+<li><a href="#seg85">中共二大召开</a></li>
+<li><a href="#seg86">革命征程开启</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">陈独秀</span><span class="r">主角</span></div><div class="d">新文化运动领袖，探索救国道路</div></div>
+<div class="person"><div><span class="n">李大钊</span><span class="r">主角</span></div><div class="d">马克思主义传播者，革命实践者</div></div>
+<div class="person"><div><span class="n">胡适</span><span class="r">关键配角</span></div><div class="d">自由主义知识分子，思想论争者</div></div>
+<div class="person"><div><span class="n">毛泽东</span><span class="r">关键配角</span></div><div class="d">青年革命者，寻求真理</div></div>
+<div class="person"><div><span class="n">蔡元培</span><span class="r">关键配角</span></div><div class="d">北大校长，新文化支持者</div></div>
+<div class="person"><div><span class="n">鲁迅</span><span class="r">关键配角</span></div><div class="d">文学革命旗手，社会批判者</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">新文化兴起</span><span class="ds">陈独秀创办《新青年》，掀起思想解放浪潮</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">思想论争</span><span class="ds">马克思主义与自由主义激烈碰撞，各派争锋</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">五四觉醒</span><span class="ds">爱国学生运动爆发，民族意识全面觉醒</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">建党筹备</span><span class="ds">革命者汇聚力量，中国共产党诞生</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·上</span>
+    <h3>陈独秀创办《新青年》</h3>
+  </div>
+  <p>1915年，陈独秀在上海创办《青年杂志》，倡导民主与科学。他邀请李大钊撰稿，两人思想相契。杂志发表《敬告青年》一文，提出六点主张，引起社会广泛关注。陈独秀四处奔走筹集资金，面临经济困难仍坚持出版。蔡元培邀请陈独秀到北京大学任教，两人相谈甚欢。陈独秀接受邀请，准备北上。杂志更名为《新青年》，成为新文化运动的重要阵地。</p>
+  <div class="events"><span class="ev">创办杂志</span><span class="ev">发表主张</span><span class="ev">邀请撰稿</span><span class="ev">接受聘约</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·下</span>
+    <h3>北大革新与思想碰撞</h3>
+  </div>
+  <p>陈独秀到任北大文科学长，提出改革方案，整顿学风。他邀请胡适、鲁迅等学者到校任教，形成新文化阵营。胡适发表《文学改良刍议》，提倡白话文，与守旧派展开激烈辩论。蔡元培实行思想自由、兼容并包的办学方针，支持陈独秀的改革。学生们对新思想表现出浓厚兴趣，校园内思想活跃。李大钊到北大图书馆工作，与陈独秀共同探讨救国之道。新旧两派在校园内形成对立，思想交锋日益激烈。</p>
+  <div class="events"><span class="ev">北大改革</span><span class="ev">思想辩论</span><span class="ev">邀请学者</span><span class="ev">办学方针</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第2集·上</span>
+    <h3>鲁迅与《狂人日记》</h3>
+  </div>
+  <p>鲁迅应陈独秀邀请加入《新青年》，创作《狂人日记》。小说揭露封建礼教的吃人本质，引起强烈反响。鲁迅在北大任教，与学生们交流思想，批判旧文化。李大钊发表《庶民的胜利》，宣传十月革命。胡适与陈独秀在文学革命问题上产生分歧，胡适主张渐进改良，陈独秀支持激进变革。学生们组织社团，传播新思想。守旧派攻击新文化运动，双方矛盾公开化。蔡元培调和各方，维护校园稳定。</p>
+  <div class="events"><span class="ev">鲁迅创作</span><span class="ev">李大钊发文</span><span class="ev">胡适分歧</span><span class="ev">社团组织</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·下</span>
+    <h3>李大钊发表《庶民的胜利》</h3>
+  </div>
+  <p>李大钊在北大发表《庶民的胜利》演讲，阐述十月革命的意义。他强调庶民的力量和民主主义的新潮流，与陈独秀的思想形成呼应。演讲引起热烈反响，学生们争相传阅。与此同时，胡适与守旧派学者继续就文言文与白话文问题展开辩论，各执己见。蔡元培校长在校长室接待来访的教育官员，为新文化运动争取支持空间。鲁迅完成《狂人日记》修改，与陈独秀讨论发表事宜，两人对封建礼教的批判态度高度一致。北大校园内，新旧思想的碰撞日益激烈，学生们开始形成不同的思想阵营。</p>
+  <div class="events"><span class="ev">李大钊发表演讲</span><span class="ev">胡适守旧派辩论</span><span class="ev">鲁迅完成小说</span><span class="ev">蔡元培争取支持</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第3集·上</span>
+    <h3>李大钊北大任教</h3>
+  </div>
+  <p>李大钊到北大图书馆任职，与陈独秀重逢。两人在北大校园散步，深入讨论救国之道。李大钊向陈独秀介绍俄国十月革命，陈独秀对此表示关注。李大钊在图书馆组织读书会，吸引进步学生参与。他在课堂上传播新思想，批判封建礼教，引起学生热烈反响。胡适与李大钊在北大食堂相遇，两人就文学革命展开初步讨论，观点略有差异。李大钊拜访鲁迅，邀请他为《新青年》撰稿，鲁迅表示考虑。</p>
+  <div class="events"><span class="ev">李大钊到北大</span><span class="ev">十月革命介绍</span><span class="ev">读书会组织</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第3集·下</span>
+    <h3>鲁迅创作《狂人日记》</h3>
+  </div>
+  <p>鲁迅在北大任教期间，目睹学生思想活跃但也混乱。他开始构思小说《狂人日记》，揭露封建礼教的吃人本质。陈独秀多次催稿，鲁迅陷入创作困境。李大钊鼓励鲁迅以文学唤醒民众。鲁迅反复修改稿件，最终完成《狂人日记》。小说以第一人称叙述，讲述一个被迫害的狂人发现历史满本都写着&#x27;吃人&#x27;二字。陈独秀读后大加赞赏，决定在《新青年》发表。小说发表后引起社会强烈反响，成为新文化运动的重要标志。</p>
+  <div class="events"><span class="ev">鲁迅构思小说</span><span class="ev">《狂人日记》完成</span><span class="ev">小说引起反响</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第4集·上</span>
+    <h3>守旧派反击新文化</h3>
+  </div>
+  <p>《狂人日记》发表后，守旧派文人开始反击。林纾在报纸上发表文章，指责新文化运动破坏传统道德。北大校内，保守教授公开质疑白话文的价值。蔡元校长面临压力，试图调和各方矛盾。陈独秀在北大演讲，坚持文学革命主张。胡适发表《建设的文学革命论》，提出具体的文学改革方案。李大钊组织学生讨论会，批判守旧思想。毛泽东到北大旁听，被李大钊的思想吸引，开始接触马克思主义著作。</p>
+  <div class="events"><span class="ev">守旧派反击</span><span class="ev">蔡元培调和</span><span class="ev">毛泽东旁听</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第4集·下</span>
+    <h3>新文化阵营扩大</h3>
+  </div>
+  <p>面对守旧派的攻击，新文化阵营团结一致。陈独秀、李大钊、胡适、鲁迅等人在北大频繁交流思想，形成统一战线。蔡元培支持新文化运动，聘请更多进步学者到校任教。李大钊发表《庶民的胜利》，宣传俄国革命成功经验。毛泽东开始参与李大钊组织的活动，撰写文章探讨中国出路。各地青年学生纷纷响应新文化运动，成立进步社团。新文化运动的影响从北大扩展到全国，思想解放的浪潮逐渐形成。</p>
+  <div class="events"><span class="ev">新文化阵营团结</span><span class="ev">李大钊发表文章</span><span class="ev">毛泽东参与活动</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第5集·上</span>
+    <h3>蔡元培主持北大改革</h3>
+  </div>
+  <p>蔡元培正式就任北京大学校长，提出&#x27;思想自由，兼容并包&#x27;的办学方针。他邀请陈独秀到北大任教，创办《新青年》杂志，将北大作为新文化运动的中心。蔡元培改革北大行政体系，打破传统学阀控制，聘请李大钊为图书馆主任，支持白话文教学。校内保守派教授强烈反对，蔡元培顶住压力，坚持改革。李大钊在图书馆与青年毛泽东相遇，两人深入交流思想。陈独秀在北大组织&#x27;新青年&#x27;社团，吸引众多进步学生加入，为后续的思想传播奠定基础。</p>
+  <div class="events"><span class="ev">蔡元培任北大校长</span><span class="ev">陈独秀应邀任教</span><span class="ev">李大钊任图书馆主任</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第5集·下</span>
+    <h3>白话文与文言文之争</h3>
+  </div>
+  <p>北大校内关于白话文与文言文的论争日益激烈。胡适发表《文学改良刍议》，主张用白话文代替文言文，引起保守派教授刘师培等人的强烈反对。陈独秀在课堂上大力提倡白话文，与守旧派展开辩论。李大钊支持文学革命，认为白话文能更好地传播新思想。蔡元培在校长会议上调和各方，但明确表示支持新文化运动。鲁迅完成《狂人日记》，在《新青年》发表，引起社会轰动。陈独秀邀请鲁迅到北大演讲，两人在文学革命问题上达成共识。</p>
+  <div class="events"><span class="ev">胡适提倡白话文</span><span class="ev">陈独秀守旧派辩论</span><span class="ev">鲁迅发表《狂人日记》</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第6集·上</span>
+    <h3>李大钊传播马克思主义</h3>
+  </div>
+  <p>李大钊开始系统研究马克思主义，在北大图书馆组织读书会，向进步学生介绍社会主义思想。他撰写《我的马克思主义观》，初步阐述对马克思主义的理解。陈独秀对马克思主义持保留态度，与李大钊展开深入讨论。胡适主张&#x27;多研究问题，少谈主义&#x27;，与李大钊产生分歧。毛泽东来到北大图书馆工作，受到李大钊的影响，开始接触马克思主义。蔡元培支持学术自由，允许不同思想在校园内碰撞。李大钊与陈独秀等人共同探讨救国道路，思想交锋日益激烈。</p>
+  <div class="events"><span class="ev">李大钊研究马克思主义</span><span class="ev">陈李思想分歧</span><span class="ev">毛泽东接触新思想</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第6集·下</span>
+    <h3>李大钊发表《我的马克思主义观》</h3>
+  </div>
+  <p>李大钊在北大图书馆组织读书会，向进步学生系统介绍马克思主义理论。他撰写的《我的马克思主义观》在《新青年》上发表，引起知识界广泛关注。陈独秀对马克思主义态度有所转变，开始认真研究这一思想。北大校内，胡适与李大钊就中国发展道路展开激烈辩论，胡适主张渐进改良，而李大钊则认为必须通过革命手段才能实现社会变革。蔡元培校长在校园内倡导学术自由，允许不同思想并存，但也密切关注学生思想动向。毛泽东等进步青年深受李大钊影响，开始接触马克思主义理论，思考中国革命的道路。</p>
+  <div class="events"><span class="ev">李大钊发表文章</span><span class="ev">胡适李大钊辩论</span><span class="ev">毛泽东受影响</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第7集·上</span>
+    <h3>北大校务会议争论</h3>
+  </div>
+  <p>蔡元培主持北大校务会议，讨论教学改革方案。保守派教授刘师培等人强烈反对白话文进入课堂，认为会破坏传统文化根基。陈独秀在会上慷慨陈词，指出文言文已成为阻碍思想传播的工具，必须改革。胡适提出具体的白话文教学方案，得到部分教授支持。会议陷入激烈争论，蔡元培最终采取折中方案，允许新旧思想并存，但支持白话文课程开设。会后，陈独秀与李大钊交流，认为改革阻力虽大，但思想启蒙势在必行。李大钊提到自己正在研究马克思主义，希望能找到救国的新途径。</p>
+  <div class="events"><span class="ev">校务争论</span><span class="ev">白话文提案</span><span class="ev">蔡元培折中</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第7集·下</span>
+    <h3>鲁迅发表《狂人日记》</h3>
+  </div>
+  <p>鲁迅在北京大学发表《狂人日记》，引起轰动。这部中国现代文学史上第一篇白话小说，深刻揭露封建礼教的吃人本质。演讲现场座无虚席，学生们热烈讨论作品中的反封建思想。陈独秀高度评价这篇作品，认为它标志着文学革命的真正开始。胡适对鲁迅的创作手法表示赞赏，但更强调语言改革的重要性。李大钊在演讲后与鲁迅深入交流，探讨中国社会的出路问题。鲁迅表示，他希望通过文学唤醒民众的觉悟。与此同时，保守派对《狂人日记》提出批评，认为其内容过于激进，不利于社会稳定。北大校内新旧思想的冲突愈发明显。</p>
+  <div class="events"><span class="ev">鲁迅演讲</span><span class="ev">作品轰动</span><span class="ev">新旧冲突</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第8集·上</span>
+    <h3>李大钊研究马克思主义</h3>
+  </div>
+  <p>李大钊在北大图书馆系统研究马克思主义著作，撰写《我的马克思主义观》初稿。他组织进步学生成立马克思主义研究会，定期讨论社会主义理论。毛泽东从湖南来到北大，经杨昌济介绍拜访李大钊，探讨中国革命道路。李大钊向毛泽东推荐马克思主义著作，鼓励他深入研究。陈独秀对马克思主义持保留态度，更倾向于民主主义思想，与李大钊在北大办公室展开激烈讨论。两人就中国社会性质、革命方式等问题产生分歧。蔡元培得知后，邀请两人到家中做客，希望调和不同观点。李大钊坚持认为马克思主义更适合中国的国情。</p>
+  <div class="events"><span class="ev">马克思主义研究</span><span class="ev">毛泽东来访</span><span class="ev">思想分歧</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第8集·下</span>
+    <h3>北大图书馆论战</h3>
+  </div>
+  <p>毛泽东在北大图书馆担任助理员，有机会接触到各类进步书籍和思想。李大钊发现毛泽东对马克思主义有浓厚兴趣，开始与他深入交流。两人在图书馆讨论中国社会变革的可能路径，毛泽东提出中国需要一场彻底的革命。与此同时，胡适在北大演讲中提倡渐进改良，反对暴力革命。李大钊与胡适在公开场合展开激烈辩论，各执己见。陈独秀密切关注这场思想交锋，认为两种观点都有其合理性。毛泽东通过这些争论，进一步明确了自己的革命方向，决定深入工人群体了解实际情况。</p>
+  <div class="events"><span class="ev">毛李交流</span><span class="ev">胡李辩论</span><span class="ev">毛明方向</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第9集·上</span>
+    <h3>北大课堂改革受阻</h3>
+  </div>
+  <p>蔡元培推行新教育理念，邀请陈独秀担任北大文科学长。陈独秀在北大文科课堂上大力提倡白话文教学，引起保守派教授强烈不满。刘师培、黄侃等教授公开抵制教学改革，认为白话文破坏传统。陈独秀与保守派在校园内展开激烈辩论，双方各执一词。蔡元培校长出面调和，坚持学术自由原则，支持教学改革。学生们对新式教学表现出浓厚兴趣，课堂气氛活跃。陈独秀邀请鲁迅到北大演讲，扩大新文化运动影响力。保守派教授集体向教育部施压，要求撤换陈独秀。</p>
+  <div class="events"><span class="ev">陈独秀任文科学长</span><span class="ev">保守派公开抵制</span><span class="ev">蔡元培坚持学术自由</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第9集·下</span>
+    <h3>鲁迅演讲震动校园</h3>
+  </div>
+  <p>鲁迅在北京大学发表《狂人日记》主题演讲，揭露封建礼教的吃人本质。演讲现场座无虚席，学生们热烈讨论作品中的反封建思想。鲁迅以犀利的言辞批判传统文化，引起轰动。陈独秀对鲁迅的演讲给予高度评价，认为其作品是新文化运动的典范。李大钊在演讲后与鲁迅深入交流，探讨中国社会变革的路径。保守派教授对鲁迅的言论强烈不满，认为其言论过于激进。蔡元培校长支持学术自由，允许不同观点在校园内共存。学生们自发组织读书会，讨论新思想。鲁迅的作品在学生中广泛传播，成为新文化运动的重要旗帜。</p>
+  <div class="events"><span class="ev">鲁迅发表演讲</span><span class="ev">揭露封建礼教</span><span class="ev">学生热烈反响</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">第10集·上</span>
+    <h3>李大钊研读马克思主义</h3>
+  </div>
+  <p>李大钊在北大图书馆系统研究马克思主义著作，撰写《我的马克思主义观》初稿。他组织进步学生成立马克思主义研究会，定期讨论社会主义理论。毛泽东从湖南来到北大，经杨昌济介绍拜访李大钊，探讨中国革命道路。李大钊向毛泽东推荐马克思主义著作，鼓励他深入研究。两人在北大图书馆多次长谈，交流对中国社会变革的看法。李大钊组织学生讨论会，分析马克思主义与中国实际的结合点。胡适与李大钊就马克思主义展开学术辩论，两人观点分歧明显。蔡元培对李大钊的研究活动给予支持，认为学术探讨有益于思想进步。</p>
+  <div class="events"><span class="ev">李大钊研究马列</span><span class="ev">成立研究会</span><span class="ev">毛泽东拜访李大钊</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">第10集·下</span>
+    <h3>思想交锋白热化</h3>
+  </div>
+  <p>陈独秀与胡适就文学革命展开激烈辩论，双方在《新青年》杂志上公开交锋。陈独秀坚持彻底改革，主张全盘西化；胡适提倡渐进改良，认为应保留传统文化精华。李大钊在辩论中支持陈独秀的观点，认为中国社会需要根本性变革。毛泽东积极参与讨论，提出自己的见解。蔡元培校长在公开场合表示尊重不同学术观点，坚持兼容并包的办学方针。学生们在校园内形成不同派别，就社会变革道路展开激烈讨论。陈独秀决定扩大《新青年》的影响力，邀请更多进步人士撰稿。李大钊完成《我的马克思主义观》定稿，准备公开发表。这场思想论争推动了中国知识分子对救国道路的深入思考。</p>
+  <div class="events"><span class="ev">陈胡公开辩论</span><span class="ev">李大钊支持陈独秀</span><span class="ev">毛泽东参与讨论</span></div>
+</section>
+
+<section class="seg" id="seg21">
+  <div class="head">
+    <span class="no">第 21 段</span>
+    <span class="tm">第11集·上</span>
+    <h3>李大钊发表马克思主义观</h3>
+  </div>
+  <p>李大钊在北大图书馆完成《我的马克思主义观》长文，系统阐述马克思主义基本原理。他邀请陈独秀、毛泽东等好友到家中讨论，文章引起学界广泛关注。李大钊组织马克思主义研究会，每周举行学术讨论，吸引众多进步学生加入。毛泽东在会上积极发言，展现对社会主义理论的浓厚兴趣。李大钊与胡适就马克思主义的科学性展开辩论，双方观点分歧明显。李大钊开始有计划地培养青年马克思主义者，为日后革命工作积蓄力量。</p>
+  <div class="events"><span class="ev">李大钊完成马克思主义观</span><span class="ev">组织研究会</span><span class="ev">与胡适辩论</span></div>
+</section>
+
+<section class="seg" id="seg22">
+  <div class="head">
+    <span class="no">第 22 段</span>
+    <span class="tm">第11集·下</span>
+    <h3>陈独秀赴沪考察工人运动</h3>
+  </div>
+  <p>陈独秀应邀前往上海考察工人运动状况。他深入工厂车间，与工人同吃同住，了解工人阶级的生活状况和思想动态。陈独秀在上海会见孙中山，讨论国共合作的可能性。他目睹工人罢工事件，认识到工人阶级的革命潜力。回到北京后，陈独秀在《新青年》发表文章，主张知识分子应深入工农群众。他开始有意识地接触工人组织，为日后建立共产党做准备。陈独秀的思想逐渐从激进民主主义转向马克思主义。</p>
+  <div class="events"><span class="ev">考察工人运动</span><span class="ev">会见孙中山</span><span class="ev">接触工人组织</span></div>
+</section>
+
+<section class="seg" id="seg23">
+  <div class="head">
+    <span class="no">第 23 段</span>
+    <span class="tm">第12集·上</span>
+    <h3>鲁迅创作《阿Q正传》</h3>
+  </div>
+  <p>鲁迅继续在北京大学任教，同时创作《阿Q正传》。他以犀利的笔触剖析国民劣根性，塑造了阿Q这一典型形象。小说在《晨报》连载后引起强烈反响，读者纷纷讨论阿Q的精神胜利法。鲁迅在课堂上讲解小说创作背景，分析国民性问题。陈独盛赞鲁迅的作品具有深刻的社会批判意义。胡适对小说的艺术价值给予肯定，但对鲁迅的批判态度持保留意见。鲁迅继续以文学为武器，揭露社会黑暗面。</p>
+  <div class="events"><span class="ev">创作阿Q正传</span><span class="ev">连载引起反响</span><span class="ev">课堂讲解</span></div>
+</section>
+
+<section class="seg" id="seg24">
+  <div class="head">
+    <span class="no">第 24 段</span>
+    <span class="tm">第12集·下</span>
+    <h3>毛泽东组织工人夜校</h3>
+  </div>
+  <p>毛泽东在北大学习期间，组织工人夜校，教授工人识字和基本文化知识。他深入工人群体，了解工人疾苦，传播革命思想。毛泽东与李大钊密切合作，共同研究马克思主义理论。他开始有计划地在工人中发展进步分子，为工人运动培养骨干。毛泽东的实践活动引起北洋政府注意，但他机智地避开监视。夜校规模不断扩大，影响力增强，成为工人运动的重要阵地。毛泽东的思想在实践中得到进一步升华。</p>
+  <div class="events"><span class="ev">组织工人夜校</span><span class="ev">发展进步分子</span><span class="ev">避开政府监视</span></div>
+</section>
+
+<section class="seg" id="seg25">
+  <div class="head">
+    <span class="no">第 25 段</span>
+    <span class="tm">第13集·上</span>
+    <h3>陈独秀考察工人生活</h3>
+  </div>
+  <p>陈独秀在上海继续深入考察工人运动，他走访多家工厂，目睹工人恶劣的工作环境和低微的工资。陈独秀与工人交谈，了解他们对现状的不满和对未来的期望。他发现工人阶级虽然生活困苦，但具有强大的革命潜力。陈独秀还与上海工人领袖会面，讨论组织工会的重要性。期间，他收到李大钊来信，讨论马克思主义与中国实际的结合问题。陈独秀开始思考如何将工人运动与革命理论结合起来，为未来的革命实践做准备。</p>
+  <div class="events"><span class="ev">考察工人生活</span><span class="ev">与工人领袖会面</span><span class="ev">收到李大钊来信</span></div>
+</section>
+
+<section class="seg" id="seg26">
+  <div class="head">
+    <span class="no">第 26 段</span>
+    <span class="tm">第13集·下</span>
+    <h3>陈独秀与孙中山会晤</h3>
+  </div>
+  <p>陈独秀在上海与孙中山进行会晤，双方就中国革命道路展开深入交流。孙中山向陈独秀介绍了他的三民主义思想和建国方略，陈独秀则分享了新文化运动的思想成果。两人讨论了国共合作的可能性和必要性，孙中山对陈独秀在青年知识分子中的影响力表示赞赏。陈独秀提出需要将马克思主义与中国实际情况相结合的观点，孙中山对此表示认同。会晤结束后，陈独秀更加坚定了革命信念，开始思考如何将工人运动、学生运动和民族解放运动结合起来，形成更强大的革命力量。</p>
+  <div class="events"><span class="ev">与孙中山会晤</span><span class="ev">讨论国共合作</span><span class="ev">思考革命道路</span></div>
+</section>
+
+<section class="seg" id="seg27">
+  <div class="head">
+    <span class="no">第 27 段</span>
+    <span class="tm">第14集·上</span>
+    <h3>毛泽东组织工人罢工</h3>
+  </div>
+  <p>毛泽东在北京大学学习期间，将理论学习和实践相结合，组织工人进行罢工斗争。他深入工厂了解工人诉求，制定罢工策略，并成功争取到部分工人的支持。毛泽东在罢工过程中展现出卓越的组织能力和领导才能，得到工人们的信任和拥护。李大钊对毛泽东的行动给予指导和支持，帮助他更好地将马克思主义理论应用于实践。罢工虽然面临当局镇压，但工人们团结一致，坚持斗争，最终取得部分胜利。这次实践让毛泽东深刻认识到工人阶级的革命力量，为他后来的革命道路奠定了基础。</p>
+  <div class="events"><span class="ev">组织工人罢工</span><span class="ev">制定斗争策略</span><span class="ev">取得部分胜利</span></div>
+</section>
+
+<section class="seg" id="seg28">
+  <div class="head">
+    <span class="no">第 28 段</span>
+    <span class="tm">第14集·下</span>
+    <h3>鲁迅继续创作批判作品</h3>
+  </div>
+  <p>鲁迅在北京继续创作批判性作品，完成《阿Q正传》的创作并在《晨报》连载。小说通过阿Q这一典型形象，深刻剖析了国民的劣根性和精神胜利法，引起社会广泛关注和讨论。鲁迅同时在北京大学等高校任教，向青年学生传播新思想。他与胡适等知识分子就文学革命等问题展开辩论，坚持文学应当服务于社会变革的观点。鲁迅的作品虽然受到保守势力的攻击，但在青年知识分子中产生了深远影响。他继续用笔作为武器，批判封建礼教和国民劣根性，为思想解放运动贡献力量。</p>
+  <div class="events"><span class="ev">完成阿Q正传</span><span class="ev">高校任教传播思想</span><span class="ev">与胡适展开辩论</span></div>
+</section>
+
+<section class="seg" id="seg29">
+  <div class="head">
+    <span class="no">第 29 段</span>
+    <span class="tm">第15集·上</span>
+    <h3>李大钊演讲遭冲击</h3>
+  </div>
+  <p>李大钊在北京大学发表题为《庶民的胜利》的公开演讲，阐述十月革命对世界格局的影响和对中国革命的意义。演讲过程中，部分守旧学生和校外人士涌入会场，高喊反对言论，干扰演讲进行。李大钊坚持完成演讲，强调马克思主义思想对中国社会变革的重要性。演讲结束后，支持与反对者发生激烈争执，蔡元培校长出面调解，维护学术自由氛围。陈独秀得知演讲情况后，对李大钊的坚定立场表示赞赏，两人进一步探讨中国革命道路的选择问题。</p>
+  <div class="events"><span class="ev">李大钊公开演讲</span><span class="ev">守旧人士冲击会场</span><span class="ev">蔡元培调解争执</span></div>
+</section>
+
+<section class="seg" id="seg30">
+  <div class="head">
+    <span class="no">第 30 段</span>
+    <span class="tm">第15集·下</span>
+    <h3>陈李转向马克思主义</h3>
+  </div>
+  <p>陈独秀与李大钊在经历了多次思想碰撞和实践检验后，开始系统研究马克思主义理论。李大钊在北京大学组织成立马克思学说研究会，深入研读《共产党宣言》等著作。陈独秀在上海与共产国际代表维经斯基会面，讨论在中国传播马克思主义的可能性。两人通过书信交流，逐渐认识到马克思主义对中国革命的指导意义。陈独秀在《新青年》上发表《谈政治》一文，公开表明自己的政治立场，标志着他从民主主义者向马克思主义者的转变。李大钊则在北大开设《唯物史观研究》课程，系统传播马克思主义理论。</p>
+  <div class="events"><span class="ev">陈李研读马列</span><span class="ev">陈独秀发表政治立场</span><span class="ev">李大钊开设课程</span></div>
+</section>
+
+<section class="seg" id="seg31">
+  <div class="head">
+    <span class="no">第 31 段</span>
+    <span class="tm">第16集·上</span>
+    <h3>陈独秀南下考察</h3>
+  </div>
+  <p>陈独秀接受广东省长陈炯明邀请，南下考察广东教育。他抵达广州后，与陈炯明会面，讨论教育改革方案。陈独秀提出要在广东创办一所新型大学，培养新式人才。随后，他视察了多所中小学，发现教育状况堪忧。陈独秀在广州发表演讲，批评旧式教育的弊端，提倡新文化运动理念。他特别强调白话文教育的重要性，并与当地教育界人士展开激烈辩论。陈独秀还走访了工人区，了解工人生活状况，对广东的社会现状有了更深刻的认识。考察结束后，陈独秀决定将《新青年》编辑部迁至广州，以扩大新文化运动在南方的影响。</p>
+  <div class="events"><span class="ev">南下考察</span><span class="ev">教育改革</span><span class="ev">创办大学</span><span class="ev">迁往广州</span></div>
+</section>
+
+<section class="seg" id="seg32">
+  <div class="head">
+    <span class="no">第 32 段</span>
+    <span class="tm">第16集·下</span>
+    <h3>陈独秀被捕入狱</h3>
+  </div>
+  <p>陈独秀在北京大学发表演讲，抨击北洋政府的外交政策，呼吁青年学生团结救国。演讲结束后，他遭到军警逮捕，关押在警察局。李大钊闻讯立即组织营救，联络社会各界人士联名保释。蔡元培校长亲自前往警察局交涉，强调陈独秀作为北大教授的学术自由权利。同时，北京各高校学生举行示威游行，要求释放陈独秀。在各方压力下，北洋政府被迫释放陈独秀，但对他进行严密监视。陈独秀出狱后，李大钊等人秘密聚会，讨论当前形势，认为需要更激进的方式来推动革命。</p>
+  <div class="events"><span class="ev">陈独秀被捕</span><span class="ev">李大钊营救</span><span class="ev">学生示威游行</span><span class="ev">秘密聚会讨论</span></div>
+</section>
+
+<section class="seg" id="seg33">
+  <div class="head">
+    <span class="no">第 33 段</span>
+    <span class="tm">第17集·上</span>
+    <h3>陈独秀获救出狱</h3>
+  </div>
+  <p>陈独秀被关押在警察局后，李大钊立即展开营救行动。他联系北大校长蔡元培，联合社会各界知名人士联名保释。同时，北京学生和市民自发组织抗议活动，要求释放陈独秀。经过多方努力，北洋政府迫于舆论压力，最终同意保释陈独秀出狱。出狱后，陈独秀并未停止革命活动，反而更加坚定了传播马克思主义的决心。他在北京继续发表演讲，宣传新思想，与李大钊共同探讨救国救民的可行道路。陈独秀开始系统研究马克思主义理论，思考如何将这一学说应用于中国的实际情况。</p>
+  <div class="events"><span class="ev">陈独秀被捕</span><span class="ev">李大钊营救</span><span class="ev">社会抗议</span><span class="ev">陈独秀获释</span></div>
+</section>
+
+<section class="seg" id="seg34">
+  <div class="head">
+    <span class="no">第 34 段</span>
+    <span class="tm">第17集·下</span>
+    <h3>陈独秀出狱后演讲</h3>
+  </div>
+  <p>陈独秀获释后回到北京大学，继续发表演讲，揭露北洋政府卖国行径，呼吁青年学生团结救国。李大钊全程陪同，确保陈独秀安全。演讲结束后，两人深入讨论当前时局，陈独秀表示要寻找更有效的救国道路。与此同时，毛泽东在北京大学图书馆工作，旁听了陈独秀的演讲，深受启发，开始接触马克思主义理论。胡适与陈独秀在办学理念上产生分歧，两人就教育改革方向展开激烈辩论。陈独秀认为教育应与革命实践相结合，而胡适则主张渐进式改良。</p>
+  <div class="events"><span class="ev">陈独秀获释演讲</span><span class="ev">李大钊陪同</span><span class="ev">毛泽东旁听</span><span class="ev">胡适辩论</span></div>
+</section>
+
+<section class="seg" id="seg35">
+  <div class="head">
+    <span class="no">第 35 段</span>
+    <span class="tm">第18集·上</span>
+    <h3>陈独秀李大钊深入交谈</h3>
+  </div>
+  <p>陈独秀与李大钊在北大校园内深入交谈，两人对当前时局表达了忧虑。陈独秀指出北洋政府的软弱无能，以及巴黎和会上中国外交的失败，他认为必须寻找新的救国道路。李大钊则向陈独秀介绍了马克思主义思想，认为这可能是一条适合中国的道路。两人就中国的前途展开激烈讨论，陈独秀对西方民主制度产生怀疑，开始接受李大钊提出的社会主义观点。他们决定共同探索新的救国方案，并计划在《新青年》杂志上刊发介绍马克思主义的文章。</p>
+  <div class="events"><span class="ev">陈独秀李大钊交谈</span><span class="ev">讨论救国道路</span><span class="ev">接受马克思主义</span><span class="ev">计划刊发文章</span></div>
+</section>
+
+<section class="seg" id="seg36">
+  <div class="head">
+    <span class="no">第 36 段</span>
+    <span class="tm">第18集·下</span>
+    <h3>陈独秀转向马克思主义</h3>
+  </div>
+  <p>陈独秀与李大钊在北大图书馆继续深入交谈，陈独秀表达了对西方民主制度失望的情绪，认为中国需要更彻底的革命道路。李大钊向他介绍俄国十月革命的成功经验，详细解释马克思主义理论及其在中国的适用性。陈独秀认真阅读李大钊推荐的《共产党宣言》等著作，思想开始发生转变。两人讨论了中国工人阶级的现状和潜力，认为他们是革命的重要力量。陈独秀表示愿意深入研究马克思主义，探索适合中国国情的革命道路。这次谈话标志着陈独秀从激进民主主义者向马克思主义者的转变开始，为后来中国共产党的创建奠定了思想基础。</p>
+  <div class="events"><span class="ev">陈独秀思想转变</span><span class="ev">研读马克思主义</span><span class="ev">讨论工人力量</span></div>
+</section>
+
+<section class="seg" id="seg37">
+  <div class="head">
+    <span class="no">第 37 段</span>
+    <span class="tm">第19集·上</span>
+    <h3>巴黎和会消息传回</h3>
+  </div>
+  <p>巴黎和会消息传回国内，中国作为战胜国却面临山东权益被日本瓜分的屈辱。北大校园内群情激愤，学生们聚集在教室和图书馆讨论这一消息。李大钊在课堂上分析国际形势，指出帝国主义的虚伪本质。陈独秀在《新青年》发表文章，呼吁国人觉醒。毛泽东组织湖南同乡会讨论对策，提出要联合全国力量抗争。蔡元培校长召开紧急会议，决定支持学生的爱国行动。学生们开始起草抗议书，准备组织游行示威。校园内的气氛日益紧张，一场大规模的爱国运动正在酝酿中。</p>
+  <div class="events"><span class="ev">和会消息传回</span><span class="ev">北大群情激愤</span><span class="ev">李大钊分析局势</span><span class="ev">学生起草抗议</span></div>
+</section>
+
+<section class="seg" id="seg38">
+  <div class="head">
+    <span class="no">第 38 段</span>
+    <span class="tm">第19集·下</span>
+    <h3>各地共产主义小组成立</h3>
+  </div>
+  <p>陈独秀获释后，与李大钊共同商讨建党事宜。两人决定在北京成立共产主义小组，吸收进步青年加入。陈独秀在上海组织成立马克思主义研究会，宣传革命思想。李大钊在北京大学成立马克思学说研究会，组织学生研读《共产党宣言》。毛泽东在长沙组织新民学会成员讨论革命道路，成立湖南共产主义小组。各地共产主义小组相继成立，开始筹备召开全国代表大会。陈独秀与李大钊频繁书信往来，交流建党经验和理论心得，为中国共产党的正式成立奠定组织基础。</p>
+  <div class="events"><span class="ev">北京小组成立</span><span class="ev">上海研究会成立</span><span class="ev">长沙小组成立</span><span class="ev">书信交流经验</span></div>
+</section>
+
+<section class="seg" id="seg39">
+  <div class="head">
+    <span class="no">第 39 段</span>
+    <span class="tm">第20集·上</span>
+    <h3>陈独秀出狱后的思想转变</h3>
+  </div>
+  <p>陈独秀获释后，李大钊在家中设宴为他接风洗尘。席间，两人深入讨论了中国革命道路的选择问题。陈独秀表示对西方民主制度的失望，认为在中国难以直接照搬。李大钊则向他介绍了俄国十月革命的成功经验，详细阐述了马克思主义理论。陈独秀对此表现出浓厚兴趣，开始系统研读相关著作。与此同时，毛泽东来到北京，在北大图书馆担任助理员，有机会近距离接触陈独秀、李大钊等新文化运动领袖。毛泽东多次向陈独秀请教救国之道，陈独秀的激进思想对青年毛泽东产生了深远影响。这段时间，陈独秀的思想逐渐从激进民主主义转向社会主义，为后来接受马克思主义奠定了思想基础。</p>
+  <div class="events"><span class="ev">陈独秀获释</span><span class="ev">李大钊接风</span><span class="ev">毛泽东赴京</span></div>
+</section>
+
+<section class="seg" id="seg40">
+  <div class="head">
+    <span class="no">第 40 段</span>
+    <span class="tm">第20集·下</span>
+    <h3>陈独秀出狱后演讲</h3>
+  </div>
+  <p>陈独秀获释后，李大钊在北大为他举办欢迎会。会上，陈独秀发表题为《我的政治主张》的演讲，阐述对中国前途的看法。他强调必须彻底改造中国社会，提出要建立真正的民主制度。演讲结束后，陈独秀与胡适就如何改造社会展开激烈辩论。胡适主张渐进改良，陈独秀则认为必须通过革命手段。两人观点分歧明显，但都表示尊重对方的选择。随后，陈独秀与李大钊深入交谈，两人对马克思主义产生浓厚兴趣。陈独秀开始系统研究马克思主义理论，思考将其与中国实际相结合的可能性。</p>
+  <div class="events"><span class="ev">陈独秀获释</span><span class="ev">北大欢迎会</span><span class="ev">与胡适辩论</span><span class="ev">研究马克思主义</span></div>
+</section>
+
+<section class="seg" id="seg41">
+  <div class="head">
+    <span class="no">第 41 段</span>
+    <span class="tm">第21集·上</span>
+    <h3>陈独秀赴上海</h3>
+  </div>
+  <p>陈独秀决定前往上海，与李大钊在火车站告别。李大钊提醒他上海环境复杂，需谨慎行事。陈独秀表示已做好充分准备，将在上海开展更广泛的革命活动。抵达上海后，陈独秀立即与当地进步人士会面，讨论在上海建立共产主义小组的事宜。他多次拜访工人聚集区，了解工人生活状况，为组织工人运动做准备。同时，陈独秀开始筹备《新青年》上海版的出版工作，计划扩大刊物的影响力。</p>
+  <div class="events"><span class="ev">陈独秀离京</span><span class="ev">上海筹备</span><span class="ev">工人考察</span></div>
+</section>
+
+<section class="seg" id="seg42">
+  <div class="head">
+    <span class="no">第 42 段</span>
+    <span class="tm">第21集·下</span>
+    <h3>上海共产主义小组成立</h3>
+  </div>
+  <p>陈独秀在上海积极联络志同道合者，包括李达、陈望道等进步知识分子。他们在陈独秀住所多次秘密集会，讨论建党事宜。经过激烈讨论，上海共产主义小组正式成立，陈独秀被推选为负责人。小组开始翻译马克思主义著作，创办《共产党》月刊宣传革命思想。陈独秀还亲自前往工人夜校授课，向工人阶级传播革命理论。期间，陈独秀收到李大钊从北京寄来的信件，两人在信中交流了各地建党进展情况。</p>
+  <div class="events"><span class="ev">小组成立</span><span class="ev">翻译著作</span><span class="ev">工人授课</span></div>
+</section>
+
+<section class="seg" id="seg43">
+  <div class="head">
+    <span class="no">第 43 段</span>
+    <span class="tm">第22集·上</span>
+    <h3>李大钊指导青年</h3>
+  </div>
+  <p>李大钊在北京大学继续指导青年学生研究马克思主义。他组织成立马克思学说研究会，吸收进步青年加入。毛泽东从湖南来到北京，在李大钊安排下担任北大图书馆助理员。李大钊多次与毛泽东长谈，向他介绍俄国十月革命经验。毛泽东积极参加研究会活动，深入研读马克思主义著作。同时，李大钊密切关注上海建党进展，与各地革命者保持密切联系。他开始筹备在北京成立共产主义小组，为建党做组织准备。</p>
+  <div class="events"><span class="ev">指导毛泽东</span><span class="ev">研究会成立</span><span class="ev">筹备北京小组</span></div>
+</section>
+
+<section class="seg" id="seg44">
+  <div class="head">
+    <span class="no">第 44 段</span>
+    <span class="tm">第22集·下</span>
+    <h3>各地建党筹备</h3>
+  </div>
+  <p>李大钊在北京大学组织秘密会议，正式成立北京共产主义小组，成员有张国焘、邓中夏等。小组积极开展工人运动，在长辛店铁路工人中建立组织。与此同时，毛泽东回到湖南，在长沙成立共产主义小组，积极发展革命力量。陈独秀在上海与共产国际代表维经斯基会面，讨论在中国建立无产阶级政党的问题。各地共产主义小组开始互通有无，交流经验，为全国建党做准备。李大钊与陈独秀频繁通信，商讨建党纲领和章程问题。</p>
+  <div class="events"><span class="ev">北京小组成立</span><span class="ev">湖南建党</span><span class="ev">维经斯基会面</span></div>
+</section>
+
+<section class="seg" id="seg45">
+  <div class="head">
+    <span class="no">第 45 段</span>
+    <span class="tm">第23集·上</span>
+    <h3>陈独秀被捕入狱</h3>
+  </div>
+  <p>陈独秀在上海继续领导《新青年》杂志，宣传马克思主义思想。当局对其活动密切关注，派出密探监视。一次秘密会议中，陈独秀与李达等人讨论建党事宜时，突然被军警包围逮捕。消息传出后，李大钊立即组织营救行动，联系社会各界知名人士联名保释。蔡元培等学者纷纷声援，要求当局释放陈独秀。同时，各地进步团体开展抗议活动，要求言论自由。陈独秀在狱中仍坚持写作，思考中国革命道路。被捕事件反而扩大了马克思主义的影响，更多知识分子开始关注革命理论。</p>
+  <div class="events"><span class="ev">陈独秀被捕</span><span class="ev">李大钊营救</span><span class="ev">蔡元培声援</span><span class="ev">狱中坚持写作</span></div>
+</section>
+
+<section class="seg" id="seg46">
+  <div class="head">
+    <span class="no">第 46 段</span>
+    <span class="tm">第23集·下</span>
+    <h3>陈独获释转向革命</h3>
+  </div>
+  <p>在社会各界的压力下，当局最终释放陈独秀，但对其活动加以限制。获释后的陈独秀思想更加坚定，明确提出要建立无产阶级政党。他在上海与共产国际代表维经斯基会面，讨论建党事宜。维经斯基提供了大量马克思主义著作和建党经验。陈独秀与李大钊频繁通信，商讨建党计划。两人决定分别在上海和北京同时推进组织建设。陈独秀开始深入工人群体，了解工人生活状况，为开展工人运动做准备。他认识到，知识分子必须与工人阶级结合，革命才能成功。</p>
+  <div class="events"><span class="ev">陈独秀获释</span><span class="ev">会见共产国际代表</span><span class="ev">与李大钊通信</span><span class="ev">深入工人群体</span></div>
+</section>
+
+<section class="seg" id="seg47">
+  <div class="head">
+    <span class="no">第 47 段</span>
+    <span class="tm">第24集·上</span>
+    <h3>毛泽东湖南建党</h3>
+  </div>
+  <p>毛泽东回到湖南后，立即着手组织革命力量。他在长沙创办文化书社，销售进步书籍，传播新思想。同时，他深入长沙第一师范学校，培养进步青年。毛泽东与何叔衡等人秘密集会，讨论成立湖南共产主义小组。他们组织工人夜校，提高工人阶级觉悟。在长沙、衡阳等地开展工人运动，建立工会组织。毛泽东注重理论与实践相结合，带领学生深入农村调查，了解农民生活状况。他认识到农民是中国革命的重要力量，开始思考如何发动农民参与革命。</p>
+  <div class="events"><span class="ev">创办文化书社</span><span class="ev">组织工人夜校</span><span class="ev">成立湖南小组</span><span class="ev">农村调查活动</span></div>
+</section>
+
+<section class="seg" id="seg48">
+  <div class="head">
+    <span class="no">第 48 段</span>
+    <span class="tm">第24集·下</span>
+    <h3>各地小组筹备建党</h3>
+  </div>
+  <p>全国各地共产主义小组积极开展工作，为建党做准备。武汉小组由董必武、陈潭秋等人领导，在工人和知识分子中发展党员。济南小组由王尽美、邓恩铭等人组织，注重工人运动和学生运动结合。广州小组由谭平山、陈公博等人负责，积极联系工人和农民。各地小组通过《新青年》等刊物交流经验，统一思想。李大钊在北京组织马克思主义研究会，系统研究革命理论。陈独秀在上海起草《中国共产党宣言》，阐述党的纲领和目标。各地代表开始筹备召开全国代表大会，正式成立中国共产党。</p>
+  <div class="events"><span class="ev">武汉小组成立</span><span class="ev">济南小组活动</span><span class="ev">广州小组工作</span><span class="ev">起草党的宣言</span></div>
+</section>
+
+<section class="seg" id="seg49">
+  <div class="head">
+    <span class="no">第 49 段</span>
+    <span class="tm">第25集·上</span>
+    <h3>陈独秀筹备建党</h3>
+  </div>
+  <p>陈独秀在上海积极筹备建党工作，与共产国际代表维经斯基多次会面，讨论建党方案。陈独秀起草《中国共产党宣言》，阐述党的性质和宗旨。同时，他在家中秘密召集会议，邀请李汉俊、李达等人参与建党筹备工作。陈独秀还通过上海《新青年》编辑部，联络各地进步知识分子，传播马克思主义思想。陈独秀的妻子高君曼虽然不理解他的革命活动，但仍默默支持他的工作。陈独秀还与李大钊保持密切联系，互通各地建党筹备情况，为党的成立奠定组织基础。</p>
+  <div class="events"><span class="ev">起草党宣言</span><span class="ev">筹备建党会议</span><span class="ev">联络知识分子</span></div>
+</section>
+
+<section class="seg" id="seg50">
+  <div class="head">
+    <span class="no">第 50 段</span>
+    <span class="tm">第25集·下</span>
+    <h3>建党方案确定</h3>
+  </div>
+  <p>陈独秀在上海与李大钊等人秘密会面，共同讨论建党方案。陈独秀向与会者展示了他起草的《中国共产党宣言》，详细阐述了党的性质、宗旨和奋斗目标。经过激烈讨论，大家一致同意以马克思主义为指导思想，建立无产阶级政党。同时，陈独秀与共产国际代表维经斯基就党的组织形式和活动方式达成共识，确定采取秘密小组的形式开展活动。会议还决定在各地继续发展党员，扩大组织规模，为正式建党做准备。</p>
+  <div class="events"><span class="ev">宣言起草完成</span><span class="ev">建党方案确定</span><span class="ev">与共产国际达成共识</span></div>
+</section>
+
+<section class="seg" id="seg51">
+  <div class="head">
+    <span class="no">第 51 段</span>
+    <span class="tm">第26集·上</span>
+    <h3>陈独秀起草党纲</h3>
+  </div>
+  <p>陈独秀在上海继续完善党的纲领文件，与共产国际代表维经斯基多次讨论党纲的具体内容。他强调党的无产阶级性质，主张通过暴力革命推翻反动统治。同时，李大钊在北京组织马克思主义研究会，深入探讨党的组织原则和斗争策略。两人通过书信交流，在党的性质和革命方式上达成基本共识。毛泽东在长沙积极开展工人运动，深入工厂调查，为建党积累实践经验。各地共产主义小组按照统一部署，加紧发展党员和建立组织机构，为建党做最后准备。</p>
+  <div class="events"><span class="ev">起草党纲</span><span class="ev">讨论性质</span><span class="ev">组织研究</span><span class="ev">实践调查</span></div>
+</section>
+
+<section class="seg" id="seg52">
+  <div class="head">
+    <span class="no">第 52 段</span>
+    <span class="tm">第26集·下</span>
+    <h3>李大钊组织马克思主义研究会</h3>
+  </div>
+  <p>李大钊在北京组织马克思主义研究会，邀请进步青年参与学习讨论。他亲自讲解《共产党宣言》的核心内容，引导青年们理解阶级斗争和无产阶级专政理论。研究会成员热烈讨论中国革命道路，毛泽东积极参与并发表见解。李大钊强调理论与实践相结合的重要性，组织会员深入工人群体进行调查研究。同时，陈独秀在上海继续完善党的纲领文件，与共产国际代表反复磋商建党细节。两地革命者通过书信交流思想，共同推进建党准备工作。</p>
+  <div class="events"><span class="ev">李大钊组织研究会</span><span class="ev">毛泽东参与讨论</span><span class="ev">陈独秀完善纲领</span><span class="ev">两地书信交流</span></div>
+</section>
+
+<section class="seg" id="seg53">
+  <div class="head">
+    <span class="no">第 53 段</span>
+    <span class="tm">第27集·上</span>
+    <h3>陈独秀起草宣言</h3>
+  </div>
+  <p>陈独秀在上海继续推进建党工作，与共产国际代表维经斯基深入讨论党的纲领和章程。陈独秀起草《中国共产党宣言》，详细阐述党的性质、宗旨和奋斗目标，强调无产阶级革命和专政的重要性。他在家中秘密召集会议，与李大钊等人交换意见，对宣言内容进行多次修改完善。同时，陈独秀开始在上海工人中发展党员，组织工人运动，为建党积累力量。他密切关注各地共产主义小组的进展，与各地负责人保持密切联系，协调建党准备工作。</p>
+  <div class="events"><span class="ev">起草宣言</span><span class="ev">讨论纲领</span><span class="ev">发展党员</span><span class="ev">组织工人</span></div>
+</section>
+
+<section class="seg" id="seg54">
+  <div class="head">
+    <span class="no">第 54 段</span>
+    <span class="tm">第27集·下</span>
+    <h3>宣言定稿</h3>
+  </div>
+  <p>陈独秀完成《中国共产党宣言》起草工作，与维经斯基进行最后讨论，确定宣言的核心内容和表述方式。宣言明确指出中国共产党的性质是无产阶级政党，目标是实现共产主义。同时，李大钊在北京继续组织马克思主义研究会，吸引更多进步青年参与，培养革命力量。毛泽东在长沙积极筹备建立共产主义小组，与当地进步人士频繁交流，探讨革命道路。共产国际代表马林抵达中国，与陈独秀会面，讨论建党事宜，强调国际联合的重要性。各地共产主义小组代表开始酝酿召开全国代表大会，筹备建党工作进入最后阶段。</p>
+  <div class="events"><span class="ev">宣言定稿</span><span class="ev">马林抵华</span><span class="ev">筹备建党</span></div>
+</section>
+
+<section class="seg" id="seg55">
+  <div class="head">
+    <span class="no">第 55 段</span>
+    <span class="tm">第28集·上</span>
+    <h3>陈独秀抵达广州</h3>
+  </div>
+  <p>陈独秀应陈炯明邀请抵达广州，担任广东省教育委员会委员长。他到任后立即着手改革教育制度，提出废除旧式教育，推行新式教育的主张。陈独秀在广州发表多次演讲，宣传新文化运动思想，引起社会广泛关注。他与当地保守势力在教育改革问题上产生激烈冲突，遭到传统士绅的强烈反对。陈独秀坚持己见，力主教育改革，认为只有革新教育才能救国。在此期间，他继续与各地革命者保持联系，为建党工作做准备。陈独秀在广州的活动引起了孙中山的注意，两人开始有了接触。</p>
+  <div class="events"><span class="ev">陈独秀抵广州</span><span class="ev">教育改革受阻</span><span class="ev">与孙中山初会</span></div>
+</section>
+
+<section class="seg" id="seg56">
+  <div class="head">
+    <span class="no">第 56 段</span>
+    <span class="tm">第28集·下</span>
+    <h3>陈独秀广州教育改革</h3>
+  </div>
+  <p>陈独秀在广州积极推行教育改革，提出废除旧式教育，建立新式教育体系的方案。他视察多所学校，发现教学内容陈旧、教学方法落后，立即着手制定改革计划。陈独秀提出教育应与社会发展相结合，强调科学知识和实用技能的培养。他与当地教育界保守势力产生激烈冲突，反对者认为他激进变革会破坏传统文化根基。陈独秀坚持己见，通过演讲和文章宣传新教育理念，争取社会支持。他组织教师培训，引进新教材，改革教学方法，推动广州教育面貌发生显著变化。尽管面临阻力，陈独秀的教育改革初见成效，为广东地区培养了具有新思想的人才，也为他后来转向革命事业奠定了基础。</p>
+  <div class="events"><span class="ev">视察学校</span><span class="ev">制定改革方案</span><span class="ev">与保守派冲突</span><span class="ev">推行新教育</span></div>
+</section>
+
+<section class="seg" id="seg57">
+  <div class="head">
+    <span class="no">第 57 段</span>
+    <span class="tm">第29集·上</span>
+    <h3>共产国际代表抵达</h3>
+  </div>
+  <p>共产国际代表马林抵达中国，在上海与陈独秀会面。马林传达了共产国际关于建党的指示和建议，强调要与工人阶级紧密结合。陈独秀详细汇报了中国共产主义小组的发展情况，以及各地筹备建党的进展。两人在党的性质、组织原则等问题上进行了深入讨论，马林提出了许多建设性意见。同时，李大钊也从北京赶到上海，与陈独秀、马林共同商讨建党事宜。三人就党的纲领、章程等核心问题交换了看法，为即将召开的建党会议奠定了基础。</p>
+  <div class="events"><span class="ev">马林抵华</span><span class="ev">会面陈独秀</span><span class="ev">讨论建党</span><span class="ev">李大钊抵沪</span></div>
+</section>
+
+<section class="seg" id="seg58">
+  <div class="head">
+    <span class="no">第 58 段</span>
+    <span class="tm">第29集·下</span>
+    <h3>各地代表汇聚上海</h3>
+  </div>
+  <p>各地共产主义小组的代表陆续抵达上海，包括武汉的董必武、陈潭秋，济南的王尽美、邓恩铭，长沙的毛泽东等。他们在陈独秀家中秘密集会，讨论建党事宜。代表们汇报了各地小组的工作进展、党员发展情况和工人运动开展状况。会议气氛热烈，各地代表分享了各自的经验和困难。陈独秀和马林介绍了共产国际的指示和建议，代表们围绕党的名称、性质、纲领等问题展开讨论，为即将召开的全国代表大会做最后准备。</p>
+  <div class="events"><span class="ev">各地代表抵沪</span><span class="ev">秘密集会</span><span class="ev">汇报工作</span><span class="ev">讨论纲领</span></div>
+</section>
+
+<section class="seg" id="seg59">
+  <div class="head">
+    <span class="no">第 59 段</span>
+    <span class="tm">第30集·上</span>
+    <h3>陈独秀赴沪</h3>
+  </div>
+  <p>陈独秀结束广州教育改革工作，秘密抵达上海。他在法租界一处隐蔽住所与李大钊会面，两人深入交流了中国革命的前途问题。陈独秀表示经过在广州的实践，认识到单纯的教育改革无法救中国，必须寻找更彻底的革命道路。李大钊则详细介绍了马克思主义在中国的传播情况，以及各地共产主义小组的发展态势。两人一致认为，建立统一的无产阶级政党已成为当务之急。陈独秀同意尽快召集各地代表，讨论建党事宜。同时，陈独秀开始着手起草《中国共产党宣言》，为即将到来的建党大会做准备。</p>
+  <div class="events"><span class="ev">陈独秀抵沪</span><span class="ev">与李大钊会面</span><span class="ev">起草党宣言</span></div>
+</section>
+
+<section class="seg" id="seg60">
+  <div class="head">
+    <span class="no">第 60 段</span>
+    <span class="tm">第30集·下</span>
+    <h3>秘密筹备建党</h3>
+  </div>
+  <p>陈独秀与各地代表在上海继续秘密讨论建党事宜。代表们汇报了各地共产主义小组的发展情况，包括工人运动、学生组织等工作的进展。马林再次与会，强调建党必须遵循共产国际的指导原则，并提出具体组织架构建议。会议围绕党纲和党章展开激烈讨论，各方代表就党的性质、目标和组织方式表达不同看法。经过多次磋商，代表们基本达成共识，决定正式成立中国共产党，并推选陈独秀为中央局书记。会议还确定了党的名称、旗帜和奋斗目标，为即将召开的第一次全国代表大会做好充分准备。</p>
+  <div class="events"><span class="ev">代表讨论建党</span><span class="ev">马林指导建议</span><span class="ev">确定党纲党章</span><span class="ev">推选书记职务</span></div>
+</section>
+
+<section class="seg" id="seg61">
+  <div class="head">
+    <span class="no">第 61 段</span>
+    <span class="tm">第31集·上</span>
+    <h3>上海会议筹备</h3>
+  </div>
+  <p>陈独秀在上海主持各地共产主义小组代表会议，讨论建党事宜。共产国际代表马林出席会议，传达共产国际关于建党的指示，强调要与工人阶级紧密结合。代表们围绕党的纲领展开热烈讨论，在党的性质、组织原则等问题上存在分歧。陈独秀起草的《中国共产党宣言》成为讨论基础，代表们对宣言内容提出修改意见。会议决定正式筹备召开全国代表大会，选举产生临时中央机构，为建党做最后准备。各地代表汇报了各自小组的发展情况和工作进展。</p>
+  <div class="events"><span class="ev">马林传达指示</span><span class="ev">讨论党的纲领</span><span class="ev">起草会议宣言</span></div>
+</section>
+
+<section class="seg" id="seg62">
+  <div class="head">
+    <span class="no">第 62 段</span>
+    <span class="tm">第31集·下</span>
+    <h3>陈独秀确立党纲</h3>
+  </div>
+  <p>陈独秀在会议上提出党的纲领草案，强调无产阶级专政和阶级斗争的重要性。李大钊支持陈独秀的观点，认为这是中国革命必经之路。胡适则对激进路线提出质疑，主张渐进式改革。双方展开激烈辩论，陈独秀坚持马克思主义立场，认为只有彻底革命才能救中国。会议最终通过了党的初步纲领，确立了以实现共产主义为最终目标的方向。共产国际代表马林对会议结果表示满意，强调要尽快完成建党工作。会议结束后，陈独秀和李大钊等人开始着手起草党的正式章程，为党的成立做最后准备。</p>
+  <div class="events"><span class="ev">陈独秀提草案</span><span class="ev">李大钊支持</span><span class="ev">胡适质疑</span></div>
+</section>
+
+<section class="seg" id="seg63">
+  <div class="head">
+    <span class="no">第 63 段</span>
+    <span class="tm">第32集·上</span>
+    <h3>党纲草案讨论</h3>
+  </div>
+  <p>各地代表继续讨论陈独秀提出的党纲草案，围绕无产阶级专政与阶级斗争展开热烈辩论。李大钊支持激进路线，强调这是中国革命必由之路。胡适对激进路线提出质疑，主张渐进式改革更为稳妥。双方争论激烈，各执己见。马林在会上强调必须遵循共产国际指示，与工人阶级紧密结合。经过讨论，代表们初步达成共识，认为党的纲领必须体现无产阶级领导地位。会议还讨论了党的名称问题，最终确定使用中国共产党这一名称。陈独秀表示将进一步完善党纲，提交下次会议审议。李大钊则提出应加强工人运动宣传，扩大党在基层的影响。</p>
+  <div class="events"><span class="ev">党纲辩论</span><span class="ev">名称确定</span><span class="ev">工人宣传</span></div>
+</section>
+
+<section class="seg" id="seg64">
+  <div class="head">
+    <span class="no">第 64 段</span>
+    <span class="tm">第32集·下</span>
+    <h3>党纲最终确定</h3>
+  </div>
+  <p>会议进入最后阶段，各地代表对党纲草案进行最终表决。陈独秀再次强调无产阶级专政的必要性，李大钊支持这一观点，认为这是中国革命必经之路。胡适仍持保留态度，但尊重多数人的决定。马林作为共产国际代表，对会议进展表示满意，强调党的组织必须严格纪律。经过激烈讨论，党纲草案最终获得通过，确定了中国共产党的基本政治纲领和奋斗目标。会议决定成立临时中央机构，推选陈独秀为书记，李大钊负责组织工作，为党的正式成立奠定了基础。</p>
+  <div class="events"><span class="ev">党纲草案通过</span><span class="ev">临时中央成立</span><span class="ev">陈独秀当选书记</span></div>
+</section>
+
+<section class="seg" id="seg65">
+  <div class="head">
+    <span class="no">第 65 段</span>
+    <span class="tm">第33集·上</span>
+    <h3>各地代表齐聚上海</h3>
+  </div>
+  <p>各地共产主义小组代表陆续抵达上海，在陈独秀家中秘密集会。毛泽东从长沙赶来，带来了湖南小组的工作进展；董必武和陈潭秋代表武汉小组汇报了组织工人运动的情况；王尽美和邓恩铭分享了山东小组的活动。共产国际代表马林出席会议，传达了共产国际关于建党的具体指示，强调必须建立统一的共产党组织，并与工人阶级紧密结合。代表们围绕党的纲领和章程展开热烈讨论，初步形成了建党共识。陈独秀总结各地小组的工作成果，为即将召开的全国代表大会奠定了基础。</p>
+  <div class="events"><span class="ev">代表陆续抵达</span><span class="ev">马林传达指示</span><span class="ev">讨论建党纲领</span></div>
+</section>
+
+<section class="seg" id="seg66">
+  <div class="head">
+    <span class="no">第 66 段</span>
+    <span class="tm">第33集·下</span>
+    <h3>建党章程起草</h3>
+  </div>
+  <p>陈独秀主持起草中国共产党章程，组织代表们逐条讨论。马林提供了共产国际党章作为参考，但强调必须结合中国实际情况。代表们对党员条件、组织原则等关键条款产生分歧，经过激烈争论，最终达成初步共识。毛泽东提出要重视农民问题，认为中国革命离不开农民的支持，这一观点引起代表们的重视。会议决定成立起草委员会，由陈独秀、李大钊、毛泽东等人组成，负责完成党章草案。陈独秀表示要尽快完成章程起草工作，以便召开全国代表大会，正式成立中国共产党。</p>
+  <div class="events"><span class="ev">起草党章条款</span><span class="ev">讨论党员条件</span><span class="ev">成立起草委员会</span></div>
+</section>
+
+<section class="seg" id="seg67">
+  <div class="head">
+    <span class="no">第 67 段</span>
+    <span class="tm">第34集·上</span>
+    <h3>党纲最终确定</h3>
+  </div>
+  <p>各地代表对党纲草案进行最终表决。陈独秀再次强调无产阶级专政的必要性，李大钊支持这一观点，认为这是中国革命必经之路。胡适仍持保留态度，但尊重多数决定。代表们对党纲中的阶级斗争条款展开激烈讨论，有人担忧过于激进会引起政府镇压，陈独秀则坚持认为只有彻底的革命才能救中国。经过反复磋商，党纲最终确定，确立了党的名称、性质和奋斗目标。会议进入最后阶段，代表们开始讨论党的组织机构和领导选举问题，气氛庄重而热烈。</p>
+  <div class="events"><span class="ev">表决党纲</span><span class="ev">讨论阶级斗争</span><span class="ev">确定党纲</span><span class="ev">讨论领导选举</span></div>
+</section>
+
+<section class="seg" id="seg68">
+  <div class="head">
+    <span class="no">第 68 段</span>
+    <span class="tm">第34集·下</span>
+    <h3>中共一大于法租界召开</h3>
+  </div>
+  <p>各地代表在法租界望志路106号召开中国共产党第一次全国代表大会。会议开始时，代表们首先讨论并通过了党的纲领和工作计划。陈独秀当选为中央局书记，张国焘负责组织工作，李达负责宣传工作。会议期间，代表们围绕党的性质、目标和组织原则展开深入讨论，最终确定以马克思列宁主义为指导思想。会议进行至中途，受到法租界巡捕的干扰，代表们被迫转移至嘉兴南湖的一艘游船上继续完成会议。在南湖游船上，代表们通过了党的第一个决议，选举产生了党的中央领导机构，宣告中国共产党正式成立。</p>
+  <div class="events"><span class="ev">一大召开</span><span class="ev">通过纲领</span><span class="ev">选举领导</span><span class="ev">转移南湖</span></div>
+</section>
+
+<section class="seg" id="seg69">
+  <div class="head">
+    <span class="no">第 69 段</span>
+    <span class="tm">第35集·上</span>
+    <h3>上海会议召开</h3>
+  </div>
+  <p>陈独秀在上海主持各地共产主义小组代表会议，正式讨论建党事宜。共产国际代表马林出席会议，传达了共产国际关于建党的指示，强调必须与工人阶级紧密结合。会议开始时，马林介绍了共产国际的组织原则和建党经验，引起代表们的热烈讨论。陈独秀提出要结合中国实际情况制定党的纲领，得到大多数代表的赞同。会议期间，毛泽东汇报了湖南小组的工作进展，重点介绍了长沙工人运动的发展情况。代表们围绕党的名称、性质和纲领展开热烈讨论，初步达成了共识。马林强调党的组织必须严密，纪律必须严格，为后续会议奠定了基础。</p>
+  <div class="events"><span class="ev">会议召开</span><span class="ev">马林出席</span><span class="ev">讨论纲领</span><span class="ev">湖南汇报</span></div>
+</section>
+
+<section class="seg" id="seg70">
+  <div class="head">
+    <span class="no">第 70 段</span>
+    <span class="tm">第35集·下</span>
+    <h3>分歧与讨论</h3>
+  </div>
+  <p>会议进入实质性讨论阶段，各地代表就党的纲领和组织原则展开激烈辩论。董必武和陈潭秋代表武汉小组提出要重视农民问题，认为农民是中国革命的重要力量。王尽美和邓恩铭则强调了工人运动的重要性，主张以工人阶级为革命的主力军。马林提供了共产国际党章作为参考，但代表们认为必须结合中国国情进行调整。陈独秀提出要建立统一的全国性组织，得到大多数代表的支持。会议期间，代表们还讨论了党员的条件和入党程序，对如何吸收新党员产生分歧。经过激烈讨论，会议决定成立筹备委员会，负责起草党的纲领和章程，为下一阶段会议做准备。</p>
+  <div class="events"><span class="ev">激烈辩论</span><span class="ev">农民议题</span><span class="ev">工人运动</span><span class="ev">筹备成立</span></div>
+</section>
+
+<section class="seg" id="seg71">
+  <div class="head">
+    <span class="no">第 71 段</span>
+    <span class="tm">第36集·上</span>
+    <h3>章程起草</h3>
+  </div>
+  <p>中国共产党章程起草工作正式开始，陈独秀主持起草，各地代表参与讨论。马林提供了共产国际党章作为参考，但强调必须结合中国实际情况。代表们逐条讨论党章内容，对党员条件、组织原则等关键条款产生分歧。毛泽东提出要吸收工农先进分子入党，得到部分代表的支持。董必武则强调党的纪律必须严格，组织必须严密。会议期间，代表们还讨论了党的组织结构，决定设立中央执行委员会作为党的最高领导机构。陈独秀提出要建立地方组织，负责执行党的决议，得到大多数代表的赞同。经过多轮讨论，党章草案初稿基本形成，为后续会议奠定了基础。</p>
+  <div class="events"><span class="ev">党员条件</span><span class="ev">组织结构</span><span class="ev">中央执行</span><span class="ev">地方组织</span></div>
+</section>
+
+<section class="seg" id="seg72">
+  <div class="head">
+    <span class="no">第 72 段</span>
+    <span class="tm">第36集·下</span>
+    <h3>党章最终确立</h3>
+  </div>
+  <p>中国共产党章程起草工作进入最后阶段，代表们对党员条件、组织原则等关键条款进行最终表决。陈独秀提出党员必须承认党的纲领并执行决议，得到多数代表支持。马林强调党必须保持独立性，同时接受共产国际的指导。李大钊提出要重视工人运动，将组织工人阶级写入党章。经过激烈讨论，代表们最终就党章内容达成一致，确定党的名称为中国共产党。会议决定在上海召开第一次全国代表大会，正式宣告党的成立。陈独秀被推选为中央局书记，负责筹备建党工作。</p>
+  <div class="events"><span class="ev">党章表决通过</span><span class="ev">确定党的名称</span><span class="ev">推选陈独秀为书记</span><span class="ev">筹备一大召开</span></div>
+</section>
+
+<section class="seg" id="seg73">
+  <div class="head">
+    <span class="no">第 73 段</span>
+    <span class="tm">第37集·上</span>
+    <h3>党章定稿争议</h3>
+  </div>
+  <p>中国共产党章程起草进入最后阶段，各地代表对党员条件产生分歧。陈独秀提出必须严格党员标准，强调革命纪律性。李大钊则主张应吸收更多有进步思想的知识分子，扩大革命基础。马林在会上发言，强调中国共产党必须成为真正的无产阶级政党，建议参考列宁建党原则。会议气氛紧张，代表们就党章中关于民主集中制的表述展开激烈辩论。最终，陈独秀提出折中方案，既保证党的纪律性，又保留一定的民主空间。马林对此表示认可，但指出必须确保党的领导权掌握在真正的马克思主义者手中。</p>
+  <div class="events"><span class="ev">党章起草</span><span class="ev">党员条件争议</span><span class="ev">马林发言</span><span class="ev">折中方案</span></div>
+</section>
+
+<section class="seg" id="seg74">
+  <div class="head">
+    <span class="no">第 74 段</span>
+    <span class="tm">第37集·下</span>
+    <h3>代表们激烈讨论</h3>
+  </div>
+  <p>陈独秀与李大钊就党员标准问题展开激烈辩论，双方各执己见。陈独秀坚持严格党员标准，强调革命纪律性，认为只有坚定的革命者才能承担重任。李大钊则主张应吸收更多有进步思想的知识分子，扩大革命基础。马林在一旁观察讨论，适时提出建议，强调党必须结合中国实际情况。经过长时间讨论，双方达成妥协，在保持革命原则的同时，适当扩大党员范围。会议气氛逐渐缓和，代表们开始讨论其他重要议题，为党的成立做最后准备。</p>
+  <div class="events"><span class="ev">陈李辩论</span><span class="ev">马林建议</span><span class="ev">达成妥协</span></div>
+</section>
+
+<section class="seg" id="seg75">
+  <div class="head">
+    <span class="no">第 75 段</span>
+    <span class="tm">第38集·上</span>
+    <h3>建党大会召开</h3>
+  </div>
+  <p>中国共产党第一次全国代表大会在上海法租界望志路106号秘密召开，各地代表陆续到场。陈独秀、李大钊、毛泽东等13名代表出席会议，马林和尼克尔斯基作为共产国际代表列席会议。会议讨论并通过了中国共产党的第一个纲领和决议，确定了党的名称、性质和奋斗目标。代表们围绕党员条件、组织原则等问题展开热烈讨论，最终达成共识。会议选举产生了党的中央领导机构，陈独秀任中央局书记。会议期间遭遇巡搜查，代表们转移到嘉兴南湖的一艘游船上继续完成会议议程，中国共产党正式宣告成立。</p>
+  <div class="events"><span class="ev">一大召开</span><span class="ev">通过纲领</span><span class="ev">选举领导</span><span class="ev">转移嘉兴</span></div>
+</section>
+
+<section class="seg" id="seg76">
+  <div class="head">
+    <span class="no">第 76 段</span>
+    <span class="tm">第38集·下</span>
+    <h3>建党大会完成</h3>
+  </div>
+  <p>各地代表继续讨论党纲和章程的具体条款，对党的性质、组织原则和奋斗目标进行深入探讨。陈独秀强调党的无产阶级性质，主张建立严格的纪律制度。李大钊则注重与工人阶级的结合，提出要加强基层组织的建设。经过激烈辩论，最终通过了党的纲领和决议，确定党的名称为中国共产党，明确党的最高理想是实现共产主义。会议选举产生了党的领导机构，陈独秀被选为中央局书记。会议最后一天，因受到租界巡捕的监视，代表们转移到嘉兴南湖的一艘游船上继续完成会议议程，并在船上庄严宣告中国共产党成立。中国革命从此进入新的历史阶段。</p>
+  <div class="events"><span class="ev">通过党纲章程</span><span class="ev">选举领导机构</span><span class="ev">南湖完成会议</span></div>
+</section>
+
+<section class="seg" id="seg77">
+  <div class="head">
+    <span class="no">第 77 段</span>
+    <span class="tm">第39集·上</span>
+    <h3>党纲最终确定</h3>
+  </div>
+  <p>各地代表继续讨论党的纲领，陈独秀坚持无产阶级专政的观点，与李大钊等代表深入交流。马林强调必须坚持民主集中制原则，组织上要有严格的纪律性。代表们对党的性质和奋斗目标展开激烈辩论，最终确定以实现共产主义为最终目标。会议进入最后阶段，代表们开始起草宣言文件，明确党的政治主张和行动纲领。陈独秀强调必须将马克思主义与中国实际相结合，不能照搬苏联经验。李大钊则提出要重视农民问题，认为农民是中国革命的重要力量。经过反复讨论，党的纲领草案基本成型，为建党做好最后准备。</p>
+  <div class="events"><span class="ev">确定党纲</span><span class="ev">起草宣言</span><span class="ev">讨论农民问题</span></div>
+</section>
+
+<section class="seg" id="seg78">
+  <div class="head">
+    <span class="no">第 78 段</span>
+    <span class="tm">第39集·下</span>
+    <h3>代表表决通过</h3>
+  </div>
+  <p>中国共产党第一次全国代表大会进入表决环节，代表们逐一投票通过党的章程和纲领。陈独秀当选为中央局书记，张国焘负责组织工作，李达负责宣传工作。马林代表共产国际表示祝贺，并提出对党的期望。会议讨论了加入共产国际的问题，决定接受共产国际的领导。代表们还讨论了今后的工作重点，确定以工人运动为主要方向。会议期间，代表们轮流发言，表达对中国革命前景的信心和决心。陈独秀在总结发言中强调，中国共产党将带领中国人民走向民族独立和人民解放。会议在庄严的气氛中结束，代表们合影留念，标志着中国共产党正式成立。</p>
+  <div class="events"><span class="ev">通过章程</span><span class="ev">选举领导</span><span class="ev">加入共产国际</span></div>
+</section>
+
+<section class="seg" id="seg79">
+  <div class="head">
+    <span class="no">第 79 段</span>
+    <span class="tm">第40集·上</span>
+    <h3>会后分工安排</h3>
+  </div>
+  <p>一大闭幕后，中央局成员召开第一次会议，具体安排各地党组织的工作。陈独秀负责全面工作，重点指导上海和广东的党组织建设。李大钊负责北方地区的工作，特别关注北京大学的进步学生。张国焘负责组织工作，开始着手建立全国性的工人组织。李达负责宣传工作，筹备出版《共产党》月刊。会议决定在各地建立共产主义小组，扩大党的组织基础。代表们陆续返回各地，开始传达一大精神，建立地方党组织。陈独秀强调要重视工人运动，组织工人罢工斗争。李大钊则提出要培养青年革命力量，为革命储备人才。</p>
+  <div class="events"><span class="ev">中央分工</span><span class="ev">建立小组</span><span class="ev">传达精神</span></div>
+</section>
+
+<section class="seg" id="seg80">
+  <div class="head">
+    <span class="no">第 80 段</span>
+    <span class="tm">第40集·下</span>
+    <h3>革命火种燎原</h3>
+  </div>
+  <p>各地共产主义小组积极开展工作，工人运动和学生运动蓬勃发展。上海纺织工人举行罢工，在党的领导下取得胜利。北京大学的进步学生组织马克思主义研究会，学习革命理论。广州的党组织发动农民运动，组织农民协会。陈独秀发表文章，阐述党的性质和任务，扩大党的政治影响。李大钊在北京大学开设《唯物史观研究》课程，培养革命青年。各地党组织建立秘密联络点，开展地下工作。党的组织规模不断扩大，党员人数逐渐增加。革命火种在全国各地蔓延，为中国革命奠定了坚实基础。陈独秀、李大钊等革命者踏上新的征程，中国革命进入崭新阶段。</p>
+  <div class="events"><span class="ev">工人运动</span><span class="ev">农民组织</span><span class="ev">理论传播</span></div>
+</section>
+
+<section class="seg" id="seg81">
+  <div class="head">
+    <span class="no">第 81 段</span>
+    <span class="tm">第41集·上</span>
+    <h3>陈独秀南下广东</h3>
+  </div>
+  <p>陈独秀抵达广州，被任命为广东教育委员会委员长。他积极推行教育改革，提出废除尊孔读经，提倡新文化。当地保守势力强烈反对，组织游行示威抗议陈独秀的主张。陈独秀坚持原则，与保守派展开激烈辩论，强调教育必须与时俱进。同时，他在广东建立党组织，发展党员，传播马克思主义思想。陈独秀还与孙中山会面，讨论国共合作的可能性，双方就革命道路交换意见。陈独秀在广州的工作引起反动势力的注意，他们向北京政府告发陈独秀的&#x27;过激&#x27;言论，当局开始对他进行监视。</p>
+  <div class="events"><span class="ev">陈抵广州任职</span><span class="ev">推行教育改革</span><span class="ev">与保守派辩论</span><span class="ev">会见孙中山</span></div>
+</section>
+
+<section class="seg" id="seg82">
+  <div class="head">
+    <span class="no">第 82 段</span>
+    <span class="tm">第41集·下</span>
+    <h3>李大钊北方建党</h3>
+  </div>
+  <p>李大钊回到北京，继续领导北方地区的党组织工作。他在北京大学组织马克思主义研究会，吸引进步学生加入研究革命理论。李大钊深入工人群众，了解工人生活状况，组织工人学习文化知识。他发现长辛店铁路工人生活艰苦，决定在那里建立工人夜校，提高工人阶级的觉悟。同时，李大钊与张国焘等人密切配合，扩大党组织在北方的影响。反动政府对李大钊的活动日益警惕，派出特务监视他的行动。李大钊沉着应对，继续秘密开展革命工作，为北方党组织的壮大奠定基础。</p>
+  <div class="events"><span class="ev">北大组织研究会</span><span class="ev">建立工人夜校</span><span class="ev">扩大党组织影响</span><span class="ev">应对特务监视</span></div>
+</section>
+
+<section class="seg" id="seg83">
+  <div class="head">
+    <span class="no">第 83 段</span>
+    <span class="tm">第42集·上</span>
+    <h3>工人运动蓬勃发展</h3>
+  </div>
+  <p>上海工人运动在党的领导下进入高潮。纺织工人举行大罢工，要求改善工作条件和提高工资。罢工工人组织严密，坚持斗争，最终迫使资本家作出让步。罢工胜利的消息传遍全国，各地工人受到鼓舞，纷纷组织起来争取自身权益。北京、武汉等地的工人也相继举行罢工，工人运动形成燎原之势。党的组织趁机在工人中发展党员，壮大工人阶级的力量。各地党组织密切配合，互相支持，形成了全国性的工人运动网络。工人运动的蓬勃发展，为党的建设和革命事业提供了坚实的群众基础。</p>
+  <div class="events"><span class="ev">上海纺织罢工</span><span class="ev">工人取得胜利</span><span class="ev">全国工人响应</span><span class="ev">党组织发展壮大</span></div>
+</section>
+
+<section class="seg" id="seg84">
+  <div class="head">
+    <span class="no">第 84 段</span>
+    <span class="tm">第42集·下</span>
+    <h3>革命力量汇聚上海</h3>
+  </div>
+  <p>各地革命者陆续汇聚上海，准备召开党的第二次全国代表大会。代表们来自全国各地，带来各地党组织的工作情况和革命经验。会议期间，代表们深入交流，总结建党以来的经验教训，讨论革命面临的形势和任务。陈独秀从广东赶回上海，主持大会工作。李大钊也从北京赶来，向大会汇报北方党组织的工作情况。代表们围绕党的纲领和策略展开热烈讨论，最终通过了新的党章和决议。大会决定加强党对工人运动的领导，扩大党的组织规模，为即将到来的革命高潮做好准备。</p>
+  <div class="events"><span class="ev">各地代表汇聚</span><span class="ev">总结建党经验</span><span class="ev">陈李返沪参会</span><span class="ev">通过新党章决议</span></div>
+</section>
+
+<section class="seg" id="seg85">
+  <div class="head">
+    <span class="no">第 85 段</span>
+    <span class="tm">第43集·上</span>
+    <h3>中共二大召开</h3>
+  </div>
+  <p>中国共产党第二次全国代表大会在上海召开，陈独秀、李大钊等来自全国各地的代表出席会议。会议分析了国际国内形势，制定了党的最高纲领和最低纲领。代表们围绕革命道路展开激烈讨论，最终确定反帝反封建的民主革命纲领。会议通过了《中国共产党第二次全国代表大会宣言》，明确了中国革命的性质、对象和任务。陈独秀在会上作了工作报告，总结了建党以来的经验教训。李大钊就工人运动和农民运动的重要性发表讲话，强调建立工农联盟的必要性。会议选举产生了新的中央领导机构，为中国革命指明了方向。</p>
+  <div class="events"><span class="ev">二大召开</span><span class="ev">制定纲领</span><span class="ev">选举领导</span></div>
+</section>
+
+<section class="seg" id="seg86">
+  <div class="head">
+    <span class="no">第 86 段</span>
+    <span class="tm">第43集·下</span>
+    <h3>革命征程开启</h3>
+  </div>
+  <p>中共二大结束后，陈独秀、李大钊等革命者分赴各地贯彻会议精神。陈独秀回到上海，加强党在工人中的工作，组织工会，开展罢工斗争。李大钊回到北京，继续领导北方党组织，培养革命骨干。毛泽东在湖南积极开展农民运动，建立农民协会。各地党组织根据会议精神调整工作策略，加强统一战线建设。革命形势迅速发展，党员人数不断增加，党组织在工人、农民中的影响日益扩大。中国革命进入新的历史阶段，为后续的革命斗争奠定了坚实基础。</p>
+  <div class="events"><span class="ev">贯彻二大精神</span><span class="ev">加强工农工作</span><span class="ev">革命形势发展</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集</td><td>陈独秀创办《新青年》，新文化运动拉开序幕</td></tr><tr><td>第12集</td><td>李大钊发表《我的马克思主义观》，思想交锋白热化</td></tr><tr><td>第19集</td><td>五四运动爆发，爱国学生走上街头</td></tr><tr><td>第30集</td><td>陈独秀、李大钊开始转向马克思主义</td></tr><tr><td>第38集</td><td>各地共产主义小组成立，建党筹备工作加速</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">思想解放</span><span class="theme">民族觉醒</span><span class="theme">革命理想</span><span class="theme">道路探索</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">中国共产党在上海正式成立，陈独秀、李大钊等革命者踏上新的征程，中国革命进入崭新阶段。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-10-28 17:01 · 模型 glm-4-air · 共 86 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
