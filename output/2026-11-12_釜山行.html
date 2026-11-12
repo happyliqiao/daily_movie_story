@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>釜山行 · 分段故事梗概 · 2026-11-12</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>釜山行<span class="year">2016</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-12</span><span class="chip">电影</span><span class="chip">韩国</span><span class="chip">灾难/惊悚</span><span class="chip">2016</span><span class="chip">电影片长约 118 分钟，按每 10 分钟一段切分，共 12 段</span><span class="chip">现代韩国，开往釜山的KTX列车</span></div>
+    <div class="logline">自私金融家石宇携女乘高铁逃往釜山，遭遇丧尸危机，在封闭车厢中为保护女儿而蜕变。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 12 段</h2>
+      <ol><li><a href="#seg1">金融家携女赶车</a></li>
+<li><a href="#seg2">列车上的神秘女子</a></li>
+<li><a href="#seg3">丧尸病毒蔓延</a></li>
+<li><a href="#seg4">车厢隔离求生</a></li>
+<li><a href="#seg5">常务的阴谋</a></li>
+<li><a href="#seg6">丧尸突破防线</a></li>
+<li><a href="#seg7">生死抉择时刻</a></li>
+<li><a href="#seg8">父爱的最终告白</a></li>
+<li><a href="#seg9">石宇变异前一刻</a></li>
+<li><a href="#seg10">石宇自我牺牲</a></li>
+<li><a href="#seg11">釜山防线初现</a></li>
+<li><a href="#seg12">新生命带来希望</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">石宇</span><span class="r">主角</span></div><div class="d">自私金融家，为保护女儿从冷漠到勇敢</div></div>
+<div class="person"><div><span class="n">秀安</span><span class="r">关键配角</span></div><div class="d">石宇女儿，纯真善良，连接人性纽带</div></div>
+<div class="person"><div><span class="n">尚华</span><span class="r">对手</span></div><div class="d">棒球运动员，保护孕妇的勇者</div></div>
+<div class="person"><div><span class="n">英硕</span><span class="r">关键配角</span></div><div class="d">流浪汉，被歧视却展现人性光辉</div></div>
+<div class="person"><div><span class="n">常务</span><span class="r">对手</span></div><div class="d">唯利是图的商人，自私自利</div></div>
+<div class="person"><div><span class="n">珍熙</span><span class="r">关键配角</span></div><div class="d">孕妇，怀着新生命寻求生存希望</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">灾难爆发</span><span class="ds">列车上出现首个感染者，丧尸病毒迅速蔓延</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">人性考验</span><span class="ds">乘客分阵营求生，自私与善良形成鲜明对比</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">牺牲与救赎</span><span class="ds">石宇为救女儿与女儿一同面临生死考验</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">希望延续</span><span class="ds">幸存者抵达釜山，新生命带来未来希望</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>金融家携女赶车</h3>
+  </div>
+  <p>金融家石宇在首尔火车站匆忙赶往釜山，女儿秀安坚持要生日礼物。石宇打电话处理公司并购案，显得冷漠疏离。秀安恳求父亲陪自己去生日会，石宇不耐烦地答应只送她到釜山。火车站人潮涌动，石宇专注工作，秀安独自玩耍。石宇在电话中得知竞争对手尚华可能获得交易，决定提前出发。秀安看到站台上的流浪汉英硕，表现出好奇与同情。石宇催促秀安上车，父女关系疏远。</p>
+  <div class="events"><span class="ev">石宇赶往釜山</span><span class="ev">父女关系疏远</span><span class="ev">秀安见流浪汉</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>列车上的神秘女子</h3>
+  </div>
+  <p>石宇和秀安登上开往釜山的KTX列车，找到商务车厢座位。列车启动后，秀安隔着车厢看到对面站台上的孕妇珍熙，并向她挥手。石宇专注于工作，对女儿的关注有限。列车员检查车票时，一名女子突然从站台冲向列车，被乘务员拉上车后迅速倒地。女子出现异常症状，脸色苍白，行为狂躁。列车员试图安抚她，女子突然袭击乘务员。乘客们惊慌失措，石宇拉着秀安远离混乱。</p>
+  <div class="events"><span class="ev">孕妇珍熙上车</span><span class="ev">神秘女子发病</span><span class="ev">袭击乘务员</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:30</span>
+    <h3>丧尸病毒蔓延</h3>
+  </div>
+  <p>被感染的乘务员变成丧尸，开始攻击车厢内的乘客。恐慌蔓延，乘客们四散奔逃。石宇带着秀安躲进洗手间，透过门缝观察外面的混乱。列车长广播要求乘客留在座位上，但恐慌已经无法控制。石宇发现手机信号中断，无法联系外界。尚华和棒球队友们组成防御小组，保护车厢安全。石宇意识到事态严重，决定寻找更安全的地方。秀安透过洗手间窗户，看到丧尸在车厢内游荡。</p>
+  <div class="events"><span class="ev">乘务员变丧尸</span><span class="ev">乘客四散奔逃</span><span class="ev">石宇躲藏</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:30–00:39</span>
+    <h3>车厢隔离求生</h3>
+  </div>
+  <p>石宇和秀安从洗手间出来，发现列车已经分隔成安全区和危险区。尚华带领的防御小组将丧尸困在车厢一端。石宇试图联系妻子，但电话不通，妻子在首尔感染的消息让他震惊。常务等乘客开始质疑尚华的领导能力，要求打开车门。石宇为了女儿的安全，暂时与尚华合作。秀安与孕妇珍熙在安全区相遇，两人相互安慰。流浪汉英硕被发现藏在车厢连接处，引起乘客恐慌。石宇决定寻找更多生存资源。</p>
+  <div class="events"><span class="ev">车厢分隔</span><span class="ev">尚华领导防御</span><span class="ev">发现流浪汉</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:39–00:49</span>
+    <h3>常务的阴谋</h3>
+  </div>
+  <p>常务与同伙密谋，将幸存者集中在后几节车厢，计划将他们抛弃。石宇发现常务的阴谋，试图阻止却被常务威胁。尚华和珍熙所在的幸存者群体开始信任彼此，共同制定防御计划。石宇与常务发生争执，常务表现出极端自私的本性，认为牺牲少数人保全自己是合理选择。列车长试图维持秩序，但常务已经掌控了部分车厢的控制权。石宇意识到必须找到其他幸存者才能提高生存几率。</p>
+  <div class="events"><span class="ev">常务密谋</span><span class="ev">石宇发现</span><span class="ev">争执爆发</span><span class="ev">幸存者团结</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:49–00:59</span>
+    <h3>丧尸突破防线</h3>
+  </div>
+  <p>丧尸突破尚华团队设置的路障，开始攻击幸存者车厢。恐慌再次蔓延，乘客们四散奔逃。石宇带着秀安寻找更安全的车厢，途中遇到流浪汉英硕。英硕曾因被歧视而被困在车厢连接处，石宇犹豫后决定帮助他。尚华和珍熙等人奋力抵抗丧尸，但丧尸数量不断增加。列车突然减速，前方出现信号灯变红，列车被迫停车。常务趁机将部分幸存者锁在车厢外，任由他们被丧尸攻击。</p>
+  <div class="events"><span class="ev">防线崩溃</span><span class="ev">流浪汉求助</span><span class="ev">列车停车</span><span class="ev">常务背叛</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">00:59–01:09</span>
+    <h3>生死抉择时刻</h3>
+  </div>
+  <p>石宇、秀安、英硕等人被困在充满丧尸的车厢内。尚华和珍熙等人试图从另一侧车厢前来救援。常务被丧尸攻击，感染后变成丧尸，开始攻击周围的乘客。石宇为了保护秀安，与丧尸搏斗，手臂被咬伤。英硕挺身而出，将石宇和秀安推向安全区域，自己却被丧尸包围。列车员广播称下一站将有军队接应，但必须确保车厢内没有感染者。石宇隐瞒自己被咬的事实，决定独自留在车厢后部，让秀安和其他幸存者前往安全区域。</p>
+  <div class="events"><span class="ev">石宇被咬</span><span class="ev">英硕牺牲</span><span class="ev">常务感染</span><span class="ev">石宇隐瞒</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:09–01:19</span>
+    <h3>父爱的最终告白</h3>
+  </div>
+  <p>石宇将秀安托付给尚华和珍熙，独自面对即将到来的变异。秀安察觉到父亲的异常，坚持留下来陪伴。石宇向秀安道歉，承认自己过去不够关心她，表达了对深深的爱。列车抵达釜山前最后一站，军队开始检查车厢。石宇为了不感染其他人，将自己锁在车厢连接处。尚华和珍熙带领秀安和其他幸存者通过检查，登上前往釜山的救援列车。石宇在变异前最后一次向女儿挥手告别，完成了从自私到伟大的蜕变。</p>
+  <div class="events"><span class="ev">石宇托付</span><span class="ev">父女和解</span><span class="ev">军队检查</span><span class="ev">石宇锁门</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:19–01:28</span>
+    <h3>石宇变异前一刻</h3>
+  </div>
+  <p>石宇将秀安托付给尚华和珍熙后，独自面对即将到来的变异。他回忆起与女儿的点点滴滴，内心充满愧疚与不舍。秀安察觉到父亲的异常，坚持留下来陪伴。石宇向秀安道歉，承认自己过去不够关心她，表达了对女儿深深的爱。与此同时，列车继续行驶，距离釜山越来越近。尚华和珍熙试图保护秀安，但石宇的变异已经开始，他的皮肤开始变色，眼睛变得浑浊。秀安紧紧抱住父亲，不愿离开。</p>
+  <div class="events"><span class="ev">石宇托付女儿</span><span class="ev">秀安坚持陪伴</span><span class="ev">石宇向女儿道歉</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:28–01:38</span>
+    <h3>石宇自我牺牲</h3>
+  </div>
+  <p>石宇意识到自己即将完全变成丧尸，为了不伤害女儿，他选择将秀安推给尚华，自己则退到车厢连接处。尚华和珍熙带着秀安继续前行，英硕也加入他们的队伍。石宇在变异的痛苦中挣扎，最终选择跳下列车，以自我牺牲的方式保护女儿。列车继续前行，尚华团队在车厢内设置临时防线，抵御可能追来的丧尸。秀安看着父亲消失的方向，泪流满面。列车广播传来即将抵达釜山的消息，给幸存者们带来一丝希望。</p>
+  <div class="events"><span class="ev">石宇自我牺牲</span><span class="ev">尚华团队前行</span><span class="ev">列车接近釜山</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:38–01:48</span>
+    <h3>釜山防线初现</h3>
+  </div>
+  <p>尚华、珍熙、秀安和英硕等人抵达列车前端，发现釜山已经不远。他们看到远处有军队设置的防线，但需要通过一段充满丧尸的区域才能到达。尚华决定带领大家冒险前行，保护珍熙和秀安。途中遇到其他幸存者，包括一些受伤的乘客。英硕在关键时刻挺身而出，帮助尚华对抗丧尸。珍熙的腹部突然疼痛，可能即将分娩。众人加快脚步，希望能在丧尸包围前到达安全地带。</p>
+  <div class="events"><span class="ev">接近釜山防线</span><span class="ev">尚华带领前行</span><span class="ev">珍熙临产征兆</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:48–01:58</span>
+    <h3>新生命带来希望</h3>
+  </div>
+  <p>尚华带领幸存者突破最后防线，成功抵达釜山军队控制的区域。士兵们迅速控制局面，将丧尸隔离。珍熙在安全环境中顺利产下女婴，象征着新生命的希望。秀安安全到达，但失去了父亲。军队宣布已经控制了丧尸病毒的蔓延，釜山成为安全区。尚华、秀安、珍熙和新生儿以及其他幸存者获救，但石宇的牺牲永远留在了他们心中。影片结尾，秀安站在窗前，看着窗外的阳光，眼中闪烁着对未来的希望。</p>
+  <div class="events"><span class="ev">抵达釜山安全区</span><span class="ev">珍熙顺利分娩</span><span class="ev">丧尸被控制</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第15分钟</td><td>列车上的女乘务员被感染，丧尸危机爆发</td></tr><tr><td>约第35分钟</td><td>石宇与尚华联手对抗丧尸，展现初步转变</td></tr><tr><td>约第65分钟</td><td>常务为自保将幸存者锁在车厢外，人性彻底暴露</td></tr><tr><td>约第90分钟</td><td>石宇为救女儿被感染，选择牺牲自己</td></tr><tr><td>约第105分钟</td><td>秀安与孕妇幸存者抵达釜山，看到军队防线</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">人性善恶</span><span class="theme">父爱救赎</span><span class="theme">生存本能</span><span class="theme">阶级差异</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">秀安和孕妇幸存者抵达釜山，军队控制了丧尸病毒。新生命的象征带来希望，石宇的牺牲完成了从自私到伟大的转变。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-12 17:32 · 模型 glm-4-air,glm-4-flash · 共 12 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
