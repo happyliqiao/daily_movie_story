@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鱿鱼游戏 · 分段故事梗概 · 2026-11-12</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>鱿鱼游戏<span class="year">2021</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-12</span><span class="chip">电视剧</span><span class="chip">韩国</span><span class="chip">惊悚/生存</span><span class="chip">2021</span><span class="chip">电视剧共 9 集，单集约 49 分钟，每集拆 2 段，全剧共 18 段</span><span class="chip">现代韩国，秘密游戏岛</span></div>
+    <div class="logline">负债成年的主角参加神秘生存游戏，在童年游戏生死对决中为巨额奖金挣扎求生。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 18 段</h2>
+      <ol><li><a href="#seg1">负债者收到神秘邀请</a></li>
+<li><a href="#seg2">成奇勋参与游戏</a></li>
+<li><a href="#seg3">游戏岛初体验</a></li>
+<li><a href="#seg4">待补充</a></li>
+<li><a href="#seg5">卧底身份暴露</a></li>
+<li><a href="#seg6">生死逃脱计划</a></li>
+<li><a href="#seg7">女儿被绑架真相</a></li>
+<li><a href="#seg8">成奇勋被迫继续游戏</a></li>
+<li><a href="#seg9">生死走廊逃生战</a></li>
+<li><a href="#seg10">走廊生死战</a></li>
+<li><a href="#seg11">秘密基地搜查</a></li>
+<li><a href="#seg12">监控室发现真相</a></li>
+<li><a href="#seg13">女儿被绑架的真相</a></li>
+<li><a href="#seg14">成奇勋发现女儿被绑</a></li>
+<li><a href="#seg15">成奇勋被迫继续游戏</a></li>
+<li><a href="#seg16">生死游戏对决</a></li>
+<li><a href="#seg17">成奇勋与Front Man对决</a></li>
+<li><a href="#seg18">最终游戏对决</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">成奇勋</span><span class="r">主角</span></div><div class="d">负债累累的前赛车手，为救女儿参加游戏</div></div>
+<div class="person"><div><span class="n">黄俊昊</span><span class="r">主角</span></div><div class="d">调查游戏的警察，卧底潜入游戏岛</div></div>
+<div class="person"><div><span class="n">Front Man</span><span class="r">对手</span></div><div class="d">游戏组织者，神秘面具人掌控生死</div></div>
+<div class="person"><div><span class="n">曹尚佑</span><span class="r">关键配角</span></div><div class="d">富家子，为游戏提供资金</div></div>
+<div class="person"><div><span class="n">吴一木</span><span class="r">关键配角</span></div><div class="d">医生，为求生不择手段</div></div>
+<div class="person"><div><span class="n">姜晓</span><span class="r">关键配角</span></div><div class="d">中年女性，为家庭债务参赛</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">邀请与筛选</span><span class="ds">负债者接受邀请，通过初步筛选加入游戏</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">游戏开始</span><span class="ds">玩家抵达岛屿，开始第一轮生死游戏</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">淘汰与结盟</span><span class="ds">玩家在游戏中结盟又背叛，人数锐减</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">真相揭露</span><span class="ds">警察调查游戏组织，主角发现游戏内幕</span></div>
+<div class="act"><span class="idx">05</span><span class="nm">最终对决</span><span class="ds">幸存者参与最后一战，争夺巨额奖金</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·上</span>
+    <h3>负债者收到神秘邀请</h3>
+  </div>
+  <p>成奇勋是一名前赛车手，因投资失败欠下巨额债务，被高利贷追债。他在公交车上与童年玩伴黄俊昊重逢，但黄俊昊已是一名警察。成奇勋的女儿需要骨髓移植，但他无力支付手术费。走投无路时，他收到一张印有电话号码的卡片，打电话后被邀请参加一场神秘游戏，获胜者可获得456亿韩元奖金。他来到指定地点，看到许多同样陷入财务困境的人，包括富家子曹尚佑、医生吴一木和中年女性姜晓。他们被要求交出手机和所有物品，然后蒙眼登上大巴车前往未知目的地。</p>
+  <div class="events"><span class="ev">奇勋负债累累</span><span class="ev">收到游戏邀请</span><span class="ev">登上神秘大巴</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·下</span>
+    <h3>成奇勋参与游戏</h3>
+  </div>
+  <p>成奇勋收到神秘邀请函，参加一场能赢得巨额奖金的生存游戏。他在游戏接待处遇到其他负债者，包括富家子曹尚佑、医生吴一木和中年女性姜晓。经过简单筛选，成奇勋和其他455名玩家被选中。他们被没收手机和财物，换上统一运动服，登上前往秘密岛屿的船只。船上，成奇勋发现童年玩伴黄俊昊也在乘客中，但黄俊昊已是一名警察。成奇勋的女儿病情恶化，急需骨髓移植，这坚定了他参加游戏的决心。抵达岛屿后，玩家们被关在宿舍，被告知第二天将开始第一场游戏。</p>
+  <div class="events"><span class="ev">收到邀请函</span><span class="ev">登船前往岛屿</span><span class="ev">发现黄俊昊</span><span class="ev">女儿病情恶化</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第2集·上</span>
+    <h3>游戏岛初体验</h3>
+  </div>
+  <p>成奇勋与其他45名玩家抵达神秘岛屿，每人获得一套统一服装和编号。他们被没收手机和贵重物品，随后被引导至餐厅享用最后一顿自由餐食。游戏工作人员介绍规则，警告任何反抗者将被淘汰。玩家们被分配到宿舍，成奇勋与富家子曹尚佑、医生吴一木和中年女性姜晓同住一室。夜晚，成奇勋发现有人试图逃跑，结果被守卫制服并带走。第二天清晨，所有玩家被召集到广场，被告知第一场游戏即将开始。工作人员展示了一把手枪，并解释失败者将被处决。成奇勋和其他玩家面面相觑，意识到这是一场生死游戏。</p>
+  <div class="events"><span class="ev">抵达岛屿</span><span class="ev">没收物品</span><span class="ev">警告反抗</span><span class="ev">发现逃跑者</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·下</span>
+    <h3>待补充</h3>
+  </div>
+  <p>该段内容生成失败（连续 3 次都没拿到合法 JSON：JSON 解析失败，原始输出片段：{&quot;segments&quot;:[{&quot;index&quot;:4,&quot;range&quot;:&quot;第2集·下&quot;,&quot;title&quot;:&quot;第一场游戏&quot;,&quot;summary&quot;:&quot;成奇勋与其他45名玩家参加第一场游戏&quot;椪糖挑战。参赛者需用针完整取出椪糖形状，失败即淘汰。游戏开始前，工作人员强调规则不容质疑。成奇勋凭借童年技巧成功取出，但多人失败被淘汰。黄俊昊以警察身份暗中观察游戏组织。曹尚佑利用财富收买他人，吴一木则冷静分析游戏规则。姜晓因紧张失败，但被成奇勋暗中帮助。游戏结束后，工作人员宣布下一场游戏将在24小时后开始，玩家被关入宿舍。成奇勋发现游戏组织者戴着与童年玩伴相同的面具，开始怀疑游戏背后的真相。&quot;,&quot;events&quot;:[&quot;椪糖挑）。可稍后重新运行并加 --force 覆盖重生成。</p>
+  
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第3集·上</span>
+    <h3>卧底身份暴露</h3>
+  </div>
+  <p>黄俊昊在游戏中暴露警察身份，Front Man得知后命令手下追杀他。黄俊昊在走廊上被多名守卫围攻，他奋力抵抗但寡不敌众。危急时刻，成奇勋出手相助，两人共同对抗守卫。黄俊昊向成奇勋坦白自己卧底调查游戏的真相，两人达成暂时同盟。Front Man通过监控目睹一切，决定亲自处理叛徒。游戏继续进行，但气氛变得更加紧张，玩家们开始互相猜疑。成奇勋在混乱中救下黄俊昊，两人暂时躲藏起来，思考下一步计划。黄俊昊透露游戏组织势力庞大，警方内部可能有内鬼。</p>
+  <div class="events"><span class="ev">警察身份暴露</span><span class="ev">Front Man下令追杀</span><span class="ev">成奇勋相救</span><span class="ev">暂结同盟</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第3集·下</span>
+    <h3>生死逃脱计划</h3>
+  </div>
+  <p>黄俊昊与成奇勋联手对抗守卫，在走廊上激烈搏斗。成奇勋利用赛车手的敏捷身手，黄俊昊则凭借警队训练的格斗技巧，两人配合默契暂时击退守卫。他们决定寻找其他幸存玩家共同对抗组织。途中遇到吴一木和姜晓，得知部分玩家正在计划暴动。黄俊昊向他们透露了自己的警察身份，希望借助官方力量终结这场游戏。与此同时，Front Man得知黄俊昊逃脱，下令加强岛上警戒，并开始怀疑内部有叛徒。成奇勋则暗中观察其他玩家的行动，寻找可能的盟友和逃脱机会。</p>
+  <div class="events"><span class="ev">联手对抗守卫</span><span class="ev">寻找暴动玩家</span><span class="ev">透露警察身份</span><span class="ev">加强岛上警戒</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第4集·上</span>
+    <h3>女儿被绑架真相</h3>
+  </div>
+  <p>成奇勋在游戏中接到神秘电话，得知女儿已被绑架。对方威胁他必须继续游戏，否则女儿会有生命危险。成奇勋陷入绝望，既想赢得奖金救女儿，又担心自己在游戏中丧命。与此同时，黄俊昊在岛上继续调查，发现游戏组织者与当地权贵有勾结。曹尚佑在游戏中表现出异乎寻常的冷静，似乎对游戏规则了如指掌。吴一木为求生存不惜伤害其他玩家，引发众怒。姜晓则在暗中观察每个人的行动，寻找结盟机会。成奇勋决定暂时隐藏自己的真实目的，专注于游戏生存，同时寻找救女儿的机会。</p>
+  <div class="events"><span class="ev">女儿被绑</span><span class="ev">组织者威胁</span><span class="ev">黄俊昊调查</span><span class="ev">曹尚佑异常</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第4集·下</span>
+    <h3>成奇勋被迫继续游戏</h3>
+  </div>
+  <p>成奇勋接到神秘电话后陷入两难境地，既想赢得奖金救女儿，又担心自己在游戏中丧命。他向黄俊昊坦白女儿被绑架的真相，两人决定联手寻找游戏组织者。与此同时，其他幸存玩家也在为下一场游戏做准备，吴一木和曹尚佑暗中结盟，试图排除异己。姜晓则独自行动，寻找逃生机会。成奇勋在游戏中表现出色，但发现游戏规则越来越残酷，玩家之间的信任逐渐瓦解。黄俊昊利用警察身份调查游戏组织，发现背后有更大的阴谋。</p>
+  <div class="events"><span class="ev">女儿被绑架</span><span class="ev">成奇勋坦白真相</span><span class="ev">玩家结盟破裂</span><span class="ev">游戏规则变残酷</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第5集·上</span>
+    <h3>生死走廊逃生战</h3>
+  </div>
+  <p>黄俊昊暴露警察身份后，Front Man下令追杀。成奇勋与黄俊昊在走廊上遭遇多名守卫围攻，两人背靠背共同战斗。成奇勋利用赛车手敏捷的身手躲避攻击，黄俊昊则利用警察格斗技巧反击。在激战中，成奇勋发现守卫有弱点，两人配合默契，击倒数名守卫。他们发现一条秘密通道，决定暂时躲避。在通道中，黄俊昊向成奇勋透露自己调查游戏组织的线索，提到一名失踪的同事可能与此有关。成奇勋则分享自己参加游戏的动机是为了救病重的女儿。两人达成暂时联盟，决定共同寻找逃离游戏岛的方法。</p>
+  <div class="events"><span class="ev">身份暴露</span><span class="ev">联手对抗</span><span class="ev">发现密道</span><span class="ev">分享真相</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第5集·下</span>
+    <h3>走廊生死战</h3>
+  </div>
+  <p>成奇勋与黄俊昊在走廊上与守卫展开激烈搏斗。成奇勋凭借赛车手的敏捷身手躲避攻击，黄俊昊则利用警用格斗技巧反击。两人配合默契，暂时击退守卫。黄俊昊告诉成奇勋，他发现游戏组织者与警方高层有联系，这让成奇勋更加绝望。两人决定寻找其他幸存玩家寻求帮助，途中遇到曹尚佑。曹尚佑提出暂时合作，但暗中计划背叛他们。三人继续寻找出路，遭遇更多守卫围攻。在混战中，黄俊昊为保护成奇勋受伤，成奇勋愤怒反击，暂时击退守卫。三人躲进一间密室，黄俊昊伤势加重，成奇勋必须独自行动寻找帮助。</p>
+  <div class="events"><span class="ev">走廊搏斗</span><span class="ev">黄俊昊受伤</span><span class="ev">密室躲藏</span><span class="ev">独自行动</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第6集·上</span>
+    <h3>秘密基地搜查</h3>
+  </div>
+  <p>成奇勋与黄俊昊决定寻找游戏组织者的秘密基地。两人利用对岛屿地形的了解，避开守卫巡逻路线，潜入一处废弃建筑。在地下室，他们发现大量监控设备和玩家档案。黄俊昊认出其中一名守卫是失踪警察的前同事。两人继续深入，发现通往地下室的暗门，里面是更复杂的监控中心。成奇勋在档案中发现女儿的照片，确认她被关在岛上某处。正当他们准备进一步调查时，外面传来脚步声，两人迅速躲藏起来，等待时机。</p>
+  <div class="events"><span class="ev">寻找基地</span><span class="ev">发现档案</span><span class="ev">找到女儿照片</span><span class="ev">遭遇守卫</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第6集·下</span>
+    <h3>监控室发现真相</h3>
+  </div>
+  <p>成奇勋与黄俊昊在秘密基地的监控室发现惊人真相。监控屏幕显示所有游戏房间都被实时监控，Front Man通过监视器观察着岛上的一切。黄俊昊认出其中一名工作人员是失踪警察，证实游戏组织与警方内部有勾结。两人试图带走证据，却被突然出现的守卫包围。搏斗中，黄俊昊为保护成奇勋受伤，成奇勋利用对地形的熟悉带着黄俊昊逃脱。他们意识到游戏背后有更大阴谋，决定分头行动：黄俊昊设法联系外界支援，成奇勋则继续寻找女儿的下落。</p>
+  <div class="events"><span class="ev">发现监控室</span><span class="ev">警察身份确认</span><span class="ev">遭遇守卫围攻</span><span class="ev">分头行动</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第7集·上</span>
+    <h3>女儿被绑架的真相</h3>
+  </div>
+  <p>成奇勋在游戏中表现出色，获得Front Man的注意。黄俊昊在游戏中受伤，被送往医疗室。吴一木医生在医疗室中照顾伤员，同时暗中观察每位玩家的身体状况。成奇勋在休息时接到Front Man的通知，要求他单独前往一个密室。在那里，Front Man向成奇勋展示了他女儿被绑架的视频，证实女儿确实被游戏组织控制。Front Man威胁成奇勋必须继续游戏并获胜，否则他的女儿将有生命危险。成奇勋震惊又愤怒，但为了救女儿，他被迫答应继续参与游戏。</p>
+  <div class="events"><span class="ev">女儿被绑架</span><span class="ev">Front Man威胁</span><span class="ev">成奇勋被迫继续</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第7集·下</span>
+    <h3>成奇勋发现女儿被绑</h3>
+  </div>
+  <p>成奇勋在医疗室休息时，无意间听到吴一木医生与Front Man的对话，得知自己的女儿已被游戏组织绑架。Front Man威胁成奇勋必须继续游戏，否则女儿将有生命危险。成奇勋陷入两难境地，既想赢得奖金救女儿，又担心女儿安危。黄俊昊在医疗室苏醒，得知真相后决定帮助成奇勋。两人计划在下一场游戏中寻找机会联系外界或营救女儿。与此同时，其他玩家对下一场游戏充满恐惧，不知道自己能否活过今晚。成奇勋强忍悲痛，决定为了女儿继续战斗，但内心已不再是为了自己而战。</p>
+  <div class="events"><span class="ev">女儿被绑架</span><span class="ev">吴一木密谈</span><span class="ev">Front Man威胁</span><span class="ev">黄俊昊苏醒</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第8集·上</span>
+    <h3>成奇勋被迫继续游戏</h3>
+  </div>
+  <p>成奇勋得知女儿被绑架后，情绪崩溃但强作镇定。Front Man通过监控器警告他必须赢得游戏才能救回女儿。成奇勋决定暂时隐藏这个秘密，继续参与游戏。在下一场游戏前，他与其他幸存者交流，试图找出游戏组织的弱点。黄俊昊在医疗室逐渐恢复，开始暗中调查医疗室的设备，寻找与外界联系的可能。吴一木医生察觉到成奇勋的异常，开始对他产生怀疑。Front Man注意到成奇勋的表现波动，决定派人密切监视他。游戏组织内部出现分歧，部分成员对Front Man的极端手段表示质疑。</p>
+  <div class="events"><span class="ev">女儿被绑架</span><span class="ev">Front Man施压</span><span class="ev">黄俊昊调查</span><span class="ev">组织内部分歧</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第8集·下</span>
+    <h3>生死游戏对决</h3>
+  </div>
+  <p>成奇勋在下一场游戏中表现异常冷静，引起其他玩家怀疑。吴一木医生暗中观察，试图找出成奇勋的弱点。游戏进行到关键时刻，成奇勋与曹尚佑形成短暂联盟，共同对抗吴一木。黄俊昊在医疗室恢复意识，发现监控设备，开始收集游戏组织证据。成奇勋在游戏中获胜，但Front Man通过监控警告他不要试图逃跑或联系外界。成奇勋决定暂时顺从游戏规则，暗中寻找机会救回女儿并揭露真相。游戏组织者开始准备下一轮游戏，暗示更加残酷的挑战即将开始。</p>
+  <div class="events"><span class="ev">成奇勋冷静游戏</span><span class="ev">黄俊昊收集证据</span><span class="ev">曹尚佑短暂联盟</span><span class="ev">游戏规则警告</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第9集·上</span>
+    <h3>成奇勋与Front Man对决</h3>
+  </div>
+  <p>成奇勋在最终游戏前得知女儿被绑架的真相，Front Man承认自己就是童年玩伴黄仁昊。成奇勋情绪激动，质问Front Man为何要组织这场残酷的游戏。Front Man透露自己曾是成奇勋的朋友，因家庭变故和嫉妒而堕落。成奇勋在游戏中表现出色，凭借对童年游戏的深刻理解和过人的机智，成功击败了多位对手。黄俊昊在岛上继续调查，发现了游戏组织的一些线索，并与成奇勋保持秘密联系。成奇勋意识到游戏背后的黑暗远超想象，决心不仅要赢得奖金，还要揭露真相并救出女儿。</p>
+  <div class="events"><span class="ev">童年真相揭露</span><span class="ev">游戏组织者现身</span><span class="ev">成奇勋表现出色</span><span class="ev">黄俊昊继续调查</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第9集·下</span>
+    <h3>最终游戏对决</h3>
+  </div>
+  <p>成奇勋与Front Man在鱿鱼游戏场展开生死对决。Front Man承认自己就是黄仁昊，童年玩友，因家庭变故而组织这场游戏。两人展开激烈搏斗，成奇勋凭借毅力险胜Front Man。黄俊昊警察及时赶到，逮捕了Front Man。成奇勋获得巨额奖金，救回女儿。但游戏组织并未完全瓦解，暗示游戏可能继续。成奇勋带着女儿离开，但眼中仍有疑虑，暗示这场游戏的阴影将长期存在。</p>
+  <div class="events"><span class="ev">Front Man身份揭露</span><span class="ev">成奇勋胜出</span><span class="ev">黄俊昊逮捕组织者</span><span class="ev">游戏阴影仍在</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集结尾</td><td>第一场游戏结束，首名玩家死亡</td></tr><tr><td>第3集</td><td>主角发现童年玩伴是游戏组织者</td></tr><tr><td>第5集</td><td>警察卧底身份暴露，生死危机</td></tr><tr><td>第7集</td><td>主角发现女儿被绑架，被迫继续游戏</td></tr><tr><td>第9集</td><td>主角与组织者对决，游戏真相揭露</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">生存</span><span class="theme">贪婪</span><span class="theme">阶级</span><span class="theme">背叛</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">主角获胜获得奖金，组织者被绳之以法，但游戏仍在继续，暗示循环悲剧。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-12 08:14 · 模型 glm-4-air,glm-4-flash · 共 18 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
