@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>孤独的美食家 · 分段故事梗概 · 2026-11-09</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>孤独的美食家<span class="year">2012</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-09</span><span class="chip">电视剧</span><span class="chip">日本</span><span class="chip">美食/生活</span><span class="chip">2012</span><span class="chip">电视剧共 12 集，单集约 24 分钟，每集拆 2 段，全剧共 24 段</span><span class="chip">现代日本东京</span></div>
+    <div class="logline">美食评论家井之头五郎独自寻找餐馆，品味平凡美食，体验城市人情与个人满足感。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 24 段</h2>
+      <ol><li><a href="#seg1">五郎寻找午餐</a></li>
+<li><a href="#seg2">雨天觅食记</a></li>
+<li><a href="#seg3">商务午餐之旅</a></li>
+<li><a href="#seg4">深夜拉面探索</a></li>
+<li><a href="#seg5">商务午餐寻味记</a></li>
+<li><a href="#seg6">特色料理探秘</a></li>
+<li><a href="#seg7">深夜拉面馆偶遇</a></li>
+<li><a href="#seg8">特色咖喱饭体验</a></li>
+<li><a href="#seg9">深夜拉面馆偶遇</a></li>
+<li><a href="#seg10">特色咖喱饭体验</a></li>
+<li><a href="#seg11">深夜烤肉店寻味</a></li>
+<li><a href="#seg12">深夜烤肉店续篇</a></li>
+<li><a href="#seg13">深夜寻味记</a></li>
+<li><a href="#seg14">炒饭的滋味</a></li>
+<li><a href="#seg15">深夜拉面店的温暖</a></li>
+<li><a href="#seg16">拉面店的温暖时光</a></li>
+<li><a href="#seg17">中华面馆的偶遇</a></li>
+<li><a href="#seg18">深夜食堂的温暖</a></li>
+<li><a href="#seg19">居酒屋的惊喜</a></li>
+<li><a href="#seg20">烤肉店的满足</a></li>
+<li><a href="#seg21">商务午餐的抉择</a></li>
+<li><a href="#seg22">拉面店的偶遇</a></li>
+<li><a href="#seg23">商务午后的寻味</a></li>
+<li><a href="#seg24">中华料理店的满足</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">井之头五郎</span><span class="r">主角</span></div><div class="d">美食评论家，独自寻找美食享受</div></div>
+<div class="person"><div><span class="n">餐馆老板</span><span class="r">关键配角</span></div><div class="d">提供美食的各类餐厅经营者</div></div>
+<div class="person"><div><span class="n">食客</span><span class="r">关键配角</span></div><div class="d">与五郎共享餐厅空间的陌生人</div></div>
+<div class="person"><div><span class="n">供应商</span><span class="r">关键配角</span></div><div class="d">为五郎工作提供服务的相关人员</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">工作间隙</span><span class="ds">五郎在商业工作间隙寻找美食</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">探索城市</span><span class="ds">漫步东京各处发现特色餐馆</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">品尝美食</span><span class="ds">专注体验食物带来的感官享受</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">人情交流</span><span class="ds">与餐馆老板和食客建立短暂联系</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·上</span>
+    <h3>五郎寻找午餐</h3>
+  </div>
+  <p>井之头五郎在东京的商业区工作，结束一上午的商务活动后，他开始寻找午餐地点。五郎漫步在街道上，考虑着各种选择，最终决定前往一家意大利餐厅。进入餐厅后，他仔细研究菜单，点了一份意面和沙拉。五郎独自坐在餐桌旁，享受着美食，同时观察餐厅里的其他顾客。用餐结束后，他对食物表示满意，并支付了账单，继续下午的工作安排。</p>
+  <div class="events"><span class="ev">寻找餐厅</span><span class="ev">点餐用餐</span><span class="ev">满意离开</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·下</span>
+    <h3>雨天觅食记</h3>
+  </div>
+  <p>工作间隙，五郎在东京的街道上漫步，寻找晚餐地点。天空突然下起雨来，他匆忙寻找避雨的地方，无意中发现了一家不起眼的烤肉店。五郎决定进去尝试，点了一份烤肉套餐和一杯啤酒。在等待食物的过程中，他观察餐厅的氛围和其他顾客。烤肉上桌后，五郎仔细品尝，被其美味所打动。用餐结束后，雨停了，五郎心满意足地离开，决定将这家店记录在自己的美食笔记中。</p>
+  <div class="events"><span class="ev">偶遇烤肉店</span><span class="ev">品尝美味</span><span class="ev">记录餐厅</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第2集·上</span>
+    <h3>商务午餐之旅</h3>
+  </div>
+  <p>井之头五郎在东京的商业区进行商务洽谈，结束后他开始寻找午餐地点。他沿着街道步行，考虑着各种选择，最终决定前往一家寿司店。五郎坐在吧台前，点了几种不同的寿司和一份味噌汤。他专注地品尝每一口寿司，感受新鲜食材的味道。用餐过程中，他注意到寿司师傅精湛的刀工和食材处理技巧。午餐结束后，五郎对寿司的品质表示赞赏，并支付了账款，继续他的商务日程。</p>
+  <div class="events"><span class="ev">寻找寿司店</span><span class="ev">品尝寿司</span><span class="ev">赞赏品质</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·下</span>
+    <h3>深夜拉面探索</h3>
+  </div>
+  <p>井之头五郎结束了一整天的工作，已是深夜时分，他决定寻找一家拉面店作为晚餐。在东京的街道上漫步，他发现了一家营业至深夜的小型拉面店。五郎进入店内，点了一碗豚骨拉面和一份煎饺。在等待食物的过程中，他观察店内其他顾客的氛围。拉面上桌后，五郎仔细品尝，被浓郁的汤底和Q弹的面条所吸引。用餐结束后，他对这意外的深夜美食感到满足，并决定将这家店加入他的美食推荐清单。</p>
+  <div class="events"><span class="ev">深夜觅食</span><span class="ev">品尝拉面</span><span class="ev">意外惊喜</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第3集·上</span>
+    <h3>商务午餐寻味记</h3>
+  </div>
+  <p>井之头五郎在完成一项商务工作后，沿街寻找午餐地点。他在东京的商业区漫步，观察着各家餐馆的招牌和人流。最终被一家不起眼的中华料理店吸引，决定尝试。五郎进入店内，坐在吧台前，点了一份炸猪排套餐和一碗米饭。等待食物时，他观察周围环境和其他食客。当食物端上桌时，五郎仔细品尝，享受着食物的香气和口感。他对猪排的酥脆度和调味表示满意，同时也对米饭的口感给予好评。用餐过程中，五郎还注意到店内其他顾客点的一道特色菜，引起了他的兴趣。</p>
+  <div class="events"><span class="ev">商务完成</span><span class="ev">寻找餐馆</span><span class="ev">点餐等待</span><span class="ev">品尝炸猪排</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第3集·下</span>
+    <h3>特色料理探秘</h3>
+  </div>
+  <p>午餐后，井之头五郎继续在商业区附近闲逛。他被一家看似不起眼的意大利餐厅吸引，决定作为晚餐地点。五郎进入餐厅，翻阅菜单后点了一份意面和一杯红酒。用餐过程中，他观察餐厅的氛围和服务。意面上桌后，五郎仔细品尝，对酱料的浓郁度和面条的弹性表示满意。用餐结束后，五郎在结账时与餐厅老板简单交流，询问了意面的制作方法。老板热情地回答了问题，并推荐了另一家附近的特色餐厅。五郎感谢老板的建议，记录下餐厅信息后离开，期待下一次的美食探索。</p>
+  <div class="events"><span class="ev">发现意餐厅</span><span class="ev">点餐品尝</span><span class="ev">与老板交流</span><span class="ev">获推荐信息</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第4集·上</span>
+    <h3>深夜拉面馆偶遇</h3>
+  </div>
+  <p>井之头五郎结束了一天的工作，已是深夜时分。他在东京的街道上漫步，寻找一家拉面店作为晚餐。经过几个街区后，他发现了一家营业至深夜的小型拉面店。五郎进入店内，点了一碗豚骨拉面和一份小菜。等待面食时，他观察店内环境和其他顾客。拉面上桌后，五郎先品尝汤头，感受浓郁豚骨香气，然后品尝面条和配菜。他对汤头的浓郁度和面条的口感表示满意。用餐过程中，一位常客与五郎搭话，询问他对拉面的看法。两人简单交流，五郎表达了对这家拉面店的喜爱。</p>
+  <div class="events"><span class="ev">深夜觅食</span><span class="ev">发现拉面馆</span><span class="ev">点餐品尝</span><span class="ev">与食客交流</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第4集·下</span>
+    <h3>特色咖喱饭体验</h3>
+  </div>
+  <p>离开拉面馆后，井之头五郎继续在城市中漫步。他被一家咖喱专卖店吸引，决定尝试这家店的特色咖喱饭。五郎进入店内，翻阅菜单后点了一份特制咖喱饭和一份沙拉。等待食物时，他观察店内装饰和其他顾客的用餐情况。咖喱饭上桌后，五郎先闻香气，然后品尝米饭和咖喱的组合。他对咖喱的香浓度和米饭的口感表示满意，同时也对沙拉的清爽调味给予好评。用餐结束后，五郎在结账时与店主简单交流，询问了咖喱的制作特色。店主热情地介绍了咖喱的配方和烹饪过程，五郎认真记录下这些信息，期待未来能在家中尝试制作类似的咖喱。</p>
+  <div class="events"><span class="ev">发现咖喱店</span><span class="ev">点餐品尝</span><span class="ev">与店主交流</span><span class="ev">获制作秘诀</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第5集·上</span>
+    <h3>深夜拉面馆偶遇</h3>
+  </div>
+  <p>井之头五郎结束了一天的工作，已是深夜时分。他在东京的街道上漫步，寻找一家拉面店作为晚餐。经过几个街区后，他发现了一家营业至深夜的小型拉面店。五郎进入店内，点了一份特制拉面和一杯啤酒。等待食物时，他观察店内的其他食客和老板的忙碌身影。拉面上桌后，五郎仔细品尝汤底和面条的质感，感受深夜拉面的独特风味。用餐过程中，他注意到一位常客与老板熟络地交谈，这种深夜食客与店主之间的默契让他感到舒适。五郎慢慢享用完拉面，结账后继续在城市中漫步，寻找下一家可能的美味餐厅。</p>
+  <div class="events"><span class="ev">寻找深夜拉面</span><span class="ev">品尝特制拉面</span><span class="ev">观察食客互动</span><span class="ev">继续城市漫步</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第5集·下</span>
+    <h3>特色咖喱饭体验</h3>
+  </div>
+  <p>离开拉面馆后，井之头五郎继续在城市中漫步。他被一家咖喱专卖店吸引，决定尝试这家店的特色咖喱饭。五郎进入店内，翻阅菜单后点了一份特制咖喱饭和一份沙拉。等待食物时，他注意到店内墙上挂着各种咖喱的介绍，从传统的日式咖喱到融合了异国风味的创新咖喱。咖喱饭上桌后，五郎先闻了闻浓郁的香气，然后品尝米饭与咖喱的完美搭配。咖喱的辛辣度适中，肉质鲜嫩，配菜丰富多样。用餐过程中，他看到邻桌的顾客正在讨论不同咖喱的口味差异，这种对美食的热爱让他感到共鸣。五郎满意地吃完咖喱饭，结账后离开，心中记录下这家咖喱店的特色。</p>
+  <div class="events"><span class="ev">发现咖喱专卖店</span><span class="ev">品尝特制咖喱</span><span class="ev">观察店内介绍</span><span class="ev">聆听顾客讨论</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第6集·上</span>
+    <h3>深夜烤肉店寻味</h3>
+  </div>
+  <p>井之头五郎结束了一天的工作，已是深夜时分。他在东京的街道上漫步，寻找一家烤肉店作为晚餐。经过几个街区后，他发现了一家营业至深夜的小型烤肉店。五郎进入店内，点了一份烤牛舌和一份烤五花肉。等待食物时，他观察店内其他食客，独自享受这份深夜的宁静。烤肉上桌后，五郎仔细品味每一块肉的独特口感，感受油脂在口中融化的满足感。他注意到店家提供的特制酱料与烤肉完美搭配，增添了风味层次。用餐过程中，五郎偶尔与邻座的食客交换眼神，但没有过多交流，保持着独自用餐的舒适感。餐后，五郎结账离开，继续在夜色中漫步，寻找下一家可能的美味店铺。</p>
+  <div class="events"><span class="ev">寻找烤肉店</span><span class="ev">深夜用餐体验</span><span class="ev">独自品味美食</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第6集·下</span>
+    <h3>深夜烤肉店续篇</h3>
+  </div>
+  <p>井之头五郎在烤肉店内点了一份牛肉拼盘和啤酒，等待食物时观察店内环境。烤肉师傅将切好的肉片端上桌，五郎开始在烤盘上自行烹制。他专注地烤制每一片肉，享受油脂在烤盘上滋滋作响的声音和香气。五郎品尝烤肉，感受肉质鲜嫩多汁，蘸取特制酱料后味道更佳。用餐期间，他注意到邻桌几位上班族正在热烈交谈，偶尔传来笑声。五郎慢慢享用完烤肉，又点了一份蔬菜沙拉和米饭。用餐结束后，他结账离开，在夜色中继续漫步，回味刚才的美食体验，期待下一次的美食之旅。</p>
+  <div class="events"><span class="ev">点餐烤肉</span><span class="ev">自行烹制</span><span class="ev">品尝美食</span><span class="ev">结账离开</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第7集·上</span>
+    <h3>深夜寻味记</h3>
+  </div>
+  <p>井之头五郎结束工作后，在东京深夜的街道上寻找一家营业中的餐馆。他沿着商业区步行，经过几家已经打烊的店铺，最终发现了一家仍在营业的小型中华料理店。五郎推门进入，店内灯光昏暗，只有几桌客人。他翻阅菜单，被一款特价炒饭吸引，决定点这道菜。等待食物时，他观察店内其他食客，注意到一位独自饮酒的中年男子。五郎拿出手机查看工作邮件，同时期待着即将到来的美食体验。</p>
+  <div class="events"><span class="ev">深夜觅食</span><span class="ev">发现中华店</span><span class="ev">点炒饭</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第7集·下</span>
+    <h3>炒饭的滋味</h3>
+  </div>
+  <p>井之头五郎的炒饭上桌，热气腾腾，配料丰富。他仔细品尝，米饭粒粒分明，配菜鲜嫩多汁，调味恰到好处。五郎吃得津津有味，不时发出满足的叹息。用餐期间，中年男子离开时与老板交谈，五郎注意到两人关系熟络。五郎用餐完毕，结账后向老板询问推荐的其他菜品。老板热情介绍了几道特色菜，五郎记下信息，表示下次会来尝试。离开餐馆时，五郎感到身心放松，对今晚的美食体验十分满意。</p>
+  <div class="events"><span class="ev">品尝炒饭</span><span class="ev">与老板交流</span><span class="ev">记下推荐</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第8集·上</span>
+    <h3>深夜拉面店的温暖</h3>
+  </div>
+  <p>井之头五郎结束工作后，在东京深夜寻找一家营业中的拉面店。他沿着街道行走，经过几家已关闭的店铺，最终发现一家仍在营业的小型拉面馆。五郎推门进入，店内灯光昏黄，只有几位客人正在用餐。他在吧台坐下，点了一份猪骨拉面和一份小菜。等待时，五郎观察店内环境，注意到老板正在忙碌地制作面条。拉面上桌后，热气腾腾，汤头浓郁，面条劲道。五郎专注地品尝每一口，感受汤底的鲜美和面条的口感。用餐期间，一位常客与老板熟络地交谈，五郎偶尔听到他们的对话，感受到这家拉面店的人情味。五郎吃完后满足地离开，继续在深夜的东京街道上寻找下一家美食。</p>
+  <div class="events"><span class="ev">寻找拉面店</span><span class="ev">品尝猪骨拉面</span><span class="ev">感受店内氛围</span><span class="ev">与常客间接交流</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第8集·下</span>
+    <h3>拉面店的温暖时光</h3>
+  </div>
+  <p>井之头五郎在深夜拉面店内坐下，点了一碗豚骨拉面。等待时他观察店内环境，注意到墙上挂着店主年轻时的照片。拉面端上桌，热气腾腾，汤头浓郁，面条劲道，叉烧肉片肥瘦适中。五郎品尝第一口便露出满足表情，吃得津津有味。店主是一位沉默寡言的中年男子，见五郎吃得香，主动多加了一勺配料。用餐期间，一位常客进来与店主寒暄，五郎偶尔抬头观察他们的互动。吃完拉面，五郎结账时对店主表示赞赏，店主只是微微点头回应。五郎离开拉面店，走在深夜的街道上，回味着刚才的美味，感到身心满足，继续寻找下一家美食店。</p>
+  <div class="events"><span class="ev">点拉面</span><span class="ev">品尝美味</span><span class="ev">店主互动</span><span class="ev">离开店铺</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第9集·上</span>
+    <h3>中华面馆的偶遇</h3>
+  </div>
+  <p>井之头五郎在东京商业区寻找一家面馆，最终发现一家不起眼的中华面馆。他走进店内，点了一份特制拉面和煎饺。等待食物时，五郎环顾四周，注意到店内几位食客都在专注享用面食。拉面上桌后，热气腾腾，汤底浓郁，面条筋道。五郎先尝了一口汤，随后开始享用面条，不时发出满足的声音。用餐期间，一位常客与老板交谈，五郎无意中听到这家面馆已有三十年历史，一直坚持传统工艺制作面条。五郎品尝完毕，结账离开，心中对这家面馆留下了深刻印象。</p>
+  <div class="events"><span class="ev">寻找面馆</span><span class="ev">品尝拉面</span><span class="ev">了解历史</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第9集·下</span>
+    <h3>深夜食堂的温暖</h3>
+  </div>
+  <p>结束工作后的井之头五郎在深夜漫步，发现一家仍在营业的小型食堂。他推门进入，店内灯光温暖，几位客人正在用餐。五郎在吧台坐下，点了一份照烧鸡肉盖饭和味噌汤。等待食物时，他与老板闲聊，了解到这家食堂已营业二十年，是附近上班族深夜的好去处。食物上桌后，五郎仔细品尝，鸡肉鲜嫩多汁，照烧酱汁甜咸适中，米饭松软。用餐期间，一位加班结束的公司职员走进店里，与老板熟络地交谈。五郎吃完后，感到身心放松，对这家深夜食堂产生了亲切感，离开时心中暗自决定下次还会再来。</p>
+  <div class="events"><span class="ev">深夜食堂</span><span class="ev">照烧鸡肉</span><span class="ev">与老板交谈</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">第10集·上</span>
+    <h3>居酒屋的惊喜</h3>
+  </div>
+  <p>井之头五郎在商业会议结束后，寻找一家适合放松的居酒屋。他走进一家传统日式居酒屋，点了一份刺身拼盘和烤鸡串。等待食物时，五郎观察店内环境，木质装修古朴，墙上挂着传统装饰。刺身上桌后，五郎先品尝了金枪鱼，肉质新鲜，随后尝试了三文鱼，入口即化。烤鸡串上桌后，外皮微焦，内里多汁，调味恰到好处。用餐期间，邻桌几位上班族正在热烈讨论工作，五郎偶尔听到他们的谈话内容。五郎享用完食物后，点了一杯清酒，慢慢品尝，感受酒精带来的放松。结账离开时，他对这家居酒屋的食材新鲜度和烹饪水平表示赞赏。</p>
+  <div class="events"><span class="ev">寻找居酒屋</span><span class="ev">品尝刺身</span><span class="ev">享用烤鸡</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">第10集·下</span>
+    <h3>烤肉店的满足</h3>
+  </div>
+  <p>井之头五郎在客户拜访间隙，发现一家烤肉店。他走进店内，被炭火的香气吸引，点了一份和牛烤肉和蔬菜拼盘。等待食物时，五郎观察店内其他客人，注意到大家都专注于烤肉的过程。和牛上桌后，五郎按照传统方式烤制，肉香四溢。烤好的牛肉入口即化，脂肪与肉的比例完美，调味简单却能凸显肉质本身的美味。蔬菜拼盘搭配烤肉，清爽解腻。用餐期间，一位常客与老板讨论不同部位牛肉的烤制方法，五郎在一旁默默学习。五郎享用完食物后，感到极大的满足，对这家烤肉店的食材质量和烹饪技巧给予高度评价，离开时已经计划下次再来尝试其他部位的牛肉。</p>
+  <div class="events"><span class="ev">发现烤肉店</span><span class="ev">烤制和牛</span><span class="ev">学习技巧</span></div>
+</section>
+
+<section class="seg" id="seg21">
+  <div class="head">
+    <span class="no">第 21 段</span>
+    <span class="tm">第11集·上</span>
+    <h3>商务午餐的抉择</h3>
+  </div>
+  <p>井之头五郎在商务会议间隙寻找午餐地点，他在商业区漫步，被一家意大利餐馆的菜单吸引。五郎推门进入，发现店内环境优雅但客人稀少。他犹豫片刻后选择入座，点了一份海鲜意面和沙拉。等待食物时，五郎观察店内细节，注意到厨师正在精心准备食材。当意面上桌，五郎品尝后感到满意，但注意到分量比自己预期的少。用餐过程中，一位商务人士匆忙进来取外带餐点，与老板简短交谈后离开。五郎用完餐后结账，继续下午的工作安排，对这次午餐体验给予中等评价。</p>
+  <div class="events"><span class="ev">寻找午餐地点</span><span class="ev">选择意大利餐馆</span><span class="ev">品尝海鲜意面</span><span class="ev">观察店内环境</span></div>
+</section>
+
+<section class="seg" id="seg22">
+  <div class="head">
+    <span class="no">第 22 段</span>
+    <span class="tm">第11集·下</span>
+    <h3>拉面店的偶遇</h3>
+  </div>
+  <p>井之头五郎在客户拜访结束后，发现一家不起眼的拉面店。他推门而入，店内空间狭小但充满活力。五郎在吧台坐下，点了一份豚骨拉面和煎饺。等待食物时，他注意到邻座几位常客与老板熟络地交谈。拉面上桌后，五郎被浓郁的汤底香气吸引，仔细品尝每一口。用餐过程中，一位老顾客向五郎推荐店里的特制辣油，五郎尝试后感到惊喜。结账时，老板微笑着询问他的用餐体验，五郎给予好评后离开。走在回家的路上，五郎回味着拉面的美味，感到一天的疲惫被美食治愈。</p>
+  <div class="events"><span class="ev">发现拉面店</span><span class="ev">品尝豚骨拉面</span><span class="ev">与顾客交流</span><span class="ev">获得推荐</span></div>
+</section>
+
+<section class="seg" id="seg23">
+  <div class="head">
+    <span class="no">第 23 段</span>
+    <span class="tm">第12集·上</span>
+    <h3>商务午后的寻味</h3>
+  </div>
+  <p>井之头五郎在完成上午的商务工作后，沿着商业区步行寻找午餐。他注意到一家不起眼的中华料理店，门面简陋但飘出诱人的香气。五郎推门而入，发现店内空间不大但干净整洁。他点了一份扬州炒饭和酸辣汤，等待时观察其他客人，大多是附近的上班族。食物上桌后，五郎品尝炒饭的米粒分明，配料新鲜，酸辣汤的酸辣适中，让他感到满足。用餐过程中，店主过来询问口味，五郎简单称赞后继续专注于美食。午餐结束后，五郎付账离开，继续下午的工作行程，心中记下这家小店作为商务午餐的可靠选择。</p>
+  <div class="events"><span class="ev">发现中华店</span><span class="ev">品尝炒饭</span><span class="ev">店主交流</span><span class="ev">满意离开</span></div>
+</section>
+
+<section class="seg" id="seg24">
+  <div class="head">
+    <span class="no">第 24 段</span>
+    <span class="tm">第12集·下</span>
+    <h3>中华料理店的满足</h3>
+  </div>
+  <p>井之头五郎在中华料理店点了一份宫保鸡丁炒饭和酸辣汤。等待食物时，他注意到店内几位常客与老板熟络地交谈，氛围亲切。食物上桌后，五郎仔细品尝，宫保鸡丁的辣度适中，鸡肉鲜嫩，花生脆香，炒饭粒粒分明。酸辣汤酸辣开胃，汤底浓郁。五郎慢慢享用美食，感受食材的新鲜和调味的平衡。用餐过程中，老板注意到五郎的赞赏，主动上前询问意见。五郎表达了对菜品的高度评价，老板高兴地表示会继续保持品质。用餐结束后，五郎满意地结账，离开时对这家不起眼但味道出众的小店留下深刻印象，继续在城市中寻找下一处美食目的地。</p>
+  <div class="events"><span class="ev">点餐品尝</span><span class="ev">老板交流</span><span class="ev">满意离开</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集</td><td>五郎在雨天找到第一家心仪餐馆</td></tr><tr><td>第4集</td><td>发现一家意外美味的小店</td></tr><tr><td>第8集</td><td>与餐馆老板建立特殊联系&quot;</td></tr><tr><td>第10集</td><td>品尝到人生难忘的美食体验</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">美食探索</span><span class="theme">个人满足</span><span class="theme">城市人情</span><span class="theme">孤独与享受</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">五郎继续在城市中寻找美食，享受独自用餐的简单快乐，从平凡食物中发现生活真味。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-09 07:55 · 模型 glm-4-air,glm-4-flash · 共 24 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

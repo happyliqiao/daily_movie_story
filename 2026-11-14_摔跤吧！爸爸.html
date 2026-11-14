@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>摔跤吧！爸爸 · 分段故事梗概 · 2026-11-14</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>摔跤吧！爸爸<span class="year">2016</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-14</span><span class="chip">电影</span><span class="chip">印度</span><span class="chip">传记/运动</span><span class="chip">2016</span><span class="chip">电影片长约 130 分钟，按每 10 分钟一段切分，共 13 段</span><span class="chip">印度乡村</span></div>
+    <div class="logline">前摔跤冠军马哈维亚训练女儿们成为摔跤手，打破性别偏见，为国争光。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 13 段</h2>
+      <ol><li><a href="#seg1">马哈维亚摔跤梦碎</a></li>
+<li><a href="#seg2">第2段</a></li>
+<li><a href="#seg3">第3段</a></li>
+<li><a href="#seg4">第4段</a></li>
+<li><a href="#seg5">首次摔跤比赛</a></li>
+<li><a href="#seg6">全国比赛资格</a></li>
+<li><a href="#seg7">国家体育学院</a></li>
+<li><a href="#seg8">国际赛事失利</a></li>
+<li><a href="#seg9">吉塔低谷挣扎</a></li>
+<li><a href="#seg10">马哈维亚潜入指导</a></li>
+<li><a href="#seg11">父亲秘密指导</a></li>
+<li><a href="#seg12">吉塔重拾信心</a></li>
+<li><a href="#seg13">英联邦决战夺冠</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">马哈维亚</span><span class="r">主角</span></div><div class="d">前摔跤冠军，培养女儿实现未竟梦想</div></div>
+<div class="person"><div><span class="n">吉塔</span><span class="r">主角</span></div><div class="d">大女儿，克服困难成为国际摔跤冠军</div></div>
+<div class="person"><div><span class="n">巴比塔</span><span class="r">主角</span></div><div class="d">小女儿，跟随姐姐脚步成为摔跤选手</div></div>
+<div class="person"><div><span class="n">达亚卡</span><span class="r">关键配角</span></div><div class="d">马哈维亚妻子，支持丈夫培养女儿</div></div>
+<div class="person"><div><span class="n">普拉卡什</span><span class="r">对手</span></div><div class="d">国家体育学院教练，质疑吉塔能力</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">发现天赋</span><span class="ds">马哈维亚发现女儿们摔跤天赋，开始训练</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">艰苦训练</span><span class="ds">姐妹们接受严格训练，参加首场比赛</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">国际挑战</span><span class="ds">吉塔赴国家体育学院训练，遭遇新挑战</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">夺冠之路</span><span class="ds">吉塔和巴比塔克服困难，赢得国际比赛</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>马哈维亚摔跤梦碎</h3>
+  </div>
+  <p>前国家摔跤冠军马哈维亚·辛格·珀尕因家庭经济压力放弃摔跤梦想，只能将希望寄托于未出生的儿子身上。他与妻子达亚卡生活在印度乡村，每天清晨收听广播关注体育赛事，回忆自己当年因国家不支持而无法实现国际比赛梦想的遗憾。马哈维亚在政府工作，但心中始终无法放下对摔跤的热爱，常常对着沙袋练习动作，眼神中充满不甘。</p>
+  <div class="events"><span class="ev">冠军梦碎</span><span class="ev">放弃摔跤</span><span class="ev">生儿期望</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>第2段</h3>
+  </div>
+  <p>马哈维亚与达亚卡接连生了四个女儿，吉塔和巴比塔是最小的两个。一次偶然事件中，马哈维亚发现两个女儿在与男孩打架时展现出惊人的摔跤天赋，轻松将男孩摔倒。这一幕让马哈维亚重新燃起了希望，他意识到女儿们可能继承了自己的摔跤基因。当晚，马哈维亚翻出自己过去的奖牌和照片，向妻子讲述自己的辉煌过去，表达培养女儿成为摔跤手的想法。</p>
+  <div class="events"><span class="ev">发现天赋</span><span class="ev">女儿打架</span><span class="ev">重燃希望</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:30</span>
+    <h3>第3段</h3>
+  </div>
+  <p>马哈维亚开始为女儿们制定严格的训练计划，要求她们每天清晨四点起床跑步，并在自家院子中设置简易训练场地。他将床垫铺在地上作为摔跤垫，指导女儿们基本动作。村民们对此议论纷纷，认为女孩子摔跤有违传统，马哈维亚的邻居甚至嘲笑他异想天开。达亚卡最初也反对女儿们参与这项被视为&#x27;男性运动&#x27;的活动，但在看到女儿们的决心后开始转变态度。</p>
+  <div class="events"><span class="ev">开始训练</span><span class="ev">村民嘲笑</span><span class="ev">妻子反对</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:30–00:40</span>
+    <h3>第4段</h3>
+  </div>
+  <p>马哈维亚剪掉了女儿们长长的头发，认为这是摔跤手应有的形象。这一举动引起更大争议，学校同学嘲笑吉塔和巴比塔是&#x27;假小子&#x27;。马哈维亚坚持训练，要求女儿们控制饮食，减少油脂摄入，增加蛋白质。他甚至亲自监督女儿的饮食，将家里的油炸食品换成健康食品。面对社会压力和女儿们的疲惫，马哈维亚展现出坚定决心，表示要让女儿们证明女孩同样可以在摔跤场上取得成就。</p>
+  <div class="events"><span class="ev">剪短头发</span><span class="ev">改变饮食</span><span class="ev">坚定决心</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:40–00:50</span>
+    <h3>首次摔跤比赛</h3>
+  </div>
+  <p>马哈维亚为女儿们报名参加地区青少年摔跤比赛。吉塔和巴比塔起初害怕面对男性对手，但在父亲鼓励下克服恐惧。比赛中，姐妹俩运用所学技巧，轻松击败对手，赢得首场比赛。这场胜利让马哈维亚确信女儿们有成为冠军的潜力，但也引来更多村民的非议。达亚卡虽担心女儿未来，但选择支持丈夫的决定。马哈维亚开始为女儿制定更严格的训练计划，增加训练强度和时间，为全国比赛做准备。</p>
+  <div class="events"><span class="ev">参赛首战</span><span class="ev">击败对手</span><span class="ev">村民非议</span><span class="ev">加强训练</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:50–01:00</span>
+    <h3>全国比赛资格</h3>
+  </div>
+  <p>吉塔和巴比塔在地区比赛中连续获胜，获得参加全国青少年摔跤比赛的资格。马哈维亚带着女儿们前往比赛地点，但缺乏专业训练设施。他在简陋条件下指导女儿们，教她们分析对手弱点。比赛中，吉塔表现出色，一路晋级决赛。巴比塔虽未能进入决赛，但也取得了不错的成绩。全国比赛的成功让马哈维亚看到了希望，他决定更加系统地训练女儿们，为她们进入国家体育学院做准备。达亚卡开始逐渐接受女儿成为摔跤手的现实。</p>
+  <div class="events"><span class="ev">地区连胜</span><span class="ev">全国资格</span><span class="ev">简陋训练</span><span class="ev">吉塔晋级</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:00–01:10</span>
+    <h3>国家体育学院</h3>
+  </div>
+  <p>吉塔获得进入国家体育学院的资格，离开家乡前往新德里训练。初到学院，吉塔面对全新的环境和专业的训练方式，感到既兴奋又压力巨大。她被分配到普拉卡什教练的班上，这位教练对她的乡村背景表示怀疑。吉塔努力适应学院生活，但逐渐被同化，开始忘记父亲的教导。她剪短头发，改变穿衣风格，甚至开始吃以前被禁止的食物。马哈维亚通过电话提醒她不忘初心，但吉塔对父亲的话不再像以前那样重视。巴比塔留在家乡，继续在父亲指导下训练。</p>
+  <div class="events"><span class="ev">进入学院</span><span class="ev">教练质疑</span><span class="ev">被同化</span><span class="ev">忘记初心</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:10–01:20</span>
+    <h3>国际赛事失利</h3>
+  </div>
+  <p>吉塔在国际比赛中失利，开始怀疑自己的能力。她输给了俄罗斯选手，未能获得奥运会资格。失败让吉塔陷入低谷，她开始质疑父亲的传统训练方法是否过时。与此同时，巴比塔在国内比赛中表现出色，引起国家队注意。马哈维亚意识到女儿的问题，决定亲自前往新德里指导吉塔。他以清洁工身份潜入学院，暗中观察吉塔的训练和比赛。吉塔虽然察觉到父亲的存在，但出于自尊心没有主动寻求帮助。马哈维亚开始制定计划，帮助女儿找回摔跤的本真。</p>
+  <div class="events"><span class="ev">国际失利</span><span class="ev">自我怀疑</span><span class="ev">父亲潜入</span><span class="ev">制定计划</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:20–01:30</span>
+    <h3>吉塔低谷挣扎</h3>
+  </div>
+  <p>吉塔在国际比赛中失利后陷入严重自我怀疑，开始质疑父亲的传统训练方法是否过时。她改变摔跤风格，模仿国家队选手的动作，却失去了自己的优势。普拉卡什教练不断批评她的技术缺陷，吉塔训练时频频失误，信心受到严重打击。与此同时，巴比塔在国家队默默努力，逐渐崭露头角。马哈维亚在家乡通过电话和视频关注女儿们的表现，对吉塔的变化感到担忧。达亚卡安慰丈夫，相信女儿们能够克服困难。吉塔在训练中与教练发生冲突，情绪波动更加剧烈，摔跤成绩持续下滑。</p>
+  <div class="events"><span class="ev">吉塔自我怀疑</span><span class="ev">改变摔跤风格</span><span class="ev">与教练冲突</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:30–01:40</span>
+    <h3>马哈维亚潜入指导</h3>
+  </div>
+  <p>吉塔在国家队训练中持续表现不佳，普拉卡什教练严厉批评她的技术缺陷。吉塔打电话给父亲倾诉困境，马哈维亚意识到吉塔已经完全放弃了自己的摔跤风格。他决定亲自前往新德里，在吉塔不知情的情况下潜入训练场观察。马哈维亚发现吉塔在比赛中失去了进攻性和战术意识，完全模仿国家队选手却失去优势。他秘密联系吉塔，通过电话指导她调整战术，恢复自己的摔跤风格。吉塔开始尝试马哈维亚教授的技巧，虽然遭到教练的反对，但她逐渐找回了自信和比赛中的主动权。</p>
+  <div class="events"><span class="ev">马哈维亚潜入观察</span><span class="ev">指导战术调整</span><span class="ev">吉塔重拾自信</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:40–01:50</span>
+    <h3>父亲秘密指导</h3>
+  </div>
+  <p>马哈维亚以清洁工身份潜入国家体育学院，暗中观察吉塔训练。他发现吉塔完全放弃了原有的摔跤风格，盲目模仿对手动作导致技术混乱。马哈维亚通过录像分析吉塔的比赛，找出关键问题。他设法与吉塔私下会面，严厉批评她抛弃自我特色的做法。马哈维亚重新教授吉塔基础动作，强调保持个人风格的重要性。他指导吉塔如何利用对手的攻击，将其转化为自己的优势。吉塔起初抗拒父亲的指导，但在一次模拟比赛中，按照父亲的方法成功击败了国家队选手。这次胜利让吉塔重新认识到父亲训练方法的价值，开始重新接受父亲的指导。</p>
+  <div class="events"><span class="ev">父亲潜入学院</span><span class="ev">重教基础动作</span><span class="ev">吉塔重获信心</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:50–02:00</span>
+    <h3>吉塔重拾信心</h3>
+  </div>
+  <p>马哈维亚以清洁工身份潜入国家体育学院，暗中观察吉塔训练。他发现吉塔完全放弃了原有的摔跤风格，盲目模仿对手动作导致技术混乱。马哈维亚通过录像分析吉塔的比赛，找出关键问题。他秘密指导吉塔重新找回自己的摔跤风格，强调基础技术和战术的重要性。吉塔开始重新审视自己的训练方法，逐渐找回自信。在马哈维亚的指导下，吉塔调整了战术，重新发挥出自己的优势。她开始相信父亲的传统训练方法，并结合国家队的新技术，形成独特的摔跤风格。吉塔的训练状态明显好转，为即将到来的英联邦运动会做好了准备。</p>
+  <div class="events"><span class="ev">马哈维亚暗中指导</span><span class="ev">吉塔重拾信心</span><span class="ev">调整战术风格</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">02:00–02:10</span>
+    <h3>英联邦决战夺冠</h3>
+  </div>
+  <p>吉塔在英联邦运动会决赛中迎战强大的对手。比赛开始后，吉塔按照父亲教导的战术，保持冷静，不被对手的气势所压倒。她运用父亲教授的技巧，成功破解了对手的进攻。在关键时刻，吉塔抓住对手的破绽，使出父亲教她的经典动作，将对手摔倒在地。最终吉塔以绝对优势赢得比赛，为印度夺得金牌。当印度国旗在赛场上升起，国歌响起时，马哈维亚和巴比塔在观众席上激动不已。吉塔实现了父亲的梦想，也为印度赢得了荣誉。</p>
+  <div class="events"><span class="ev">决赛对战</span><span class="ev">运用战术</span><span class="ev">赢得金牌</span><span class="ev">国歌奏响</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>马哈维亚剪掉女儿头发，决心培养她们成为摔跤手</td></tr><tr><td>约第50分钟</td><td>吉塔赢得全国青少年摔跤比赛，获得国家体育学院资格</td></tr><tr><td>约第75分钟</td><td>吉塔在国家队比赛中失利，开始怀疑自己的能力</td></tr><tr><td>约第100分钟</td><td>马哈维亚潜入国家队指导吉塔，调整战术</td></tr><tr><td>约第120分钟</td><td>吉塔在英联邦运动会决赛中击败对手，夺冠</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">性别平等</span><span class="theme">父爱</span><span class="theme">坚持梦想</span><span class="theme">打破传统</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">吉塔夺得英联邦运动会金牌，马哈维亚的梦想实现，印度国旗在赛场上升起，姐妹俩继续为国家赢得荣誉。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-14 07:33 · 模型 glm-4-air,glm-4-flash · 共 13 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

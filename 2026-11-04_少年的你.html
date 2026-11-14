@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>少年的你 · 分段故事梗概 · 2026-11-04</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>少年的你<span class="year">2019</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-04</span><span class="chip">电影</span><span class="chip">中国</span><span class="chip">青春/现实</span><span class="chip">2019</span><span class="chip">电影片长约 135 分钟，按每 10 分钟一段切分，共 14 段</span><span class="chip">当代中国高中</span></div>
+    <div class="logline">高考生陈念遭校园霸凌，与街头少年小北互相守护，却因一起命案被卷入命运漩涡。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 14 段</h2>
+      <ol><li><a href="#seg1">高考前的紧张</a></li>
+<li><a href="#seg2">校园霸凌初现</a></li>
+<li><a href="#seg3">母亲的艰辛</a></li>
+<li><a href="#seg4">小北的守护</a></li>
+<li><a href="#seg5">霸凌升级</a></li>
+<li><a href="#seg6">小北跟踪</a></li>
+<li><a href="#seg7">母亲探望</a></li>
+<li><a href="#seg8">雨中相助</a></li>
+<li><a href="#seg9">小北护陈念</a></li>
+<li><a href="#seg10">警方审讯陈念</a></li>
+<li><a href="#seg11">警方审讯陈念</a></li>
+<li><a href="#seg12">小北顶罪</a></li>
+<li><a href="#seg13">真相揭露</a></li>
+<li><a href="#seg14">阳光重逢</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">陈念</span><span class="r">主角</span></div><div class="d">被霸凌的高考生，渴望改变命运</div></div>
+<div class="person"><div><span class="n">小北</span><span class="r">主角</span></div><div class="d">街头少年，保护陈念</div></div>
+<div class="person"><div><span class="n">魏莱</span><span class="r">对手</span></div><div class="d">校园霸凌主谋</div></div>
+<div class="person"><div><span class="n">郑易</span><span class="r">关键配角</span></div><div class="d">调查案件的警察</div></div>
+<div class="person"><div><span class="n">陈念母亲</span><span class="r">关键配角</span></div><div class="d">辛苦工作的单亲母亲</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">霸凌初现</span><span class="ds">陈念遭受校园霸凌，生活艰难</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">相遇守护</span><span class="ds">陈念与小北相遇，互相扶持</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">案件爆发</span><span class="ds">魏莱意外死亡，陈念成嫌疑人</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">真相大白</span><span class="ds">陈念与小北联手揭露真相</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>高考前的紧张</h3>
+  </div>
+  <p>高考前夕，陈念在教室里紧张复习，周围同学都在埋头苦读。班主任强调高考重要性，陈念默默记笔记。放学后，陈念在街上看到小北被欺负，她选择默默离开。回到家，陈念母亲在美容院工作很晚才回家，两人简单交流后各自忙碌。陈念在狭小的出租屋内复习，墙上贴满励志标语，桌上堆满复习资料。她看着窗外的高楼大厦，眼神坚定，渴望通过高考改变命运。</p>
+  <div class="events"><span class="ev">高考前夕</span><span class="ev">陈念复习</span><span class="ev">小北被欺</span><span class="ev">母亲晚归</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:19</span>
+    <h3>校园霸凌初现</h3>
+  </div>
+  <p>第二天，陈念在学校走廊被魏莱等人故意撞到，书本散落一地。魏莱带着嘲笑的眼神离开，陈念默默捡起书本。课间，陈念去卫生间，发现门被锁住，门外传来嘲笑声。魏莱等人故意在陈念面前炫耀新衣服，言语间充满优越感。放学后，陈念独自走在路上，再次看到小北，这次小北正在帮一个老人推车。陈念犹豫片刻，选择默默走过。晚上，陈念在复习时接到母亲电话，母亲表示工作忙，可能晚回。</p>
+  <div class="events"><span class="ev">走廊被撞</span><span class="ev">卫生间锁门</span><span class="ev">炫耀新衣</span><span class="ev">小北助人</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:19–00:29</span>
+    <h3>母亲的艰辛</h3>
+  </div>
+  <p>周末，陈念去母亲工作的美容院探望。母亲正在为客人做护理，疲惫不堪。短暂的休息时间，母亲拿出攒下的钱给陈念买复习资料，并叮嘱她好好学习。陈念看着母亲粗糙的手和疲惫的面容，内心复杂。回家路上，陈念经过工地，看到小北在帮忙搬砖。两人短暂对视，没有交流。晚上，陈念在复习时，窗外下起大雨，她想起小时候母亲冒雨接她的场景。第二天，陈念在教室发现课桌上被涂鸦，内容侮辱她的家庭。</p>
+  <div class="events"><span class="ev">母亲工作</span><span class="ev">买复习资料</span><span class="ev">工地偶遇</span><span class="ev">课桌涂鸦</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:29–00:39</span>
+    <h3>小北的守护</h3>
+  </div>
+  <p>陈念被魏莱等人堵在厕所里，他们强迫她承认作弊，并威胁要伤害她的母亲。危急时刻，小北出现，替陈解围。小北警告魏莱等人远离陈念，两人因此结下梁子。陈念对小北表示感谢，小北只是简单回应。放学后，陈念发现有人跟踪她，小北再次出现，护送她回家。路上，小北问陈念为什么害怕，陈念坦言害怕母亲担心。小北默默听着，没有多言。第二天，陈念发现小北在教室外等她，两人一起走了一段路，气氛微妙。</p>
+  <div class="events"><span class="ev">厕所威胁</span><span class="ev">小北解围</span><span class="ev">跟踪出现</span><span class="ev">护送回家</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:39–00:48</span>
+    <h3>霸凌升级</h3>
+  </div>
+  <p>魏莱等人对陈念的霸凌变本加厉。她们在课堂上故意用粉笔头砸陈念，老师视而不见。放学后，陈念被魏莱三人堵在楼道，她们逼迫陈念承认考试作弊，并威胁要伤害她的母亲。陈念坚决否认，魏莱等人扬言要让陈念无法参加高考。陈念默默忍受，内心恐惧加剧。当晚，陈念在家中复习，但无法集中注意力，想起魏莱的威胁，焦虑不安。</p>
+  <div class="events"><span class="ev">课堂羞辱</span><span class="ev">楼道威胁</span><span class="ev">回家焦虑</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:48–00:58</span>
+    <h3>小北跟踪</h3>
+  </div>
+  <p>小北开始暗中保护陈念。他跟踪陈念回家，发现她住在破旧的小区。第二天，小北在陈念放学路上出现，提醒她小心魏莱等人。陈念对小北的跟踪感到不安，质问他为何这样做。小北坦言自己被陈念的坚韧所打动，不愿她受到伤害。陈念拒绝小北的帮助，认为他会惹出更多麻烦。两人争执不下，最终陈念独自离开，小北则在远处默默跟随。</p>
+  <div class="events"><span class="ev">暗中跟踪</span><span class="ev">街头相遇</span><span class="ev">拒绝帮助</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">00:58–01:08</span>
+    <h3>母亲探望</h3>
+  </div>
+  <p>陈念母亲来看望女儿，带来一些食物和钱。母亲询问学校情况，陈念隐瞒了被霸凌的事实。母亲表示自己工作很辛苦，但为了陈念的高考一切都值得。陈念看着母亲粗糙的手和疲惫的面容，内心愧疚。母亲离开后，陈念独自一人，情绪低落。小北出现在她家附近，默默守护。陈念发现后，没有驱赶他，只是默默转身回屋。</p>
+  <div class="events"><span class="ev">母亲探望</span><span class="ev">隐瞒真相</span><span class="ev">愧疚情绪</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:08–01:17</span>
+    <h3>雨中相助</h3>
+  </div>
+  <p>一场大雨中，陈念没带伞，被魏莱等人堵在公交站。她们嘲笑陈念的窘境，故意将她的复习资料弄湿。陈念试图反抗，却被推倒在地。小北出现，与魏莱等人对峙。小北警告她们不要再欺负陈念，魏莱等人不甘示弱，双方剑拔弩张。最终，魏莱等人离开，小北将自己的伞留给陈念，转身离去。陈念望着小北的背影，心中涌起一股暖流。</p>
+  <div class="events"><span class="ev">雨中羞辱</span><span class="ev">小北解围</span><span class="ev">赠伞离去</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:17–01:27</span>
+    <h3>小北护陈念</h3>
+  </div>
+  <p>陈念被魏莱等人推倒在地，小北挺身而出保护她。小北与魏莱等人对峙，警告她们不要再欺负陈念。魏莱等人暂时退让，但陈念仍处于恐惧中。小北提出让陈念跟他走，带她去一个安全的地方。陈念犹豫后同意，随小北离开公交站。两人在雨中行走，陈念对小北的感激与不安交织。小北带陈念到自己住处，一个简陋但安全的小屋。陈念询问小北为何要帮助她，小北表示因为陈念让他想起了过去的自己。陈念开始对小北敞开心扉，倾诉自己的压力和恐惧。两人之间的情感纽带逐渐加深。小北承诺会一直保护陈念，不让她再受到伤害。陈念在小北的陪伴下，暂时感到一丝安心。</p>
+  <div class="events"><span class="ev">小北挺身而出</span><span class="ev">带陈念回住处</span><span class="ev">情感纽带加深</span><span class="ev">承诺保护陈念</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:27–01:36</span>
+    <h3>警方审讯陈念</h3>
+  </div>
+  <p>郑易将陈念带回警局询问，她的供词前后矛盾引起警方怀疑。陈念坚称自己与魏莱的死亡无关，但无法解释为何出现在案发现场附近。警方发现陈念与魏莱之间存在长期矛盾，怀疑她有杀人动机。小北得知陈念被审讯后，主动到警局提供不在场证明，却被警方视为干扰调查。陈念母亲得知女儿被警方带走，焦急万分。</p>
+  <div class="events"><span class="ev">警方审讯</span><span class="ev">供词矛盾</span><span class="ev">小北作证</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:36–01:46</span>
+    <h3>警方审讯陈念</h3>
+  </div>
+  <p>郑易将陈念带回警局进行详细询问，她的回答前后矛盾，引起警方高度怀疑。陈念坚称自己与魏莱的死亡无关，但无法合理解释为何会出现在案发现场附近。警方发现陈念与魏莱之间存在长期矛盾，怀疑她有作案动机。审讯过程中，陈念情绪激动，多次提到小北，但拒绝透露小北的详细信息。郑易注意到陈念身上有轻微伤痕，询问她是否遭遇霸凌，陈念起初否认，后在压力下承认长期被魏莱等人欺负。警方开始调查陈念的社会关系，包括她的母亲和同学，试图找出更多线索。陈念意识到自己已成为主要嫌疑人，内心更加恐惧和不安。</p>
+  <div class="events"><span class="ev">陈念被审讯</span><span class="ev">回答前后矛盾</span><span class="ev">承认被霸凌</span><span class="ev">成主要嫌疑人</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:46–01:56</span>
+    <h3>小北顶罪</h3>
+  </div>
+  <p>郑易继续审讯陈念，她坚持自己与魏莱死亡无关，但无法解释为何出现在案发现场。郑易指出陈念的证词前后矛盾，暗示她隐瞒了关键信息。审讯室气氛紧张，陈念情绪崩溃，泪流满面但仍坚持自己的说法。与此同时，小北在拘留室中突然承认自己才是杀害魏莱的凶手。郑易震惊，立即前往拘留室核实情况。小北详细描述了案发当晚的行动，声称自己跟踪魏莱至天台，在争执中将她推下。陈念得知后震惊不已，她知道小北是在为她顶罪。郑易陷入两难，一方面小北的供词与现场证据有出入，另一方面陈念确实有作案动机。</p>
+  <div class="events"><span class="ev">小北认罪</span><span class="ev">陈念震惊</span><span class="ev">郑易两难</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">01:56–02:05</span>
+    <h3>真相揭露</h3>
+  </div>
+  <p>郑易通过重新调查魏莱坠楼现场，发现更多疑点。他找到魏莱生前最后接触的人，得知魏莱曾与霸凌团伙成员发生争执。警方审讯霸凌团伙成员，有人承认在案发当天与魏莱有过激烈冲突。郑易调取监控，发现魏莱坠楼前曾独自出现在教学楼天台，而霸凌团伙成员则分散在校园各处。陈念在得知这些证据后，向警方坦白了她与小北的关系，以及魏莱霸凌她的全过程。郑易意识到案件并非简单的谋杀案，而是涉及校园霸凌的复杂事件。</p>
+  <div class="events"><span class="ev">郑易调查真相</span><span class="ev">霸凌团伙供认</span><span class="ev">陈念坦白</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:05–02:15</span>
+    <h3>阳光重逢</h3>
+  </div>
+  <p>警方最终认定魏莱的死亡是意外坠楼，霸凌团伙成员因长期欺凌他人被学校开除。陈念在高考中取得优异成绩，考入理想大学。小北因妨碍司法公正被判处有期徒刑。陈念在大学努力学习，同时坚持探望小北。几年后，小刑期满出狱，陈念已是一名大学生。两人在阳光下重逢，相视而笑，经历了风雨的少年终于找到了各自的出路。陈念继续求学之路，小北则开始了新的生活，两人的友谊在经历磨难后变得更加坚固。</p>
+  <div class="events"><span class="ev">魏莱案定性</span><span class="ev">陈念考入大学</span><span class="ev">小北出狱重逢</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>陈念首次遭遇严重霸凌</td></tr><tr><td>约第50分钟</td><td>陈念与小北建立深厚友谊</td></tr><tr><td>约第75分钟</td><td>魏莱意外坠楼身亡</td></tr><tr><td>约第95分钟</td><td>陈念成为警方主要嫌疑人</td></tr><tr><td>约第115分钟</td><td>小北顶罪真相揭露</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">校园霸凌</span><span class="theme">青春疼痛</span><span class="theme">社会阶层</span><span class="theme">守护与救赎</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">陈念考入大学，小北入狱。多年后，小北出狱，两人在阳光下重逢，相视而笑。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-04 17:09 · 模型 glm-4-air,glm-4-flash · 共 14 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

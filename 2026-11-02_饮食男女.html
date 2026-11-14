@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>饮食男女 · 分段故事梗概 · 2026-11-02</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>饮食男女<span class="year">1994</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-02</span><span class="chip">电影</span><span class="chip">中国台湾</span><span class="chip">家庭/剧情</span><span class="chip">1994</span><span class="chip">电影片长约 124 分钟，按每 10 分钟一段切分，共 12 段</span><span class="chip">1990年代台北</span></div>
+    <div class="logline">退休厨师朱爸通过家庭晚餐维系与女儿们的情感纽带，却面临家庭关系疏远与个人情感表达困境。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 12 段</h2>
+      <ol><li><a href="#seg1">退休大厨的晨间准备</a></li>
+<li><a href="#seg2">家庭餐桌上的暗流</a></li>
+<li><a href="#seg3">家倩的厨艺梦想</a></li>
+<li><a href="#seg4">家珍的婚姻危机</a></li>
+<li><a href="#seg5">家倩辞职离家的抉择</a></li>
+<li><a href="#seg6">家宁的叛逆与逃离</a></li>
+<li><a href="#seg7">家倩餐厅开业筹备</a></li>
+<li><a href="#seg8">朱父决定卖房</a></li>
+<li><a href="#seg9">朱父搬离老宅</a></li>
+<li><a href="#seg10">家倩开创新事业</a></li>
+<li><a href="#seg11">家宁回归家庭</a></li>
+<li><a href="#seg12">朱爸寻找新爱</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">朱爸</span><span class="r">主角</span></div><div class="d">退休厨师，渴望亲情却不懂表达</div></div>
+<div class="person"><div><span class="n">家珍</span><span class="r">关键配角</span></div><div class="d">长女，压抑情感的家庭主妇</div></div>
+<div class="person"><div><span class="n">家倩</span><span class="r">关键配角</span></div><div class="d">次女，追求独立自主的厨师</div></div>
+<div class="person"><div><span class="n">家宁</span><span class="r">关键配角</span></div><div class="d">小女儿，叛逆的大学生</div></div>
+<div class="person"><div><span class="n">锦荣</span><span class="r">对手</span></div><div class="d">家珍的丈夫，家庭关系破坏者</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">家庭晚餐</span><span class="ds">朱爸每周做大餐，女儿们表面和谐却各有心事</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">情感裂痕</span><span class="ds">家珍婚姻破裂，家倩追求独立，家宁叛逆离家</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">家庭重组</span><span class="ds">朱爸卖房，女儿们各自面对生活选择</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">情感和解</span><span class="ds">朱爸找到新伴侣，女儿们重新认识家庭意义</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>退休大厨的晨间准备</h3>
+  </div>
+  <p>朱爸是一位退休的顶级厨师，清晨五点便起床准备一周一次的家庭晚餐。他动作娴熟地处理各种食材，展示出精湛的厨艺。三个女儿陆续起床，各自忙碌着准备一天的生活。长女家珍帮助父亲准备食材，次女家倩已经外出工作，小女儿家宁则显得叛逆且疏远。朱爸沉默寡言，与女儿们的交流仅限于必要的日常对话，家庭氛围表面和谐却暗藏疏离。</p>
+  <div class="events"><span class="ev">朱爸早起备菜</span><span class="ev">女儿们各自忙碌</span><span class="ev">家庭氛围疏离</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:21</span>
+    <h3>家庭餐桌上的暗流</h3>
+  </div>
+  <p>朱爸准备的丰盛晚餐摆上餐桌，家珍、家倩和家宁围坐用餐。席间，家珍提及自己婚姻中的不满，丈夫锦荣对家庭漠不关心。家倩宣布自己找到了一份餐厅工作，并计划搬出去独立生活。家宁则对父亲的食物挑三拣四，表现出明显的叛逆情绪。朱爸全程沉默，只在需要时回应女儿们的对话，家庭聚餐成为表面和谐实则各怀心事的活动。</p>
+  <div class="events"><span class="ev">家珍抱怨婚姻</span><span class="ev">家倩计划搬离</span><span class="ev">家宁叛逆挑食</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:21–00:31</span>
+    <h3>家倩的厨艺梦想</h3>
+  </div>
+  <p>家倩在一家高级餐厅工作，她向同事展示自己的厨艺天赋，但受到餐厅老板的压制。她渴望独立发展自己的烹饪理念，却缺乏资金和机会。朱爸察觉到家倩的才华，私下与她交流烹饪心得，但表达方式依然含蓄。家珍的丈夫锦荣对家倩的厨艺不屑一顾，认为女性不应以厨艺为职业。家倩在家庭与职业理想之间挣扎，决心寻找突破。</p>
+  <div class="events"><span class="ev">家倩展示厨艺</span><span class="ev">朱爸暗中指导</span><span class="ev">锦荣反对厨艺事业</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:31–00:41</span>
+    <h3>家珍的婚姻危机</h3>
+  </div>
+  <p>家珍发现丈夫锦荣有外遇，两人发生激烈争吵。锦荣冷漠地要求离婚，家珍陷入绝望。朱爸得知女儿婚姻危机，却不知如何安慰，只能默默准备更多食物试图弥补家庭裂痕。家倩试图调解姐姐与姐夫的矛盾，但收效甚微。家宁对家庭矛盾漠不关心，专注于自己的学业和社交活动。家庭晚餐的气氛变得紧张而沉默，朱爸精心准备的菜肴也无法调和女儿们的困境。</p>
+  <div class="events"><span class="ev">家珍发现出轨</span><span class="ev">锦荣要求离婚</span><span class="ev">家庭气氛紧张</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:41–00:52</span>
+    <h3>家倩辞职离家的抉择</h3>
+  </div>
+  <p>家倩向朱爸表达了自己想要独立开餐厅的强烈愿望，但缺乏启动资金。朱爸起初反对，认为她经验不足，但在家倩坚持下，他最终妥协并承诺提供部分资金支持。家倩开始物色合适的店面，同时寻找合伙人。与此同时，家珍与锦荣的离婚手续进入实质性阶段，家珍开始整理个人物品，准备搬回娘家。朱爸面对两个女儿的人生重大转折，感到既欣慰又忧虑，他尝试通过烹饪与她们沟通，但发现传统的家庭纽带正在松动。家倩看出了父亲的担忧，主动提出每周日仍会回家共进晚餐，朱爸勉强接受了这个安排。</p>
+  <div class="events"><span class="ev">家倩表达创业愿望</span><span class="ev">朱爸妥协提供资金</span><span class="ev">家珍准备搬回娘家</span><span class="ev">家庭周日晚餐约定</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:52–01:02</span>
+    <h3>家宁的叛逆与逃离</h3>
+  </div>
+  <p>家宁在学校与同学发生争执后愤然离校，回到家中与父亲发生激烈冲突。她质疑父亲对家庭的不闻不问，尤其是对大姐家珍婚姻状况的冷漠。朱爸试图用食物和道理安抚女儿，但家宁拒绝沟通，并宣布要搬出去与男友同住。家倩试图调解，但家宁态度坚决。家珍面对妹妹的叛逆和自己的婚姻危机，情绪更加低落。朱爸感到无力应对女儿们的不同选择，只能默默准备下一顿家庭晚餐，希望食物能维系家庭的纽带。家宁在收拾行李时，家倩试图劝说她考虑后果，但家宁坚持己见，认为离开家庭是获得自由的方式。</p>
+  <div class="events"><span class="ev">家宁与父冲突</span><span class="ev">宣布搬离家中</span><span class="ev">家倩调解无效</span><span class="ev">朱爸准备晚餐</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:02–01:12</span>
+    <h3>家倩餐厅开业筹备</h3>
+  </div>
+  <p>家倩正式开始筹备自己的餐厅，她四处考察场地，最终看中一处位于市区的老房子，但租金超出预算。朱爸虽口头反对，却暗中帮助女儿，利用自己的人脉与房东谈判，成功降低了租金。家珍的婚姻问题日益严重，锦荣搬出家中，留下家珍独自面对空荡的房子和破碎的婚姻。家宁继续叛逆，她与学校辅导员发生争执后决定暂时休学，并开始在一家咖啡店打工。朱爸的家庭晚餐变得冷清，女儿们到齐的时间越来越晚，餐桌上沉默多于交谈。家倩忙于餐厅装修，经常深夜才回家，与父亲的交流也变得有限。朱爸感到家庭的纽带正在松动，却不知如何挽回。</p>
+  <div class="events"><span class="ev">家倩考察餐厅</span><span class="ev">朱爸暗中相助</span><span class="ev">家珍婚姻恶化</span><span class="ev">家宁休学打工</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:12–01:23</span>
+    <h3>朱父决定卖房</h3>
+  </div>
+  <p>朱爸意识到女儿们已长大，不需要再通过家庭晚餐维系关系。他决定卖掉承载家庭记忆的老房子，搬到更小的住所。家倩得知父亲的决定，试图劝阻，但朱爸坚持认为这是必要的变化。朱父开始整理厨房中的厨具，每一件都承载着多年的记忆。他联系房产中介，准备开始新生活。这一决定标志着朱家传统生活方式的终结。</p>
+  <div class="events"><span class="ev">朱父决定卖房</span><span class="ev">家倩尝试劝阻</span><span class="ev">整理厨房厨具</span><span class="ev">联系房产中介</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:23–01:33</span>
+    <h3>朱父搬离老宅</h3>
+  </div>
+  <p>朱爸开始整理老家的物品，准备搬往新居。家倩前来帮忙，两人在整理过程中回忆起往事。朱爸向家倩坦白自己卖房的真实原因，不仅是女儿们已经长大，也是自己感到孤独。家倩理解父亲的决定，但仍对失去家庭传统感到不舍。搬家过程中，朱爸发现了一些珍贵的家庭照片和旧物，这些物品勾起了他对已故妻子的思念。家倩看到父亲流露出的情感，尝试更深入地了解父亲的内心世界。</p>
+  <div class="events"><span class="ev">朱爸整理物品</span><span class="ev">家倩帮忙搬家</span><span class="ev">朱爸坦露心声</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:33–01:43</span>
+    <h3>家倩开创新事业</h3>
+  </div>
+  <p>家倩利用自己的厨艺技能，决定独立经营一家小餐厅。她找到合适的店面，开始规划餐厅的装修和菜单设计。朱爸虽然支持女儿的决定，但也担心她独自创业的困难。家倩展现出坚定的决心，表示希望走出父亲的阴影，建立自己的事业。在筹备过程中，家倩面临资金不足和选址困难等问题，但她积极寻找解决方案。朱爸偶尔会来帮忙，提供建议，但尽量让家倩独立处理事务。</p>
+  <div class="events"><span class="ev">家倩筹备餐厅</span><span class="ev">面临资金困难</span><span class="ev">朱爸暗中支持</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:43–01:54</span>
+    <h3>家宁回归家庭</h3>
+  </div>
+  <p>家宁在经历了一段叛逆期后，开始反思自己的行为。她回到父亲的新居，尝试与父亲重建关系。家宁向朱爸道歉过去的不懂事，并表达了对家庭的理解。朱爸看到女儿的成熟，内心感到欣慰。家宁决定暂停学业，找一份工作体验生活。她开始主动关心姐姐们的近况，特别是家倩的餐厅进展。家宁的变化让朱爸看到了希望，他尝试用新的方式与女儿沟通，不再局限于传统的家庭晚餐。</p>
+  <div class="events"><span class="ev">家宁回归家庭</span><span class="ev">向父亲道歉</span><span class="ev">开始独立生活</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:54–02:04</span>
+    <h3>朱爸寻找新爱</h3>
+  </div>
+  <p>朱爸在搬家后认识了邻家的女性，两人逐渐发展出感情。朱爸向女儿们介绍了这位新朋友，家珍和家倩表示理解和支持，家宁则保持观望态度。朱爸决定开始新的生活，邀请邻女一起居住。在影片结尾，朱爸和邻女共同准备简单的晚餐，展现了不同于过去家庭晚餐的新形式。女儿们虽然不再频繁相聚，但各自找到了生活的方向。朱爸通过这次情感经历，学会了表达自己的情感，也重新理解了家庭的意义不在于形式，而在于彼此的关爱和理解。</p>
+  <div class="events"><span class="ev">朱爸结识邻女</span><span class="ev">女儿们接受新关系</span><span class="ev">开始新生活</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>家珍宣布离婚，家庭首次出现重大裂痕</td></tr><tr><td>约第60分钟</td><td>家倩决定独立经营餐厅，搬离家庭</td></tr><tr><td>约第90分钟</td><td>朱爸决定卖掉老房子，家庭象征消失</td></tr><tr><td>约第110分钟</td><td>朱爸向邻女表白，女儿们重新认识父亲</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">家庭关系</span><span class="theme">代际沟通</span><span class="theme">情感表达</span><span class="theme">传统与现代冲突</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">朱爸与邻女共同生活，女儿们各自找到人生方向，家庭关系在新形式下得到重建。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-02 19:26 · 模型 glm-4-air,glm-4-flash · 共 12 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
