@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>阿甘正传 · 分段故事梗概 · 2026-11-17</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>阿甘正传<span class="year">1994</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-17</span><span class="chip">电影</span><span class="chip">美国</span><span class="chip">剧情/人生</span><span class="chip">1994</span><span class="chip">电影片长约 142 分钟，按每 10 分钟一段切分，共 14 段</span><span class="chip">20世纪中后期美国</span></div>
+    <div class="logline">智商只有75的阿甘，凭借纯真与执着，在美国历史变革中创造奇迹，面对的最大阻碍是社会偏见与自身局限。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 14 段</h2>
+      <ol><li><a href="#seg1">阿甘等待公交车</a></li>
+<li><a href="#seg2">童年阿甘受欺负</a></li>
+<li><a href="#seg3">阿甘进入特殊学校</a></li>
+<li><a href="#seg4">阿甘腿疾痊愈</a></li>
+<li><a href="#seg5">阿甘参军入伍</a></li>
+<li><a href="#seg6">越战前线经历</a></li>
+<li><a href="#seg7">阿甘获总统授勋</a></li>
+<li><a href="#seg8">阿甘退伍返家乡</a></li>
+<li><a href="#seg9">阿甘获总统授勋</a></li>
+<li><a href="#seg10">布巴家乡悼念</a></li>
+<li><a href="#seg11">待补充</a></li>
+<li><a href="#seg12">阿甘捕虾创业</a></li>
+<li><a href="#seg13">捕虾船启航</a></li>
+<li><a href="#seg14">长椅上的故事</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">阿甘</span><span class="r">主角</span></div><div class="d">智商75的单纯男子，执着善良</div></div></div></section>
+      
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>阿甘等待公交车</h3>
+  </div>
+  <p>电影开始，阿甘坐在亚拉巴马州的一个公交车站上，向等待公交车的人们讲述自己的人生故事。他坐在长椅上，手里拿着一本《猫王自传》，旁边一位老妇人正在阅读。阿甘讲述自己的童年，提到他腿有残疾，需要戴着腿部支架走路。公交车到来，阿甘上车，坐在一个名叫珍妮的女孩旁边。两人开始交谈，阿甘邀请珍妮分享自己的巧克力。</p>
+  <div class="events"><span class="ev">阿甘等待公交</span><span class="ev">讲述童年故事</span><span class="ev">遇见珍妮</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>童年阿甘受欺负</h3>
+  </div>
+  <p>电影闪回到阿甘的童年时期，他戴着腿部支架，走路笨拙。学校校车经过他家，其他孩子嘲笑他。第一天上学，阿甘遇到了珍妮，两人成为朋友。阿甘因腿部残疾被同学欺负，尤其是一个名叫布巴的男孩。一天放学后，布巴和一群孩子追赶阿甘，珍妮大喊让阿甘跑。阿甘挣脱了腿部支架，奔跑如飞，意外地摆脱了追打。这一幕让阿甘发现跑步是他的天赋。</p>
+  <div class="events"><span class="ev">校车经过</span><span class="ev">初识珍妮</span><span class="ev">摆脱腿部支架</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:30</span>
+    <h3>阿甘进入特殊学校</h3>
+  </div>
+  <p>阿甘的母亲决定送他进入特殊学校，以接受更好的教育。入学第一天，阿甘再次遇见珍妮。在学校里，阿甘因为智商只有75而被同学嘲笑，但他的善良和纯真赢得了部分人的友谊。阿甘的母亲是一位坚强的女性，她教导阿甘人生哲理，并告诉他&#x27;人生就像一盒巧克力，你永远不知道下一颗是什么味道&#x27;。阿甘在学校表现出色，尤其是在跑步方面，他的速度让体育教练印象深刻。</p>
+  <div class="events"><span class="ev">进入特殊学校</span><span class="ev">母亲教导人生</span><span class="ev">展现跑步天赋</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:30–00:41</span>
+    <h3>阿甘腿疾痊愈</h3>
+  </div>
+  <p>随着年龄增长，阿甘的腿部奇迹般地痊愈，不再需要佩戴腿部支架。高中时期，阿甘因为跑步速度快而被橄榄球教练看中，成为校队成员。阿甘在比赛中表现出色，尽管他不太理解比赛的规则，但他总是听从教练的指示，冲向对方防线。阿甘的成功让他在学校小有名气，甚至获得了大学体育奖学金。他的母亲为他的成就感到骄傲，同时也担心他过于单纯，无法应对复杂的世界。</p>
+  <div class="events"><span class="ev">腿疾痊愈</span><span class="ev">加入橄榄球队</span><span class="ev">获得奖学金</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:41–00:51</span>
+    <h3>阿甘参军入伍</h3>
+  </div>
+  <p>阿甘高中毕业后，青梅竹马的珍妮离开家乡去追求梦想，阿甘则按照母亲的安排参军入伍。在军队中，阿甘结识了来自黑人部队的布巴，两人成为好友。新兵训练中，阿甘因为智商低而经常被教官刁难，但他凭借惊人的毅力和坚持不懈的精神完成了所有训练科目。在一次体能测试中，阿甘意外发现自己跑得特别快，被选入了军队的田径队。布巴则对军队的伙食赞不绝口，尤其是虾料理，这让他萌生了退役后开虾船的梦想。阿甘在军队中的表现虽然笨拙，但他的真诚和善良赢得了战友们的尊重。</p>
+  <div class="events"><span class="ev">阿甘参军</span><span class="ev">结识布巴</span><span class="ev">加入田径队</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:51–01:01</span>
+    <h3>越战前线经历</h3>
+  </div>
+  <p>阿甘所在的部队被派往越南战场执行任务。在战场上，阿甘与布巴保持着深厚的友谊，互相照应。一次突袭中，部队遭遇伏击，布巴不幸被地雷炸伤。阿甘不顾个人安危，多次往返战场救出多名受伤的战友，包括连长丹中尉。在混乱中，阿甘背着受伤的布巴撤离，但布巴最终因伤势过重而牺牲。丹中尉因双腿被炸断而意志消沉，对阿甘大发脾气。阿甘因在战场上的英勇表现获得了荣誉勋章，并被总统亲自授勋。布巴的牺牲让阿甘深受打击，他决定实现布巴的梦想，买一艘虾船去捕虾。</p>
+  <div class="events"><span class="ev">赴越参战</span><span class="ev">救战友</span><span class="ev">布巴牺牲</span><span class="ev">获勋章授勋</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:01–01:11</span>
+    <h3>阿甘获总统授勋</h3>
+  </div>
+  <p>阿甘因在战场上的英勇表现被授予国会荣誉勋章。在白宫授勋仪式上，阿甘紧张地与总统握手并交谈，总统询问他在战场上的经历，阿甘简单回答自己只是做了应该做的事。授勋后，阿甘在华盛顿短暂停留，随后返回家乡阿拉巴马。他发现家乡变化很大，许多老朋友已经离开。阿甘决定用军队发放的奖金购买一艘捕虾船，实现与布巴一起捕虾的梦想。他找到布巴的家人，告诉他们自己的计划，布巴的母亲虽然悲伤但接受了阿甘的好意。</p>
+  <div class="events"><span class="ev">阿甘获总统授勋</span><span class="ev">阿甘返乡买船</span><span class="ev">阿甘见布巴家人</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:11–01:21</span>
+    <h3>阿甘退伍返家乡</h3>
+  </div>
+  <p>阿甘获总统授勋后回到军营，得知布巴已战死，内心悲痛。退伍后，阿甘回到家乡，受到母亲热情接待。母亲鼓励他做任何自己想做的事，不要让他人限制自己的可能性。阿甘决定实现布巴生前的心愿，购买一艘捕虾船，开始捕虾事业。他找到已退伍的黑人战友丹中尉，邀请他一同出海捕虾。丹中尉因在战争中失去双腿而意志消沉，起初拒绝阿甘的邀请，但后来被阿甘的真诚打动，同意与他合作。</p>
+  <div class="events"><span class="ev">布巴战死消息</span><span class="ev">阿甘获总统授勋</span><span class="ev">购买捕虾船</span><span class="ev">邀请丹中尉合作</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:21–01:31</span>
+    <h3>阿甘获总统授勋</h3>
+  </div>
+  <p>阿甘因在越南战场上救下多名战友，被授予国会荣誉勋章。在白宫接受总统约翰逊授勋时，阿甘的裤子被总统撕开了一道大口子。仪式结束后，阿甘在华盛顿纪念碑前偶遇珍妮，她正在参加反战示威活动。阿甘向珍妮讲述了自己的英勇事迹，但珍妮对他的军旅生活不感兴趣，匆匆离开。阿甘随后收到了布巴家乡的来信，邀请他参加布巴的葬礼。</p>
+  <div class="events"><span class="ev">总统授勋</span><span class="ev">偶遇珍妮</span><span class="ev">参加葬礼</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:31–01:41</span>
+    <h3>布巴家乡悼念</h3>
+  </div>
+  <p>阿甘来到阿拉巴马州的布巴家乡参加葬礼。布巴的母亲和妹妹们热情接待了阿甘，她们对布巴在战场上的牺牲表示感谢。阿甘向布巴的家人讲述了布巴想在捕虾船上捕虾的梦想，并承诺会帮助她们实现这个愿望。葬礼后，阿甘决定履行对布巴的承诺，用军队发的奖金买了一艘小船，开始在墨西哥湾捕虾。起初捕虾生意并不顺利，阿甘几乎要放弃。</p>
+  <div class="events"><span class="ev">参加葬礼</span><span class="ev">承诺捕虾</span><span class="ev">买船出海</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:41–01:52</span>
+    <h3>待补充</h3>
+  </div>
+  <p>该段内容生成失败（连续 3 次都没拿到合法 JSON：JSON 解析失败，原始输出片段：{
+  &quot;segments&quot;: [
+    {
+      &quot;index&quot;: 11,
+      &quot;range&quot;: &quot;01:41–01:52&quot;,
+      &quot;title&quot;: &quot;阿甘捕虾创业&quot;,
+      &quot;summary&quot;: &quot;阿甘回到家乡后，用当兵攒下的钱买了一艘旧捕虾船，开始实现布巴的梦想。起初捕虾生意惨淡，连续几周一无所获。飓风&quot;卡米拉&quot;袭击海岸后，阿甘的船反而成为唯一幸存的捕虾船，因为其他船只都被摧毁。阿甘与丹中尉合作捕虾，生意逐渐好转，最终成立&quot;布巴-甘虾业公司&quot;，阿甘成为富翁。丹中尉在船上投资并成为船长，他终于找到了生活的意义。&quot;,
+      &quot;events&quot;: [&quot;买船捕虾）。可稍后重新运行并加 --force 覆盖重生成。</p>
+  
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:52–02:02</span>
+    <h3>阿甘捕虾创业</h3>
+  </div>
+  <p>阿甘回到阿拉巴马州，用布巴生前告诉他的捕虾知识开始创业。他买了一艘破旧的捕虾船，命名为&#x27;珍妮号&#x27;，纪念布巴和珍妮。起初捕虾并不顺利，经常空手而归。阿甘没有放弃，每天坚持出海。后来一场飓风袭击了海岸线，其他渔船都受损严重，唯独阿甘的船因为停泊在安全位置而幸免。飓风过后，海里的虾群大量聚集，阿甘的捕虾量暴增。他不仅自己发了财，还实现了布巴的梦想，将捕虾生意扩大，并与布巴的家人分享利润。阿甘在捕虾船上挂上了布巴的照片，让他&#x27;看到&#x27;自己的梦想成真。</p>
+  <div class="events"><span class="ev">买船捕虾</span><span class="ev">遭遇飓风</span><span class="ev">生意成功</span><span class="ev">实现布巴梦想</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">02:02–02:12</span>
+    <h3>捕虾船启航</h3>
+  </div>
+  <p>阿甘回到家乡，用布巴母亲给的钱买了一艘破旧的捕虾船，命名为&#x27;Jenny号&#x27;。起初捕虾生意艰难，阿甘几乎一无所获。飓风&#x27;卡米尔&#x27;来袭时，其他渔船都躲进港口，只有阿甘冒险出海。他发现飓风过后，其他渔船的虾网被破坏，而他的船因为停在海湾深处，反而捕获了大量虾。阿甘因此大获成功，并兑现了对布巴的承诺，将捕虾生意的一半股份给了布巴的家人。</p>
+  <div class="events"><span class="ev">买船出海</span><span class="ev">遭遇飓风</span><span class="ev">意外丰收</span><span class="ev">兑现承诺</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:12–02:22</span>
+    <h3>长椅上的故事</h3>
+  </div>
+  <p>多年后，阿甘坐在长椅上向路人讲述自己的故事。他得知珍妮生了儿子，并决定与阿甘一起生活。阿甘带着珍妮和小儿子回到家乡，他们举行了简单婚礼。然而珍妮不久后因白血病去世。阿甘悲痛欲绝，但他将所有的爱倾注在儿子身上。影片结尾，阿甘带着儿子乘坐校车，开始新的生活。他坐在长椅上，看着羽毛飘过，象征着他一生的旅程和生命的延续。</p>
+  <div class="events"><span class="ev">珍妮归来</span><span class="ev">举办婚礼</span><span class="ev">珍妮离世</span><span class="ev">抚养儿子</span></div>
+</section>
+      </section>
+      
+      
+      
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-17 19:47 · 模型 glm-4-air,glm-4-flash · 共 14 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
