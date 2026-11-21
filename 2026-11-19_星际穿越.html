@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>星际穿越 · 分段故事梗概 · 2026-11-19</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>星际穿越<span class="year">2014</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-19</span><span class="chip">电影</span><span class="chip">美国/英国</span><span class="chip">科幻/家庭</span><span class="chip">2014</span><span class="chip">电影片长约 169 分钟，按每 10 分钟一段切分，共 17 段</span><span class="chip">地球末日后的近未来</span></div>
+    <div class="logline">前宇航员库珀参与太空探索任务，穿越虫洞寻找人类新家园，却面临时间膨胀与女儿分离的痛苦。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 17 段</h2>
+      <ol><li><a href="#seg1">地球环境恶化</a></li>
+<li><a href="#seg2">神秘坐标指引</a></li>
+<li><a href="#seg3">告别家人启程</a></li>
+<li><a href="#seg4">火箭升空启航</a></li>
+<li><a href="#seg5">穿越虫洞的旅程</a></li>
+<li><a href="#seg6">米勒星球登陆</a></li>
+<li><a href="#seg7">时间膨胀的代价</a></li>
+<li><a href="#seg8">曼恩博士的背叛</a></li>
+<li><a href="#seg9">曼恩博士的谎言</a></li>
+<li><a href="#seg10">道尔牺牲与布兰德重伤</a></li>
+<li><a href="#seg11">库珀进入黑洞</a></li>
+<li><a href="#seg12">五维空间探索</a></li>
+<li><a href="#seg13">库珀与塔斯的告别</a></li>
+<li><a href="#seg14">墨菲的方程突破</a></li>
+<li><a href="#seg15">库珀与墨菲重逢</a></li>
+<li><a href="#seg16">父女团聚与新家园</a></li>
+<li><a href="#seg17">库珀告别与展望</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">库珀</span><span class="r">主角</span></div><div class="d">前宇航员，为拯救人类离开女儿</div></div>
+<div class="person"><div><span class="n">墨菲</span><span class="r">关键配角</span></div><div class="d">库珀女儿，继承父亲科学精神</div></div>
+<div class="person"><div><span class="n">布兰德教授</span><span class="r">关键配角</span></div><div class="d">任务领导者，探索人类新家园</div></div>
+<div class="person"><div><span class="n">罗米利</span><span class="r">配角</span></div><div class="d">宇航员，负责理论计算</div></div>
+<div class="person"><div><span class="n">道尔</span><span class="r">对手</span></div><div class="d">背叛团队的自私宇航员</div></div>
+<div class="person"><div><span class="n">曼恩博士</span><span class="r">对手</span></div><div class="d">欺骗团队的假幸存宇航员</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">地球危机</span><span class="ds">环境恶化，库珀被招募参与太空任务</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">星际探索</span><span class="ds">穿越虫洞，探索潜在宜居星球</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">时间陷阱</span><span class="ds">经历时间膨胀，与女儿产生巨大时间差</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">维度突破</span><span class="ds">进入五维空间，通过引力传递信息拯救人类</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>地球环境恶化</h3>
+  </div>
+  <p>近未来地球环境恶化，沙尘暴频繁，农作物枯萎。前NASA飞行员库珀现在成为农民，与儿子汤姆和女儿墨菲一起生活。墨菲发现房间里的书架上有异常重力现象，认为是鬼魂作祟。库珀解释可能是地震引起，但墨菲坚持认为有神秘存在。墨菲的老师提到人类登月计划被取消，认为地球资源即将耗尽。库珀和儿子驾驶拖拉机在田地里工作，讨论着农作物减产和人类面临的困境。</p>
+  <div class="events"><span class="ev">环境恶化</span><span class="ev">墨菲发现异常</span><span class="ev">库珀解释现象</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>神秘坐标指引</h3>
+  </div>
+  <p>墨菲的异常现象持续发生，书架上的重力现象更加频繁。库珀和墨菲前往学校参加家长会，老师告知墨菲的科学天赋，但学校资源有限无法培养。返程途中，库珀的导航系统失灵，他按照墨菲的建议使用老式地图导航。意外发现一处秘密区域，那里隐藏着废弃的NASA基地。布兰德教授出现，邀请库珀参与一项拯救人类的秘密任务，解释地球环境恶化无法逆转，人类必须寻找新的家园。</p>
+  <div class="events"><span class="ev">重力现象持续</span><span class="ev">发现NASA基地</span><span class="ev">布兰德邀请任务</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:30</span>
+    <h3>告别家人启程</h3>
+  </div>
+  <p>库珀进入NASA基地，看到布兰德教授和科学家团队。布兰德教授解释拉格朗日点计划，通过虫洞探索可能适合人类居住的星球。库珀了解到墨菲的老师布兰德博士是任务负责人，他的女儿安妮还在地球上。库珀面临艰难抉择，留下家人或参与拯救人类的任务。他最终决定接受任务，与墨菲和汤姆告别，承诺一定会回来。墨菲愤怒又伤心，认为父亲又一次抛弃了她。</p>
+  <div class="events"><span class="ev">了解计划</span><span class="ev">库珀做决定</span><span class="ev">与家人告别</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:30–00:40</span>
+    <h3>火箭升空启航</h3>
+  </div>
+  <p>库珀准备登船前，布兰德教授给他看了虫洞的影像资料。库珀与罗米利和道尔会合，其他队员已经准备就绪。发射倒计时开始，库珀最后一次与家人通话，承诺会回来。火箭发射升空，库珀感受到巨大的加速度，看着地球逐渐远去。飞船进入太空，库珀和队员们适应失重环境。布兰德教授向团队介绍任务目标：穿越土星附近的虫洞，探索米勒、曼恩、埃德蒙兹三个可能宜居的星球。</p>
+  <div class="events"><span class="ev">准备登船</span><span class="ev">火箭升空</span><span class="ev">进入太空</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:40–00:50</span>
+    <h3>穿越虫洞的旅程</h3>
+  </div>
+  <p>库珀和团队成员进入土星轨道，准备穿越虫洞。布兰德教授向团队介绍任务目标，探索位于另一星系的十二个潜在宜居星球。穿越过程中，船员们经历剧烈震动，库珀惊讶地发现虫洞并非自然形成，而是由高级文明放置。罗米利解释虫洞连接着不同星系，而时间在虫洞内外相对一致，避免了严重的时间膨胀问题。团队成功穿越虫洞，抵达新的星系，开始寻找可能适合人类居住的星球。</p>
+  <div class="events"><span class="ev">穿越虫洞</span><span class="ev">抵达新星系</span><span class="ev">发现人造虫洞</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:50–01:00</span>
+    <h3>米勒星球登陆</h3>
+  </div>
+  <p>团队决定首先探索米勒星球，该星球位于黑洞附近，可能有液态水。登陆舱接近星球表面时，巨大的海浪袭来，几乎淹没飞船。道尔和库珀冒险登陆，发现米勒星球被浅水覆盖，只有少数山丘露出水面。他们找到米勒的探测舱，发现已经坠毁，米勒本人已经遇难。库珀发现米勒的探测记录显示该星球每小时相当于地球上的七年，严重的时间膨胀效应让团队意识到任务的紧迫性。</p>
+  <div class="events"><span class="ev">登陆米勒星球</span><span class="ev">遭遇海浪</span><span class="ev">发现时间膨胀</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:00–01:10</span>
+    <h3>时间膨胀的代价</h3>
+  </div>
+  <p>库珀和道尔在米勒星球上只停留了很短时间，但返回飞船后发现罗米利已经等待了23年。布兰德教授解释黑洞周围的时间膨胀效应，米勒星球上的一小时相当于地球上的七年。团队失去了一个重要星球的选择，燃料也因这次探索大幅减少。库珀得知自己离开地球后，墨菲已经长大，并继承了父亲对科学的热情。他通过视频留言得知墨菲已经成年，并开始怀疑父亲是否还会回来。</p>
+  <div class="events"><span class="ev">时间膨胀显现</span><span class="ev">燃料减少</span><span class="ev">墨菲成年</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:10–01:20</span>
+    <h3>曼恩博士的背叛</h3>
+  </div>
+  <p>团队决定前往曼恩博士所在的冰冻星球，该星球被认为是最有希望的选择。然而，曼恩博士的探测信号突然中断，引发团队担忧。当库珀和其他队员抵达星球表面时，发现曼恩博士的舱体受损严重。曼恩博士向团队讲述了自己如何在恶劣环境中生存，但他的故事中存在矛盾。在紧急情况下，曼恩博士突然袭击库珀，试图夺取飞船逃生，暴露了他早已背叛团队并独自逃离的事实。</p>
+  <div class="events"><span class="ev">曼恩星球登陆</span><span class="ev">信号中断</span><span class="ev">曼恩背叛</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:20–01:29</span>
+    <h3>曼恩博士的谎言</h3>
+  </div>
+  <p>库珀、道尔和布兰德在曼恩博士的冰冻星球着陆，发现基地破败不堪。曼恩博士热情迎接他们，声称星球环境恶化，无法维持人类生存。库珀检查了曼恩的睡眠舱，发现其氧气供应即将耗尽，曼恩承认他伪造了探测数据，因为他害怕被救援队抛弃。曼恩带领库珀前往其他睡眠舱，声称要唤醒其他队员，却在途中突然袭击库珀，试图夺取飞船逃生。道尔和布兰德在外听到动静，布兰德被曼恩推入冰水中，道尔则与曼恩扭打在一起。库珀和曼恩的搏斗导致曼恩的防护服破裂，曼恩在太空中迅速死亡。</p>
+  <div class="events"><span class="ev">曼恩承认伪造数据</span><span class="ev">袭击库珀夺取飞船</span><span class="ev">道尔与曼恩搏斗</span><span class="ev">曼恩死亡</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:29–01:39</span>
+    <h3>道尔牺牲与布兰德重伤</h3>
+  </div>
+  <p>道尔与曼恩搏斗时，曼恩刺伤了道尔，道尔随后被爆炸的碎片击中身亡。库珀成功进入飞船，但发现飞船受损严重，无法立即起飞。布兰德从冰水中被救出，但腿部严重受伤，无法行动。库珀决定手动修复飞船，同时需要布兰德的帮助来计算逃生轨道。布兰德告诉库珀，她其实知道曼恩博士的星球不适合人类生存，但她隐瞒了这个事实，因为她不想让团队失去希望。库珀震惊于布兰德的欺骗，但眼下必须专注于修复飞船。道尔的死让团队士气低落，但他们必须尽快离开这个冰冻星球，否则氧气将耗尽。</p>
+  <div class="events"><span class="ev">道尔被刺身亡</span><span class="ev">布兰德腿部重伤</span><span class="ev">库珀手动修复飞船</span><span class="ev">布兰德隐瞒真相</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:39–01:49</span>
+    <h3>库珀进入黑洞</h3>
+  </div>
+  <p>库珀成功修复飞船，与布兰德和罗米利一起准备离开曼恩的冰冻星球。就在他们即将起飞时，库珀意识到飞船燃料不足以直接返回地球，必须利用黑洞的引力弹弓效应才能获得足够速度。库珀提出自己驾驶飞船靠近黑洞，利用黑洞的引力将飞船甩向正确的轨道，而他自己则无法逃脱。布兰德反对这个计划，但库珀坚持认为这是唯一能拯救团队的方法。库珀驾驶飞船勇敢地驶向黑洞，飞船在强大的引力作用下解体，库珀被弹出飞船，进入黑洞内部。</p>
+  <div class="events"><span class="ev">燃料不足危机</span><span class="ev">库珀计划牺牲</span><span class="ev">飞船解体</span><span class="ev">库珀进入黑洞</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:49–01:59</span>
+    <h3>五维空间探索</h3>
+  </div>
+  <p>库珀在黑洞内部并没有死亡，而是进入了一个五维空间。这个空间由时间构成，库珀可以看到过去的自己与墨菲的互动。库珀意识到这个空间可能是未来人类创造的，用来帮助过去的他们解决引力问题。库珀发现墨菲的房间里书架上的异常引力波动，他意识到可以通过这些波动向墨菲传递信息。库珀利用手表上的量子数据，通过引力变化向墨菲传递了关于黑洞奇点的关键信息。同时，布兰德和罗米利成功利用库珀创造的引力弹弓效应，获得了足够的速度前往曼恩博士的星球，寻找人类的新家园。</p>
+  <div class="events"><span class="ev">进入五维空间</span><span class="ev">看到过去时空</span><span class="ev">传递量子数据</span><span class="ev">布兰德前往新星球</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">01:59–02:09</span>
+    <h3>库珀与塔斯的告别</h3>
+  </div>
+  <p>库珀在五维空间中意识到自己无法返回，决定牺牲自己让塔斯带着数据离开。他向塔斯解释了这个空间是未来人类创造的，用来传递信息。库珀鼓励塔斯继续任务，拯救人类。塔斯虽然不舍，但理解库珀的决定。库珀将自己与墨菲的回忆告诉塔斯，希望这些信息能帮助墨菲解开方程。塔斯承诺会将库珀的爱传递给墨菲。库珀看着塔斯驾驶飞船离开，自己则留在五维空间，寻找与女儿沟通的方式。</p>
+  <div class="events"><span class="ev">库珀决定牺牲</span><span class="ev">塔斯带着数据离开</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:09–02:19</span>
+    <h3>墨菲的方程突破</h3>
+  </div>
+  <p>墨菲在地球上继续研究引力方程，但始终无法完成关键部分。她发现父亲留下的手表在书桌上有异常，意识到引力可以穿越时间传递信息。墨菲重新审视父亲留下的数据，结合布兰德教授的理论，发现可以通过引力传递信息。她利用引力波将手表指针移动，形成二进制代码。墨菲意识到父亲在五维空间试图与她沟通，她将手表与钟摆连接，成功传递了关键方程数据。墨菲终于解决了引力方程，人类得以离开地球。</p>
+  <div class="events"><span class="ev">墨菲发现引力奥秘</span><span class="ev">手表传递二进制信息</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">02:19–02:29</span>
+    <h3>库珀与墨菲重逢</h3>
+  </div>
+  <p>库珀在五维空间中通过引力与墨菲建立了联系，他可以看到墨菲的各个成长阶段。库珀意识到自己被困在时间维度中，无法直接与墨菲互动。他引导墨菲解开方程，告诉她自己是如何到达这里的。墨菲成功破解引力方程后，库珀被未来的人类救出，送回空间站。库珀醒来后发现已经过去了很长时间，地球上的所有人都已经离开。库珀决定前往墨菲所在的空间站，寻找女儿。</p>
+  <div class="events"><span class="ev">库珀引导墨菲</span><span class="ev">未来人类救出库珀</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">02:29–02:39</span>
+    <h3>父女团聚与新家园</h3>
+  </div>
+  <p>库珀到达墨菲所在的空间站，发现墨菲已经年老。墨菲原谅了父亲多年的缺席，两人终于团聚。墨菲告诉库珀，人类已经建立了新的家园，可以继续繁衍。库珀得知布兰德教授和罗米利已经在爱德蒙兹星球上建立了基地。库珀决定前往爱德蒙兹星球，与新的人类文明一起生活。在离开前，库珀与墨菲共同回忆过去的时光，墨菲表示理解父亲的选择，两人达成了和解。</p>
+  <div class="events"><span class="ev">父女终团聚</span><span class="ev">人类建立新家园</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">02:39–02:49</span>
+    <h3>库珀告别与展望</h3>
+  </div>
+  <p>墨菲生命垂危，库珀站在病床前，握着她的手，讲述自己穿越虫洞和黑洞的经历。墨菲微笑着告诉库珀，她已经完成了一生的工作，人类在土星附近建立了新的家园。库珀表示自己还想继续探索，墨菲鼓励他去寻找布兰德教授。库珀告别墨菲，驾驶飞船驶向宇宙深处，寻找人类的新希望。他回望地球，心中既有离别的伤感，也有对未来的憧憬。墨菲平静地离世，留下库珀继续人类的星际旅程。</p>
+  <div class="events"><span class="ev">墨菲离世</span><span class="ev">库珀告别</span><span class="ev">继续探索</span><span class="ev">土星新家园</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>库珀决定离开家人，接受太空任务</td></tr><tr><td>约第60分钟</td><td>团队发现米勒星球，时间膨胀效应显现</td></tr><tr><td>约第90分钟</td><td>曼恩博士背叛团队，库珀险丧命</td></tr><tr><td>约第120分钟</td><td>库珀进入黑洞，进入五维空间</td></tr><tr><td>约第150分钟</td><td>墨菲解决引力方程，人类获救</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">亲情</span><span class="theme">生存</span><span class="theme">时间</span><span class="theme">探索</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">库珀在五维空间与墨菲重逢，人类成功建立新家园，父女团聚。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-19 18:12 · 模型 glm-4-air,glm-4-flash · 共 17 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

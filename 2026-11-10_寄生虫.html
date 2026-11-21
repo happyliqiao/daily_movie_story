@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>寄生虫 · 分段故事梗概 · 2026-11-10</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>寄生虫<span class="year">2019</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-10</span><span class="chip">电影</span><span class="chip">韩国</span><span class="chip">剧情/黑色幽默</span><span class="chip">2019</span><span class="chip">电影片长约 132 分钟，按每 10 分钟一段切分，共 13 段</span><span class="chip">现代韩国首尔</span></div>
+    <div class="logline">贫困的金家通过伪装身份进入富裕的朴家工作，当两个家庭的空间和阶层差异被揭露时，骗局走向失控。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 13 段</h2>
+      <ol><li><a href="#seg1">金家蜗居地下室</a></li>
+<li><a href="#seg2">第2段</a></li>
+<li><a href="#seg3">第3段</a></li>
+<li><a href="#seg4">第4段</a></li>
+<li><a href="#seg5">金家全员入主朴家</a></li>
+<li><a href="#seg6">司机初见主人</a></li>
+<li><a href="#seg7">文光发现真相</a></li>
+<li><a href="#seg8">文光追踪真相</a></li>
+<li><a href="#seg9">文光发现真相</a></li>
+<li><a href="#seg10">前管家揭露骗局</a></li>
+<li><a href="#seg11">朴家质问金家</a></li>
+<li><a href="#seg12">暴雨夜的对峙</a></li>
+<li><a href="#seg13">暴雨夜悲剧</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">金基泽</span><span class="r">主角</span></div><div class="d">失业父亲，策划全家进入朴家工作</div></div>
+<div class="person"><div><span class="n">朴东益</span><span class="r">对手</span></div><div class="d">富裕家庭主人，善良但缺乏社会意识</div></div>
+<div class="person"><div><span class="n">金基宇</span><span class="r">关键配角</span></div><div class="d">大学生，冒充艺术讲师辅导朴家女儿</div></div>
+<div class="person"><div><span class="n">文光</span><span class="r">关键配角</span></div><div class="d">朴家司机，发现金家秘密</div></div>
+<div class="person"><div><span class="n">金基婷</span><span class="r">关键配角</span></div><div class="d">冒充心理治疗师，与文光相恋</div></div>
+<div class="person"><div><span class="n">敏赫</span><span class="r">关键配角</span></div><div class="d">朴家前管家，被金家取代</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">骗局策划</span><span class="ds">金家发现朴家招聘信息，制定冒充计划</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">身份渗透</span><span class="ds">金家成员陆续进入朴家，隐瞒真实关系</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">秘密暴露</span><span class="ds">司机文光发现金家真实身份和关系</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">冲突升级</span><span class="ds">前管家敏赫揭露真相，双方对峙</span></div>
+<div class="act"><span class="idx">05</span><span class="nm">悲剧收场</span><span class="ds">暴力冲突导致死亡，阶级矛盾无法调和</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>金家蜗居地下室</h3>
+  </div>
+  <p>金家四口人挤在首尔半地下室公寓里，墙壁潮湿发霉。儿子基宇在折叠床上睡觉，父亲基泽在折叠桌上折叠披萨盒。母亲忠淑在厨房洗盘子，女儿基婷在用手机上网。基宇接到面试电话，兴奋地告诉家人自己被聘为家教，辅导朴家女儿英语。全家为这一消息欢呼，但很快又因空间狭小和气味问题发生争执。邻居上楼抱怨气味，基泽只好道歉。</p>
+  <div class="events"><span class="ev">金家蜗居</span><span class="ev">基宇获聘</span><span class="ev">邻居投诉</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>第2段</h3>
+  </div>
+  <p>基宇前往朴家面试，朴太太热情接待。朴家豪宅宽敞明亮，与金家地下室形成鲜明对比。基宇展示伪造的大学证书，谎称曾在美国留学。朴太太对他的背景深信不疑，只关心他能否提高女儿的英语成绩。基宇注意到朴家对气味特别敏感，朴太太解释说丈夫朴东益对气味过敏。面试成功后，基宇获得工作机会，月薪丰厚。基宇回家后兴奋地告诉家人，全家开始策划让其他家庭成员也进入朴家工作。</p>
+  <div class="events"><span class="ev">基宇面试</span><span class="ev">伪造背景</span><span class="ev">全家密谋</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:30</span>
+    <h3>第3段</h3>
+  </div>
+  <p>金家制定周密计划。基泽伪造精神科医生证明，让基宇推荐妹妹基婷冒充艺术治疗师辅导儿子。基婷通过伪造的艺术学校证书获得面试机会。金家还发现朴家前管家敏赫即将结婚，计划让基泽冒充司机取代她。全家分工合作：基宇负责艺术治疗师推荐，基泽负责司机职位申请，忠淑则冒充厨师。基宇再次前往朴家，向朴太太推荐基婷，谎称她是自己在美国认识的朋友，有艺术治疗经验。</p>
+  <div class="events"><span class="ev">全家策划</span><span class="ev">基婷面试</span><span class="ev">基宇推荐</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:30–00:41</span>
+    <h3>第4段</h3>
+  </div>
+  <p>基婷成功获得艺术治疗师职位，朴太太对她的背景同样深信不疑。金家继续推进计划，基泽以推荐信和驾驶执照获得司机职位。忠淑以朴太太朋友的身份推荐自己为厨师，朴太太欣然接受。全家成员陆续进入朴家工作，小心隐瞒彼此的关系。基宇在朴家辅导女儿多慧，发现她性格内向但聪明。朴东益出差回家，对金家的到来没有太多关注，只关心自己的过敏问题。金家在朴家小心翼翼地维持着各自的身份，等待全家团聚的那一刻。</p>
+  <div class="events"><span class="ev">基婷入职</span><span class="ev">基泽获聘</span><span class="ev">忠淑入府</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:41–00:51</span>
+    <h3>金家全员入主朴家</h3>
+  </div>
+  <p>金家四口全部成功进入朴家工作。基泽作为司机首次开车接送朴东益，表现出色。基宇作为艺术讲师与朴家女儿多慧相处融洽，多慧对他的艺术才能印象深刻。基婷作为艺术治疗师与朴家儿子达彬建立良好关系。忠淑作为厨师，做出的料理得到朴家称赞。金家在朴家豪宅中如鱼得水，暗自庆幸计划成功。朴东益夫妇对四位新员工十分满意，尤其是对他们高学历的背景深信不疑。金家成员互相配合，小心翼翼地隐藏着彼此的真实关系。</p>
+  <div class="events"><span class="ev">基泽任司机</span><span class="ev">基宇辅导多慧</span><span class="ev">基婷治疗达彬</span><span class="ev">忠淑掌厨</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:51–01:01</span>
+    <h3>司机初见主人</h3>
+  </div>
+  <p>金基泽首次以司机身份接送朴东益，表现出色。朴东益对基泽的驾驶技术很满意，交谈中透露自己即将出差。朴太太安排基泽接送孩子们上学放学，并嘱咐他注意安全。基泽谨慎驾驶，遵守交通规则，给朴家留下可靠印象。同时，金基宇作为艺术讲师与朴家女儿多慧继续艺术课程，多慧对他的艺术才能更加钦佩。金基婷则在朴家地下室发现前管家敏赫留下的物品，引起她的好奇。</p>
+  <div class="events"><span class="ev">基泽接送朴东益</span><span class="ev">多慧钦佩艺术才能</span><span class="ev">发现敏赫物品</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:01–01:11</span>
+    <h3>文光发现真相</h3>
+  </div>
+  <p>金家在朴家工作逐渐稳定，基泽作为司机接送朴东益出差，基宇辅导朴家女儿多慧艺术，基婷担任艺术治疗师。朴家司机文光偶然发现基泽与基婷是亲兄妹，开始怀疑金家身份。文光暗中观察金家成员之间的互动，发现他们之间存在不寻常的亲密关系。文光翻看金家的物品，发现了能证明他们真实身份的证据。文光决定与金家对质，威胁要揭穿他们的骗局。金家惊慌失措，基婷试图安抚文光，但文光态度坚决，表示要向朴家主人揭露真相。</p>
+  <div class="events"><span class="ev">文光发现兄妹关系</span><span class="ev">文光收集证据</span><span class="ev">文光威胁揭穿</span><span class="ev">金家惊慌应对</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:11–01:21</span>
+    <h3>文光追踪真相</h3>
+  </div>
+  <p>文光对金家身份产生怀疑，开始暗中调查。他注意到金家成员之间的亲密举止不符合雇佣关系。文光跟踪基泽回到半地下室住所，惊讶地发现金家四口挤在狭小空间里。他认出这家人曾在披萨店门口抗议，确认金家一直在欺骗朴家。文光趁金家外出时潜入住所，发现金基宇的大学录取通知书和全家福照片，证实了他们的真实身份和贫困处境。文光内心挣扎，不知是否该揭露真相。他决定先与金基婷摊牌，利用两人关系获取更多信息。文光找到基婷，质问她为何隐瞒真实身份，基婷惊慌失措，试图安抚文光但效果甚微。</p>
+  <div class="events"><span class="ev">文光发现住所</span><span class="ev">确认金家身份</span><span class="ev">质问基婷</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:21–01:31</span>
+    <h3>文光发现真相</h3>
+  </div>
+  <p>金基婷与文光感情升温，文光带基婷参观自己居住的半地下室。基婷看到文光的生活环境后感到不安，借口离开。文光随后发现基婷使用的香水与朴太太前管家敏赫的相同，产生怀疑。他联系敏赫，得知敏赫即将结婚，并确认基婷正是敏赫的继妹。文光意识到金家成员之间是亲属关系，开始暗中调查金家的真实身份。</p>
+  <div class="events"><span class="ev">文光带基婷参观半地下室</span><span class="ev">发现相同香水</span><span class="ev">联系敏赫确认关系</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:31–01:42</span>
+    <h3>前管家揭露骗局</h3>
+  </div>
+  <p>前管家敏赫来到朴家，与朴东益单独交谈。她向朴东益揭露了金家成员的真实关系，并展示了金基婷伪造的学历证书。朴东益起初不相信，但敏赫提供了确凿证据。朴东益震惊之余，决定不动声色地继续观察。他安排了一次家庭聚会，借口庆祝朴太太生日，实则想确认金家的反应。金家察觉到气氛异常，但不知真相已被揭露，继续表演。</p>
+  <div class="events"><span class="ev">敏赫揭露真相</span><span class="ev">展示伪造证书</span><span class="ev">朴家设宴试探</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:42–01:52</span>
+    <h3>朴家质问金家</h3>
+  </div>
+  <p>朴东益将金家四人召集到客厅，拿出敏赫提供的证据质问他们。金家成员惊慌失措，谎言被当场揭穿。朴东益愤怒不已，要求金家立即离开。金基泽试图解释并请求原谅，但朴东益不为所动。金基宇和金基婷也试图辩解，但被朴东益打断。朴东益表示无法再信任他们，并要求收拾东西离开。金家四人无奈地开始收拾个人物品，气氛尴尬而紧张。朴太太在一旁不知所措，她曾对金家人产生好感，如今感到被背叛。金家成员之间的默契在真相面前崩塌，他们不得不承认彼此的真实关系。</p>
+  <div class="events"><span class="ev">朴家质问</span><span class="ev">金家被揭穿</span><span class="ev">被迫离开</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:52–02:02</span>
+    <h3>暴雨夜的对峙</h3>
+  </div>
+  <p>暴雨倾盆的夜晚，金家被迫离开朴家后无处可去，只能躲回半地下室。基泽发现文光仍住在朴家旁的地下室，愤怒地指责文光背叛。文光表示自己只是想保护朴家，两人发生激烈争执。此时，朴东益独自开车外出，途中接到妻子电话，得知儿子独自在家。他驾车返回途中，因暴雨视线不清，意外撞到了半地下室入口处的基泽。</p>
+  <div class="events"><span class="ev">金家躲回半地下室</span><span class="ev">基泽与文光争执</span><span class="ev">朴东益意外撞人</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">02:02–02:12</span>
+    <h3>暴雨夜悲剧</h3>
+  </div>
+  <p>暴雨倾盆的夜晚，金家被迫离开朴家后无处可去，只能躲回半地下室。基泽发现文光仍住在朴家旁的地下室，愤怒地指责文光背叛。文光表示自己只是想保护朴家，两人发生激烈争执。基泽情绪失控，持刀刺向文光。混乱中，朴东益和妻子外出归来，基泽误将朴东益当成文光，持刀将其刺死。金基宇目睹父亲杀人，惊恐万分。警察赶到现场，金家成员被逮捕，基泽被带走。暴雨冲刷着血迹，象征着阶级冲突的悲剧无法挽回。</p>
+  <div class="events"><span class="ev">基泽杀人</span><span class="ev">朴东益死亡</span><span class="ev">金家被捕</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>金基宇冒充艺术讲师成功进入朴家</td></tr><tr><td>约第50分钟</td><td>金基婷冒充心理治疗师与司机文光相恋</td></tr><tr><td>约第70分钟</td><td>文光发现金家成员之间是亲属关系</td></tr><tr><td>约第90分钟</td><td>前管家敏赫向朴家揭露金家骗局</td></tr><tr><td>约第110分钟</td><td>金家被迫离开朴家，藏身地下室</td></tr><tr><td>约第125分钟</td><td>暴雨夜冲突导致基泽杀死朴东益</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">阶级差异</span><span class="theme">身份伪装</span><span class="theme">社会不平等</span><span class="theme">家庭纽带</span></div></section>
+      
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-10 08:22 · 模型 glm-4-air,glm-4-flash · 共 13 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>信号 · 分段故事梗概 · 2026-11-11</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>信号<span class="year">2016</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-11</span><span class="chip">电视剧</span><span class="chip">韩国</span><span class="chip">悬疑/犯罪</span><span class="chip">2016</span><span class="chip">电视剧共 16 集，单集约 60 分钟，每集拆 3 段，全剧共 48 段</span><span class="chip">2015年韩国，跨越时空的刑侦合作</span></div>
+    <div class="logline">现代刑警通过神秘无线电与过去刑警合作破案，却因改变过去而引发现实连锁反应，面临时间悖论的威胁。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 48 段</h2>
+      <ol><li><a href="#seg1">刑警偶遇旧无线电</a></li>
+<li><a href="#seg2">时空协作追踪线索</a></li>
+<li><a href="#seg3">无线电连接中断</a></li>
+<li><a href="#seg4">重新建立联系</a></li>
+<li><a href="#seg5">证词突现转折</a></li>
+<li><a href="#seg6">设备修复重联络</a></li>
+<li><a href="#seg7">上司涉疑调查</a></li>
+<li><a href="#seg8">获取关键证据</a></li>
+<li><a href="#seg9">李材韩遭遇危险</a></li>
+<li><a href="#seg10">李材韩生死抉择</a></li>
+<li><a href="#seg11">废弃仓库对峙</a></li>
+<li><a href="#seg12">证据交接成功</a></li>
+<li><a href="#seg13">李材韩秘密调查</a></li>
+<li><a href="#seg14">获取关键证据</a></li>
+<li><a href="#seg15">时间悖论初现</a></li>
+<li><a href="#seg16">黄民国身份暴露</a></li>
+<li><a href="#seg17">黄民国被捕行动</a></li>
+<li><a href="#seg18">时间悖论加剧</a></li>
+<li><a href="#seg19">李材韩遇险</a></li>
+<li><a href="#seg20">真相浮现</a></li>
+<li><a href="#seg21">李材韩生死一线</a></li>
+<li><a href="#seg22">黄民国的真实身份</a></li>
+<li><a href="#seg23">时间悖论加剧</a></li>
+<li><a href="#seg24">黄民国的最终坦白</a></li>
+<li><a href="#seg25">李材韩苏醒</a></li>
+<li><a href="#seg26">追查黄民国</a></li>
+<li><a href="#seg27">黄民国逃脱</a></li>
+<li><a href="#seg28">改变过去计划</a></li>
+<li><a href="#seg29">时间悖论显现</a></li>
+<li><a href="#seg30">父亲案件关键线索</a></li>
+<li><a href="#seg31">黄民国的身份揭秘</a></li>
+<li><a href="#seg32">无线电连接危机</a></li>
+<li><a href="#seg33">黄民国的反击</a></li>
+<li><a href="#seg34">时间线异常</a></li>
+<li><a href="#seg35">真相浮现</a></li>
+<li><a href="#seg36">时间悖论显现</a></li>
+<li><a href="#seg37">时间线混乱加剧</a></li>
+<li><a href="#seg38">黄民国现身威胁</a></li>
+<li><a href="#seg39">父亲案件真相</a></li>
+<li><a href="#seg40">最终对决准备</a></li>
+<li><a href="#seg41">时空连线受阻</a></li>
+<li><a href="#seg42">父亲获释真相</a></li>
+<li><a href="#seg43">时间线崩塌</a></li>
+<li><a href="#seg44">终极对决</a></li>
+<li><a href="#seg45">时间线崩塌加剧</a></li>
+<li><a href="#seg46">双线行动开始</a></li>
+<li><a href="#seg47">生死对决</a></li>
+<li><a href="#seg48">时空平衡</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">朴海英</span><span class="r">主角</span></div><div class="d">现代刑警，通过无线电与过去沟通破案</div></div>
+<div class="person"><div><span class="n">李材韩</span><span class="r">主角</span></div><div class="d">过去刑警，通过无线电与现代合作改变命运</div></div>
+<div class="person"><div><span class="n">车秀贤</span><span class="r">关键配角</span></div><div class="d">李材韩的同事，现代刑警的大学同学</div></div>
+<div class="person"><div><span class="n">黄民国</span><span class="r">对手</span></div><div class="d">连环杀手，跨越时空的犯罪者</div></div>
+<div class="person"><div><span class="n">朴海英父亲</span><span class="r">关键配角</span></div><div class="d">被冤枉的杀人犯，案件核心人物</div></div>
+<div class="person"><div><span class="n">金宇哲</span><span class="r">关键配角</span></div><div class="d">李材韩的同事，被杀害的刑警</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">发现无线电</span><span class="ds">朴海英通过旧式无线电连接到1998年的李材韩，开始合作破案</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">连环追凶</span><span class="ds">两人通过时空合作破解多起悬案，追踪神秘连环杀手</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">改变过去</span><span class="ds">他们成功改变李材韩同事被杀的命运，但引发现实连锁反应</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">真相揭露</span><span class="ds">发现黄民国是连环杀手，同时揭示朴海英父亲的冤案真相</span></div>
+<div class="act"><span class="idx">05</span><span class="nm">时间悖论</span><span class="ds">改变过去导致现实混乱，两人面临时间悖论的终极考验</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·前</span>
+    <h3>刑警偶遇旧无线电</h3>
+  </div>
+  <p>朴海英是一名现代刑警，童年时目睹父亲被冤枉为杀人犯。他偶然购得一台旧式无线电，在雨天调试时意外接收到1998年的信号。对方是刑警李材韩，正在调查一起连环杀人案。两人通过无线电首次交流，朴海英惊讶地发现对方能准确描述自己所在的位置和正在发生的事情。李材韩对来自未来的声音充满疑惑，但朴海英确信这不是恶作剧。两人约定下次联系后，朴海英开始调查这台无线电的来历，试图理解这一超自然现象。</p>
+  <div class="events"><span class="ev">偶遇旧无线电</span><span class="ev">首次时空对话</span><span class="ev">确认真实性</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·中</span>
+    <h3>时空协作追踪线索</h3>
+  </div>
+  <p>朴海英通过无线电与李材韩建立稳定联系，两人开始合作调查一起1998年的悬案。李材韩是一名执着但处境艰难的刑警，正调查一起连环杀人案。朴海英利用现代刑侦技术提供线索，而李材韩则根据现场情况反馈信息。他们发现案件与一名失踪的少女有关，而凶手似乎对特定目标的女性下手。两人通过无线电分享各自掌握的线索，逐渐拼凑出案件的全貌。同时，朴海英发现这台无线电可能与他父亲当年的案件有关联。</p>
+  <div class="events"><span class="ev">建立稳定联系</span><span class="ev">合作调查悬案</span><span class="ev">发现案件模式</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第1集·后</span>
+    <h3>无线电连接中断</h3>
+  </div>
+  <p>朴海英和李材韩继续通过无线电合作，逐渐接近案件的真相。他们发现凶手可能是一名警察，这一发现让李材韩震惊不已。正当他们深入调查时，朴海英的无线电突然接收到另一个声音，警告他们不要再插手此案。随后无线电连接突然中断，朴海英无法再次联系到李材韩。与此同时，朴海英发现父亲当年的案件档案中，似乎隐藏着与当前案件相似的模式。他开始怀疑这两起案件之间可能存在某种联系，决心查明真相。</p>
+  <div class="events"><span class="ev">接近案件真相</span><span class="ev">收到警告信息</span><span class="ev">连接突然中断</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·前</span>
+    <h3>重新建立联系</h3>
+  </div>
+  <p>朴海英努力修复无线电设备，终于重新与1998年的李材韩取得联系。李材韩告诉他，自从上次中断后，案件调查遇到了阻碍，关键证人突然改变证词。两人决定继续合作，李材韩提供案件细节，朴海英从现代角度分析线索。他们发现凶手似乎能够预知警方的行动，这让他们更加困惑。同时，朴海英发现父亲当年的案件与正在调查的连环杀人案有多个相似之处，开始怀疑两案可能有关联。李材韩则透露，案件调查中有一名同事行为异常，引起他的怀疑。</p>
+  <div class="events"><span class="ev">重新建立联系</span><span class="ev">案件遇阻碍</span><span class="ev">发现相似之处</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第2集·中</span>
+    <h3>证词突现转折</h3>
+  </div>
+  <p>朴海英与李材韩继续合作调查连环杀人案，两人发现凶手可能是一名警察，这一发现让李材韩震惊不已。他们重新梳理案件线索，锁定了一名嫌疑人。李材韩按照朴海英的建议，秘密调查该嫌疑人的背景和行踪。与此同时，朴海英利用现代刑侦技术，分析了案件中的物证，发现了一些新的线索。两人通过无线电交换信息，逐渐拼凑出凶手的作案模式和身份。然而，就在他们即将取得突破时，无线电连接突然中断，朴海英无法与李材韩取得联系。</p>
+  <div class="events"><span class="ev">锁定警察嫌疑人</span><span class="ev">分析物证新线索</span><span class="ev">无线电连接中断</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第2集·后</span>
+    <h3>设备修复重联络</h3>
+  </div>
+  <p>朴海英努力修复无线电设备，终于重新与1998年的李材韩取得联系。李材韩告诉他，自从上次中断后，案件调查遇到了阻碍，关键证人突然改变证词。两人决定继续合作，李材韩按照朴海英的指导，重新审问证人，发现证人是受到威胁才改变证词。朴海英利用现代技术分析证词中的漏洞，帮助李材韩找到突破口。与此同时，李材韩发现案件中的警察嫌疑人与自己的上司有密切联系，这让调查变得更加复杂和危险。两人决定分头行动，收集更多证据。</p>
+  <div class="events"><span class="ev">修复无线电设备</span><span class="ev">证人证词突破</span><span class="ev">发现嫌疑人上司关联</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第3集·前</span>
+    <h3>上司涉疑调查</h3>
+  </div>
+  <p>李材韩开始暗中调查自己的上司，怀疑他与连环杀人案有关。朴海英通过无线电提供支持和建议，帮助李材韩收集证据。李材韩利用职务之便，查阅了上司的案卷和个人资料，发现了一些可疑之处。与此同时，朴海英也在现代调查中发现了与案件相关的线索，两人通过无线电分享信息，逐渐拼凑出案件的全貌。李材韩的上司察觉到了李材韩的调查，开始对他进行监视和警告，两人的合作变得更加危险。李材韩决定冒险行动，获取关键证据。</p>
+  <div class="events"><span class="ev">调查上司可疑点</span><span class="ev">查阅案卷资料</span><span class="ev">上司开始监视</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第3集·中</span>
+    <h3>获取关键证据</h3>
+  </div>
+  <p>李材韩冒险行动，成功获取了上司与连环杀人案有关的关键证据。然而，他的行动被上司察觉，陷入了极大的危险之中。朴海英通过无线电得知情况，立即提供帮助和建议。李材韩在紧急情况下，将证据藏匿在安全的地方，并设法逃脱了上司的追捕。两人决定将证据交给可靠的同事，李材韩选择了车秀贤作为信任的对象。车秀贤对李材韩的举动感到困惑，但出于对他的信任，答应保管证据。与此同时，朴海英发现案件与自己父亲的冤案有某种联系，决定深入调查。</p>
+  <div class="events"><span class="ev">获取关键证据</span><span class="ev">上司察觉追捕</span><span class="ev">证据交车秀贤保管</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第3集·后</span>
+    <h3>李材韩遭遇危险</h3>
+  </div>
+  <p>李材韩带着获取的关键证据准备离开警局时，被上司察觉并派人跟踪。他在紧急情况下通过无线电联系朴海英，告知自己处境危险。朴海英立即分析情况，建议李材韩前往安全地点藏身。李材韩按照指示行动，但在途中遭遇上司派来的追捕者。双方展开激烈追逐，李材韩凭借机智逃脱，但随身携带的部分证据在混乱中丢失。朴海英通过无线电继续指导李材韩如何利用剩余证据继续调查，并提醒他注意安全。两人约定下次联络时间，李材韩暂时隐藏起来，准备寻找机会重新收集证据。</p>
+  <div class="events"><span class="ev">获取证据被发现</span><span class="ev">遭遇上司追捕</span><span class="ev">证据部分丢失</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第4集·前</span>
+    <h3>李材韩生死抉择</h3>
+  </div>
+  <p>李材韩带着关键证据逃离警局，上司派人紧追不舍。他在小巷中被包围，危急时刻通过无线电联系朴海英。朴海英分析局势，建议李材韩前往废弃仓库暂避。李材韩按照指示行动，在仓库中发现了当年金宇哲调查的线索。上司带领手下赶到，双方对峙。李材韩利用仓库地形周旋，同时通过无线电与朴海英保持联系。朴海英回忆起1998年4月29日的案件细节，意识到金宇哲正是在这一天被杀害。两人决定改变历史，阻止悲剧发生。李材韩在朴海英的指导下，成功将证据藏匿于仓库隐蔽处，准备与上司周旋。</p>
+  <div class="events"><span class="ev">李材韩被围困</span><span class="ev">发现金宇哲线索</span><span class="ev">决定改变历史</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第4集·中</span>
+    <h3>废弃仓库对峙</h3>
+  </div>
+  <p>李材韩藏身于废弃仓库中，通过无线电与朴海英保持联系。上司带领手下包围了仓库，威胁李材韩交出证据。李材韩利用仓库内的复杂环境与对方周旋，同时朴海英在2015年分析当年的案件档案，为李材韩提供关键信息。双方通过无线电协调行动，朴海英发现上司与连环杀手黄民国有联系，这一发现让李材韩意识到证据的重要性。仓库外，上司派人强行闯入，李材韩在危急时刻利用朴海英提供的线索，找到了隐藏的录音设备，录下了上司与黄民国通话的内容。就在上司即将找到李材韩的千钧一发之际，朴海英通过无线电指导李材韩找到了仓库的逃生通道，成功脱险。</p>
+  <div class="events"><span class="ev">仓库被围</span><span class="ev">录音证据</span><span class="ev">逃生脱险</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第4集·后</span>
+    <h3>证据交接成功</h3>
+  </div>
+  <p>李材韩在废弃仓库中与上司周旋，利用朴海英的远程指导，成功将关键证据藏匿于仓库隐蔽处。上司带领手下破门而入，却一无所获。李材韩趁乱通过无线电向朴海英确认证据安全转移。朴海英在2015年收到证据后，立即着手调查，发现证据指向黄民国与多起悬案有关联。与此同时，李材韩因上司的追捕被迫离开警局，面临职业生涯危机。两人在无线电中交流调查进展，确认黄民国是连环杀手的可能性增大。李材韩决定继续秘密调查，而朴海英则开始收集更多证据，准备在2015年采取行动。</p>
+  <div class="events"><span class="ev">证据安全转移</span><span class="ev">黄民国嫌疑增加</span><span class="ev">李材韩被迫离职</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第5集·前</span>
+    <h3>李材韩秘密调查</h3>
+  </div>
+  <p>李材韩继续暗中调查上司，发现上司与多起未破案件有联系。朴海英通过无线电提供现代刑侦技术支持，帮助分析案件模式。两人合作整理出关键证据链，指向上司与连环杀人案的直接关联。李材韩利用职务之便，秘密查阅了上司的个人档案和过往案件记录，发现多处疑点。同时，朴海英在2015年也开始调查同一案件的后续发展，发现了一些与1998年案件相关的线索。两人通过无线电保持密切沟通，制定下一步行动计划。</p>
+  <div class="events"><span class="ev">发现上司关联</span><span class="ev">整理证据链</span><span class="ev">制定行动计划</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第5集·中</span>
+    <h3>获取关键证据</h3>
+  </div>
+  <p>李材韩冒险行动，潜入上司办公室寻找关键证据。他发现了一份隐藏的档案，记录了多起案件的作案手法和受害者信息，与连环杀人案高度吻合。正当他准备离开时，上司突然返回办公室，李材韩紧急躲藏。上司似乎察觉到什么，开始清理办公室。李材韩通过无线电联系朴海英，告知危险处境。朴海英冷静分析情况，建议李材韩利用办公室内的电话向警方匿名举报。李材韩冒险行动，成功举报后安全离开，但引起了上司的警觉。</p>
+  <div class="events"><span class="ev">发现隐藏档案</span><span class="ev">上司返回现场</span><span class="ev">匿名举报</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第5集·后</span>
+    <h3>时间悖论初现</h3>
+  </div>
+  <p>李材韩的行动导致现实出现微妙变化。朴海英发现，随着他们改变过去，现实世界开始出现时间悖论现象。一些原本已经结案的案件突然出现新线索，指向黄民国是真正的连环杀手。李材韩被上司盯上，处境危险。两人通过无线电商讨对策，决定直接面对黄民国。同时，朴海英在2015年开始调查黄民国的背景，发现他可能与自己父亲的冤案有关。两人意识到案件比想象中更加复杂，涉及更多人的命运。</p>
+  <div class="events"><span class="ev">现实出现变化</span><span class="ev">调查黄民国</span><span class="ev">发现案件关联</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第6集·前</span>
+    <h3>黄民国身份暴露</h3>
+  </div>
+  <p>李材韩和朴海英通过时空合作，终于确认黄民国就是连环杀手。黄民国察觉到调查，开始销毁证据并准备逃跑。李材韩在警局内部获得支持，准备对黄民国实施抓捕。同时，朴海英在2015年发现黄民国可能与自己父亲的冤案有关，两人决定在两个时空同时行动。李材韩带领队伍前往黄民国的藏身处，却遭遇陷阱。危急时刻，朴海英通过无线电提供关键信息，帮助李材韩脱险。两人意识到，改变过去不仅影响案件，还可能改变所有人的命运。</p>
+  <div class="events"><span class="ev">确认杀手身份</span><span class="ev">准备抓捕</span><span class="ev">遭遇陷阱</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第6集·中</span>
+    <h3>黄民国被捕行动</h3>
+  </div>
+  <p>李材韩在警局内部获得支持后，决定立即对黄民国实施抓捕。他联合几位信任的同事，制定周密行动方案，同时朴海英在2015年提供黄民国的最新行踪。抓捕行动开始时，黄民国表现出异常冷静，否认所有指控。审讯过程中，黄民国反咬李材韩诬陷他，并暗示掌握李材韩的把柄。李材韩不顾压力，坚持调查，发现黄民国家中隐藏的地下室，里面存放着受害者的遗物和作案工具。这一发现成为关键证据，黄民国的防线开始崩溃。</p>
+  <div class="events"><span class="ev">联合抓捕</span><span class="ev">反咬诬陷</span><span class="ev">发现地下室</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第6集·后</span>
+    <h3>时间悖论加剧</h3>
+  </div>
+  <p>随着黄民国被捕，现实世界的时间悖论现象愈发明显。朴海英发现周围环境开始出现微妙变化，一些已经结案的档案资料被篡改，指向不同的嫌疑人。李材韩在审讯黄民国时，得知黄民国并非单独行动，背后还有更大势力。同时，朴海英的父亲案件出现新线索，证明当年被冤枉的证据被人刻意销毁。两人意识到，他们的行动不仅改变了案件结果，还引发了更复杂的时间线变化。李材韩决定冒险深入调查，找出幕后黑手，同时警告朴海英做好应对时间悖论的准备。</p>
+  <div class="events"><span class="ev">证据篡改</span><span class="ev">发现幕后</span><span class="ev">时间线变化</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">第7集·前</span>
+    <h3>李材韩遇险</h3>
+  </div>
+  <p>李材韩不顾警告，继续调查黄民国的背后势力。他秘密接触一位退休警官，得知当年朴海英父亲案件的内幕。调查过程中，李材韩遭遇不明人士袭击，险些丧命。同时，朴海英在2015年发现李材韩的处境危险，通过无线电警告他。李材韩意识到时间线正在剧烈波动，现实与过去的界限变得模糊。车秀贤发现朴海英的秘密通信，开始怀疑他的行为。李材韩决定冒险前往黄民国的老家，寻找更多证据，同时联系朴海英准备应对可能的时间悖论危机。</p>
+  <div class="events"><span class="ev">遭遇袭击</span><span class="ev">时空界限模糊</span><span class="ev">老家寻证</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">第7集·中</span>
+    <h3>真相浮现</h3>
+  </div>
+  <p>李材韩在黄民国老家发现关键证据，证明当年朴海英父亲的案件是由高层官员操纵的。与此同时，朴海英在2015年也找到了当年的档案，证实了李材韩的发现。两人通过无线电合作，准备将真相公之于众。然而，黄民国的同伙在警局内部设下陷阱，试图阻止他们。车秀贤逐渐察觉到朴海英的秘密，开始暗中调查。李材韩决定冒险将证据交给媒体，同时警告朴海英时间悖论正在加剧，现实世界开始出现裂痕。两人意识到，他们必须在时间完全崩溃前揭露真相。</p>
+  <div class="events"><span class="ev">高层操纵</span><span class="ev">设下陷阱</span><span class="ev">时间裂痕</span></div>
+</section>
+
+<section class="seg" id="seg21">
+  <div class="head">
+    <span class="no">第 21 段</span>
+    <span class="tm">第7集·后</span>
+    <h3>李材韩生死一线</h3>
+  </div>
+  <p>李材韩被袭击后重伤昏迷，生命垂危。朴海英通过无线电得知情况，紧急联系医院抢救。同时，黄民国在医院苏醒，暗示自己知道更多内幕。朴海英不顾时间悖论风险，通过无线电指导李材韩的抢救过程。车秀贤发现李材韩的案件与朴海英父亲的冤案有关联，开始深入调查。黄民国的律师突然出现，要求见黄民国，引起警方警觉。朴海英通过无线电与李材韩保持联系，两人确认当年案件的高层操纵者。李材韩终于脱离危险，但记忆出现混乱，无法完整回忆起袭击者的身份。</p>
+  <div class="events"><span class="ev">李材韩重伤昏迷</span><span class="ev">黄民国苏醒</span><span class="ev">律师突然现身</span><span class="ev">记忆出现混乱</span></div>
+</section>
+
+<section class="seg" id="seg22">
+  <div class="head">
+    <span class="no">第 22 段</span>
+    <span class="tm">第8集·前</span>
+    <h3>黄民国的真实身份</h3>
+  </div>
+  <p>黄民国在审讯中突然承认自己是连环杀手，但拒绝透露更多细节。车秀贤发现黄民国的档案有多个版本，不同时间点记录的信息相互矛盾。朴海英通过无线电与李材韩合作，确认黄民国就是跨越时空的连环杀手。黄民国在监狱中神秘失踪，只留下一张纸条。警方调查发现，黄民国似乎可以预见未来，知道警方的行动。朴海英发现自己的父亲案件档案再次被篡改，指向新的嫌疑人。李材韩回忆起袭击者的部分特征，与黄民国的某个熟人吻合。两人意识到黄民国的背后有更大的势力在操控。</p>
+  <div class="events"><span class="ev">黄民国承认罪行</span><span class="ev">档案被篡改</span><span class="ev">黄民国神秘失踪</span><span class="ev">预见未来能力</span></div>
+</section>
+
+<section class="seg" id="seg23">
+  <div class="head">
+    <span class="no">第 23 段</span>
+    <span class="tm">第8集·中</span>
+    <h3>时间悖论加剧</h3>
+  </div>
+  <p>现实世界的时间悖论现象愈发严重，朴海英周围的环境开始出现明显变化。车秀贤发现一些证人突然改变证词，指向不同的嫌疑人。李材韩在医院康复期间，继续调查朴海英父亲的案件。两人通过无线电确认，黄民国可以穿越时空，在不同时间点作案。朴海英在2015年发现，黄民国已经在1998年被捕，但现在的现实表明他仍在活动。车秀贤找到一位关键证人，证人称当年被高层官员威胁作伪证。李材韩和朴海英意识到，他们改变过去的行为导致了时间线的混乱，黄民国利用这一点继续犯罪。</p>
+  <div class="events"><span class="ev">环境明显变化</span><span class="ev">证人改变证词</span><span class="ev">黄民国时空穿越</span><span class="ev">时间线混乱</span></div>
+</section>
+
+<section class="seg" id="seg24">
+  <div class="head">
+    <span class="no">第 24 段</span>
+    <span class="tm">第8集·后</span>
+    <h3>黄民国的最终坦白</h3>
+  </div>
+  <p>朴海英与李材韩通过无线电合作，终于确认黄民国就是连环杀人案的凶手。黄民国在审讯室中突然情绪失控，承认自己杀害了多名受害者，包括李材韩的同事金宇哲。他透露自己有穿越时空的能力，能够改变过去和现在。车秀贤发现黄民国的档案中存在多个版本，不同时间点的记录相互矛盾，证实了他的特殊身份。朴海英意识到黄民国的能力可能与自己使用的无线电有关，担心改变过去会引发更严重的时间悖论。李材韩决定冒险深入调查，试图找出黄民国的弱点。同时，朴海英发现父亲案件的证据链中出现了新的疑点，怀疑黄民国与父亲的冤案也有牵连。</p>
+  <div class="events"><span class="ev">黄民国承认罪行</span><span class="ev">揭示穿越能力</span><span class="ev">档案版本矛盾</span><span class="ev">父亲案件疑点</span></div>
+</section>
+
+<section class="seg" id="seg25">
+  <div class="head">
+    <span class="no">第 25 段</span>
+    <span class="tm">第9集·前</span>
+    <h3>李材韩苏醒</h3>
+  </div>
+  <p>李材韩从昏迷中苏醒，回忆起袭击者的部分特征。朴海英通过无线电与恢复意识的李材韩交流，两人决定继续调查黄民国的案件。车秀贤发现黄民国的档案中存在多个版本，不同时间点的记录相互矛盾，暗示有人试图掩盖真相。朴海英通过无线电指导李材韩调查医院档案，发现黄民国曾多次以不同身份入院治疗。同时，现实世界的时间悖论现象愈发明显，朴海英周围的环境开始出现不可预测的变化。李材韩根据朴海英提供的线索，开始调查朴海英父亲的案件，发现当年调查存在诸多疑点。</p>
+  <div class="events"><span class="ev">李材韩苏醒</span><span class="ev">档案矛盾显现</span><span class="ev">时间悖论加剧</span></div>
+</section>
+
+<section class="seg" id="seg26">
+  <div class="head">
+    <span class="no">第 26 段</span>
+    <span class="tm">第9集·中</span>
+    <h3>追查黄民国</h3>
+  </div>
+  <p>李材韩和朴海英通过无线电合作，深入调查黄民国的背景。他们发现黄民国拥有多重身份，在不同时间点以不同名字活动。车秀贤在警局档案中发现黄民国的真实姓名是黄大秀，多年前曾被报告死亡。朴海英通过无线电与李材韩共享信息，两人意识到黄民国可能拥有穿越时间的能力。同时，现实世界的时间悖论现象更加严重，朴海英发现一些证人突然改变证词，指向不同的嫌疑人。李材韩根据朴海英的指导，调查朴海英父亲的案件，发现当年关键证据被篡改。两人决定冒险再次改变过去，阻止黄民国的下一次犯罪。</p>
+  <div class="events"><span class="ev">多重身份揭露</span><span class="ev">时间能力怀疑</span><span class="ev">证据篡改发现</span></div>
+</section>
+
+<section class="seg" id="seg27">
+  <div class="head">
+    <span class="no">第 27 段</span>
+    <span class="tm">第9集·后</span>
+    <h3>黄民国逃脱</h3>
+  </div>
+  <p>警方根据李材韩和朴海英提供的线索，对黄民国展开全面搜捕。黄民国预感到危险，设计逃脱警方的监控。在逃脱过程中，黄民国留下神秘线索，暗示他知道更多关于时间穿越的秘密。朴海英通过无线电与李材韩合作，分析黄民国的行为模式，预测他可能的下一个目标。车秀贤发现黄民国的逃脱与时间悖论现象有关，现实世界的某些细节开始发生变化。李材韩在医院继续调查朴海英父亲的案件，发现当年负责调查的警官突然死亡，死因可疑。两人决定冒险再次改变过去，阻止黄民国的犯罪计划，同时寻找拯救朴海英父亲的方法。</p>
+  <div class="events"><span class="ev">黄民国逃脱</span><span class="ev">留下神秘线索</span><span class="ev">时间悖论加剧</span></div>
+</section>
+
+<section class="seg" id="seg28">
+  <div class="head">
+    <span class="no">第 28 段</span>
+    <span class="tm">第10集·前</span>
+    <h3>改变过去计划</h3>
+  </div>
+  <p>朴海英和李材韩决定冒险再次改变过去，阻止黄民国的犯罪计划并拯救朴海英的父亲。他们通过无线电详细规划行动步骤，确定关键时间点和行动方案。车秀贤发现现实世界的时间悖论现象已经影响到警局的档案系统，一些重要文件开始消失或改变内容。李材韩根据朴海英提供的信息，调查朴海英父亲案件的原始档案，发现关键证据被人为销毁。黄民国察觉到两人的计划，开始采取反制措施，试图干扰他们的时间穿越。朴海英面临艰难抉择，是否要冒着更大的时间悖论风险，彻底改变过去来拯救父亲和阻止黄民国的犯罪。</p>
+  <div class="events"><span class="ev">改变过去计划</span><span class="ev">档案系统异常</span><span class="ev">黄民国反制</span></div>
+</section>
+
+<section class="seg" id="seg29">
+  <div class="head">
+    <span class="no">第 29 段</span>
+    <span class="tm">第10集·中</span>
+    <h3>时间悖论显现</h3>
+  </div>
+  <p>朴海英和李材韩尝试改变过去，阻止黄民国的犯罪计划。他们通过无线电协调行动，朴海英在2015年根据李材韩的指示寻找关键证据。然而当他们成功阻止一起案件时，现实世界开始出现异常变化。车秀贤发现档案中的信息被篡改，同事的记忆出现混乱，时间线开始出现裂痕。朴海英意识到改变过去可能带来无法预料的后果，但为拯救父亲，他决定继续冒险行动。</p>
+  <div class="events"><span class="ev">改变过去尝试</span><span class="ev">时间线异常</span><span class="ev">现实混乱</span></div>
+</section>
+
+<section class="seg" id="seg30">
+  <div class="head">
+    <span class="no">第 30 段</span>
+    <span class="tm">第10集·后</span>
+    <h3>父亲案件关键线索</h3>
+  </div>
+  <p>朴海英和李材韩深入调查朴海英父亲的案件，发现关键证人突然改变证词。车秀贤在警局档案中发现一份被遗忘的口供，指向案件另有隐情。与此同时，黄民国察觉到警方行动，开始销毁证据并转移藏身之处。李材韩在1998年找到案件关键物证，通过无线电传递给朴海英。两人意识到这起案件与黄民国的连环杀人案存在联系，决定联合调查，揭开真相。</p>
+  <div class="events"><span class="ev">证人改口</span><span class="ev">关键物证</span><span class="ev">案件关联</span></div>
+</section>
+
+<section class="seg" id="seg31">
+  <div class="head">
+    <span class="no">第 31 段</span>
+    <span class="tm">第11集·前</span>
+    <h3>黄民国的身份揭秘</h3>
+  </div>
+  <p>李材韩和朴海英通过无线电合作，逐步拼凑出黄民国的真实身份。他们发现黄民国拥有特殊能力，能够感知时间线的变化。车秀贤在调查中发现黄民国的家族历史与朴海英父亲的案件有着千丝万缕的联系。黄民国意识到自己的身份即将暴露，开始主动出击，试图切断朴海英和李材韩的联系。李材韩在1998年遭遇危险，而朴海英在2015年同时感受到异常，两人意识到黄民国可能已经知道他们的秘密通信方式。</p>
+  <div class="events"><span class="ev">身份揭秘</span><span class="ev">感知时间</span><span class="ev">主动出击</span></div>
+</section>
+
+<section class="seg" id="seg32">
+  <div class="head">
+    <span class="no">第 32 段</span>
+    <span class="tm">第11集·中</span>
+    <h3>无线电连接危机</h3>
+  </div>
+  <p>黄民国开始干扰朴海英和李材韩之间的无线电通信，导致两人联系时断时续。朴海英在2015年寻找新的通信方式，同时调查黄民国的下落。李材韩在1998年遭遇黄民国的直接威胁，被迫转移藏身地点。车秀贤发现警局内部可能有黄民国的眼线，导致行动受阻。朴海英和李材韩决定冒险进行一次高风险的行动，试图在黄民国干扰的情况下保持通信，并收集更多关于连环杀人案的证据。</p>
+  <div class="events"><span class="ev">通信干扰</span><span class="ev">内部眼线</span><span class="ev">高风险行动</span></div>
+</section>
+
+<section class="seg" id="seg33">
+  <div class="head">
+    <span class="no">第 33 段</span>
+    <span class="tm">第11集·后</span>
+    <h3>黄民国的反击</h3>
+  </div>
+  <p>黄民国察觉到警方调查逼近，开始主动出击。他利用自己对时间线的感知能力，预判了朴海英的行动路线，设下陷阱。李材韩在1998年收到朴海英的警告，但黄民国已经出现在李材韩的办公室，两人对峙。黄民国向李材韩透露自己能够感知时间变化，暗示他知道朴海英的存在。无线电连接被严重干扰，李材韩只能通过断断续续的信号向朴海英传递信息。车秀贤在2015年发现黄民国的家族历史与朴海英父亲的案件有直接关联，找到一份尘封的档案，证明黄民国的父亲曾是案件的关键人物。黄民国警告李材韩和朴海英不要继续调查，否则将会有更多人受害。</p>
+  <div class="events"><span class="ev">黄民国设下陷阱</span><span class="ev">无线电被干扰</span><span class="ev">家族历史揭露</span><span class="ev">对峙警告</span></div>
+</section>
+
+<section class="seg" id="seg34">
+  <div class="head">
+    <span class="no">第 34 段</span>
+    <span class="tm">第12集·前</span>
+    <h3>时间线异常</h3>
+  </div>
+  <p>朴海英和李材韩发现现实世界开始出现异常现象。一些曾经改变过的事件重新回到原来的轨迹，而一些未发生的事件却提前出现。车秀贤发现警局档案中的案件记录开始自相矛盾，有些案件的结案时间被提前或推迟。李材韩在1998年调查黄民国家族历史时，发现黄民国的父亲多年前就认识朴海英的父亲，两人在同一个监狱服刑。黄民国开始频繁出现在朴海英和李材韩的梦境中，传递混乱的信息。朴海英意识到黄民国不仅能够感知时间变化，还能在一定程度上影响时间线。两人决定加快调查速度，试图在时间线彻底崩溃前找到黄民国的弱点。</p>
+  <div class="events"><span class="ev">现实异常现象</span><span class="ev">档案自相矛盾</span><span class="ev">梦境干扰</span><span class="ev">时间线影响</span></div>
+</section>
+
+<section class="seg" id="seg35">
+  <div class="head">
+    <span class="no">第 35 段</span>
+    <span class="tm">第12集·中</span>
+    <h3>真相浮现</h3>
+  </div>
+  <p>朴海英和李材韩通过无线电合作，终于拼凑出完整真相。黄民国的父亲曾是监狱中的头目，与朴海英的父亲有矛盾。黄民国从小被父亲灌输仇恨，认为朴海英的父亲害死了自己的父亲。车秀贤发现黄民国一直在利用时间线变化来掩盖自己的罪行，制造连环杀手的假象。李材韩在1998年找到一位关键证人，证实黄民国的父亲确实是被冤枉的，而真正的凶手另有其人。黄民国察觉到警方接近真相，开始销毁证据并转移目标。朴海英和李材韩意识到，只有改变黄民国的过去，才能阻止他继续犯罪，但这样做可能会引发更大的时间悖论。</p>
+  <div class="events"><span class="ev">完整真相拼凑</span><span class="ev">父亲仇恨根源</span><span class="ev">关键证人现身</span><span class="ev">销毁证据转移</span></div>
+</section>
+
+<section class="seg" id="seg36">
+  <div class="head">
+    <span class="no">第 36 段</span>
+    <span class="tm">第12集·后</span>
+    <h3>时间悖论显现</h3>
+  </div>
+  <p>改变过去导致现实世界出现严重混乱。朴海英发现自己开始消失，照片中的影像逐渐模糊。车秀贤发现警局档案中的案件记录全部被重置，回到了原始状态。李材韩在1998年面临抉择，是否要冒险再次改变过去来拯救朴海英。黄民国利用时间线混乱，开始在两个时空中同时作案，制造更大的混乱。朴海英和李材韩意识到，他们必须找到一种方法在不破坏时间线的前提下阻止黄民国。两人决定利用无线电的特殊性质，尝试创造一个时间循环，将黄民国困在过去的某个时间点。这个计划极其危险，一旦失败，可能会导致两个时空的彻底崩溃。</p>
+  <div class="events"><span class="ev">现实混乱显现</span><span class="ev">影像逐渐消失</span><span class="ev">案件记录重置</span><span class="ev">时间循环计划</span></div>
+</section>
+
+<section class="seg" id="seg37">
+  <div class="head">
+    <span class="no">第 37 段</span>
+    <span class="tm">第13集·前</span>
+    <h3>时间线混乱加剧</h3>
+  </div>
+  <p>朴海英发现自己开始逐渐消失，身体变得透明，照片中的影像也日益模糊。车秀贤在警局发现所有案件记录都被重置，回到了原始状态，他们之前破获的案件记录全部消失。李材韩在1998年面临警局内部调查，因为案件调查方向异常被怀疑。朴海英通过无线电与李材韩紧急沟通，两人意识到改变过去已经严重影响了时间线的稳定。他们决定必须找到一种方法在不破坏时间线的情况下阻止黄民国的犯罪。朴海英开始查阅父亲案件的原始档案，寻找突破口。车秀贤则暗中调查警局内部，试图找到时间线被重置的原因。</p>
+  <div class="events"><span class="ev">朴海英开始消失</span><span class="ev">案件记录被重置</span><span class="ev">李材韩面临调查</span><span class="ev">寻找阻止方法</span></div>
+</section>
+
+<section class="seg" id="seg38">
+  <div class="head">
+    <span class="no">第 38 段</span>
+    <span class="tm">第13集·中</span>
+    <h3>黄民国现身威胁</h3>
+  </div>
+  <p>黄民国主动联系朴海英，警告他不要再试图改变过去，否则后果不堪设想。黄民国透露自己已经察觉到时间线的异常，并威胁要伤害朴海英身边的人。同时，李材韩在1998年发现黄民国正在策划一起新的犯罪，目标直指朴海英的父亲。朴海英和车秀贤紧急行动，试图保护朴海英的父亲，但发现时间线的混乱使得过去的行动无法准确预测。李材韩通过无线电向朴海英传递关键信息，两人在时间错乱中艰难合作。黄民国似乎拥有某种预知能力，总能提前一步避开他们的陷阱。</p>
+  <div class="events"><span class="ev">黄民国主动联系</span><span class="ev">策划新犯罪</span><span class="ev">时间线混乱</span><span class="ev">预知能力显现</span></div>
+</section>
+
+<section class="seg" id="seg39">
+  <div class="head">
+    <span class="no">第 39 段</span>
+    <span class="tm">第13集·后</span>
+    <h3>父亲案件真相</h3>
+  </div>
+  <p>朴海英和车秀贤终于找到父亲案件的原始档案，发现关键证据被人为篡改。他们通过无线电与李材韩分享这一发现，三人共同拼凑出完整真相：黄民国的父亲确实与朴海英的父亲有矛盾，但案件另有隐情。李材韩在1998年重新调查旧案，发现当年负责案件的警官受贿，故意制造冤案。三人决定联手揭露真相，但面临时间线进一步崩溃的风险。朴海英的消失速度加快，身体几乎透明。车秀贤发现警局内部有人故意阻挠调查，怀疑是黄民国在幕后操控。</p>
+  <div class="events"><span class="ev">案件真相浮现</span><span class="ev">警官受贿</span><span class="ev">时间线崩溃</span><span class="ev">内部阻挠调查</span></div>
+</section>
+
+<section class="seg" id="seg40">
+  <div class="head">
+    <span class="no">第 40 段</span>
+    <span class="tm">第14集·前</span>
+    <h3>最终对决准备</h3>
+  </div>
+  <p>朴海英、李材韩和车秀贤决定采取最后行动，既要阻止黄民国的犯罪，又要修复时间线。他们制定了一个危险计划：李材韩在1998年找到关键证人，朴海英在现代同时行动，两人通过无线电协调，试图在时间线的交叉点改变既定命运。朴海英的身体几乎完全透明，随时可能从时间线上消失。车秀贤暗中调查警局内部，发现高层与黄民国有联系。黄民国察觉到他们的计划，开始疯狂行动，试图在时间线彻底崩溃前完成最后的犯罪。朴海英意识到自己可能无法存活，但仍坚持完成计划。</p>
+  <div class="events"><span class="ev">制定危险计划</span><span class="ev">身体几乎消失</span><span class="ev">发现高层联系</span><span class="ev">黄民国疯狂行动</span></div>
+</section>
+
+<section class="seg" id="seg41">
+  <div class="head">
+    <span class="no">第 41 段</span>
+    <span class="tm">第14集·中</span>
+    <h3>时空连线受阻</h3>
+  </div>
+  <p>朴海英和李材韩按计划行动，准备在1998年和2015年同时搜集黄民国的犯罪证据。当他们通过无线电协调行动时，信号突然变得极不稳定。黄民国似乎察觉到了他们的行动，开始干扰无线电信号。李材韩在1998年找到了关键证人，证人准备指认黄民国的罪行，但就在关键时刻，证人突然改变主意，拒绝作证。同时，朴海英在现代发现黄民国已经提前销毁了部分关键证据。两人意识到黄民国不仅知道他们的计划，还能预见他们的行动。无线电信号几乎中断，两人的合作面临前所未有的困难。</p>
+  <div class="events"><span class="ev">信号受阻</span><span class="ev">证人反悔</span><span class="ev">证据销毁</span></div>
+</section>
+
+<section class="seg" id="seg42">
+  <div class="head">
+    <span class="no">第 42 段</span>
+    <span class="tm">第14集·后</span>
+    <h3>父亲获释真相</h3>
+  </div>
+  <p>尽管面临重重困难，朴海英和李材韩没有放弃。他们发现黄民国之所以能干扰他们，是因为他也在使用某种设备监听他们的无线电通信。李材韩冒险潜入黄民国的住所，发现了一个记录本，上面详细记载了他的所有犯罪行为和如何掩盖证据的方法。与此同时，朴海英和车秀贤找到了当年负责朴海英父亲案件的检察官，通过心理战术和证据威慑，迫使检察官承认当年在黄民国的威胁下篡改了证据。最终，朴海英的父亲被无罪释放，但黄民国的威胁依然存在。</p>
+  <div class="events"><span class="ev">发现监听</span><span class="ev">找到证据</span><span class="ev">父亲获释</span></div>
+</section>
+
+<section class="seg" id="seg43">
+  <div class="head">
+    <span class="no">第 43 段</span>
+    <span class="tm">第15集·前</span>
+    <h3>时间线崩塌</h3>
+  </div>
+  <p>朴海英父亲获释后，现实世界开始出现异常现象。一些人的记忆开始错乱，历史记录被篡改，甚至城市景观也发生了变化。朴海英意识到这是因为改变过去导致的蝴蝶效应，时间线正在崩塌。李材韩在1998年也开始经历同样的现象，他的同事突然不认识他，档案中的记录被改写。两人通过越来越不稳定的无线电联系，意识到必须阻止黄民国的最终计划，否则时间线将彻底崩溃。黄民国的最终目标是回到过去，阻止自己的父亲被捕，这将造成更大的灾难。</p>
+  <div class="events"><span class="ev">记忆错乱</span><span class="ev">历史篡改</span><span class="ev">时间线崩塌</span></div>
+</section>
+
+<section class="seg" id="seg44">
+  <div class="head">
+    <span class="no">第 44 段</span>
+    <span class="tm">第15集·中</span>
+    <h3>终极对决</h3>
+  </div>
+  <p>朴海英和李材韩决定采取最后手段，阻止黄民国的时空穿越计划。李材韩在1998年找到了黄民国的时空装置，准备在黄民国启动前将其摧毁。朴海英则在现代寻找黄民国的藏身处，准备在他穿越时空前将其逮捕。黄民国察觉到两人的计划，设下陷阱。李材韩在关键时刻发现了黄民国的真正目的——不是阻止父亲被捕，而是回到更早的时间，杀死朴海英的父亲，彻底改变历史。一场跨越时空的终极对决展开，两人的命运和整个时间线的平衡都悬于一线。</p>
+  <div class="events"><span class="ev">发现装置</span><span class="ev">设下陷阱</span><span class="ev">终极对决</span></div>
+</section>
+
+<section class="seg" id="seg45">
+  <div class="head">
+    <span class="no">第 45 段</span>
+    <span class="tm">第15集·后</span>
+    <h3>时间线崩塌加剧</h3>
+  </div>
+  <p>朴海英和李材韩发现改变过去已经导致严重的时间线崩塌。城市景观开始出现异常，部分建筑时而存在时而消失，人们的记忆也在不断变化。朴海英发现父亲获释后，自己的童年记忆出现了断层，甚至自己的存在都变得不稳定。李材韩在1998年发现自己的同事金宇哲虽然还活着，但性格完全改变，不再是他认识的那个朋友。两人意识到必须阻止黄民国的时空穿越计划，否则整个现实世界将彻底崩溃。他们决定采取最后手段，一个在现代，一个在过去，同时行动，摧毁黄民国的时空装置。</p>
+  <div class="events"><span class="ev">时间线崩塌</span><span class="ev">记忆断层</span><span class="ev">现实不稳定</span><span class="ev">决定摧毁装置</span></div>
+</section>
+
+<section class="seg" id="seg46">
+  <div class="head">
+    <span class="no">第 46 段</span>
+    <span class="tm">第16集·前</span>
+    <h3>双线行动开始</h3>
+  </div>
+  <p>朴海英和李材韩开始执行最后的行动。在现代，朴海英通过无线电向李材韩传递信息，两人协调行动。朴海英追踪到黄民国的藏身处，发现他正在准备启动更大的时空装置，意图完全掌控时间线。李材韩在1998年找到了黄民国的实验室，发现里面有多台正在运行的时空装置。两人意识到黄民国不仅想穿越时间，还想复制多台装置，彻底改变历史。黄民国察觉到他们的行动，开始设下陷阱。朴海英在现代遭到袭击，而李材韩在1998年也被黄民国的同伙围堵，两人同时陷入危险。</p>
+  <div class="events"><span class="ev">追踪黄民国</span><span class="ev">发现实验室</span><span class="ev">遭遇陷阱</span><span class="ev">双双遇险</span></div>
+</section>
+
+<section class="seg" id="seg47">
+  <div class="head">
+    <span class="no">第 47 段</span>
+    <span class="tm">第16集·中</span>
+    <h3>生死对决</h3>
+  </div>
+  <p>朴海英和李材韩在各自时空奋力求生。朴海英在现代与黄民国的手下展开激烈搏斗，成功摧毁了一台时空装置。李材韩在1998年与黄民国正面交锋，两人在实验室中展开生死对决。李材韩利用对装置的了解，破坏了黄民国的计划。黄民国愤怒之下启动了最后一台装置，试图穿越到更远的未来。与此同时，时间线崩塌加剧，现实世界开始出现裂痕，部分区域开始消失。朴海英和李材韩通过无线电交流，意识到必须同时摧毁所有装置才能阻止灾难。两人决定牺牲自己，完成这个任务。</p>
+  <div class="events"><span class="ev">激烈搏斗</span><span class="ev">正面交锋</span><span class="ev">装置启动</span><span class="ev">决定牺牲</span></div>
+</section>
+
+<section class="seg" id="seg48">
+  <div class="head">
+    <span class="no">第 48 段</span>
+    <span class="tm">第16集·后</span>
+    <h3>时空平衡</h3>
+  </div>
+  <p>李材韩在1998年做出了最终决定，他牺牲自己摧毁了黄民国的最后一台时空装置，同时切断了与朴海英的无线电连接。在现代，朴海英失去了与李材韩的联系，但时间线崩塌开始停止。现实世界逐渐恢复稳定，朴海英父亲的冤案被彻底洗清，历史被重新书写。朴海英回到父亲身边，两人终于团聚。然而，李材韩的牺牲让朴海英深感悲痛。多年后，朴海英成为了一名优秀的刑警，他始终记得那个通过无线电改变他命运的朋友。在一个偶然的机会，他发现了一台旧式无线电，当他按下通话键时，听到了微弱的电流声，似乎连接着另一个时空，故事在悬念中结束。</p>
+  <div class="events"><span class="ev">李材韩牺牲</span><span class="ev">时间线恢复</span><span class="ev">父亲洗冤</span><span class="ev">悬念结尾</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集</td><td>朴海英通过神秘无线电与李材韩首次联系</td></tr><tr><td>第4集</td><td>两人成功阻止金宇哲被杀，改变过去</td></tr><tr><td>第8集</td><td>发现黄民国是连环杀手的身份</td></tr><tr><td>第12集</td><td>朴海英父亲的冤案真相被揭开</td></tr><tr><td>第15集</td><td>改变过去导致现实出现时间悖论</td></tr><tr><td>第16集</td><td>李材韩为拯救朴海英牺牲，无线电连接中断</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">时空交错</span><span class="theme">正义与救赎</span><span class="theme">因果报应</span><span class="theme">命运与选择</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">李材韩为拯救朴海英而牺牲，无线电连接中断。朴海英成功为父亲洗清冤屈，但两人再也无法联系，时空平衡被打破。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-11 17:06 · 模型 glm-4-air,glm-4-flash · 共 48 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

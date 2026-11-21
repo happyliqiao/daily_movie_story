@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>绝命毒师 · 分段故事梗概 · 2026-11-18</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>绝命毒师<span class="year">2008</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-18</span><span class="chip">电视剧</span><span class="chip">美国</span><span class="chip">犯罪/剧情</span><span class="chip">2008</span><span class="chip">电视剧共 62 集，单集约 47 分钟，每集拆 2 段，全剧共 124 段</span><span class="chip">21世纪美国新墨西哥州</span></div>
+    <div class="logline">化学老师沃尔特身患绝症，为家庭制毒却逐渐堕落为冷酷毒枭，面临警方追查与黑帮双重威胁。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 124 段</h2>
+      <ol><li><a href="#seg1">化学老师确诊肺癌</a></li>
+<li><a href="#seg2">沃尔特决定制毒</a></li>
+<li><a href="#seg3">沃尔特与杰西达成协议</a></li>
+<li><a href="#seg4">首次制毒失败</a></li>
+<li><a href="#seg5">沃尔特初尝毒枭滋味</a></li>
+<li><a href="#seg6">沃尔特跨越道德底线</a></li>
+<li><a href="#seg7">家庭危机初现</a></li>
+<li><a href="#seg8">沃尔特重返犯罪</a></li>
+<li><a href="#seg9">库姆之死</a></li>
+<li><a href="#seg10">家庭谎言</a></li>
+<li><a href="#seg11">制毒危机</a></li>
+<li><a href="#seg12">纯度危机解决</a></li>
+<li><a href="#seg13">库姆之死真相</a></li>
+<li><a href="#seg14">毒贩间的交易</a></li>
+<li><a href="#seg15">家庭危机升级</a></li>
+<li><a href="#seg16">制毒危机爆发</a></li>
+<li><a href="#seg17">制毒方法突破</a></li>
+<li><a href="#seg18">与图科会面危机</a></li>
+<li><a href="#seg19">街头帮派冲突</a></li>
+<li><a href="#seg20">家庭信任危机</a></li>
+<li><a href="#seg21">毒枭交易危机</a></li>
+<li><a href="#seg22">街头帮派威胁</a></li>
+<li><a href="#seg23">生产压力增大</a></li>
+<li><a href="#seg24">家庭关系破裂</a></li>
+<li><a href="#seg25">沃尔特解决帮派威胁</a></li>
+<li><a href="#seg26">简意外死亡</a></li>
+<li><a href="#seg27">沃尔特接触弗林</a></li>
+<li><a href="#seg28">正式合作与家庭危机</a></li>
+<li><a href="#seg29">简意外死亡</a></li>
+<li><a href="#seg30">沃尔特接触弗林</a></li>
+<li><a href="#seg31">沃尔特与弗林正式合作</a></li>
+<li><a href="#seg32">汉克发现沃尔特秘密</a></li>
+<li><a href="#seg33">杰西康复与沃尔特自责</a></li>
+<li><a href="#seg34">汉克确认沃尔特身份</a></li>
+<li><a href="#seg35">汉克秘密调查沃尔特</a></li>
+<li><a href="#seg36">汉克追踪沃尔特</a></li>
+<li><a href="#seg37">沃尔特与弗林会面</a></li>
+<li><a href="#seg38">杰西康复与沃尔特自责</a></li>
+<li><a href="#seg39">沃尔特与弗林会面</a></li>
+<li><a href="#seg40">沃尔特与弗林谈判</a></li>
+<li><a href="#seg41">沃尔特与弗林会面</a></li>
+<li><a href="#seg42">杰西戒毒与沃尔特计划</a></li>
+<li><a href="#seg43">沃尔特与弗林达成交易</a></li>
+<li><a href="#seg44">沃尔特与弗林交易达成</a></li>
+<li><a href="#seg45">沃尔特与古斯塔沃摊牌</a></li>
+<li><a href="#seg46">杰西遭遇绑架危机</a></li>
+<li><a href="#seg47">沃尔特策划复仇</a></li>
+<li><a href="#seg48">沃尔特智取古斯塔沃</a></li>
+<li><a href="#seg49">毒枭对决</a></li>
+<li><a href="#seg50">杰西获救</a></li>
+<li><a href="#seg51">毒枭反击</a></li>
+<li><a href="#seg52">最终对决</a></li>
+<li><a href="#seg53">沃尔特设局</a></li>
+<li><a href="#seg54">毒枭覆灭</a></li>
+<li><a href="#seg55">古斯塔沃之死</a></li>
+<li><a href="#seg56">实验室的终结</a></li>
+<li><a href="#seg57">沃尔特救杰西</a></li>
+<li><a href="#seg58">杰克团队搜捕杰西</a></li>
+<li><a href="#seg59">杰克团队围捕杰西</a></li>
+<li><a href="#seg60">杰克团队处决杰西</a></li>
+<li><a href="#seg61">杰克团队杀戮</a></li>
+<li><a href="#seg62">古斯塔沃逃亡</a></li>
+<li><a href="#seg63">汉克发现真相</a></li>
+<li><a href="#seg64">沃尔特身份暴露</a></li>
+<li><a href="#seg65">沃尔特逃亡</a></li>
+<li><a href="#seg66">沃尔特被困地下室</a></li>
+<li><a href="#seg67">地下室对峙</a></li>
+<li><a href="#seg68">沃尔特被捕</a></li>
+<li><a href="#seg69">汉克遭伏击</a></li>
+<li><a href="#seg70">汉克惨死</a></li>
+<li><a href="#seg71">沃尔特重获自由</a></li>
+<li><a href="#seg72">沃尔特最后的清算</a></li>
+<li><a href="#seg73">汉克追踪沃尔特</a></li>
+<li><a href="#seg74">沃尔特返回新墨西哥</a></li>
+<li><a href="#seg75">杰西逃离康复中心</a></li>
+<li><a href="#seg76">沃尔特接近目标</a></li>
+<li><a href="#seg77">沃尔特寻找新武器</a></li>
+<li><a href="#seg78">杰西的复仇计划</a></li>
+<li><a href="#seg79">沃尔特与托德合作</a></li>
+<li><a href="#seg80">托德制造火车事故</a></li>
+<li><a href="#seg81">火车事故计划</a></li>
+<li><a href="#seg82">餐厅下毒失败</a></li>
+<li><a href="#seg83">沃尔特的新计划</a></li>
+<li><a href="#seg84">火车事故实施</a></li>
+<li><a href="#seg85">古斯塔沃落入陷阱</a></li>
+<li><a href="#seg86">毒枭的致命对决</a></li>
+<li><a href="#seg87">沃尔特接管帝国</a></li>
+<li><a href="#seg88">毒枭的末日</a></li>
+<li><a href="#seg89">毒枭的覆灭</a></li>
+<li><a href="#seg90">帝国接管</a></li>
+<li><a href="#seg91">布洛克被捕</a></li>
+<li><a href="#seg92">第92段</a></li>
+<li><a href="#seg93">杰西目睹安德莉亚死亡</a></li>
+<li><a href="#seg94">杰西绑架沃尔特</a></li>
+<li><a href="#seg95">杰西决意复仇</a></li>
+<li><a href="#seg96">沃尔特求饶遭拒</a></li>
+<li><a href="#seg97">杰西拷问沃尔特</a></li>
+<li><a href="#seg98">沃尔特逃脱计划</a></li>
+<li><a href="#seg99">沃尔特追杀杰西</a></li>
+<li><a href="#seg100">沃尔特的最后准备</a></li>
+<li><a href="#seg101">毒枭的覆灭</a></li>
+<li><a href="#seg102">新王登基</a></li>
+<li><a href="#seg103">杰西的囚禁</a></li>
+<li><a href="#seg104">杰西的逃脱</a></li>
+<li><a href="#seg105">杰西的囚禁</a></li>
+<li><a href="#seg106">杰西决裂沃尔特</a></li>
+<li><a href="#seg107">杰西逃离地下室</a></li>
+<li><a href="#seg108">杰西寻求庇护</a></li>
+<li><a href="#seg109">杰西逃脱计划</a></li>
+<li><a href="#seg110">地下室爆炸</a></li>
+<li><a href="#seg111">杰西求助老友</a></li>
+<li><a href="#seg112">沃尔特被围困</a></li>
+<li><a href="#seg113">沃尔特被捕入狱</a></li>
+<li><a href="#seg114">斯凯勒坦白真相</a></li>
+<li><a href="#seg115">杰克帮突袭警局</a></li>
+<li><a href="#seg116">沃尔特重返藏身地</a></li>
+<li><a href="#seg117">沃尔特复仇计划</a></li>
+<li><a href="#seg118">毒枭归来</a></li>
+<li><a href="#seg119">沃尔特营救杰西</a></li>
+<li><a href="#seg120">沃尔特复仇</a></li>
+<li><a href="#seg121">沃尔特重返新墨西哥</a></li>
+<li><a href="#seg122">杰克帮覆灭</a></li>
+<li><a href="#seg123">沃尔特的最后旅程</a></li>
+<li><a href="#seg124">沃尔特的救赎与终结</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">沃尔特·怀特</span><span class="r">主角</span></div><div class="d">患癌化学老师，为家人制毒逐渐堕落</div></div>
+<div class="person"><div><span class="n">杰西·平克曼</span><span class="r">关键配角</span></div><div class="d">街头毒贩，沃尔特的制毒搭档</div></div>
+<div class="person"><div><span class="n">斯凯勒·怀特</span><span class="r">关键配角</span></div><div class="d">沃尔特的妻子，逐渐发现真相</div></div>
+<div class="person"><div><span class="n">汉克·施拉德</span><span class="r">对手</span></div><div class="d">DEA探员，沃尔特的连襟</div></div>
+<div class="person"><div><span class="n">古斯塔沃·弗林</span><span class="r">对手</span></div><div class="d">毒枭老大，沃尔特的最终敌人</div></div>
+<div class="person"><div><span class="n">小粉红</span><span class="r">关键配角</span></div><div class="d">弗林集团的律师，与沃尔特结盟</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">制毒起步</span><span class="ds">沃尔特与杰西合作制冰毒，初尝犯罪滋味</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">势力扩张</span><span class="ds">沃尔特与古斯塔沃合作，建立毒品帝国</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">权力斗争</span><span class="ds">沃尔特与古斯塔沃决裂，开始血腥复仇</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">最终清算</span><span class="ds">沃尔特消灭所有敌人，寻求救赎与救赎</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·上</span>
+    <h3>化学老师确诊肺癌</h3>
+  </div>
+  <p>五十岁的沃尔特·怀特在新墨西哥州阿尔伯克基高中担任化学老师，同时兼职洗车行补贴家用。生日当天，妻子斯凯勒为他准备了惊喜派对，但沃尔特接到医院电话后情绪低落。检查结果显示沃尔特患上了晚期肺癌，只剩两年寿命。沃尔特在停车场偶遇前学生杰西·平克曼，后者因制毒被捕。沃尔特开车回家途中目睹DEA追捕毒贩的场景，想起自己曾经是DEA的杰出学员。面对绝症和家庭经济压力，沃尔特决定重操化学技能，与杰西合作制造高纯度冰毒。</p>
+  <div class="events"><span class="ev">确诊肺癌</span><span class="ev">偶遇杰西</span><span class="ev">决定制毒</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·下</span>
+    <h3>沃尔特决定制毒</h3>
+  </div>
+  <p>沃尔特在医院确诊肺癌晚期后，心情沉重地离开。在洗车行工作时，他目睹前学生杰西·平克曼被警察追捕，杰西正是当地毒贩。沃尔特找到杰西，提出合作制冰毒的建议，利用自己的化学知识和杰西的贩毒渠道。沃尔特解释自己制毒是为了留下足够的钱给家人，因为他的癌症治疗费用高昂且治愈希望渺茫。杰西起初怀疑沃尔特的能力，但在看到沃尔特展示的高纯度冰毒样品后，同意合作。两人开始寻找制毒地点和设备，沃尔特利用化学专业知识指导杰西如何安全有效地生产冰毒。</p>
+  <div class="events"><span class="ev">沃尔特确诊肺癌</span><span class="ev">寻找杰西合作</span><span class="ev">展示制毒样品</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第2集·上</span>
+    <h3>沃尔特与杰西达成协议</h3>
+  </div>
+  <p>沃尔特向杰西展示自己制冰毒的化学知识，杰西起初怀疑沃尔特的动机。沃尔特提出需要场地和设备，两人来到杰西的房车实验室。沃尔特指导杰西改进制毒方法，使用更纯的原料提高冰毒纯度。第一次尝试成功制造出高纯度冰毒，杰西对沃尔特的化学才能感到惊讶。沃尔特坚持要求分账方式为50/50，杰西虽不情愿但同意合作。两人约定第二天继续制毒，沃尔特开始期待用这笔钱为家人留下保障。沃尔特离开时，杰西提醒他制毒的危险性，暗示这可能是一条不归路。</p>
+  <div class="events"><span class="ev">展示制毒技术</span><span class="ev">改进实验方法</span><span class="ev">首次成功制毒</span><span class="ev">达成合作协议</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·下</span>
+    <h3>首次制毒失败</h3>
+  </div>
+  <p>沃尔特和杰西在房车内开始首次制毒实验，沃尔特严格指导杰西操作，两人使用纯麻黄碱和红磷制造冰毒。杰西对沃尔特的化学知识印象深刻，但仍保持怀疑。实验过程中，沃尔特发现杰西使用的原料纯度不够，导致反应不完全。两人争吵后，沃尔特亲自调整配方，但实验仍然失败，只产生了少量不纯的冰毒。杰西沮丧地表示这样无法在市场上销售。沃尔特冷静分析失败原因，提出需要更高质量的原料。两人决定分头寻找更好的麻黄碱来源，沃尔特暗示自己知道如何获取高纯度原料，杰西对此感到惊讶。</p>
+  <div class="events"><span class="ev">首次制毒</span><span class="ev">原料纯度不足</span><span class="ev">实验失败</span><span class="ev">决定寻找优质原料</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第3集·上</span>
+    <h3>沃尔特初尝毒枭滋味</h3>
+  </div>
+  <p>沃尔特与杰西在沙漠中成功制造出高纯度冰毒，两人将毒品交给图科·萨拉曼卡。图科对毒品质量满意，但只付给沃尔特一半的报酬，并威胁他们继续合作。沃尔特拒绝，图科派手下绑架了杰西。沃尔特独自前往图科的仓库，试图与图科谈判。沃尔特提出用化学知识帮助图科提高产量，但图科不信任他。沃尔特意识到自己陷入了危险境地，他必须想办法救出杰西并摆脱图科的控制。沃尔特利用自己的化学知识，在图科的手下面前展示了自己的价值，暂时保住了两人的性命。</p>
+  <div class="events"><span class="ev">沃尔特制出高纯度冰毒</span><span class="ev">图科只付一半报酬</span><span class="ev">杰西被绑架</span><span class="ev">沃尔特独自谈判</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第3集·下</span>
+    <h3>沃尔特跨越道德底线</h3>
+  </div>
+  <p>沃尔特被图科囚禁在仓库中，他提出用化学知识帮助图科提高冰纯度，但图科仍不信任他。沃尔特被迫与图科的手下库姆单独相处，库姆嘲笑沃尔特是懦弱的化学老师。愤怒的沃尔特利用化学知识，设计了一个复杂的装置，将毒气释放到库姆所在的房间。库姆中毒身亡，沃尔特成功震慑了图科。图科被沃尔特的冷酷和智慧所折服，同意与他们合作。沃尔特和杰西获释，但沃尔特已经跨越了道德底线，从一个被迫制毒的老师变成了主动杀人的毒枭。斯凯勒开始怀疑沃尔特的异常行为，暗中调查他的行踪。</p>
+  <div class="events"><span class="ev">沃尔特被图科囚禁</span><span class="ev">库姆嘲笑沃尔特</span><span class="ev">沃尔特毒杀库姆</span><span class="ev">沃尔特震慑图科</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第4集·上</span>
+    <h3>家庭危机初现</h3>
+  </div>
+  <p>沃尔特开始秘密制毒，斯凯勒发现沃尔特的银行账户中有大量不明资金，但沃尔特谎称是赌博赢来的。斯凯勒对丈夫的赌博问题感到担忧，开始暗中观察他的行为。沃尔特与杰西继续为图科制造冰毒，但沃尔特对杰西的粗心大意感到不满。沃尔特在学校工作时，突然晕倒被送往医院，检查结果显示他的癌细胞已经扩散。医生建议立即开始化疗，但沃尔特拒绝接受治疗，认为没有意义。沃尔特的儿子小沃尔特对父亲的病情一无所知，只觉得父亲变得古怪。沃尔特决定隐瞒自己的病情，继续制毒赚钱，为家人留下足够的财产。</p>
+  <div class="events"><span class="ev">斯凯勒发现不明资金</span><span class="ev">沃尔特谎称赌博</span><span class="ev">沃尔特晕倒送医</span><span class="ev">癌细胞扩散</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第4集·下</span>
+    <h3>沃尔特重返犯罪</h3>
+  </div>
+  <p>沃尔特决定继续制毒，他与杰西在沙漠中找到一个隐蔽的制毒地点。沃尔特改进了制毒方法，提高了冰毒的纯度和产量。图科对沃尔特的产品非常满意，增加了订单量。沃尔特和杰西开始大规模生产，但杰西的粗心导致两人差点被发现。沃尔特对杰西的疏忽感到愤怒，两人关系紧张。斯凯勒发现沃尔特的异常行为，她翻查沃尔特的物品，找到了一些可疑的物品。沃尔特察觉到妻子的怀疑，开始更加小心行事。沃尔特在学校工作时，汉克来学校调查毒品案件，沃尔特担心汉克会发现自己的秘密，内心充满恐惧。</p>
+  <div class="events"><span class="ev">沃尔特改进制毒方法</span><span class="ev">图科增加订单</span><span class="ev">斯凯勒发现可疑物品</span><span class="ev">汉克到学校调查</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第5集·上</span>
+    <h3>库姆之死</h3>
+  </div>
+  <p>沃尔特被囚禁在仓库中，库姆不断嘲讽他的懦弱，甚至威胁要杀死杰西。愤怒的沃尔特意识到自己必须采取行动。他提出要和库姆单独谈话，趁机说服库姆让他继续制毒。在谈话过程中，沃尔特故意激怒库姆，导致库姆动手打他。沃尔特趁机抓住库姆的头发，将他的头狠狠撞在破碎的水池边缘，导致库姆当场死亡。沃尔特冷静地处理现场，将库姆的尸体放入塑料袋中。随后，图科回到仓库，沃尔特谎称库姆是意外身亡。图科虽然怀疑，但出于对沃尔特化学能力的需要，暂时放过了他。沃尔特成功渡过危机，但内心已彻底跨越道德底线。</p>
+  <div class="events"><span class="ev">库姆嘲讽沃尔特</span><span class="ev">沃尔特杀死库姆</span><span class="ev">图科返回仓库</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第5集·下</span>
+    <h3>家庭谎言</h3>
+  </div>
+  <p>沃尔特回到家中，试图掩盖自己的经历。斯凯勒发现沃尔特的银行账户中有大笔不明资金，沃尔特谎称是赌博赢来的。斯凯勒对此表示怀疑，开始暗中观察丈夫的行为。沃尔特继续与杰西合作制毒，两人找到一个废弃的房车作为制毒地点。沃尔特改进了制毒方法，提高了冰毒的纯度。图科对沃尔特的产品非常满意，增加了订单量。沃尔特开始享受制毒带来的金钱回报，但同时也面临更大的风险。他必须平衡家庭生活和犯罪活动，同时避免被警方发现。</p>
+  <div class="events"><span class="ev">沃尔特谎称赌博</span><span class="ev">改进制毒方法</span><span class="ev">图科增加订单</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第6集·上</span>
+    <h3>制毒危机</h3>
+  </div>
+  <p>沃尔特和杰西在沙漠中的房车里制毒时，遇到技术问题。制出的冰纯度不稳定，导致图科不满。沃尔特意识到必须解决这一问题，否则可能会面临生命危险。他重新审视制毒过程，发现是温度控制问题。与此同时，斯凯勒继续怀疑沃尔特的赌博行为，她查阅了沃尔特的银行记录，发现资金远超赌博赢取的金额。她开始跟踪沃尔特，试图找出真相。沃尔特察觉到妻子的怀疑，内心更加焦虑。他必须在解决制毒问题的同时，应对家庭危机。</p>
+  <div class="events"><span class="ev">冰纯度不稳定</span><span class="ev">温度控制问题</span><span class="ev">斯凯勒跟踪沃尔特</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第6集·下</span>
+    <h3>纯度危机解决</h3>
+  </div>
+  <p>沃尔特重新审视制毒过程，发现是容器问题导致冰毒纯度不稳定。他提议使用特殊玻璃容器，并亲自制作出高纯度冰毒。图科对结果满意，但警告沃尔特和杰西不得再犯错。沃尔特成功解决了危机，但意识到自己处于危险境地。杰西建议两人离开，但沃尔特坚持继续制毒为家人赚取医疗费用。沃尔特和杰西继续合作制毒，沃尔特的技术逐渐得到认可。斯凯勒对沃尔特的异常行为更加怀疑，开始暗中调查他的行踪和资金来源。</p>
+  <div class="events"><span class="ev">解决纯度问题</span><span class="ev">图科满意警告</span><span class="ev">杰西建议离开</span><span class="ev">斯凯勒暗中调查</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第7集·上</span>
+    <h3>库姆之死真相</h3>
+  </div>
+  <p>沃尔特被囚禁在仓库中，库姆不断嘲讽他的懦弱，甚至威胁要杀死杰西。愤怒的沃尔特意识到自己必须采取行动。他提出要和库姆单独谈话，趁机说服库姆让他继续制毒。在谈话过程中，沃尔特突然改变策略，提出要杀死库姆的竞争对手图科。库姆对此表示怀疑，沃尔特则详细描述了如何利用制毒知识制造炸弹，并承诺会按照库姆的要求生产出纯度更高的冰毒。库姆被打动，同意让沃尔特活下来继续制毒，但要求他必须杀死图科。</p>
+  <div class="events"><span class="ev">沃尔特被囚</span><span class="ev">库姆嘲讽</span><span class="ev">制毒提议</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第7集·下</span>
+    <h3>毒贩间的交易</h3>
+  </div>
+  <p>沃尔特和杰西回到沙漠中的房车制毒点，继续生产冰毒。沃尔特利用化学知识改进了制毒方法，大幅提高了冰毒的纯度。与此同时，库姆安排了一次与图科的会面，意图让沃尔特在会上杀死图科。沃尔特带着精心准备的炸弹前往会面地点，但在关键时刻，他发现杰西被图科的手下绑架。沃尔特被迫放弃原计划，与杰西一起逃亡。在逃亡过程中，沃尔特利用自制炸弹制造了混乱，与杰西成功逃脱，但库姆对他们的失败感到愤怒，开始对他们进行追杀。</p>
+  <div class="events"><span class="ev">制毒改进</span><span class="ev">会面陷阱</span><span class="ev">炸弹失效</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第8集·上</span>
+    <h3>家庭危机升级</h3>
+  </div>
+  <p>沃尔特回到家中，试图掩盖自己的经历。斯凯勒发现沃尔特的银行账户中有大笔不明资金，沃尔特谎称是赌博赢来的。斯凯勒对此表示怀疑，开始暗中观察丈夫的行为。同时，沃尔特在学校的教学表现变得异常出色，引起了同事和校长的注意。汉克在调查库姆的案子时，发现了一些与沃尔特相关的线索，开始对他产生怀疑。沃尔特意识到自己的双重生活正在面临越来越多的风险，必须想办法平衡家庭和犯罪活动。</p>
+  <div class="events"><span class="ev">银行疑云</span><span class="ev">教学出色</span><span class="ev">汉克怀疑</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第8集·下</span>
+    <h3>制毒危机爆发</h3>
+  </div>
+  <p>沃尔特和杰西在沙漠中的房车里制毒时，遇到技术问题。制出的冰纯度不稳定，导致图科不满。沃尔特意识到必须解决这一问题，否则可能会面临生命危险。他重新审视制毒过程，发现是原料纯度的问题。沃尔特冒险潜入一家化学公司偷取高纯度原料，险些被发现。与此同时，斯凯勒发现了沃尔特的秘密，开始调查他的行踪。沃尔特成功解决了制毒问题，但家庭关系已经出现裂痕，他必须在保护家人和继续犯罪之间做出选择。</p>
+  <div class="events"><span class="ev">技术故障</span><span class="ev">原料危机</span><span class="ev">妻子疑心</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第9集·上</span>
+    <h3>制毒方法突破</h3>
+  </div>
+  <p>沃尔特在沙漠房车中重新审视制毒过程，发现关键问题在于催化剂的使用。他改进了制毒方法，使用更高效的催化剂，大幅提高了冰毒纯度。杰西对沃尔特的化学知识感到震惊和佩服。两人成功生产出纯度高达99.1%的冰毒，远超市场上的普通产品。沃尔特打电话给库姆，告知产品质量提升，库姆同意安排与图科的会面。沃尔特意识到自己掌握了制毒的关键技术，在毒贩集团中的地位有所提升。</p>
+  <div class="events"><span class="ev">改进制毒方法</span><span class="ev">冰毒纯度达99.1%</span><span class="ev">与库姆联系</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第9集·下</span>
+    <h3>与图科会面危机</h3>
+  </div>
+  <p>沃尔特和杰西在库姆的安排下与图科会面。图科对沃尔特的高纯度冰毒表示满意，但质疑其生产能力。沃尔特自信地表示可以持续供应高质量产品。会面中，图科发现杰西曾与街头帮派有联系，对其产生怀疑。会后，图科派人跟踪杰西，试图了解他的背景。沃尔特意识到自己和杰西都处于危险之中，必须尽快证明自己的价值。同时，斯凯勒对沃尔特的行踪更加怀疑，开始暗中调查他的银行账户。</p>
+  <div class="events"><span class="ev">与图科会面</span><span class="ev">图科怀疑杰西</span><span class="ev">斯凯勒暗中调查</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">第10集·上</span>
+    <h3>街头帮派冲突</h3>
+  </div>
+  <p>杰西在街头被图科的手下发现并跟踪。杰西意识到危险，试图摆脱跟踪但未成功。他向沃尔特求助，沃尔特决定亲自处理这个问题。沃尔特找到街头帮派头目，用化学知识和威胁手段警告他们不要再骚扰杰西。同时，斯凯勒发现沃尔特的银行账户中有大笔资金，她开始暗中调查丈夫的背景，怀疑他可能涉及非法活动。沃尔特察觉到妻子的怀疑，开始更加小心地掩盖自己的犯罪行为。</p>
+  <div class="events"><span class="ev">杰西被跟踪</span><span class="ev">沃尔特警告帮派</span><span class="ev">斯凯勒暗中调查</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">第10集·下</span>
+    <h3>家庭信任危机</h3>
+  </div>
+  <p>斯凯勒对沃尔特的异常行为感到不安，她开始查阅丈夫的资料，发现他最近多次请假且行为诡秘。沃尔特察觉到妻子的怀疑，试图用谎言掩盖，但斯凯勒已经起了疑心。与此同时，沃尔特和杰西的生产计划受到威胁，图科要求他们增加产量，否则将面临严重后果。沃尔特意识到自己陷入了两难境地：一方面要应对毒贩的威胁，另一方面要应对家庭的怀疑。他决定继续制毒，同时更加小心地隐藏自己的真实身份。</p>
+  <div class="events"><span class="ev">斯凯勒起疑</span><span class="ev">沃尔特用谎言掩盖</span><span class="ev">图科要求增加产量</span></div>
+</section>
+
+<section class="seg" id="seg21">
+  <div class="head">
+    <span class="no">第 21 段</span>
+    <span class="tm">第11集·上</span>
+    <h3>毒枭交易危机</h3>
+  </div>
+  <p>沃尔特和杰西在图科的安排下进行毒品交易，图科对沃尔特的高纯度冰毒表示满意但质疑其生产能力。会面中，图科发现杰西曾与街头帮派有瓜葛，引发冲突。沃尔特冷静应对，用化学知识证明自己的价值，并承诺持续供应高质量产品。交易完成后，图科同意给他们一周时间证明生产能力。沃尔特和杰西回到制毒点，开始大量生产冰毒，同时沃尔特担心图科会因杰西的过去而对他们下手。</p>
+  <div class="events"><span class="ev">毒品交易</span><span class="ev">图科质疑</span><span class="ev">化学证明价值</span></div>
+</section>
+
+<section class="seg" id="seg22">
+  <div class="head">
+    <span class="no">第 22 段</span>
+    <span class="tm">第11集·下</span>
+    <h3>街头帮派威胁</h3>
+  </div>
+  <p>沃尔特决定亲自解决杰西与街头帮派的冲突。他找到帮派头目，用化学知识威胁对方，称可以在对方的食物中下毒。同时，沃尔特发现杰西与女友简的关系越来越深，而简正是帮派成员。沃尔特警告杰西远离简，但杰西不听。沃尔特开始大量生产冰毒，以满足图科的要求。与此同时，斯凯勒对沃尔特的异常行为更加怀疑，她发现沃尔特的银行账户有大笔不明资金来源，开始暗中调查。</p>
+  <div class="events"><span class="ev">威胁帮派</span><span class="ev">杰西恋情</span><span class="ev">斯凯勒起疑</span></div>
+</section>
+
+<section class="seg" id="seg23">
+  <div class="head">
+    <span class="no">第 23 段</span>
+    <span class="tm">第12集·上</span>
+    <h3>生产压力增大</h3>
+  </div>
+  <p>沃尔特和杰西面临提高产量的巨大压力，他们决定改进制毒方法以提高效率。沃尔特设计出新的反应装置，大大提高了生产速度和质量。同时，图科的手下不断催促交货，给两人施加压力。杰西因与简的关系而分心，导致生产中出现失误。沃尔特发现后严厉批评杰西，两人关系紧张。斯凯勒继续调查沃尔特的财务状况，发现他有一笔大额存款来源不明，决定与汉克商量。</p>
+  <div class="events"><span class="ev">改进装置</span><span class="ev">生产失误</span><span class="ev">斯凯勒调查</span></div>
+</section>
+
+<section class="seg" id="seg24">
+  <div class="head">
+    <span class="no">第 24 段</span>
+    <span class="tm">第12集·下</span>
+    <h3>家庭关系破裂</h3>
+  </div>
+  <p>斯凯勒发现沃尔特在洗车行的工作收入无法解释他的存款，她开始怀疑沃尔特有外遇或从事非法活动。沃尔特察觉到妻子的怀疑，试图用谎言掩盖，但斯凯勒已经找到了关键证据。两人发生激烈争吵，家庭关系濒临破裂。与此同时，杰西与简的关系进一步发展，简的吸毒问题日益严重。沃尔特担心杰西会因分心而影响生产，同时担心图科会因简的存在而对杰西下手。沃尔特决定采取行动，既要保护生产，又要保护杰西。</p>
+  <div class="events"><span class="ev">斯凯勒发现</span><span class="ev">家庭争吵</span><span class="ev">杰西恋情</span></div>
+</section>
+
+<section class="seg" id="seg25">
+  <div class="head">
+    <span class="no">第 25 段</span>
+    <span class="tm">第13集·上</span>
+    <h3>沃尔特解决帮派威胁</h3>
+  </div>
+  <p>沃尔特找到街头帮派头目，用化学知识威胁对方，称可以在食物中下毒。他冷静地展示自己的化学能力，迫使帮派头目放弃对杰西的追杀。同时，沃尔特发现杰西与简的关系越来越深，而简正是帮派成员的妹妹。沃尔特对杰西与简的交往感到不安，担心这会给他们的制毒事业带来麻烦。他警告杰西保持距离，但杰西没有听从。沃尔特决定亲自解决这场危机，他的行动既是为了保护杰西，也是为了保护自己的制毒事业。</p>
+  <div class="events"><span class="ev">沃尔特威胁帮派</span><span class="ev">杰西与简关系加深</span></div>
+</section>
+
+<section class="seg" id="seg26">
+  <div class="head">
+    <span class="no">第 26 段</span>
+    <span class="tm">第13集·下</span>
+    <h3>简意外死亡</h3>
+  </div>
+  <p>杰西与简的关系继续发展，两人沉溺于毒品和爱情中。沃尔特对杰西的疏忽感到愤怒，但他更担心简的哥哥会报复。一次意外中，简和杰西过量吸食海洛因导致昏迷。沃尔特来到现场，看到简已经停止呼吸。在恐慌中，沃尔特选择袖手旁观，没有施救。杰西醒来后发现简已死，悲痛欲绝。这一事件彻底改变了杰西和沃尔特的关系，也标志着沃尔特道德底线的进一步崩塌。沃尔特对简的死亡感到内疚，但他将这种情绪隐藏在冷酷的外表下。</p>
+  <div class="events"><span class="ev">简过量昏迷</span><span class="ev">沃尔特见死不救</span></div>
+</section>
+
+<section class="seg" id="seg27">
+  <div class="head">
+    <span class="no">第 27 段</span>
+    <span class="tm">第14集·上</span>
+    <h3>沃尔特接触弗林</h3>
+  </div>
+  <p>沃尔特和杰西面临提高产量的压力，他们需要新的分销渠道。通过小粉红的介绍，沃尔特接触到了毒枭弗林。弗林对沃尔特的制毒技术印象深刻，提出合作意向。同时，斯凯勒继续调查沃尔特的异常行为，她发现了一些可疑的银行交易记录。沃尔特意识到家庭关系已经岌岌可危，但他无法停止制毒。他尝试向斯凯勒坦白，但最终选择了隐瞒。杰西从简死亡的阴影中逐渐走出，但与沃尔特的关系变得紧张而疏远。</p>
+  <div class="events"><span class="ev">接触弗林</span><span class="ev">斯凯勒发现疑点</span></div>
+</section>
+
+<section class="seg" id="seg28">
+  <div class="head">
+    <span class="no">第 28 段</span>
+    <span class="tm">第14集·下</span>
+    <h3>正式合作与家庭危机</h3>
+  </div>
+  <p>沃尔特与弗达成了正式合作协议，弗林为沃尔特提供资金和分销渠道，沃尔特则为弗林提供高品质的冰毒。与此同时，斯凯勒的怀疑加深，她雇佣私家侦探调查沃尔特。沃尔特察觉到妻子的调查，试图用谎言和借口掩盖真相。他向斯凯勒保证自己没有做违法的事情，但斯凯勒已经不相信他。家庭关系陷入前所未有的危机。杰西在沃尔特与弗林的合作中感到不安，他担心自己会被边缘化。沃尔特的事业虽然有了飞跃发展，但家庭关系和与杰西的友谊都面临严重考验。</p>
+  <div class="events"><span class="ev">弗林合作达成</span><span class="ev">斯凯勒调查丈夫</span></div>
+</section>
+
+<section class="seg" id="seg29">
+  <div class="head">
+    <span class="no">第 29 段</span>
+    <span class="tm">第15集·上</span>
+    <h3>简意外死亡</h3>
+  </div>
+  <p>沃尔特来到简和杰西的公寓，发现两人因过量吸食海洛因而昏迷。沃尔特本可救助简，却选择袖手旁观，导致简窒息死亡。杰西醒来后悲痛欲绝，沃尔特内心充满罪恶感但无法言说。沃尔特将简的尸体搬离现场，避免杰西因吸毒过量被捕。杰西陷入深度抑郁，无法面对简的死亡，沃尔特试图提供经济补偿但被拒绝。汉克施拉德在调查简的死亡时，发现了一些可疑线索，开始怀疑沃尔特的行为。沃尔特和杰西的关系因此事件产生裂痕，杰西无法原谅沃尔特的冷漠。沃尔特则继续秘密制毒，同时应对家庭内部斯凯勒的怀疑和调查。</p>
+  <div class="events"><span class="ev">简窒息死亡</span><span class="ev">沃尔特袖手旁观</span><span class="ev">杰西悲痛欲绝</span><span class="ev">汉克开始调查</span></div>
+</section>
+
+<section class="seg" id="seg30">
+  <div class="head">
+    <span class="no">第 30 段</span>
+    <span class="tm">第15集·下</span>
+    <h3>沃尔特接触弗林</h3>
+  </div>
+  <p>沃尔特和杰西面临提高产量的压力，急需新的分销渠道。通过小粉红的介绍，沃尔特接触到了毒枭弗林。弗林对沃尔特的高纯度冰毒技术印象深刻，提出合作意向。沃尔特谨慎评估风险，最终决定接受合作。斯凯勒的怀疑加深，她雇佣私家侦探调查沃尔特的行踪和财务状况。沃尔特察觉到妻子的调查，开始更加小心谨慎地处理毒品生意。与此同时，杰西仍沉浸在简的死亡阴影中，无法集中精力制毒，沃尔特对杰西的状态感到不满但又无法公开表达。沃尔特与弗林初步达成协议，弗林提供资金和分销网络，沃尔特提供高品质冰毒。</p>
+  <div class="events"><span class="ev">接触弗林</span><span class="ev">达成合作协议</span><span class="ev">斯凯勒雇佣侦探</span><span class="ev">杰西状态低迷</span></div>
+</section>
+
+<section class="seg" id="seg31">
+  <div class="head">
+    <span class="no">第 31 段</span>
+    <span class="tm">第16集·上</span>
+    <h3>沃尔特与弗林正式合作</h3>
+  </div>
+  <p>沃尔特与弗林在一家高级餐厅会面，弗林对沃尔特的高纯度冰毒表示赞赏并提出正式合作。沃尔特要求获得更高的利润分成，弗林同意但提出条件：沃尔特必须停止亲自参与街头交易，专注于制毒。沃尔特接受条件，两人握手达成协议。与此同时，斯凯勒的私家侦探调查有了进展，发现了沃尔特与杰西的关联。汉克在调查毒品案件时，无意中发现了沃尔特的车停在犯罪现场附近，开始产生怀疑。沃尔特为转移注意力，故意向汉克透露自己正在接受癌症治疗，成功打消了汉克的疑虑。沃尔特回到家中，面对斯凯勒的质问，他编造了一个关于赌博的谎言来掩盖自己的真实活动。</p>
+  <div class="events"><span class="ev">沃尔特与弗林签约</span><span class="ev">斯凯勒雇佣侦探</span><span class="ev">汉克产生怀疑</span></div>
+</section>
+
+<section class="seg" id="seg32">
+  <div class="head">
+    <span class="no">第 32 段</span>
+    <span class="tm">第16集·下</span>
+    <h3>汉克发现沃尔特秘密</h3>
+  </div>
+  <p>沃尔特和斯凯勒参加汉克夫妇的烧烤聚会，汉克在卫生间发现沃尔特藏起的化学教科书，引起怀疑。随后汉克在沃尔特家中翻找，发现沃尔特藏在车库的制毒设备。汉克震惊不已，开始暗中调查沃尔特。沃尔特察觉到汉克的异常行为，感到恐慌，但表面上仍维持平静。杰西得知后情绪崩溃，与沃尔特关系紧张。斯凯勒也对沃尔特的异常行为产生怀疑，家庭气氛紧张。沃尔特意识到自己面临双重威胁，必须尽快采取行动保护自己和家人。</p>
+  <div class="events"><span class="ev">汉克发现教科书</span><span class="ev">汉克找到制毒设备</span><span class="ev">沃尔特察觉调查</span><span class="ev">家庭关系紧张</span></div>
+</section>
+
+<section class="seg" id="seg33">
+  <div class="head">
+    <span class="no">第 33 段</span>
+    <span class="tm">第17集·上</span>
+    <h3>杰西康复与沃尔特自责</h3>
+  </div>
+  <p>杰西在简死后情绪极度低落，拒绝工作并开始吸食海洛因。沃尔特担心杰西的状态会影响制毒计划，多次劝说无效后，沃尔特决定亲自干预。他找到杰西，试图用化学知识解释海洛因的危害，但杰西不为所动。沃尔特无奈之下强行将杰西送入戒毒所，希望他能戒除毒瘾。与此同时，斯凯勒的私家侦探调查有了进展，她发现沃尔特的银行账户有大笔不明资金，开始怀疑沃尔特隐瞒着什么。沃尔特面对妻子的质疑，编造了一个谎言解释资金的来源，但斯凯勒显然不信。沃尔特在家庭和工作双重压力下，更加依赖制毒来证明自己的价值。</p>
+  <div class="events"><span class="ev">杰西吸食毒品</span><span class="ev">沃尔特送戒毒所</span><span class="ev">斯凯勒发现疑点</span></div>
+</section>
+
+<section class="seg" id="seg34">
+  <div class="head">
+    <span class="no">第 34 段</span>
+    <span class="tm">第17集·下</span>
+    <h3>汉克确认沃尔特身份</h3>
+  </div>
+  <p>汉克发现车库制毒设备后，开始暗中调查沃尔特。他翻阅沃尔特的化学教科书，发现上面有制毒笔记。汉克联系同事进行指纹比对，确认这些笔记确实是沃尔特的笔迹。同时，汉克开始监视沃尔特的行动，发现他经常神秘外出。汉克还发现沃尔特账户里有大量不明来源的资金。汉克内心挣扎，一方面不愿相信自己的连襟是毒贩，另一方面又无法忽视这些证据。他决定继续收集更多证据，同时保持表面上的正常关系，等待最佳时机将沃尔特绳之以法。沃尔特对汉克的怀疑毫无察觉，仍在继续与弗林合作制毒。</p>
+  <div class="events"><span class="ev">发现制毒笔记</span><span class="ev">指纹比对确认</span><span class="ev">监视沃尔特</span><span class="ev">收集证据</span></div>
+</section>
+
+<section class="seg" id="seg35">
+  <div class="head">
+    <span class="no">第 35 段</span>
+    <span class="tm">第18集·上</span>
+    <h3>汉克秘密调查沃尔特</h3>
+  </div>
+  <p>汉克发现沃尔特制毒设备后，开始秘密调查。他联系DEA同事，申请对沃尔特进行监视。同时，汉克翻阅沃尔特的化学教科书，发现上面有详细的制毒笔记。他进行指纹比对，确认笔记确实是沃尔特的笔迹。汉克还调查了沃尔特的银行账户，发现有大额资金流动，与他的教师收入不符。斯凯勒注意到汉克的异常行为，开始怀疑他是否发现了什么。沃尔特察觉到汉克的调查，开始紧张，担心身份暴露。他尝试与斯凯勒沟通，但斯凯勒态度冷淡，两人关系紧张。沃尔特决定采取行动，寻找应对之策。</p>
+  <div class="events"><span class="ev">汉克调查笔记</span><span class="ev">比对指纹确认</span><span class="ev">调查银行账户</span><span class="ev">沃尔特察觉紧张</span></div>
+</section>
+
+<section class="seg" id="seg36">
+  <div class="head">
+    <span class="no">第 36 段</span>
+    <span class="tm">第18集·下</span>
+    <h3>汉克追踪沃尔特</h3>
+  </div>
+  <p>汉克继续秘密调查沃尔特，他联系DEA同事申请对沃尔特进行监视。汉克翻阅沃尔特的化学教科书，发现上面有详细的制毒笔记，并进行指纹比对，确认这些笔记确实是沃尔特的笔迹。同时，汉克发现沃尔特与杰西的密切联系，开始怀疑两人共同制毒。汉克决定亲自跟踪沃尔特，观察他的行踪。沃尔特察觉到汉克的调查，开始感到不安，试图销毁证据。斯凯勒对沃尔特的异常行为产生怀疑，两人关系紧张。杰西在沃尔特的劝说下逐渐停止吸毒，重新投入制毒工作。汉克收集到足够证据，准备对沃尔特采取行动。</p>
+  <div class="events"><span class="ev">汉克查笔记</span><span class="ev">监视沃尔特</span><span class="ev">沃尔特销证</span><span class="ev">斯凯勒起疑</span></div>
+</section>
+
+<section class="seg" id="seg37">
+  <div class="head">
+    <span class="no">第 37 段</span>
+    <span class="tm">第19集·上</span>
+    <h3>沃尔特与弗林会面</h3>
+  </div>
+  <p>沃尔特和杰西在制毒过程中面临产量问题，急需新的分销渠道。小粉红安排沃尔特与毒枭弗林会面，弗林对沃尔特的高纯度冰毒技术印象深刻。沃尔特谨慎评估风险，决定接受合作。弗林要求沃尔特生产足够数量的冰毒，并提供了一处新的制毒地点。沃尔特和杰西开始在新地点工作，但杰西仍然沉浸在简死亡的阴影中，情绪低落，影响工作效率。沃尔特担心杰西的状态会影响生产计划，决定亲自干预。</p>
+  <div class="events"><span class="ev">沃尔特接触弗林</span><span class="ev">制毒地点转移</span><span class="ev">杰西情绪低落</span><span class="ev">沃尔特亲自干预</span></div>
+</section>
+
+<section class="seg" id="seg38">
+  <div class="head">
+    <span class="no">第 38 段</span>
+    <span class="tm">第19集·下</span>
+    <h3>杰西康复与沃尔特自责</h3>
+  </div>
+  <p>沃尔特找到正在吸毒的杰西，试图用化学知识解释海洛因的危害，但杰西不听劝告。沃尔特决定采取极端措施，将杰西锁在房间里强制戒毒。杰西经历痛苦的戒断反应，最终成功摆脱毒瘾。康复后的杰西重新投入工作，与沃尔特的关系有所缓和。沃尔特内心对简的死亡充满罪恶感，但无法向杰西坦白真相。两人开始在新制毒地点全力生产冰毒，产量大幅提高。弗林对产品质量满意，同意扩大合作规模。</p>
+  <div class="events"><span class="ev">杰西强制戒毒</span><span class="ev">戒断反应痛苦</span><span class="ev">杰西重新工作</span><span class="ev">产量大幅提高</span></div>
+</section>
+
+<section class="seg" id="seg39">
+  <div class="head">
+    <span class="no">第 39 段</span>
+    <span class="tm">第20集·上</span>
+    <h3>沃尔特与弗林会面</h3>
+  </div>
+  <p>沃尔特与杰西在制毒过程中面临产量问题，急需新的分销渠道。小粉红安排沃尔特与毒枭弗林会面，弗林对沃尔特的高纯度冰毒技术印象深刻。沃尔特谨慎评估风险，决定接受合作。会面中，弗林提出让沃尔特为他的组织提供高纯度冰毒，并承诺丰厚的报酬。沃尔特提出需要更多时间考虑，同时担心自己家人的安全。弗林表示理解，但暗示合作是双赢的选择。沃尔特回到家中，与斯凯勒讨论这一决定，斯凯勒对沃尔特的犯罪活动感到担忧。沃尔特坚持认为这是为了家庭，并承诺会小心行事。</p>
+  <div class="events"><span class="ev">弗林邀约</span><span class="ev">技术展示</span><span class="ev">合作谈判</span><span class="ev">家庭讨论</span></div>
+</section>
+
+<section class="seg" id="seg40">
+  <div class="head">
+    <span class="no">第 40 段</span>
+    <span class="tm">第20集·下</span>
+    <h3>沃尔特与弗林谈判</h3>
+  </div>
+  <p>沃尔特与弗林在餐厅会面，讨论合作细节。弗林对沃尔特的高纯度冰毒表示赞赏，提出以每磅70万美元的价格收购全部产品。沃尔特提出需要预付款作为启动资金，弗林同意但要求沃尔特亲自送货。沃尔特意识到风险巨大，但为家庭经济考虑，接受了条件。杰西对与毒枭合作感到不安，沃尔特试图说服杰西这是必要之举。两人回到制毒点，开始准备下一批货。沃尔特接到妻子斯凯勒的电话，得知家人财务状况好转，但仍未透露制毒真相。</p>
+  <div class="events"><span class="ev">弗林提出收购价格</span><span class="ev">沃尔特要求预付款</span><span class="ev">杰西表达担忧</span><span class="ev">斯凯勒来电报喜</span></div>
+</section>
+
+<section class="seg" id="seg41">
+  <div class="head">
+    <span class="no">第 41 段</span>
+    <span class="tm">第21集·上</span>
+    <h3>沃尔特与弗林会面</h3>
+  </div>
+  <p>沃尔特在小粉红安排下与弗林会面，讨论合作事宜。弗林对沃尔特的高纯度冰毒技术表示赞赏，提出合作条件。沃尔特谨慎评估风险，权衡利弊后决定接受合作。会面中，沃尔特展现出专业素养和冷静头脑，给弗林留下深刻印象。弗林提出沃尔特需要证明自己的价值，沃尔特承诺提供更高质量的毒品。小粉红在中间斡旋，确保双方达成初步协议。沃尔特意识到这是扩大毒品帝国的关键一步，但也清楚这意味着更大的风险和道德堕落。</p>
+  <div class="events"><span class="ev">弗林会面</span><span class="ev">技术获赞</span><span class="ev">接受合作</span><span class="ev">价值考验</span></div>
+</section>
+
+<section class="seg" id="seg42">
+  <div class="head">
+    <span class="no">第 42 段</span>
+    <span class="tm">第21集·下</span>
+    <h3>杰西戒毒与沃尔特计划</h3>
+  </div>
+  <p>杰西在沃尔特强制戒毒后仍处于戒断反应的痛苦中，情绪低落。沃尔特对杰西的处境感到内疚，但更担心杰西的状态会影响制毒计划。沃尔特开始思考如何提高产量以满足弗林的要求。他重新设计制毒流程，引入更高效的设备和方法。与此同时，汉克在调查毒品案件时发现一些线索，开始怀疑沃尔特与毒品有关。斯凯勒察觉到沃尔特的异常行为，但暂时没有找到确凿证据。沃尔特一边处理家庭关系，一边为即将到来的毒品生产做准备。</p>
+  <div class="events"><span class="ev">杰西戒毒</span><span class="ev">流程改进</span><span class="ev">汉克调查</span><span class="ev">家庭危机</span></div>
+</section>
+
+<section class="seg" id="seg43">
+  <div class="head">
+    <span class="no">第 43 段</span>
+    <span class="tm">第22集·上</span>
+    <h3>沃尔特与弗林达成交易</h3>
+  </div>
+  <p>沃尔特在小粉红的安排下与弗林进行正式会面，讨论合作细节。弗林对沃尔特的高纯度冰毒表示赞赏，提出以每磅70万美元的价格收购全部产品。沃尔特谨慎评估风险后接受合作条件，但坚持需要预付款作为启动资金。弗林同意预付一部分资金，但要求沃尔特证明自己能持续稳定地生产高质量产品。会面中，沃尔特展现出自信和专业，同时暗中观察弗林的为人，评估这个合作伙伴是否值得信任。沃尔特回到家中，将合作计划告知斯凯勒，引起她的担忧和质疑。斯凯勒对沃尔特越来越深的犯罪行为感到不安，两人发生争执。沃尔特坚持这是为了家庭的未来，说服斯凯勒暂时接受他的决定。沃尔特开始规划如何提高产量以满足弗林的要求，同时确保自己和家人的安全。</p>
+  <div class="events"><span class="ev">弗林提出收购</span><span class="ev">沃尔特接受合作</span><span class="ev">斯凯勒质疑不安</span></div>
+</section>
+
+<section class="seg" id="seg44">
+  <div class="head">
+    <span class="no">第 44 段</span>
+    <span class="tm">第22集·下</span>
+    <h3>沃尔特与弗林交易达成</h3>
+  </div>
+  <p>沃尔特与弗林在正式会面中敲定合作细节，弗林提出以每磅70万美元的价格收购沃尔特生产的全部高纯度冰毒。沃尔特谨慎评估风险后接受条件，同时要求小粉红作为中间人确保交易安全。杰西在戒毒过程中持续痛苦，情绪低落，沃尔特对杰西的状态感到内疚但仍坚持制毒计划。沃尔特开始思考如何提高产量以满足弗林的要求，他决定改进制毒方法以增加产量。小粉红安排沃尔特与弗林签署正式协议，确立双方合作关系。</p>
+  <div class="events"><span class="ev">交易条件敲定</span><span class="ev">杰西戒毒痛苦</span><span class="ev">产量提升计划</span><span class="ev">签署正式协议</span></div>
+</section>
+
+<section class="seg" id="seg45">
+  <div class="head">
+    <span class="no">第 45 段</span>
+    <span class="tm">第23集·上</span>
+    <h3>沃尔特与古斯塔沃摊牌</h3>
+  </div>
+  <p>沃尔特决定不再隐藏身份，直接前往古斯塔沃的住所摊牌。他带着杰西的录音证据，证明古斯塔沃试图杀害他们。古斯塔沃起初否认，但沃尔特威胁要向警方举报，并要求分享贩毒利润。古斯塔沃意识到沃尔特已不再受控制，表面答应合作，实则暗中策划除掉沃尔特。沃尔特离开后，古斯塔沃立即联系手下，布置暗杀计划。同时，汉克继续调查沃尔特，发现沃尔特与古斯塔沃之间的联系，开始怀疑沃尔特的真实身份。</p>
+  <div class="events"><span class="ev">沃尔特摊牌</span><span class="ev">古斯塔沃谋划</span><span class="ev">汉克调查</span></div>
+</section>
+
+<section class="seg" id="seg46">
+  <div class="head">
+    <span class="no">第 46 段</span>
+    <span class="tm">第23集·下</span>
+    <h3>杰西遭遇绑架危机</h3>
+  </div>
+  <p>古斯塔沃的手下成功绑架了杰西，将他带到一处隐蔽的仓库。杰西被殴打并威胁，古斯塔沃亲自审问，试图找出沃尔特的弱点。与此同时，沃尔特得知杰西被绑架，决定采取行动。他利用自己的化学知识，制造出毒气陷阱，准备营救杰西。沃尔特来到仓库，与古斯塔沃的手下对峙，成功救出杰西。两人逃亡过程中，沃尔特向杰西坦白自己曾毒杀古斯塔沃的伙伴，杰西震惊不已，两人关系出现裂痕。</p>
+  <div class="events"><span class="ev">杰西被绑</span><span class="ev">沃尔特营救</span><span class="ev">真相揭露</span></div>
+</section>
+
+<section class="seg" id="seg47">
+  <div class="head">
+    <span class="no">第 47 段</span>
+    <span class="tm">第24集·上</span>
+    <h3>沃尔特策划复仇</h3>
+  </div>
+  <p>沃尔特和杰西暂时躲藏起来，沃尔特开始策划对古斯塔沃的全面复仇。他联系小粉红，寻求帮助。小粉红表面中立，实则暗中支持沃尔特，提供古斯塔沃的行踪信息。沃尔特利用这些信息，准备了一支有毒的香烟，计划在古斯塔沃放松警惕时下手。与此同时，斯凯勒发现沃尔特的秘密银行账户，开始怀疑沃尔特的真实收入来源。她暗中调查，逐渐接近真相，家庭关系紧张。</p>
+  <div class="events"><span class="ev">制定复仇计划</span><span class="ev">获取情报</span><span class="ev">斯凯勒怀疑</span></div>
+</section>
+
+<section class="seg" id="seg48">
+  <div class="head">
+    <span class="no">第 48 段</span>
+    <span class="tm">第24集·下</span>
+    <h3>沃尔特智取古斯塔沃</h3>
+  </div>
+  <p>沃尔特得知杰西被关在仓库后，迅速制定营救计划。他故意向警方举报古斯塔沃的制毒工厂，引开警方注意力。与此同时，他独自前往仓库，与古斯塔沃的手下对峙。沃尔特利用化学知识制造出磷化氢气体，引爆仓库造成混乱。在混乱中，沃尔特救出杰西，并设下陷阱让古斯塔沃的手下自相残杀。古斯塔沃侥幸逃脱，但沃尔特的复仇计划已经开始。沃尔特和杰西成功脱险，但他们的关系已经因这次事件而彻底改变。沃尔特变得更加冷酷和果断，杰西则陷入深深的恐惧和不安。</p>
+  <div class="events"><span class="ev">举报制毒工厂</span><span class="ev">制造磷化氢气体</span><span class="ev">救出杰西</span><span class="ev">古斯塔沃逃脱</span></div>
+</section>
+
+<section class="seg" id="seg49">
+  <div class="head">
+    <span class="no">第 49 段</span>
+    <span class="tm">第25集·上</span>
+    <h3>毒枭对决</h3>
+  </div>
+  <p>沃尔特与古斯塔沃在餐厅对峙，沃尔特拿出杰西的录音证据威胁古斯塔沃。古斯塔沃否认一切，但沃尔特已做好鱼死网破的准备。与此同时，杰西被囚禁在仓库，遭受折磨但拒绝透露沃尔特的弱点。沃尔特离开餐厅后联系小粉红，请求帮助对付古斯塔沃。小粉红表面中立，实则暗中支持沃尔特，提供古斯塔沃的行踪信息。沃尔特开始策划复仇行动，准备彻底摧毁古斯塔沃的帝国。他意识到必须先救出杰西，才能实施下一步计划。沃尔特利用自己的化学知识和人脉，开始布置陷阱，准备将古斯塔沃一网打尽。</p>
+  <div class="events"><span class="ev">餐厅对峙</span><span class="ev">杰西被囚</span><span class="ev">寻求帮助</span><span class="ev">策划复仇</span></div>
+</section>
+
+<section class="seg" id="seg50">
+  <div class="head">
+    <span class="no">第 50 段</span>
+    <span class="tm">第25集·下</span>
+    <h3>杰西获救</h3>
+  </div>
+  <p>沃尔特制定周密计划营救杰西。他利用古斯塔沃的手下纳乔作为内应，纳乔因不满古斯塔沃而暗中合作。沃尔特在古斯塔沃的仓库附近设置陷阱，准备在警方行动时制造混乱。杰西在仓库中保持冷静，等待时机。沃尔特联系警方举报古斯塔沃的藏身处，警方迅速行动包围仓库。混乱中，杰西成功逃脱，与沃尔特会合。古斯塔沃的手下被警方逮捕，但古斯塔沃本人侥幸逃脱。沃尔特和杰西暂时安全，但古斯塔沃的报复威胁依然存在。沃尔特意识到必须彻底解决古斯塔沃的问题，才能获得真正的安全。</p>
+  <div class="events"><span class="ev">纳乔相助</span><span class="ev">警方行动</span><span class="ev">杰西脱困</span><span class="ev">古斯塔沃逃脱</span></div>
+</section>
+
+<section class="seg" id="seg51">
+  <div class="head">
+    <span class="no">第 51 段</span>
+    <span class="tm">第26集·上</span>
+    <h3>毒枭反击</h3>
+  </div>
+  <p>古斯塔沃逃脱后迅速组织反击力量。他联系墨西哥贩毒集团高层，寻求支持并策划对沃尔特的全面打击。古斯塔沃得知沃尔特的家人情况，决定从斯凯勒和沃尔特的孩子下手。同时，沃尔特加强防护措施，保护家人安全。他安排家人暂时离开家，并警告斯凯勒不要相信任何人。汉克继续调查沃尔特，发现了一些可疑线索，但尚未确凿证据。沃尔特意识到必须先发制人，彻底摧毁古斯塔沃的势力。他开始准备大量毒药，作为对付古斯塔沃的最后手段。</p>
+  <div class="events"><span class="ev">古斯塔沃反击</span><span class="ev">威胁家人</span><span class="ev">加强防护</span><span class="ev">汉克调查</span></div>
+</section>
+
+<section class="seg" id="seg52">
+  <div class="head">
+    <span class="no">第 52 段</span>
+    <span class="tm">第26集·下</span>
+    <h3>最终对决</h3>
+  </div>
+  <p>沃尔特决定亲自解决古斯塔沃。他利用小粉红提供的情报，找到古斯塔沃的藏身之处。沃尔特携带特制毒药前往，准备与古斯塔沃进行最后的对决。古斯塔沃早已设下陷阱，等待沃尔特自投罗网。两人在仓库内对峙，展开激烈交锋。沃尔特利用自己的化学知识和冷静头脑，成功制服古斯塔沃。他强迫古斯塔沃承认自己的罪行，并录下证据。最终，沃尔特将毒药倒入古斯塔沃的口中，结束了这场持续已久的斗争。沃尔特成功接管了古斯塔沃的毒品帝国，但内心已彻底改变。</p>
+  <div class="events"><span class="ev">寻找藏身</span><span class="ev">设下陷阱</span><span class="ev">激烈对峙</span><span class="ev">毒杀古斯塔沃</span></div>
+</section>
+
+<section class="seg" id="seg53">
+  <div class="head">
+    <span class="no">第 53 段</span>
+    <span class="tm">第27集·上</span>
+    <h3>沃尔特设局</h3>
+  </div>
+  <p>沃尔特得知杰西被囚禁在古斯塔沃的秘密实验室，决定实施营救计划。他找到老搭档索尔，索尔介绍他认识杀手杰克及其团队。沃尔特利用自己制毒的专长，特制了一种毒药，计划在关键时刻使用。同时，沃尔特联系杰西，告知他营救计划，要求杰西配合。沃尔特还安排了车辆和逃跑路线，确保计划顺利进行。在准备过程中，沃尔特表现出前所未有的冷静和决心，完全抛弃了之前的犹豫和顾虑。他开始像真正的毒枭一样思考问题，将个人情感置于计划之后。</p>
+  <div class="events"><span class="ev">沃尔特找索尔</span><span class="ev">特制毒药</span><span class="ev">联系杰西</span></div>
+</section>
+
+<section class="seg" id="seg54">
+  <div class="head">
+    <span class="no">第 54 段</span>
+    <span class="tm">第27集·下</span>
+    <h3>毒枭覆灭</h3>
+  </div>
+  <p>沃尔特带领杰克团队前往古斯塔沃的秘密实验室。杰克团队在外面设伏，沃尔特独自进入实验室。古斯塔沃正在享用早餐，沃尔特从容坐下，将特制毒药放入古斯塔沃的咖啡中。古斯塔沃喝下后痛苦不堪，沃尔特平静地坐在一旁，直到毒发身亡。随后，沃尔特找到被囚禁的杰西，救出他并告诉他古斯塔沃已死。杰克团队在实验室外消灭了古斯塔沃的所有手下。沃尔特将古斯塔沃的巨额现金分给杰克团队一部分，并要求他们杀死杰西，但杰克团队拒绝。沃尔特与杰西一同逃离现场，前往新的人生阶段。</p>
+  <div class="events"><span class="ev">毒杀古斯塔沃</span><span class="ev">救出杰西</span><span class="ev">杰克团队行动</span><span class="ev">金钱分配</span></div>
+</section>
+
+<section class="seg" id="seg55">
+  <div class="head">
+    <span class="no">第 55 段</span>
+    <span class="tm">第28集·上</span>
+    <h3>古斯塔沃之死</h3>
+  </div>
+  <p>沃尔特将毒药倒入古斯塔沃的咖啡中，古斯塔沃喝下后痛苦不堪，但并未立即死亡。沃尔特站在一旁冷静观察，古斯塔沃试图反抗但身体逐渐麻痹。沃尔特扶着古斯塔沃坐回座位，两人对视片刻，古斯塔沃最终倒地身亡。沃尔特搜查实验室，发现杰西被囚禁在地下室。他释放了杰西，两人一起离开实验室。杰克团队在外接应，沃尔特告诉他们古斯塔沃已死，并要求他们杀死所有目击者。沃尔特和杰西坐车离开，留下杰克团队处理后续事宜。沃尔特的车在路上停下，他告诉杰西古斯塔沃的死讯，杰西情绪复杂，既有解脱又有悲伤。</p>
+  <div class="events"><span class="ev">毒杀古斯塔沃</span><span class="ev">释放杰西</span><span class="ev">清理现场</span></div>
+</section>
+
+<section class="seg" id="seg56">
+  <div class="head">
+    <span class="no">第 56 段</span>
+    <span class="tm">第28集·下</span>
+    <h3>实验室的终结</h3>
+  </div>
+  <p>古斯塔沃在极度痛苦中倒下，沃尔特确认他已经死亡。沃尔特开始在实验室中搜寻证据，发现了古斯塔沃记录账目的笔记本。这时，杰克团队闯入实验室，开始清理现场。沃尔特找到被囚禁的杰西，将他救出。杰克团队将实验室炸毁，彻底销毁证据。沃尔特带着杰西离开，两人暂时安全。沃尔特告诉杰西，古斯塔沃已经死亡，他们终于自由了。然而，杰西对沃尔特的行为感到恐惧和不安，两人之间的关系开始出现裂痕。</p>
+  <div class="events"><span class="ev">古斯塔沃死亡</span><span class="ev">杰克团队清理现场</span><span class="ev">救出杰西</span><span class="ev">实验室被炸毁</span></div>
+</section>
+
+<section class="seg" id="seg57">
+  <div class="head">
+    <span class="no">第 57 段</span>
+    <span class="tm">第29集·上</span>
+    <h3>沃尔特救杰西</h3>
+  </div>
+  <p>沃尔特与杰克团队达成交易，同意用七千万美元换取杰西的自由。杰克团队同意后，沃尔特带领他们前往古斯塔沃的隐藏实验室。到达后，杰克团队枪杀了所有在场人员，但杰西不在其中。沃尔特意识到自己被骗，杰西实际上被转移到了另一个地方。杰克团队随后将沃尔特带走，而实验室则被炸毁。沃尔特被迫与杰克团队合作，但内心极度不安，担心杰西的安全。他开始策划下一步行动，试图找到杰西的下落，同时也要面对自己与古斯塔沃之间的最终对决。</p>
+  <div class="events"><span class="ev">杰克团队杀戮</span><span class="ev">实验室被炸</span><span class="ev">沃尔特被俘</span><span class="ev">寻找杰西</span></div>
+</section>
+
+<section class="seg" id="seg58">
+  <div class="head">
+    <span class="no">第 58 段</span>
+    <span class="tm">第29集·下</span>
+    <h3>杰克团队搜捕杰西</h3>
+  </div>
+  <p>杰克团队在古斯塔沃的实验室中没有找到杰西，他们开始怀疑杰西可能还活着。沃尔特试图解释杰西已经不在实验室，但杰克团队不相信他的话。杰克的手下开始在周围地区搜查，寻找杰西的下落。沃尔特意识到情况不妙，试图逃离现场，但被杰克的手下拦住。杰克团队决定暂时留下沃尔特，继续搜捕杰西。沃尔特被迫等待，同时思考下一步的计划。他意识到自己可能低估了杰西的生存能力和决心。杰克团队在搜查过程中发现了杰西可能藏匿的线索，决定扩大搜索范围。沃尔特感到自己的处境越来越危险，必须想办法摆脱杰克的控制。</p>
+  <div class="events"><span class="ev">杰克团队搜查</span><span class="ev">杰西下落不明</span><span class="ev">沃尔特被困</span><span class="ev">搜索扩大</span></div>
+</section>
+
+<section class="seg" id="seg59">
+  <div class="head">
+    <span class="no">第 59 段</span>
+    <span class="tm">第30集·上</span>
+    <h3>杰克团队围捕杰西</h3>
+  </div>
+  <p>杰克团队继续在周边地区搜捕杰西，沃尔特被迫跟随他们。沃尔特试图用金钱和情报换取杰西的安全，但杰克团队对杰西恨之入骨，决心杀死他。沃尔特意识到自己无法阻止杰克团队，开始寻找其他方法。杰克团队发现了杰西的藏身处，包围了房子。杰西从后门逃跑，但被杰克的手下发现并抓住。杰克团队将杰西带到一处偏远地点，准备处决他。沃尔特试图再次干预，但杰克团队不听他的警告。沃尔特被迫站在一旁，看着杰克团队准备杀死杰西。</p>
+  <div class="events"><span class="ev">杰克搜捕杰西</span><span class="ev">杰西被发现</span><span class="ev">杰克准备处决</span><span class="ev">沃尔特无力阻止</span></div>
+</section>
+
+<section class="seg" id="seg60">
+  <div class="head">
+    <span class="no">第 60 段</span>
+    <span class="tm">第30集·下</span>
+    <h3>杰克团队处决杰西</h3>
+  </div>
+  <p>杰克团队在一个废弃的车辆回收场找到了藏匿的杰西。杰西试图逃跑但被抓住，杰克准备当场处决他。沃尔特跪地哀求，愿意提供更多金钱换取杰西性命，但杰克团队执意执行。杰克命令手下处决杰西，但杰西突然挣脱，跳进一辆汽车准备逃跑。杰西驾车撞向杰克团队的手下，造成混乱。在混战中，杰西成功逃脱，藏匿在附近。杰克团队愤怒不已，沃尔特被迫承认杰西可能已经逃脱。杰克团队决定暂时放过沃尔特，但警告他如果再妨碍他们，将面临同样下场。沃尔特独自留在废弃场，意识到自己无法控制局势，杰西的逃脱给他的计划带来了新的变数。</p>
+  <div class="events"><span class="ev">杰克找到杰西</span><span class="ev">沃尔特求情失败</span><span class="ev">杰西逃脱</span><span class="ev">沃尔特面临威胁</span></div>
+</section>
+
+<section class="seg" id="seg61">
+  <div class="head">
+    <span class="no">第 61 段</span>
+    <span class="tm">第31集·上</span>
+    <h3>杰克团队杀戮</h3>
+  </div>
+  <p>杰克团队在沃尔特的带领下突袭古斯塔沃的实验室，他们冷酷地枪杀了所有在场人员，包括古斯塔沃的忠实追随者。沃尔特在混乱中寻找古斯塔沃的身影，却意外发现实验室已被古斯塔沃提前清空。杰克团队开始搜查实验室，寻找可能隐藏的财富和证据。沃尔特则利用自己对实验室的了解，暗中寻找古斯塔沃的下落线索。在搜查过程中，杰克团队发现了大量现金和毒品，但沃尔特关心的只有找到古斯塔沃。</p>
+  <div class="events"><span class="ev">突袭实验室</span><span class="ev">枪杀古斯塔沃手下</span><span class="ev">实验室搜查</span></div>
+</section>
+
+<section class="seg" id="seg62">
+  <div class="head">
+    <span class="no">第 62 段</span>
+    <span class="tm">第31集·下</span>
+    <h3>古斯塔沃逃亡</h3>
+  </div>
+  <p>杰克团队在实验室中未找到古斯塔沃，沃尔特意识到古斯塔沃已经逃走。杰克团队决定离开，沃尔特提出继续追踪古斯塔沃的条件。与此同时，古斯塔沃在一名幸存者的帮助下逃离现场，他带着重伤和少量现金，试图穿越边境前往墨西哥。古斯塔沃在逃亡过程中不断被回忆困扰，反思自己与沃尔特的恩怨。沃尔特通过小粉红提供的线索，得知古斯塔沃正前往墨西哥，决定亲自追杀，以确保自己的安全。</p>
+  <div class="events"><span class="ev">古斯塔沃逃脱</span><span class="ev">沃尔特追踪</span><span class="ev">边境逃亡</span></div>
+</section>
+
+<section class="seg" id="seg63">
+  <div class="head">
+    <span class="no">第 63 段</span>
+    <span class="tm">第32集·上</span>
+    <h3>汉克发现真相</h3>
+  </div>
+  <p>汉克在调查古斯塔沃案件时，发现了沃尔特与古斯塔沃之间的联系。他开始怀疑沃尔特的真实身份，暗中收集证据。汉克翻阅沃尔特的旧物，发现了沃尔特与杰西的合影，以及一些与毒品制造相关的线索。与此同时，斯凯勒对沃尔特的异常行为产生怀疑，开始暗中调查。汉克联系了DEA同事，请求协助调查沃尔特。沃尔特察觉到危险，试图销毁证据，但为时已晚。</p>
+  <div class="events"><span class="ev">汉克怀疑</span><span class="ev">收集证据</span><span class="ev">斯凯勒起疑</span></div>
+</section>
+
+<section class="seg" id="seg64">
+  <div class="head">
+    <span class="no">第 64 段</span>
+    <span class="tm">第32集·下</span>
+    <h3>沃尔特身份暴露</h3>
+  </div>
+  <p>汉克找到沃尔特的老同事，确认了沃尔特的化学天才身份。他搜查了沃尔特的实验室，发现了制毒设备和原料。汉克将证据提交给DEA上级，展开对沃尔特的全面追捕。沃尔特得知身份暴露后，立即联系杰西，安排逃亡计划。斯凯勒面对证据，终于明白沃尔特的真实身份，震惊之余决定保护家人。沃尔特在逃亡前，将巨额财富藏匿于不同地点，准备开始新的生活。</p>
+  <div class="events"><span class="ev">身份确认</span><span class="ev">全面追捕</span><span class="ev">财富藏匿</span></div>
+</section>
+
+<section class="seg" id="seg65">
+  <div class="head">
+    <span class="no">第 65 段</span>
+    <span class="tm">第33集·上</span>
+    <h3>沃尔特逃亡</h3>
+  </div>
+  <p>沃尔特得知汉克已发现自己的身份，立即准备逃离。他匆忙收拾重要物品，包括那本藏有巨额现金的书，以及他精心准备的炸药。沃尔特试图联系斯凯勒，但斯凯勒拒绝接听他的电话。与此同时，杰西也在收拾自己的东西，准备离开。沃尔特找到杰西，告诉他必须一起离开，因为汉克已经知道了一切。杰西震惊于沃尔特的真实身份，两人之间产生了紧张的关系。沃尔特警告杰西不要相信任何人，特别是汉克。他们决定分头行动，但保持联系。沃尔特安排了一辆车，准备前往新墨西哥州边境。他意识到自己已经失去了家人的信任，但也明白自己必须继续前行，以保护自己和杰西的安全。</p>
+  <div class="events"><span class="ev">沃尔特得知身份暴露</span><span class="ev">准备逃离物品</span><span class="ev">联系斯凯勒未果</span><span class="ev">警告杰西真相</span></div>
+</section>
+
+<section class="seg" id="seg66">
+  <div class="head">
+    <span class="no">第 66 段</span>
+    <span class="tm">第33集·下</span>
+    <h3>沃尔特被困地下室</h3>
+  </div>
+  <p>沃尔特逃亡途中被斯凯勒锁在地下室，无法联系外界。斯凯勒向汉克坦白沃尔特的真实身份，汉克立即组织警力包围怀特家。杰西独自前往沃尔特家，试图帮助沃尔特逃脱，但被警方逮捕。沃尔特在地下室听到警笛声，意识到自己已无路可逃。他准备引爆随身携带的炸药与警方同归于尽，但最终被斯凯勒劝阻。警方破门而入，沃尔特束手就擒。</p>
+  <div class="events"><span class="ev">沃尔特被困地下室</span><span class="ev">斯凯勒向汉克坦白</span><span class="ev">杰西被捕</span><span class="ev">沃尔特被捕</span></div>
+</section>
+
+<section class="seg" id="seg67">
+  <div class="head">
+    <span class="no">第 67 段</span>
+    <span class="tm">第34集·上</span>
+    <h3>地下室对峙</h3>
+  </div>
+  <p>沃尔特被困在地下室，斯凯勒通过门缝与他对话，质问他为何欺骗家人。沃尔特试图解释自己的初衷是为了保护家人，但斯凯勒已不再相信他。汉克在楼上指挥警方包围住宅，准备实施逮捕。杰西在门外被警方控制，无法接近沃尔特。沃尔特意识到情况危急，开始策划如何脱困。他利用藏在地下室的手枪和少量炸药，准备最后的抵抗。斯凯勒在汉克的要求下继续与沃尔特对话，试图拖延时间。沃尔特情绪激动，威胁要引爆炸药，局势极度紧张。警方已做好破门准备，一场激烈的冲突即将爆发。</p>
+  <div class="events"><span class="ev">地下室对峙</span><span class="ev">警方包围</span><span class="ev">杰西被捕</span><span class="ev">沃尔特准备抵抗</span></div>
+</section>
+
+<section class="seg" id="seg68">
+  <div class="head">
+    <span class="no">第 68 段</span>
+    <span class="tm">第34集·下</span>
+    <h3>沃尔特被捕</h3>
+  </div>
+  <p>沃尔特被困地下室，汉克带领警方进入住宅。杰西试图帮助沃尔特逃脱，但被警方控制。沃尔特与汉克在地下室对峙，承认自己就是海森堡。汉克逮捕了沃尔特，并从他身上找到了那本藏有巨额现金的书。斯凯勒和孩子们目睹了逮捕过程，孩子们被安全带离现场。沃尔特被带走时，眼神复杂地望向家人，随后被押上警车。杰西也被警方带走，两人暂时分道扬镳。</p>
+  <div class="events"><span class="ev">沃尔特被捕</span><span class="ev">汉克确认身份</span><span class="ev">杰西被控制</span><span class="ev">家人目睹逮捕</span></div>
+</section>
+
+<section class="seg" id="seg69">
+  <div class="head">
+    <span class="no">第 69 段</span>
+    <span class="tm">第35集·上</span>
+    <h3>汉克遭伏击</h3>
+  </div>
+  <p>汉克独自追踪沃尔特的线索，前往新墨西哥州的荒凉地区寻找证据。他发现了沃尔特藏匿的巨额现金，并确认了这些钱与古斯塔沃案件有关。汉克继续深入调查，却不知自己正一步步踏入沃尔特设下的陷阱。沃尔特通过监控得知汉克的行踪，提前在汉克必经之路上布置了炸弹。汉克在调查过程中感到危险，试图呼叫支援，但通讯信号不佳。他发现了沃尔特的制毒痕迹，却未能及时撤离。</p>
+  <div class="events"><span class="ev">汉克追踪线索</span><span class="ev">发现巨额现金</span><span class="ev">沃尔特设下陷阱</span><span class="ev">汉克陷入危险</span></div>
+</section>
+
+<section class="seg" id="seg70">
+  <div class="head">
+    <span class="no">第 70 段</span>
+    <span class="tm">第35集·下</span>
+    <h3>汉克惨死</h3>
+  </div>
+  <p>汉克在荒凉地区发现沃尔特藏匿的巨额现金，随后被杰克帮伏击。杰克帮成员枪击了汉克，汉克身受重伤。沃尔特目睹这一切，试图求情但被拒绝。杰克帮处决了汉克，并带走了杰西。沃尔特独自留在现场，面对汉克的尸体，表情复杂。随后杰克帮在附近挖出了沃尔特藏匿的巨额现金，只留下一小部分给沃尔特。沃尔特被迫接受现实，带着剩下的钱独自离开，陷入了绝望的境地。斯凯勒和孩子们在家中得知汉克死讯，悲痛万分。</p>
+  <div class="events"><span class="ev">汉克被伏击</span><span class="ev">杰克帮处决汉克</span><span class="ev">沃尔特目睹惨案</span><span class="ev">杰克帮拿走现金</span></div>
+</section>
+
+<section class="seg" id="seg71">
+  <div class="head">
+    <span class="no">第 71 段</span>
+    <span class="tm">第36集·上</span>
+    <h3>沃尔特重获自由</h3>
+  </div>
+  <p>沃尔特被杰克帮救出后回到家中，发现斯凯勒带着孩子已经离开。他试图联系斯凯勒但遭到拒绝，愤怒之下沃尔特威胁要报警让斯凯勒被捕。随后沃尔特前往斯凯勒工作的餐厅，当众承认自己就是海森堡，并警告斯凯勒不要试图逃离。斯凯勒在恐惧中妥协，但沃尔特意识到自己已经失去了家人的信任。与此同时，沃尔特得知杰西仍被杰克帮囚禁，他开始策划营救杰西的计划，同时也在思考如何处理杰克帮对自己的威胁。</p>
+  <div class="events"><span class="ev">沃尔特获救回家</span><span class="ev">斯凯勒携子离家</span><span class="ev">沃尔特公开身份</span><span class="ev">谋划营救杰西</span></div>
+</section>
+
+<section class="seg" id="seg72">
+  <div class="head">
+    <span class="no">第 72 段</span>
+    <span class="tm">第36集·下</span>
+    <h3>沃尔特最后的清算</h3>
+  </div>
+  <p>沃尔特前往斯凯勒工作的餐厅，当众向她坦白自己毒杀了古斯塔沃，并承认所有罪行。斯凯勒震惊而恐惧，沃尔特却表示这样做是为了保护家人。随后沃尔特找到小粉红，要求她帮助转移剩余的现金。小粉红出于对沃尔特的敬畏，同意协助。沃尔特将现金藏匿在各地，包括老宅的地下室和废弃的汽车中。他安排小粉红将部分现金交给斯凯勒，但斯凯勒拒绝接受。沃尔特意识到自己已失去家人的信任，决定前往新罕布什尔州隐居，逃避追捕。</p>
+  <div class="events"><span class="ev">坦白罪行</span><span class="ev">转移现金</span><span class="ev">隐居逃亡</span></div>
+</section>
+
+<section class="seg" id="seg73">
+  <div class="head">
+    <span class="no">第 73 段</span>
+    <span class="tm">第37集·上</span>
+    <h3>汉克追踪沃尔特</h3>
+  </div>
+  <p>汉克独自追踪沃尔特的线索，前往新墨西哥州的荒凉地区寻找证据。他发现了沃尔特藏匿的巨额现金，并确认了这些钱与古斯塔沃案件有关。汉克继续深入调查，却不知自己正一步步踏入沃尔特的陷阱。与此同时，沃尔特已经到达了新罕布什尔州的偏远地区，住在简陋的小屋里，过着隐居生活。他通过电话联系斯凯勒，试图解释自己的处境，但斯凯勒仍然拒绝接听他的电话。沃尔特开始思考自己的下一步计划，同时也在努力适应与世隔绝的生活。</p>
+  <div class="events"><span class="ev">汉克发现现金</span><span class="ev">沃尔特隐居新罕布什尔</span><span class="ev">斯凯勒拒接电话</span></div>
+</section>
+
+<section class="seg" id="seg74">
+  <div class="head">
+    <span class="no">第 74 段</span>
+    <span class="tm">第37集·下</span>
+    <h3>沃尔特返回新墨西哥</h3>
+  </div>
+  <p>沃尔特决定返回新墨西哥州，他联系了杰西，希望得到他的帮助。杰西此时正在新墨西哥州的康复中心接受治疗，对沃尔特的请求感到犹豫。沃尔特告诉杰西，他们需要一起对付古斯塔沃，否则两人都无法逃脱。与此同时，汉克继续追踪沃尔特的线索，他发现了沃尔特曾经使用过的制毒地点，并开始怀疑沃尔特与古斯塔沃之间的关系。汉克向上级申请更多资源，希望能够尽快抓获沃尔特。斯凯勒在汉克的压力下，开始考虑向警方坦白一切。</p>
+  <div class="events"><span class="ev">沃尔特联系杰西</span><span class="ev">汉克发现制毒地点</span><span class="ev">斯凯勒考虑坦白</span></div>
+</section>
+
+<section class="seg" id="seg75">
+  <div class="head">
+    <span class="no">第 75 段</span>
+    <span class="tm">第38集·上</span>
+    <h3>杰西逃离康复中心</h3>
+  </div>
+  <p>杰西决定接受沃尔特的提议，他从康复中心逃离，与沃尔特会面。两人开始策划对付古斯塔沃的计划。沃尔特向杰西详细解释了自己的复仇计划，包括如何利用古斯塔沃的弱点来摧毁他的帝国。与此同时，汉克和斯凯勒的关系变得紧张，斯凯勒对汉克的执着感到不安。汉克继续调查沃尔特的线索，他发现了更多证据，包括沃尔特与古斯塔沃之间的联系。斯凯勒开始怀疑汉克是否能够公正地处理这个案件，因为她知道汉克与沃尔特之间的家庭关系。</p>
+  <div class="events"><span class="ev">杰西逃离康复中心</span><span class="ev">沃尔特制定复仇计划</span><span class="ev">汉克发现更多证据</span></div>
+</section>
+
+<section class="seg" id="seg76">
+  <div class="head">
+    <span class="no">第 76 段</span>
+    <span class="tm">第38集·下</span>
+    <h3>沃尔特接近目标</h3>
+  </div>
+  <p>沃尔特和杰西开始实施他们的计划，他们首先试图获取古斯塔沃的情报。沃尔特利用自己的化学知识和对古斯塔沃的了解，设计了一个复杂的陷阱。与此同时，汉克继续追查沃尔特的下落，他发现了沃尔特与杰西之间的联系，并开始怀疑杰西是否知道沃尔特的藏身之处。斯凯勒在汉克的调查压力下，决定采取行动，她联系了律师，准备保护自己和孩子们。沃尔特意识到时间紧迫，他加快了行动步伐，准备与古斯塔沃进行最终的对决。</p>
+  <div class="events"><span class="ev">沃尔特设计陷阱</span><span class="ev">汉克怀疑杰西</span><span class="ev">斯凯勒寻求法律保护</span></div>
+</section>
+
+<section class="seg" id="seg77">
+  <div class="head">
+    <span class="no">第 77 段</span>
+    <span class="tm">第39集·上</span>
+    <h3>沃尔特寻找新武器</h3>
+  </div>
+  <p>沃尔特意识到需要新的武器来对抗古斯塔沃，他联系了前同事彼得，希望获得一种剧毒物质蓖麻毒素。彼得起初拒绝，但沃尔特威胁要揭露他过去的违法行为，彼得被迫妥协。与此同时，杰西独自行动，试图找到古斯塔沃的弱点。他联系了前女友简，希望她能提供有关古斯塔沃的信息。简对杰西的请求感到不安，但最终还是答应帮助他。汉克继续调查沃尔特，他发现了一些可疑的线索，开始怀疑沃尔特可能与制毒有关。</p>
+  <div class="events"><span class="ev">获取蓖麻毒素</span><span class="ev">威胁彼得合作</span><span class="ev">杰西寻求帮助</span><span class="ev">汉克调查沃尔特</span></div>
+</section>
+
+<section class="seg" id="seg78">
+  <div class="head">
+    <span class="no">第 78 段</span>
+    <span class="tm">第39集·下</span>
+    <h3>杰西的复仇计划</h3>
+  </div>
+  <p>杰西按照沃尔特的计划，前往古斯塔沃的餐厅，准备实施他们的复仇行动。他随身携带了沃尔特特制的毒药，计划将其放入古斯塔沃的食物中。然而，在关键时刻，杰西犹豫了，他无法下手杀害一个无辜的餐厅服务员。古斯塔沃察觉到异常，开始怀疑杰西的身份。与此同时，沃尔特正在准备自己的计划，他联系了托德，希望获得他的帮助。托德犹豫不决，但最终还是同意协助沃尔特。汉克继续调查沃尔特，他发现了一些关键证据，开始确信沃尔特就是制毒师。</p>
+  <div class="events"><span class="ev">杰西行动受阻</span><span class="ev">古斯塔沃起疑</span><span class="ev">沃尔特寻求托德帮助</span><span class="ev">汉克发现关键证据</span></div>
+</section>
+
+<section class="seg" id="seg79">
+  <div class="head">
+    <span class="no">第 79 段</span>
+    <span class="tm">第40集·上</span>
+    <h3>沃尔特与托德合作</h3>
+  </div>
+  <p>沃尔特与托德会面，详细解释了自己的计划。托德被沃尔特的决心和计划说服，同意提供帮助。沃尔特告诉托德，他们需要制造一起火车事故，以分散古斯塔沃的注意力。托德利用自己在铁路工作的关系，提供了火车时刻表和路线信息。与此同时，杰西决定改变策略，他计划直接面对古斯塔沃，揭露他的罪行。杰西联系了古斯塔沃的前合伙人，希望得到他的支持。前合伙人起初拒绝，但在得知杰西的计划后，决定提供帮助。</p>
+  <div class="events"><span class="ev">沃尔特说服托德</span><span class="ev">制定火车事故计划</span><span class="ev">杰西改变策略</span><span class="ev">寻求前合伙人支持</span></div>
+</section>
+
+<section class="seg" id="seg80">
+  <div class="head">
+    <span class="no">第 80 段</span>
+    <span class="tm">第40集·下</span>
+    <h3>托德制造火车事故</h3>
+  </div>
+  <p>托德按照沃尔特的计划，利用自己的铁路工作便利，在古斯塔沃经常乘坐的铁路线上设置了机关。他调整了信号系统，确保火车会在特定时间脱轨，制造一场看似意外的事故。与此同时，沃尔特和杰西准备在混乱中接近古斯塔沃。火车如期脱轨，造成巨大混乱和伤亡。古斯塔沃和他的团队被困在事故现场，托德按照计划通知了沃尔特。沃尔特和杰西赶到现场，古斯塔沃在混乱中试图逃跑，但沃尔特早已预料到这一点，在出口处设下埋伏。杰西最终克服犹豫，按照计划行动，但古斯塔沃的警惕性让他逃过一劫，沃尔特的第一次复仇计划失败。</p>
+  <div class="events"><span class="ev">托德设下机关</span><span class="ev">火车脱轨制造混乱</span><span class="ev">古斯塔沃侥幸逃脱</span><span class="ev">复仇计划失败</span></div>
+</section>
+
+<section class="seg" id="seg81">
+  <div class="head">
+    <span class="no">第 81 段</span>
+    <span class="tm">第41集·上</span>
+    <h3>火车事故计划</h3>
+  </div>
+  <p>沃尔特与托德详细制定火车事故计划，目的是分散古斯塔沃的注意力。托德利用自己的铁路系统知识，选择了一辆运输甲基胺的火车作为目标。沃尔特解释了如何精确控制火车脱轨的时间和地点，以确保古斯塔沃的注意力被完全吸引。同时，沃尔特继续与彼得联系，确认蓖麻毒素的交付细节。彼得出于恐惧，最终同意按照沃尔特的要求提供这种致命物质。沃尔特计划在古斯塔沃注意力被火车事故吸引时，杰西将趁机实施下毒计划。整个计划环环相扣，显示出沃尔特思维的缜密和对细节的把控。</p>
+  <div class="events"><span class="ev">制定计划</span><span class="ev">联系彼得</span><span class="ev">确认毒素</span></div>
+</section>
+
+<section class="seg" id="seg82">
+  <div class="head">
+    <span class="no">第 82 段</span>
+    <span class="tm">第41集·下</span>
+    <h3>餐厅下毒失败</h3>
+  </div>
+  <p>杰西按照计划前往古斯塔沃常去的餐厅，准备在食物中下毒。他紧张地观察着古斯塔沃的一举一动，寻找下毒的最佳时机。然而，当服务员端上古斯塔沃的食物时，杰西突然犹豫了。他回想起自己曾经因为毒品而伤害的无辜人，内心挣扎不已。最终，杰西无法亲手完成下毒，他悄悄将毒药放回口袋，离开了餐厅。古斯塔沃察觉到异常，开始怀疑身边有人背叛。与此同时，沃尔特在远处监视着整个过程，对杰西的犹豫感到愤怒和失望。沃尔特意识到需要调整计划，他决定亲自出马完成这项致命任务。</p>
+  <div class="events"><span class="ev">杰西犹豫</span><span class="ev">下毒失败</span><span class="ev">古斯塔沃察觉</span></div>
+</section>
+
+<section class="seg" id="seg83">
+  <div class="head">
+    <span class="no">第 83 段</span>
+    <span class="tm">第42集·上</span>
+    <h3>沃尔特的新计划</h3>
+  </div>
+  <p>杰西的下毒失败迫使沃尔特改变策略。他决定亲自实施行动，并联系了托德，要求他加快火车事故的准备工作。沃尔特还联系了小粉红，寻求他的帮助。小粉红虽然对沃尔特的计划表示担忧，但在沃尔特的威胁和利诱下，最终还是同意提供协助。沃尔特开始准备新的武器，同时密切关注古斯塔沃的动向。他发现古斯塔沃已经开始加强安保措施，这让行动变得更加困难。沃尔特决定利用古斯塔沃的多疑心理，设计一个复杂的陷阱，引诱他落入圈套。</p>
+  <div class="events"><span class="ev">改变策略</span><span class="ev">联系小粉红</span><span class="ev">准备新武器</span></div>
+</section>
+
+<section class="seg" id="seg84">
+  <div class="head">
+    <span class="no">第 84 段</span>
+    <span class="tm">第42集·下</span>
+    <h3>火车事故实施</h3>
+  </div>
+  <p>托德按照计划实施了火车事故，成功引起混乱。火车在预定的时间和地点脱轨，导致甲基胺泄漏，现场一片混乱。古斯塔沃果然被这起事故吸引，亲自前往现场处理。与此同时，沃尔特和小粉红趁机潜入古斯塔沃的办公室，寻找关键证据和资产。他们成功获取了古斯塔沃的账本和记录，这将帮助沃尔特摧毁古斯塔沃的帝国。然而，古斯塔沃在处理事故时察觉到异常，开始怀疑这是针对他的阴谋。他立即派人调查，并加强了自己的安保措施。沃尔特和小粉红带着证据匆忙离开，但已经引起了古斯塔沃的高度警惕。</p>
+  <div class="events"><span class="ev">实施事故</span><span class="ev">潜入办公室</span><span class="ev">获取证据</span></div>
+</section>
+
+<section class="seg" id="seg85">
+  <div class="head">
+    <span class="no">第 85 段</span>
+    <span class="tm">第43集·上</span>
+    <h3>古斯塔沃落入陷阱</h3>
+  </div>
+  <p>古斯塔沃到达火车事故现场，看到甲基胺泄漏的混乱场面，立即组织人员清理。沃尔特趁机潜入现场，悄悄接近古斯塔沃。杰西和托德在附近接应，准备实施下一步计划。古斯塔沃对现场情况产生怀疑，察觉到可能有埋伏。沃尔特在古斯塔沃的办公室发现了一本隐藏的笔记本，上面记录了所有与他有过节的人的名单。古斯塔沃突然接到电话，得知纳乔已经死亡，他意识到自己陷入了危险之中。古斯塔沃决定立即离开现场，前往安全屋。</p>
+  <div class="events"><span class="ev">古斯塔沃到达现场</span><span class="ev">沃尔特潜入</span><span class="ev">发现笔记本</span><span class="ev">纳乔死亡</span></div>
+</section>
+
+<section class="seg" id="seg86">
+  <div class="head">
+    <span class="no">第 86 段</span>
+    <span class="tm">第43集·下</span>
+    <h3>毒枭的致命对决</h3>
+  </div>
+  <p>古斯塔沃逃往安全屋，沃尔特紧随其后。在安全屋外，沃尔特与杰西会合，三人制定了突袭计划。古斯塔沃在安全屋内整理物品，准备再次逃亡。他联系了小粉红，要求安排新的身份和逃亡路线。小粉红表面上答应，实际上已经与沃尔特达成协议。沃尔特和杰西潜入安全屋，与古斯塔沃对峙。古斯塔沃试图谈判，但沃尔特不为所动。最终，沃尔特用一根有毒的香烟制服了古斯塔沃，杰西在古斯塔沃身上浇上汽油，将其烧死。沃尔特拿走了古斯塔沃的笔记本，上面记录了他所有的犯罪网络和联系人。</p>
+  <div class="events"><span class="ev">古斯塔沃逃往安全屋</span><span class="ev">小粉红背叛</span><span class="ev">制服古斯塔沃</span><span class="ev">毒枭被烧死</span></div>
+</section>
+
+<section class="seg" id="seg87">
+  <div class="head">
+    <span class="no">第 87 段</span>
+    <span class="tm">第44集·上</span>
+    <h3>沃尔特接管帝国</h3>
+  </div>
+  <p>沃尔特和杰西清理了现场，带着古斯塔沃的笔记本离开。沃尔特开始研究笔记本上的内容，了解古斯塔沃的整个毒品帝国。他联系了小粉红，要求他帮助接管古斯塔沃的业务。小粉红犹豫不决，但最终还是同意合作。沃尔特开始接手古斯塔沃的客户和分销网络，同时处理掉可能威胁到自己的敌人。杰西对沃尔特的冷酷手段感到不安，两人之间出现裂痕。沃尔特还联系了前妻斯凯勒，试图让她和孩子们离开新墨西哥州，以确保他们的安全。斯凯勒对沃尔特的要求感到困惑，但同意考虑。</p>
+  <div class="events"><span class="ev">研究笔记本</span><span class="ev">接管业务</span><span class="ev">杰西不安</span><span class="ev">联系斯凯勒</span></div>
+</section>
+
+<section class="seg" id="seg88">
+  <div class="head">
+    <span class="no">第 88 段</span>
+    <span class="tm">第44集·下</span>
+    <h3>毒枭的末日</h3>
+  </div>
+  <p>沃尔特与杰西在安全屋内找到了古斯塔沃，一场激烈的枪战爆发。古斯塔沃试图反抗，但寡不敌众，最终被沃尔特开枪击中。沃尔特站在古斯塔沃面前，平静地宣告了自己的复仇。与此同时，小粉红接到了沃尔特的电话，同意帮助接管古斯塔沃的毒品帝国。托德赶到现场，帮助处理了古斯塔沃的尸体。沃尔特拿走了古斯塔沃的假发，象征着对整个帝国的接管。杰西目睹了这一切，内心充满矛盾，但最终还是选择站在沃尔特一边。沃尔特通过小粉红联系上了所有古斯塔沃的生意伙伴，开始重新组织毒品帝国。</p>
+  <div class="events"><span class="ev">枪战爆发</span><span class="ev">古斯塔沃被杀</span><span class="ev">接管毒品帝国</span></div>
+</section>
+
+<section class="seg" id="seg89">
+  <div class="head">
+    <span class="no">第 89 段</span>
+    <span class="tm">第45集·上</span>
+    <h3>毒枭的覆灭</h3>
+  </div>
+  <p>沃尔特、杰西和托德在超级实验室中等待古斯塔沃。古斯塔沃到达实验室，发现异常后试图逃跑，但被托德开枪击中腿部。沃尔特上前与古斯塔沃对峙，揭露自己策划的复仇计划。古斯塔沃震惊于沃尔特的转变，沃尔特冷笑着讲述了古斯塔沃如何害死了汉克。古斯塔沃意识到自己大势已去，沃尔特用枪击中古斯塔沃，但古斯塔沃并未立即死亡。沃尔特让托德用枪托击打古斯塔沃的头部，确保他死亡。随后，沃尔特、杰西和托德清理了现场，处理了古斯塔沃的尸体。</p>
+  <div class="events"><span class="ev">古斯塔沃中腿</span><span class="ev">沃尔特复仇</span><span class="ev">毒枭死亡</span></div>
+</section>
+
+<section class="seg" id="seg90">
+  <div class="head">
+    <span class="no">第 90 段</span>
+    <span class="tm">第45集·下</span>
+    <h3>帝国接管</h3>
+  </div>
+  <p>沃尔特独自回到超级实验室，开始接管古斯塔沃的毒品帝国。他联系了小粉红，要求他帮助处理剩余的甲基胺和客户关系。小粉红起初犹豫，但沃尔特威胁要揭露小粉红与古斯塔沃的关系，迫使他合作。杰西独自离开，试图找到布洛克和安德莉亚，但被托德发现并警告。沃尔特开始重新组织生产，利用古斯塔沃的笔记本中的信息建立自己的销售网络。他要求小粉红安排与所有客户会面，展示自己接管帝国的决心。</p>
+  <div class="events"><span class="ev">沃尔特接管</span><span class="ev">小粉红合作</span><span class="ev">杰西寻找</span></div>
+</section>
+
+<section class="seg" id="seg91">
+  <div class="head">
+    <span class="no">第 91 段</span>
+    <span class="tm">第46集·上</span>
+    <h3>布洛克被捕</h3>
+  </div>
+  <p>沃尔特安排与所有客户会面，试图重建毒品帝国。布洛克和安德莉亚过着平静生活，布洛克开始怀疑杰西的失踪。他暗中调查，最终发现了杰西与沃尔特的联系。布洛克决定向警方举报沃尔特，联系了汉克的前同事。警方开始监视布洛克，在一次行动中，布洛克被捕。安德莉亚得知消息后惊慌失措，不知如何是好。沃尔特得知布洛克被捕的消息后，意识到自己的处境危险，开始计划应对措施。</p>
+  <div class="events"><span class="ev">布洛克调查</span><span class="ev">决定举报</span><span class="ev">被捕</span></div>
+</section>
+
+<section class="seg" id="seg92">
+  <div class="head">
+    <span class="no">第 92 段</span>
+    <span class="tm">第46集·下</span>
+    <h3>第92段</h3>
+  </div>
+  <p>警方审讯布洛克，但他拒绝提供沃尔特的详细信息。沃尔特得知后，意识到布洛克不会轻易屈服，决定采取极端措施。他联系杰西，告知布洛克被捕的消息，暗示需要解决安德莉亚的问题。杰西起初拒绝，但最终被说服。杰西前往安德莉亚家，准备杀她灭口，但在最后一刻无法下手。与此同时，警方通过布洛克的手机定位找到了安德莉亚的家，准备实施抓捕。沃尔特得知杰西没有完成任务后，决定亲自处理，开始策划最终的复仇计划。</p>
+  <div class="events"><span class="ev">布洛克沉默</span><span class="ev">杰西动摇</span><span class="ev">安德莉亚危机</span></div>
+</section>
+
+<section class="seg" id="seg93">
+  <div class="head">
+    <span class="no">第 93 段</span>
+    <span class="tm">第47集·上</span>
+    <h3>杰西目睹安德莉亚死亡</h3>
+  </div>
+  <p>沃尔特联系杰西，暗示需要解决安德莉亚的问题。杰西意识到沃尔特打算杀害安德莉亚来威胁布洛克，愤怒地拒绝参与。杰西前往安德莉亚家警告她离开，但为时已晚。沃尔特派杀手追踪杰西，发现杰西警告了安德莉亚，于是直接前往安德莉亚家。杰西得知后疯狂驾车前往，但到达时发现安德莉亚已被枪杀。杰西悲痛欲绝，手持枪支冲向沃尔特的住所，准备复仇。沃尔特提前察觉危险，藏起了枪支，面对杰西的质问，沃尔特否认一切，称自己毫不知情。杰西在极度愤怒和悲痛中暂时相信了沃尔特，但两人的关系已彻底破裂。</p>
+  <div class="events"><span class="ev">杰西警告安德莉亚</span><span class="ev">安德莉亚被杀</span><span class="ev">杰西复仇未遂</span><span class="ev">沃尔特否认责任</span></div>
+</section>
+
+<section class="seg" id="seg94">
+  <div class="head">
+    <span class="no">第 94 段</span>
+    <span class="tm">第47集·下</span>
+    <h3>杰西绑架沃尔特</h3>
+  </div>
+  <p>杰西从沃尔特家中离开后，策划了绑架计划。他找到前搭档巴德和彼得，三人合作将沃尔特绑架到一处废弃仓库。杰西质问沃尔特为何杀害安德莉亚，沃尔特继续否认。杰西准备将沃尔特活埋，但沃尔特趁机用化学知识说服杰西，指出活埋会让他成为杀人犯，影响其良心。杰西陷入挣扎，最终选择离开，将沃尔特锁在仓库。沃尔特设法逃脱，联系小粉红寻求帮助。小粉红到达后，沃尔特要求他帮助处理布洛克的问题，并威胁要揭露小粉红与古斯塔沃的关系。小粉红被迫同意合作，两人开始策划下一步行动。</p>
+  <div class="events"><span class="ev">杰西绑架沃尔特</span><span class="ev">活埋计划被阻止</span><span class="ev">沃尔特逃脱</span><span class="ev">小粉红被迫合作</span></div>
+</section>
+
+<section class="seg" id="seg95">
+  <div class="head">
+    <span class="no">第 95 段</span>
+    <span class="tm">第48集·上</span>
+    <h3>杰西决意复仇</h3>
+  </div>
+  <p>杰西在废弃仓库中质问沃尔特为何杀害安德莉亚，沃尔特继续否认。杰西情绪失控，准备将沃尔特带到荒野处决。沃尔特试图用杰西吸毒的过去刺激他，但杰西不为所动。两人激烈争吵中，沃尔特承认自己杀害了安德莉亚，称这是为了保护布洛克。杰西彻底崩溃，决定亲手杀死沃尔特为安德莉亚报仇。他将沃尔特绑在仓库中，准备实施复仇计划。沃尔特意识到自己面临生死危机，开始尝试说服杰西放他一马，但杰西已经下定决心不再相信任何承诺。</p>
+  <div class="events"><span class="ev">杰西质问沃尔特</span><span class="ev">沃尔特承认罪行</span><span class="ev">杰西决意复仇</span><span class="ev">沃尔特被绑仓库</span></div>
+</section>
+
+<section class="seg" id="seg96">
+  <div class="head">
+    <span class="no">第 96 段</span>
+    <span class="tm">第48集·下</span>
+    <h3>沃尔特求饶遭拒</h3>
+  </div>
+  <p>杰西将沃尔特带到废弃仓库准备处决，沃尔特跪地求饶，承认杀害安德莉亚是为了逼迫杰西停止寻找布洛克。沃尔特解释自己是为了保护家人，但杰西不为所动。沃尔特提出可以给杰西一大笔钱让他离开，杰西愤怒地拒绝了。沃尔特试图用杰西吸毒的过去刺激他，但杰西更加坚定了复仇的决心。沃尔特意识到自己无法说服杰西，开始策划逃脱计划。此时，杰西接到巴德电话，得知警方已经封锁了仓库区域，两人被困。</p>
+  <div class="events"><span class="ev">沃尔特认罪求饶</span><span class="ev">杰西拒绝宽恕</span><span class="ev">被困仓库</span></div>
+</section>
+
+<section class="seg" id="seg97">
+  <div class="head">
+    <span class="no">第 97 段</span>
+    <span class="tm">第49集·上</span>
+    <h3>杰西拷问沃尔特</h3>
+  </div>
+  <p>杰西将沃尔特绑架到废弃仓库，愤怒地质问他为何杀害安德莉亚。沃尔特继续否认，称自己没有杀她。杰西准备将沃尔特活埋，但沃尔特求饶，承诺会给他足够的钱让他离开。杰西暂时没有下手，而是将沃尔特锁在仓库里自己去取钱。沃尔特趁机想办法逃脱，他发现仓库里有一把枪，但没有子弹。杰西回来后，沃尔特试图说服杰西与自己合作，但杰西已经不再相信他。杰西决定将沃尔特交给警察，让法律来审判他。沃尔特意识到情况危急，开始寻找其他脱身的方法。</p>
+  <div class="events"><span class="ev">杰西绑架沃尔特</span><span class="ev">沃尔特被锁仓库</span><span class="ev">杰西决定报警</span></div>
+</section>
+
+<section class="seg" id="seg98">
+  <div class="head">
+    <span class="no">第 98 段</span>
+    <span class="tm">第49集·下</span>
+    <h3>沃尔特逃脱计划</h3>
+  </div>
+  <p>沃尔特在仓库中找到了一把手枪和少量子弹，他设法用这些资源制作了一个简易装置。杰西离开后，沃尔特开始实施逃脱计划。他利用仓库中的材料制造了一个简易炸弹，并设置了陷阱。当杰西返回仓库时，沃尔特引爆炸弹，制造混乱并趁机逃脱。杰西在爆炸中受伤，但并无大碍。沃尔特成功逃脱后，立即前往杰西的藏身之处，准备彻底解决这个威胁。他意识到杰西已经成为他最大的隐患，必须尽快除掉他。同时，警方仍在追捕沃尔特，他的处境越来越危险。</p>
+  <div class="events"><span class="ev">沃尔特制作炸弹</span><span class="ev">仓库爆炸</span><span class="ev">沃尔特逃脱</span></div>
+</section>
+
+<section class="seg" id="seg99">
+  <div class="head">
+    <span class="no">第 99 段</span>
+    <span class="tm">第50集·上</span>
+    <h3>沃尔特追杀杰西</h3>
+  </div>
+  <p>沃尔特得知杰西的藏身之处后，立即前往准备杀死他。杰西已经预感到沃尔特的到来，提前逃离了藏身之处。沃尔特扑空后，变得更加愤怒和绝望。他开始四处寻找杰西的下落，同时还要躲避警方的追捕。汉克和DEA的探员们加大了对沃尔特的搜捕力度，他们已经掌握了沃尔特的一些线索。斯凯勒和孩子们也被警方保护起来，沃尔特无法与他们联系。沃尔特意识到自己的处境已经岌岌可危，他必须尽快找到杰西并解决掉他，同时也要为自己的未来做打算。</p>
+  <div class="events"><span class="ev">沃尔特追杀杰西</span><span class="ev">杰西提前逃离</span><span class="ev">警方加大搜捕</span></div>
+</section>
+
+<section class="seg" id="seg100">
+  <div class="head">
+    <span class="no">第 100 段</span>
+    <span class="tm">第50集·下</span>
+    <h3>沃尔特的最后准备</h3>
+  </div>
+  <p>沃尔特决定亲自前往杰西可能藏身的地点，他准备了一个特殊的装置，计划在必要时使用。同时，他开始整理自己的事务，包括处理剩余的毒品和资金。沃尔特联系了小粉红，希望得到他的帮助，但小粉红已经对沃尔特产生了怀疑。沃尔特意识到时间不多了，他必须尽快行动。他前往一个废弃的工厂，准备与杰西进行最后的对决。同时，警方已经锁定了沃尔特的大致位置，汉克带领队伍前往逮捕他。沃尔特知道这场对决将决定他的一切，他必须做好准备面对最坏的结果。</p>
+  <div class="events"><span class="ev">沃尔特准备装置</span><span class="ev">联系小粉红</span><span class="ev">前往废弃工厂</span></div>
+</section>
+
+<section class="seg" id="seg101">
+  <div class="head">
+    <span class="no">第 101 段</span>
+    <span class="tm">第51集·上</span>
+    <h3>毒枭的覆灭</h3>
+  </div>
+  <p>沃尔特在监狱中与古斯塔沃对峙，他揭露了古斯塔沃毒杀儿童的事实，激怒了毒枭。古斯塔沃试图杀死沃尔特，但沃尔特早有准备，用事先藏在监狱中的毒药刺伤了古斯塔沃。古斯塔沃被紧急送往医院，但伤势严重。沃尔特趁机逃脱，并联系了小粉红，要求他帮助自己处理后续事务。小粉红虽然对沃尔特的行为感到震惊，但出于利益考虑还是答应了。沃尔特开始着手接管古斯塔沃的毒品帝国，他首先联系了所有分销商，宣布自己成为新的老大。</p>
+  <div class="events"><span class="ev">毒枭对峙</span><span class="ev">毒刺反击</span><span class="ev">医院逃脱</span></div>
+</section>
+
+<section class="seg" id="seg102">
+  <div class="head">
+    <span class="no">第 102 段</span>
+    <span class="tm">第51集·下</span>
+    <h3>新王登基</h3>
+  </div>
+  <p>沃尔特开始全面接管古斯塔沃的毒品帝国，他首先处理了古斯塔沃在医院的治疗问题，确保他无法再构成威胁。随后，沃尔特召集了所有分销商，向他们展示了自己的实力和对市场的了解，确立了新的统治地位。小粉红成为沃尔特的法律顾问和盟友，帮助他处理各种法律和商业事务。沃尔特开始扩大生产规模，提高纯度，使他的产品在市场上更具竞争力。同时，他开始追杀那些曾经背叛或威胁过他的人，包括试图杀死他的毒贩和警察。沃尔特的行动冷酷而高效，迅速巩固了自己的权力。</p>
+  <div class="events"><span class="ev">接管帝国</span><span class="ev">确立地位</span><span class="ev">清除异己</span></div>
+</section>
+
+<section class="seg" id="seg103">
+  <div class="head">
+    <span class="no">第 103 段</span>
+    <span class="tm">第52集·上</span>
+    <h3>杰西的囚禁</h3>
+  </div>
+  <p>沃尔特将杰西囚禁在地下室，强迫他继续为自己制毒。杰西试图逃跑但被沃尔特发现，两人发生激烈冲突。沃尔特利用杰西对布罗迪的愧疚心理控制他，同时监视杰西的一举一动。杰西在绝望中试图与外界联系，但被沃尔特及时发现并阻止。沃尔特向杰西透露了布罗迪已死的真相，彻底击垮了杰西的心理防线。杰西被迫屈服于沃尔特的控制，继续成为他的制毒工具。沃尔特严密监控着杰西的行动，防止任何可能的背叛。</p>
+  <div class="events"><span class="ev">囚禁杰西</span><span class="ev">控制制毒</span><span class="ev">揭露真相</span><span class="ev">击垮心理</span></div>
+</section>
+
+<section class="seg" id="seg104">
+  <div class="head">
+    <span class="no">第 104 段</span>
+    <span class="tm">第52集·下</span>
+    <h3>杰西的逃脱</h3>
+  </div>
+  <p>沃尔特发现杰西计划逃跑后，加强了对他的监控。杰西假意服从，暗中寻找逃脱机会。他利用沃尔特外出时，设法联系了斯凯勒，请求她帮助自己离开。斯凯勒出于对沃尔特的恐惧，拒绝了杰西的请求。杰西转而向汉克求助，提供了沃尔特藏匿大量现金的地点。汉克和DEA团队根据杰西提供的信息，开始秘密监视沃尔特。与此同时，沃尔特察觉到杰西的异常行为，加强了地下室的安全措施，两人之间的紧张关系日益加剧。杰西意识到处境危险，决定采取更极端的行动来摆脱沃尔特的控制。</p>
+  <div class="events"><span class="ev">杰西联系斯凯勒</span><span class="ev">杰西求助汉克</span><span class="ev">加强地下室监控</span></div>
+</section>
+
+<section class="seg" id="seg105">
+  <div class="head">
+    <span class="no">第 105 段</span>
+    <span class="tm">第53集·上</span>
+    <h3>杰西的囚禁</h3>
+  </div>
+  <p>沃尔特将杰西囚禁在地下室，试图强迫他继续制毒。杰西拒绝合作，沃尔特用暴力威胁，但杰西依然坚持不屈服。斯凯勒发现杰西被囚禁，试图解救但被沃尔特阻止。沃尔特向斯凯勒解释自己的动机，强调这是为了保护家人。斯凯勒对沃尔特的行为感到恐惧和失望，开始考虑逃离。与此同时，汉克继续调查沃尔特的身份，发现了更多线索。沃尔特意识到时间紧迫，决定加快行动。他开始整理自己的事务，包括处理剩余的毒品和资金，为最终的计划做准备。</p>
+  <div class="events"><span class="ev">囚禁杰西</span><span class="ev">斯凯勒发现</span><span class="ev">暴力威胁</span><span class="ev">处理事务</span></div>
+</section>
+
+<section class="seg" id="seg106">
+  <div class="head">
+    <span class="no">第 106 段</span>
+    <span class="tm">第53集·下</span>
+    <h3>杰西决裂沃尔特</h3>
+  </div>
+  <p>杰西假意屈服沃尔特，暗中策划逃脱。他利用外出机会联系斯凯勒，请求帮助。斯凯勒出于对沃尔特的恐惧，表面上拒绝暗中准备。杰西制造混乱，打晕看守后逃跑。沃尔特发现后愤怒异常，威胁要伤害杰西认识的人。杰西找到德克斯特，寻求庇护。沃尔特追踪到杰西藏身处，发现德克斯特已死。杰西在警察局自首，揭露沃尔特的罪行。斯凯勒带着孩子离开家，向汉坦白一切。</p>
+  <div class="events"><span class="ev">杰西假意屈服</span><span class="ev">暗中联系斯凯勒</span><span class="ev">成功逃脱囚禁</span><span class="ev">向警方自首</span></div>
+</section>
+
+<section class="seg" id="seg107">
+  <div class="head">
+    <span class="no">第 107 段</span>
+    <span class="tm">第54集·上</span>
+    <h3>杰西逃离地下室</h3>
+  </div>
+  <p>沃尔特发现杰西逃跑后，变得更加偏执和暴力。他将杰西锁在更严密的地下室，日夜监视。杰西在囚禁中逐渐崩溃，精神状态恶化。斯凯勒暗中联系杰西，计划帮助他逃脱，但被沃尔特察觉。沃尔特对斯凯勒的背叛感到愤怒，加强了家庭监控。杰西在绝望中尝试自杀，被沃尔特及时发现并阻止。沃尔特试图通过心理控制让杰西屈服，但杰西的抵抗反而更加坚定。斯凯勒决定采取行动，她悄悄准备了一些药物和工具，计划在沃尔特外出时帮助杰西逃脱。杰西在地下室中等待时机，同时思考如何摆脱沃尔特的控制。</p>
+  <div class="events"><span class="ev">杰西被囚禁</span><span class="ev">斯凯勒暗中联系</span><span class="ev">杰西尝试自杀</span><span class="ev">斯凯勒准备逃脱</span></div>
+</section>
+
+<section class="seg" id="seg108">
+  <div class="head">
+    <span class="no">第 108 段</span>
+    <span class="tm">第54集·下</span>
+    <h3>杰西寻求庇护</h3>
+  </div>
+  <p>杰西成功逃离沃尔特的囚禁后，惊魂未定地联系了老伙伴彼得，寻求庇护。彼得出于对沃尔特的恐惧，拒绝了杰西的请求。走投无路的杰西决定向DEA自首，希望得到保护。他前往汉克的办公室，向汉克和史蒂夫揭露沃尔特的所有犯罪事实，包括制毒、杀人以及囚禁自己。汉克震惊之余，意识到这可能成为逮捕沃尔特的绝佳机会。与此同时，沃尔特发现杰西逃脱后，变得更加狂躁，他开始怀疑斯凯勒暗中帮助杰西，夫妻关系进一步恶化。沃尔特决定采取极端手段，他找到小粉红，请求帮助除掉杰西。</p>
+  <div class="events"><span class="ev">杰西寻求庇护</span><span class="ev">杰西自首揭发</span><span class="ev">沃尔特求助小粉红</span></div>
+</section>
+
+<section class="seg" id="seg109">
+  <div class="head">
+    <span class="no">第 109 段</span>
+    <span class="tm">第55集·上</span>
+    <h3>杰西逃脱计划</h3>
+  </div>
+  <p>沃尔特继续囚禁杰西，强迫他继续制毒。杰西表面上顺从，暗中策划逃跑。他利用沃尔特外出时，偷偷制造了一个简易炸药装置。斯凯勒对杰西的处境感到不安，她开始暗中帮助杰西，为他提供食物和水。杰西利用斯凯勒的帮助，逐步实施逃脱计划。他假装继续屈服于沃尔特，同时暗中准备逃脱所需的工具和路线。沃尔特对杰西的顺从感到满意，放松了警惕。</p>
+  <div class="events"><span class="ev">杰西被囚禁</span><span class="ev">斯凯勒暗中帮助</span><span class="ev">杰西制造炸药</span></div>
+</section>
+
+<section class="seg" id="seg110">
+  <div class="head">
+    <span class="no">第 110 段</span>
+    <span class="tm">第55集·下</span>
+    <h3>地下室爆炸</h3>
+  </div>
+  <p>杰西成功引爆了自制炸药，炸毁了地下室的门锁。趁沃尔特外出时，他迅速逃离了囚禁。沃尔特回到家后发现杰西逃跑，愤怒不已。他立即开始追踪杰西的下落。同时，斯凯勒决定带着孩子暂时离开家，躲避沃尔特的怒火。汉克和他的团队也在追捕杰西，希望从他口中获取关于沃尔特毒品帝国的信息。杰西无处可去，只能四处躲藏，同时思考如何彻底摆脱沃尔特的控制。沃尔特得知斯凯勒离家出走，更加愤怒。</p>
+  <div class="events"><span class="ev">杰西成功逃脱</span><span class="ev">斯凯勒离家</span><span class="ev">沃尔特愤怒追踪</span></div>
+</section>
+
+<section class="seg" id="seg111">
+  <div class="head">
+    <span class="no">第 111 段</span>
+    <span class="tm">第56集·上</span>
+    <h3>杰西求助老友</h3>
+  </div>
+  <p>杰西联系了老朋友布洛克和彼得，寻求帮助。他们为杰西提供了藏身之处，并帮助他联系了警方。汉克得知杰西的下落后，立即带队前往。杰西同意与汉克合作，提供关于沃尔特毒品帝国的情报。与此同时，沃尔特得知杰西与警方接触，决定先下手为强，他准备了一大笔现金，试图收买或威胁杰西。斯凯勒在汉克家中暂住，她向汉克透露了部分真相，但隐瞒了全部实情。</p>
+  <div class="events"><span class="ev">杰西求助老友</span><span class="ev">与警方合作</span><span class="ev">斯凯勒透露部分真相</span></div>
+</section>
+
+<section class="seg" id="seg112">
+  <div class="head">
+    <span class="no">第 112 段</span>
+    <span class="tm">第56集·下</span>
+    <h3>沃尔特被围困</h3>
+  </div>
+  <p>汉克根据杰西提供的线索，锁定了沃尔特的藏身之处。警方包围了沃尔特所在的仓库。沃尔特意识到自己无处可逃，他决定做最后的抵抗。在仓库中，沃尔特整理自己的毒品制作设备，准备销毁证据。同时，他给斯凯勒打电话做最后的告别。汉克试图劝说沃尔特投降，但沃尔特拒绝。警方准备突入仓库，沃尔特手持武器，准备迎接最后的对决。斯凯勒得知沃尔特的处境，内心复杂，既害怕又有一丝怜悯。</p>
+  <div class="events"><span class="ev">警方包围仓库</span><span class="ev">沃尔特销毁证据</span><span class="ev">与斯凯勒告别</span></div>
+</section>
+
+<section class="seg" id="seg113">
+  <div class="head">
+    <span class="no">第 113 段</span>
+    <span class="tm">第57集·上</span>
+    <h3>沃尔特被捕入狱</h3>
+  </div>
+  <p>警方突袭仓库，汉克亲自带队逮捕了沃尔特。被捕过程中，沃尔特保持冷静，甚至对汉克说出了那句著名的&#x27;你逮捕了海森堡&#x27;。警方在仓库中发现了大量甲基蓝冰毒和制毒设备，证据确凿。斯凯勒得知沃尔特被捕的消息后，情绪崩溃，试图与汉克对峙但被阻止。沃尔特被押往警局途中，透过车窗看到围观人群，表情复杂。在警局，警方对沃尔特进行了初步审讯，沃尔特保持沉默，只要求见律师。杰西得知沃尔特被捕的消息后，情绪复杂，既有解脱又有担忧。汉克为这一重大突破感到兴奋，开始整理案件材料，准备将沃尔特绳之以法。</p>
+  <div class="events"><span class="ev">沃尔特被捕</span><span class="ev">海森堡宣言</span><span class="ev">警方查获毒品</span></div>
+</section>
+
+<section class="seg" id="seg114">
+  <div class="head">
+    <span class="no">第 114 段</span>
+    <span class="tm">第57集·下</span>
+    <h3>斯凯勒坦白真相</h3>
+  </div>
+  <p>在警局，沃尔特决定与斯凯勒通电话。通话中，斯凯勒情绪崩溃，向沃尔特坦白了一切：她已经知道了他的真实身份，包括他如何制毒、如何杀害汉克以及与古斯塔沃的关系。斯凯勒表示她受够了这种生活，希望沃尔特能够认罪，保护孩子们。与此同时，杰西在汉克的保护下，开始详细交代沃尔特的犯罪事实，包括制毒过程、谋杀案等。汉克对杰西提供的证据感到震惊，尤其是沃尔特与古斯塔沃的关联。沃尔特意识到情况危急，开始策划脱身之计。他联系了自己的律师索尔，暗示自己可能需要新的身份和逃跑计划。</p>
+  <div class="events"><span class="ev">斯凯勒崩溃</span><span class="ev">杰西作证</span><span class="ev">沃尔特策划脱身</span></div>
+</section>
+
+<section class="seg" id="seg115">
+  <div class="head">
+    <span class="no">第 115 段</span>
+    <span class="tm">第58集·上</span>
+    <h3>杰克帮突袭警局</h3>
+  </div>
+  <p>沃尔特通过秘密渠道联系了杰克帮，请求他们前来营救。杰克帮决定行动，他们策划了一场精心设计的突袭。在警方转移沃尔特的过程中，杰克帮的成员发动袭击，造成警局混乱和人员伤亡。在混战中，杰克帮成功救出了沃尔特，但过程中汉克受了重伤。沃尔特被救出后，杰克帮将他带到自己的秘密据点。沃尔特告诉杰克帮，他知道藏有大量现金的地方，但需要他们帮助找回他之前埋藏的巨额现金。沃尔特还提出，他愿意帮助杰克帮制造出更高质量的冰毒，以换取他们的保护。</p>
+  <div class="events"><span class="ev">杰克帮突袭</span><span class="ev">救出沃尔特</span><span class="ev">汉克重伤</span></div>
+</section>
+
+<section class="seg" id="seg116">
+  <div class="head">
+    <span class="no">第 116 段</span>
+    <span class="tm">第58集·下</span>
+    <h3>沃尔特重返藏身地</h3>
+  </div>
+  <p>获救后的沃尔特，在杰克帮的护送下，前往他之前藏匿巨额现金的地点。他们来到一个偏远的小屋，沃尔特挖出了装有大量现金的箱子。然而，令沃尔特震惊的是，他发现大部分现金已经被水浸泡损坏。杰克帮的成员看到如此巨额的现金，起了贪念，想要独吞。沃尔特意识到处境危险，他开始策划下一步行动。他告诉杰克帮，他知道一个地方可以制造出更优质的冰毒，那里有现成的设备和原料。沃尔特试图说服杰克帮与他合作，利用他的制毒技能换取安全。同时，沃尔特暗中联系了杰西，试图了解他的下落和意图。</p>
+  <div class="events"><span class="ev">现金受损</span><span class="ev">杰克帮起贪念</span><span class="ev">沃尔特寻求合作</span></div>
+</section>
+
+<section class="seg" id="seg117">
+  <div class="head">
+    <span class="no">第 117 段</span>
+    <span class="tm">第59集·上</span>
+    <h3>沃尔特复仇计划</h3>
+  </div>
+  <p>沃尔特回到藏身地，发现大部分现金已被杰克帮拿走，只剩下少量。他愤怒地质问杰克，但杰克解释只拿走了应得的部分。沃尔特决定不再依赖杰克帮，独自前往新罕布什尔州。他联系了老同事爱德华，请求帮助藏身。在偏远的山区小屋，沃尔特开始规划复仇。他得知斯凯勒和孩子们被警方保护，无法直接联系。沃尔特写下联系方式交给老同事，希望能传达到斯凯勒手中。同时，他开始研究如何获取毒品的配方，准备最后的行动。沃尔特的情绪复杂，既有对家人的思念，又有对敌人的仇恨。</p>
+  <div class="events"><span class="ev">现金被劫</span><span class="ev">山区藏身</span><span class="ev">联系旧友</span><span class="ev">规划复仇</span></div>
+</section>
+
+<section class="seg" id="seg118">
+  <div class="head">
+    <span class="no">第 118 段</span>
+    <span class="tm">第59集·下</span>
+    <h3>毒枭归来</h3>
+  </div>
+  <p>沃尔特决定返回新墨西哥州，他联系了杰西，希望与他合作对付杰克帮。杰西被关在杰克帮的基地，被迫制造毒品。沃尔特前往杰西的藏身地，发现他瘦弱不堪，被折磨得几乎认不出来。沃尔特计划救出杰西，但被杰克帮发现。双方发生激烈枪战，沃尔特巧妙利用环境设下陷阱，成功救出杰西。两人逃亡途中，沃尔特向杰西坦白了一切，包括他如何设计杀死古斯塔沃和汉克。杰西震惊之余，决定与沃尔特合作，共同对抗杰克帮。</p>
+  <div class="events"><span class="ev">救出杰西</span><span class="ev">枪战逃脱</span><span class="ev">坦白真相</span><span class="ev">结盟复仇</span></div>
+</section>
+
+<section class="seg" id="seg119">
+  <div class="head">
+    <span class="no">第 119 段</span>
+    <span class="tm">第60集·上</span>
+    <h3>沃尔特营救杰西</h3>
+  </div>
+  <p>沃尔特带着新买来的机关枪，独自前往杰克帮的藏身处。他悄悄潜入营地，观察地形并制定计划。沃尔特发现杰西被绑在房间里，被迫继续制造毒品。杰克帮成员在营地外巡逻，警惕性很高。沃尔特利用遥控炸弹制造混乱，引开了部分守卫。他潜入房间解救杰西，但杰西起初不愿离开，担心自己的家人安全。沃尔特承诺会照顾杰西的家人，并告诉他斯凯勒和孩子们已经安全。两人一起逃离营地，但杰克帮很快发现他们逃跑。沃尔特和杰西在枪战中艰难突围，沃尔特被子弹击中肩膀，但仍坚持与杰西一起驾车逃离。</p>
+  <div class="events"><span class="ev">潜入营地</span><span class="ev">解救杰西</span><span class="ev">枪战突围</span><span class="ev">中伤逃离</span></div>
+</section>
+
+<section class="seg" id="seg120">
+  <div class="head">
+    <span class="no">第 120 段</span>
+    <span class="tm">第60集·下</span>
+    <h3>沃尔特复仇</h3>
+  </div>
+  <p>沃尔特潜入杰克帮营地，用机关枪扫射营地成员，包括杰克。他救出杰西，但发现托德还活着。沃尔特让杰西开车离开，自己则返回营地拿回他的钱。在仓库里，沃尔特发现托德正准备杀死杰西，于是他开枪杀死了托德。沃尔特拿起对讲机，告诉斯凯勒他已经做了所有必要的事情来保护她，然后他离开了。杰克帮的其他成员赶到，沃尔特与他们交火，最终身负重伤。他回到自己家，躺在地板上，等待着死亡的降临。</p>
+  <div class="events"><span class="ev">沃尔特杀杰克</span><span class="ev">救出杰西</span><span class="ev">杀死托德</span><span class="ev">沃尔特重伤</span></div>
+</section>
+
+<section class="seg" id="seg121">
+  <div class="head">
+    <span class="no">第 121 段</span>
+    <span class="tm">第61集·上</span>
+    <h3>沃尔特重返新墨西哥</h3>
+  </div>
+  <p>沃尔特回到新墨西哥州，得知杰西被杰克帮囚禁。他找到斯凯勒，将剩余的现金留给她作为补偿，并告诉她自己即将结束这一切。沃尔特联系了老同事爱德加，利用他的专业知识追踪杰西的下落。同时，沃尔特还联系了前搭档索尔·古德曼，索尔已经化名基恩并开始新的生活。沃尔特说服索尔帮助他找到杰克帮的藏身之处。沃尔特还联系了前搭档托德，希望他能提供杰西被关押的位置。沃尔特开始为最后的行动做准备，购买了武器和装备。</p>
+  <div class="events"><span class="ev">沃尔特返新墨西哥</span><span class="ev">联系索尓求助</span><span class="ev">追踪杰西下落</span><span class="ev">准备最后行动</span></div>
+</section>
+
+<section class="seg" id="seg122">
+  <div class="head">
+    <span class="no">第 122 段</span>
+    <span class="tm">第61集·下</span>
+    <h3>杰克帮覆灭</h3>
+  </div>
+  <p>沃尔特找到了杰克帮的藏身处，他设置了一个遥控机关枪，在杰克帮成员走出藏身屋时发动攻击。枪战中，杰克和其他帮派成员被击毙，但沃尔特也受了伤。沃尔特进入藏身处，发现杰西被锁在地下室。两人对峙后，沃尔特决定放过杰西，让他逃离。沃尔特还从托德的口中得知了汉克已经死亡的真相。随后，沃尔特找到了古斯塔沃藏在沙漠下的巨额现金，他引爆了其中的部分现金，制造了一场巨大的爆炸，象征着他过去生活的终结。沃尔特带着剩下的现金离开了现场。</p>
+  <div class="events"><span class="ev">枪战歼灭杰克帮</span><span class="ev">释放杰西</span><span class="ev">引爆巨额现金</span><span class="ev">汉克死亡真相</span></div>
+</section>
+
+<section class="seg" id="seg123">
+  <div class="head">
+    <span class="no">第 123 段</span>
+    <span class="tm">第62集·上</span>
+    <h3>沃尔特的最后旅程</h3>
+  </div>
+  <p>沃尔特带着现金回到新墨西哥州的废弃小镇，他将现金分装在几个桶里，然后联系了斯凯勒。他告诉她自己已经安排好了所有事情，包括一笔足够家人生活的钱。沃尔特还向斯凯勒道歉，承认自己过去的错误。随后，沃尔特前往汉克的遗孀玛丽·施拉德的家中，试图与她和解，但玛丽拒绝接受他的道歉。沃尔特决定前往他曾经教过化学的学校，最后一次看看这个地方。他在学校里回忆起自己曾经的生活和梦想，感叹自己已经无法回头。沃尔特最终决定回到自己的家，准备面对最后的结局。</p>
+  <div class="events"><span class="ev">现金分装处理</span><span class="ev">联系斯凯勒道歉</span><span class="ev">拜访玛丽被拒</span><span class="ev">重返旧学校</span></div>
+</section>
+
+<section class="seg" id="seg124">
+  <div class="head">
+    <span class="no">第 124 段</span>
+    <span class="tm">第62集·下</span>
+    <h3>沃尔特的救赎与终结</h3>
+  </div>
+  <p>沃尔特回到家中，发现斯凯勒和孩子们已经离开。警方随后赶到，包围了房子。沃尔特在家中设置了炸弹，准备与警方同归于尽。但在最后一刻，他改变了主意，主动走出家门向警方投降。在警车上，沃尔特请求警方先带他去一个地方。他们来到了一个废弃的制毒工厂，沃尔特告诉警方杰西被关押的地方。随后，沃尔特被警方带走，在警车上，他看着窗外的风景，回忆起自己的一生。沃尔特最终因癌症去世，实现了对家人的救赎。杰西成功逃脱，开始了新的生活。斯凯勒用沃尔特留下的钱支付了房子的房贷，开始了平静的生活。</p>
+  <div class="events"><span class="ev">警方包围住宅</span><span class="ev">主动投降</span><span class="ev">揭露杰西下落</span><span class="ev">癌症离世</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第5集</td><td>沃尔特决定杀死毒贩库姆，跨越道德底线</td></tr><tr><td>第14集</td><td>沃尔特与古斯塔沃正式合作，事业飞跃</td></tr><tr><td>第32集</td><td>汉克发现沃尔特身份，展开追捕</td></tr><tr><td>第51集</td><td>沃尔特毒杀古斯塔沃，全面接管毒品帝国</td></tr><tr><td>第62集</td><td>沃尔特回到家中，为家人复仇后死去</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">堕落与救赎</span><span class="theme">家庭与背叛</span><span class="theme">权力与腐蚀</span><span class="theme">身份转变</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">沃尔特杀死所有仇敌后回到家中，为保护家人与警方枪战，最终重伤死去，实现了对家人的救赎。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-18 18:04 · 模型 glm-4-air,glm-4-flash · 共 124 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

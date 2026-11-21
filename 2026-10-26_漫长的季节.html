@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>漫长的季节 · 分段故事梗概 · 2026-10-26</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>漫长的季节<span class="year">2023</span></h1>
+    <div class="chips"><span class="chip hot">2026-10-26</span><span class="chip">电视剧</span><span class="chip">中国</span><span class="chip">悬疑/生活</span><span class="chip">2023</span><span class="chip">电视剧共 12 集，单集约 50 分钟，每集拆 2 段，全剧共 24 段</span><span class="chip">1990年代末至2010年代东北小城</span></div>
+    <div class="logline">东北小城钢厂司机王响因一桩旧案家破人亡，十八年后线索重现，他与老友追查真相，对抗时间与遗忘。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 24 段</h2>
+      <ol><li><a href="#seg1">龚彪套牌车撞人牵出旧影</a></li>
+<li><a href="#seg2">王响追查套牌车遇马德胜</a></li>
+<li><a href="#seg3">王响龚彪查车锁定可疑人</a></li>
+<li><a href="#seg4">马德胜重提碎尸案旧卷</a></li>
+<li><a href="#seg5">王响锁定套牌车主身份</a></li>
+<li><a href="#seg6">套牌车现身旧厂区线索汇聚</a></li>
+<li><a href="#seg7">王阳在医学院结识沈墨</a></li>
+<li><a href="#seg8">傅卫军为护姐动手伤人</a></li>
+<li><a href="#seg9">王响查套牌车撞见旧人</a></li>
+<li><a href="#seg10">马德胜重翻碎尸案卷宗</a></li>
+<li><a href="#seg11">碎尸案发王阳水塔溺亡</a></li>
+<li><a href="#seg12">王响家破马德胜追凶未果</a></li>
+<li><a href="#seg13">马德胜重查傅卫军旧档</a></li>
+<li><a href="#seg14">王响走访旧人查卢文仲</a></li>
+<li><a href="#seg15">龚彪套牌车牵出旧人</a></li>
+<li><a href="#seg16">马德胜查访沈墨旧居</a></li>
+<li><a href="#seg17">王响忆王阳沈墨交往</a></li>
+<li><a href="#seg18">马德胜锁定沈墨假死线索</a></li>
+<li><a href="#seg19">马德胜开棺验骨查身份</a></li>
+<li><a href="#seg20">王响追到沈墨藏身线索</a></li>
+<li><a href="#seg21">王响找到沈墨当面追问</a></li>
+<li><a href="#seg22">沈墨讲出王阳救人溺亡</a></li>
+<li><a href="#seg23">沈墨决定自首了结旧案</a></li>
+<li><a href="#seg24">王响放下执念走向新生活</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">王响</span><span class="r">主角</span></div><div class="d">钢厂司机，执着追查儿子死因与旧案真相</div></div>
+<div class="person"><div><span class="n">龚彪</span><span class="r">关键配角</span></div><div class="d">王响老友，出租车司机，协助调查</div></div>
+<div class="person"><div><span class="n">马德胜</span><span class="r">关键配角</span></div><div class="d">退休刑警，曾负责碎尸案，重燃追凶执念</div></div>
+<div class="person"><div><span class="n">沈墨</span><span class="r">关键配角</span></div><div class="d">医学院学生，碎尸案核心人物，身世坎坷</div></div>
+<div class="person"><div><span class="n">王阳</span><span class="r">关键配角</span></div><div class="d">王响之子，与沈墨相恋，卷入案件身亡</div></div>
+<div class="person"><div><span class="n">傅卫军</span><span class="r">对手</span></div><div class="d">沈墨之弟，聋哑人，为护姐卷入罪案</div></div>
+<div class="person"><div><span class="n">李巧云</span><span class="r">关键配角</span></div><div class="d">钢厂女工，王响晚年伴侣，见证厂区变迁</div></div>
+<div class="person"><div><span class="n">卢文仲</span><span class="r">对手</span></div><div class="d">港商，与沈墨有纠葛，碎尸案诱因之一</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">旧案重启</span><span class="ds">2016年套牌车事故牵出碎尸案线索，王响与龚彪、马德胜重查旧案</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">钢厂往事</span><span class="ds">1997-1998年钢厂改制背景下，王阳结识沈墨，傅卫军卷入冲突</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">碎尸谜团</span><span class="ds">碎尸案发，王阳溺亡，沈墨失踪，王响家庭破碎，马德胜追凶未果</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">真相浮现</span><span class="ds">十八年后线索汇聚，沈墨现身，傅卫军顶罪，卢文仲旧事揭开</span></div>
+<div class="act"><span class="idx">05</span><span class="nm">漫长回响</span><span class="ds">王响得知儿子为救沈墨而死，沈墨自首，众人与过去和解</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·上</span>
+    <h3>龚彪套牌车撞人牵出旧影</h3>
+  </div>
+  <p>2016年，东北小城桦林。出租车司机龚彪的车上路营运时被交警拦查，发现车牌是套牌，且该套牌车此前撞人后逃逸。龚彪为撇清干系，拉上老友、钢厂下岗司机王响一同到交警队说明情况。王响在查看事故相关材料时，注意到肇事车辆与当年碎尸案的一些关联痕迹，心里起了疑。龚彪怕被扣车罚款，急着找车主追责，两人在车场和交警队之间来回奔走。王响则暗中记下线索，独自去旧厂区附近打听。王响的晚年生活也在这段里铺开：他与李巧云来往，家中还留着儿子王阳的遗物，十八年前的旧事始终压在他心头。</p>
+  <div class="events"><span class="ev">龚彪出租车查出套牌</span><span class="ev">套牌车撞人后逃逸</span><span class="ev">王响发现线索与旧案相关</span><span class="ev">王响独自去旧厂区打听</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·下</span>
+    <h3>王响追查套牌车遇马德胜</h3>
+  </div>
+  <p>王响顺着套牌车的线索继续查，找到车辆可能出现的区域蹲守，并与龚彪分头行动。龚彪心疼自己的车和生意，抱怨王响把简单的事越弄越复杂，两人发生争执，但最终还是搭伙。王响在追查中遇到退休刑警马德胜。马德胜当年主办过碎尸案，退休后生活散淡，起初不愿再提旧事，听到王响说起套牌车与旧案的牵连，态度有所松动。王响回到家中翻出与王阳有关的旧物，向李巧云提起儿子，情绪难以平复。套牌车一时没能找到，线索暂时中断，但王响认定这不是巧合，决定继续查下去。</p>
+  <div class="events"><span class="ev">王响蹲守套牌车未果</span><span class="ev">王响与龚彪争执后仍搭伙</span><span class="ev">马德胜被旧案线索触动</span><span class="ev">王响翻旧物提及王阳</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第2集·上</span>
+    <h3>王响龚彪查车锁定可疑人</h3>
+  </div>
+  <p>王响和龚彪根据套牌车出现的规律继续排查，在车辆活动区域走访修车铺和司机，逐步缩小范围。龚彪一边跑出租一边帮忙，因分心耽误生意，与王响互相埋怨。两人查到套牌车可能与某个人有关，追过去时对方察觉后离开，没能当面拦住。王响把掌握的情况告诉马德胜，马德胜凭着当年办案的经验，指出这类套牌手法和旧案中某些人的做事方式相似，提醒王响不要打草惊蛇。王响嘴上应下，实际仍按自己的方式盯人。李巧云劝王响别再折腾，王响没有听从，查案的心思越来越重。</p>
+  <div class="events"><span class="ev">两人走访修车铺缩小范围</span><span class="ev">追查可疑人时对方脱身</span><span class="ev">马德胜分析套牌手法</span><span class="ev">李巧云劝阻王响无效</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·下</span>
+    <h3>马德胜重提碎尸案旧卷</h3>
+  </div>
+  <p>马德胜被王响的执着带动，回家翻出自己留存的旧案材料，重新梳理当年碎尸案的脉络。他找到王响，把当年案件的关键节点讲给王响听，两人对照眼下套牌车的线索，发现时间与人物上有对得上的地方。龚彪被拉进来一起商量，三人形成松散的查案组合。王响提出要找到套牌车的实际使用人，马德胜主张先摸清对方底细。行动中龚彪因紧张出了岔子，险些暴露，被王响和马德胜责备。线索虽有推进，但关键人物仍未露面，王响意识到这次追查会比预想的更麻烦。</p>
+  <div class="events"><span class="ev">马德胜翻出旧案材料</span><span class="ev">三人对照新旧线索</span><span class="ev">龚彪行动失误险暴露</span><span class="ev">关键人物仍未露面</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第3集·上</span>
+    <h3>王响锁定套牌车主身份</h3>
+  </div>
+  <p>王响和马德胜、龚彪继续追查，通过车辆维修记录和熟人打听，逐步锁定套牌车的实际使用人身份。王响上门找人，对方不在，只见到与其有关的人，问话时对方闪烁其词，反而印证了王响的判断。龚彪主张直接报警，马德胜认为证据不足，贸然报警会打草惊蛇，三人意见不合。王响坚持自己先盯住这个人，摸清其活动规律。盯守过程中王响发现对方与旧厂区一带的人有来往，这让他更加确信套牌车背后连着十八年前的旧事。李巧云见王响整日不着家，两人之间生出隔阂。</p>
+  <div class="events"><span class="ev">锁定套牌车使用人身份</span><span class="ev">上门找人对方避而不见</span><span class="ev">三人对是否报警起分歧</span><span class="ev">王响盯守发现旧厂区往来</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第3集·下</span>
+    <h3>套牌车现身旧厂区线索汇聚</h3>
+  </div>
+  <p>王响在旧厂区一带蹲守，套牌车再次出现，他设法靠近查看，确认了车辆和驾驶人的部分特征，但因对方警觉，没能当场拦下。王响把情况告诉马德胜，马德胜判断此人很可能与当年碎尸案中的关系人有关联，决定重新介入。龚彪在帮忙过程中与王响发生激烈争吵，一度退出，后又因放心不下回来。马德胜凭旧案经验提出下一步查证方向，三人分头行动。王响回家整理线索时，再次面对王阳的遗物，追查旧案的决心更加坚定。套牌车这条线至此与十八年前的碎尸案正式接上，但真相仍藏在水面之下。</p>
+  <div class="events"><span class="ev">套牌车再现旧厂区</span><span class="ev">王响确认驾驶人体貌特征</span><span class="ev">马德胜判断与旧案关系人有关</span><span class="ev">三人分头查证线索接上旧案</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第4集·上</span>
+    <h3>王阳在医学院结识沈墨</h3>
+  </div>
+  <p>王响从旧厂区回来后，把套牌车驾驶人的体貌特征告诉马德胜，马德胜对照旧案材料，越发觉得此人与当年碎尸案脱不了干系，两人决定分头再查。另一边，剧情回到1997年前后的钢厂岁月：王阳高考落榜，被父亲王响安排进厂，心里不服气。一次偶然，王阳在医学院附近结识了沈墨，沈墨身世坎坷、性情沉静，在娱乐场所弹琴打工，王阳对她一见倾心，主动接近、帮忙。沈墨起初保持距离，王阳却越靠越近，两人的关系由此开始。王响对儿子不务正业、整日往外跑十分不满，父子间生出摩擦。</p>
+  <div class="events"><span class="ev">王响马德胜对照旧案材料</span><span class="ev">王阳落榜被安排进厂</span><span class="ev">王阳在医学院结识沈墨</span><span class="ev">王响不满儿子整日外出</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第4集·下</span>
+    <h3>傅卫军为护姐动手伤人</h3>
+  </div>
+  <p>王阳与沈墨来往渐多，沈墨的弟弟傅卫军是聋哑人，靠替人看场子、打零工谋生，对姐姐极为维护。沈墨在娱乐场所打工时遭到纠缠和欺辱，傅卫军得知后赶到，与对方发生激烈冲突，动手将人打伤，事态闹大。王阳被卷进这场风波，目睹傅卫军护姐的狠劲，也第一次意识到沈墨姐弟背后的处境远比表面复杂。王响从旁听说儿子与一个医学院姑娘走得很近，又牵扯进打架的事，更加恼火，父子矛盾加深。傅卫军伤人一事在厂区一带传开，为姐弟俩此后被卷入更大的麻烦埋下引线。</p>
+  <div class="events"><span class="ev">沈墨打工遭人纠缠</span><span class="ev">傅卫军赶到动手伤人</span><span class="ev">王阳卷入冲突现场</span><span class="ev">傅卫军伤人一事传开</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第5集·上</span>
+    <h3>王响查套牌车撞见旧人</h3>
+  </div>
+  <p>2016年这条线上，王响与龚彪继续追套牌车，龚彪开着出租车在城里绕，王响蹲点守候，终于再次撞见那辆套牌车和驾车的人，追堵中对方逃脱，但王响记住了更多细节，并捡到或查到与车辆相关的物件。马德胜把新线索与当年碎尸案的卷宗逐条比对，指出时间、地点上的吻合之处，三人越发确信这不是巧合。追查过程中，王响接触到与套牌车有关联的旧厂区熟人，问话时对方回避躲闪，反而让王响认定其中有隐情。龚彪一边帮忙一边抱怨，三人磕磕绊绊地往下查。</p>
+  <div class="events"><span class="ev">王响龚彪再遇套牌车</span><span class="ev">对方逃脱王响记下细节</span><span class="ev">马德胜比对旧案卷宗</span><span class="ev">旧熟人问话时回避</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第5集·下</span>
+    <h3>马德胜重翻碎尸案卷宗</h3>
+  </div>
+  <p>马德胜把自己留存的碎尸案旧材料摊开，重新梳理当年发现尸块的时间、地点和死者身份认定的疑点，越看越觉得当年结案草率。他拉着王响回忆案发前后厂区里的人和事，王响想起儿子王阳当年与沈墨来往、以及案发后王阳的反常举动，两人把这些碎片和眼下套牌车的线索拼在一起。龚彪从出租车司机的路子打听套牌车驾驶人的落脚处，得到一些模糊指向。三人约定继续盯住这条线。王响在追查中情绪起伏，旧事重提让他难以平静，但也更坚定要查到底。</p>
+  <div class="events"><span class="ev">马德胜重梳碎尸案疑点</span><span class="ev">王响回忆王阳当年反常</span><span class="ev">龚彪打听套牌车落脚处</span><span class="ev">三人约定继续追查</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第6集·上</span>
+    <h3>碎尸案发王阳水塔溺亡</h3>
+  </div>
+  <p>剧情回到1998年前后：厂区一带发现尸块，碎尸案轰动小城，马德胜作为刑警负责侦办。案发前后，王阳与沈墨的关系正处在关键处，沈墨被卷入与港商卢文仲的纠葛，傅卫军为护姐再度出手，事态失控。王阳在钢厂水塔一带出事，溺水身亡，王响赶到时儿子已经没了。沈墨随后失踪，去向不明。王响一家由此破碎，妻子承受不住打击，家庭彻底垮掉。马德胜全力追凶，线索却断在沈墨失踪这一环上，案件久攻不破，成为他心里的结。</p>
+  <div class="events"><span class="ev">厂区发现尸块碎尸案发</span><span class="ev">沈墨卷入卢文仲纠葛</span><span class="ev">王阳在钢厂水塔溺亡</span><span class="ev">沈墨失踪案件搁浅</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第6集·下</span>
+    <h3>王响家破马德胜追凶未果</h3>
+  </div>
+  <p>王阳死后，王响的生活急转直下，妻子精神崩溃，家中光景一日不如一日，王响把儿子的死归到那桩案子上，从此放不下。马德胜围绕沈墨、傅卫军和卢文仲反复排查，傅卫军被卷入案中，但关键环节始终对不上，碎尸案的真凶与沈墨的下落都成了悬案。钢厂改制的大背景下，厂区人心浮动，李巧云等女工各自谋出路，王响在厂里和家里两头煎熬。马德胜因案子久无进展承受压力，最终没能查到底。时间跳到多年后，这些未解的结仍压在王响和马德胜心里，为十八年后的重查留下伏笔。</p>
+  <div class="events"><span class="ev">王响妻子崩溃家道败落</span><span class="ev">马德胜排查傅卫军卢文仲</span><span class="ev">碎尸案成悬案未破</span><span class="ev">钢厂改制众人各谋出路</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第7集·上</span>
+    <h3>马德胜重查傅卫军旧档</h3>
+  </div>
+  <p>马德胜把傅卫军的旧案卷宗重新翻出来，对照碎尸案的时间线逐条核对。他发现当年傅卫军认罪的口供里，关于抛尸地点和时间的说法前后矛盾，且与现场勘查记录对不上。马德胜找到王响，两人一起回忆傅卫军在厂区周边的活动轨迹，王响想起傅卫军曾在水塔附近出现过。马德胜判断傅卫军极可能是替人顶罪，真正动手的人另有其人。他决定从傅卫军的社会关系入手，重新排查当年与沈墨、卢文仲有往来的人员，王响则开始留意厂区里那些被忽略的旧人旧事。</p>
+  <div class="events"><span class="ev">马德胜重翻傅卫军口供发现矛盾</span><span class="ev">王响回忆傅卫军曾在水塔附近出现</span><span class="ev">马德胜判断傅卫军替人顶罪</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第7集·下</span>
+    <h3>王响走访旧人查卢文仲</h3>
+  </div>
+  <p>王响按马德胜的指点，去找当年和卢文仲打过交道的厂区老人打听。有人提到卢文仲在案发前曾频繁出入厂区附近，和沈墨有过接触，还因一笔钱款与傅卫军起过冲突。王响把这些零碎说法记下来，转告马德胜。马德胜据此推断卢文仲与沈墨的纠葛可能是碎尸案的导火索，而傅卫军动手是为了护住姐姐。两人决定顺着卢文仲这条线继续挖，但当年经手卢文仲事务的人大多已离开小城，线索断断续续，查证进展缓慢。</p>
+  <div class="events"><span class="ev">王响走访厂区老人打听卢文仲</span><span class="ev">得知卢文仲与沈墨有接触</span><span class="ev">马德胜推断傅卫军为护姐动手</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第8集·上</span>
+    <h3>龚彪套牌车牵出旧人</h3>
+  </div>
+  <p>龚彪开出租车时又碰上套牌车的事，追查过程中意外发现套牌车背后的人与当年厂区旧人有关联。他把情况告诉王响，王响认出其中某个名字曾在碎尸案卷宗里出现过。两人顺着这条线找到一处旧住址，虽然没有直接见到人，但打听到此人当年与傅卫军有过往来。马德胜得知后，把这条新线索和之前查到的卢文仲关系网对照，发现几条线在同一个时间点上交汇，旧案的重查有了新的方向。</p>
+  <div class="events"><span class="ev">龚彪追套牌车发现旧人关联</span><span class="ev">王响认出卷宗里出现过的名字</span><span class="ev">马德胜对照线索发现交汇点</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第8集·下</span>
+    <h3>马德胜查访沈墨旧居</h3>
+  </div>
+  <p>马德胜独自去沈墨当年住过的地方走访，从老邻居口中得知沈墨身世坎坷，和傅卫军相依为命，案发前曾有一段时间情绪异常。邻居还提到卢文仲曾来纠缠过沈墨，傅卫军为此和人动过手。马德胜把这些说法与卷宗里的伤情记录比对，越发确信傅卫军顶罪、沈墨才是碎尸案的核心人物。他回来和王响商量，决定不再只盯着傅卫军，而是把沈墨的下落作为查证重点，王响则想起王阳生前和沈墨来往的种种细节。</p>
+  <div class="events"><span class="ev">马德胜走访沈墨旧居问邻居</span><span class="ev">邻居证实卢文仲曾纠缠沈墨</span><span class="ev">马德胜决定以沈墨下落为查证重点</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第9集·上</span>
+    <h3>王响忆王阳沈墨交往</h3>
+  </div>
+  <p>王响翻出王阳留下的旧物，回想王阳和沈墨交往时的情形。他记起王阳曾为沈墨的事心神不宁，还偷偷拿过家里的钱。王响把这些细节讲给马德胜，马德胜判断王阳很可能知道沈墨和卢文仲之间的纠葛，甚至参与过什么。两人据此重新梳理王阳死前那几天的行踪，发现王阳最后出现的地点和水塔一带对得上。王响心里难受，但更坚定了要把真相查清楚的念头。</p>
+  <div class="events"><span class="ev">王响翻旧物回忆王阳沈墨交往</span><span class="ev">王响记起王阳曾偷拿家里钱</span><span class="ev">马德胜判断王阳知情并参与</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第9集·下</span>
+    <h3>马德胜锁定沈墨假死线索</h3>
+  </div>
+  <p>马德胜把沈墨失踪前后的记录重新过了一遍，发现当年认定沈墨死亡的材料并不扎实，缺少直接的身份确认。他联想到傅卫军认罪时对沈墨下落的说法含糊，怀疑沈墨并未真正死去，而是借碎尸案脱身。马德胜把这个推断告诉王响，王响起初难以接受，但对照王阳死前反常的举动，也觉得有几分道理。两人决定沿着沈墨可能藏身的方向继续查，旧案的重心从傅卫军转向了沈墨本人。</p>
+  <div class="events"><span class="ev">马德胜发现沈墨死亡认定材料不实</span><span class="ev">马德胜怀疑沈墨借案假死脱身</span><span class="ev">王响对照王阳反常举动接受推断</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">第10集·上</span>
+    <h3>马德胜开棺验骨查身份</h3>
+  </div>
+  <p>马德胜把沈墨失踪前后的旧记录重新梳理，认定当年认定沈墨死亡的结论站不住脚，缺少可靠的身份确认。他向王响和龚彪说明自己的判断：傅卫军认罪时对姐姐下落的说法含糊，被认定的那具尸体未必就是沈墨。三人决定从最硬的证据入手，设法查证当年那具尸体到底是谁。马德胜凭借退休前的老关系打听当年办案的存档和尸检情况，龚彪则开着出租车跟着跑腿。调查推进得并不顺利，年代久远，材料残缺，知情人或调离或不愿多谈，几次碰壁。但马德胜越查越确信自己的怀疑，沈墨很可能活着，碎尸案另有隐情。</p>
+  <div class="events"><span class="ev">马德胜断定沈墨死亡结论不牢</span><span class="ev">三人商定查证当年尸体身份</span><span class="ev">马德胜托旧关系打听存档</span><span class="ev">调查多次碰壁但怀疑加深</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">第10集·下</span>
+    <h3>王响追到沈墨藏身线索</h3>
+  </div>
+  <p>王响沿着马德胜提供的方向继续追查，从旧日关系人处打听到沈墨这些年可能以另一个身份在外地生活，并未真正死去。这一消息让王响既震动又难以平静，他多年来认定的儿子之死与沈墨失踪的因果被重新搅动。龚彪陪他按线索一路寻找，途中几次扑空，也遇到知情人含糊其辞、不愿牵扯旧事。王响不肯放手，把王阳当年留下的物件和沈墨的旧事反复对照，逐渐拼出沈墨改名换姓、低调生活的轮廓。马德胜提醒他，找到人之后要问清王阳究竟是怎么死的，不能只凭猜测。三人的追查由此从查旧案转向找人。</p>
+  <div class="events"><span class="ev">王响打听到沈墨可能活着</span><span class="ev">龚彪陪同按线索寻人</span><span class="ev">几次扑空知情人回避</span><span class="ev">马德胜提醒问清王阳死因</span></div>
+</section>
+
+<section class="seg" id="seg21">
+  <div class="head">
+    <span class="no">第 21 段</span>
+    <span class="tm">第11集·上</span>
+    <h3>王响找到沈墨当面追问</h3>
+  </div>
+  <p>王响循着线索找到沈墨如今的落脚处，见到以另一身份生活的沈墨。多年积压的疑问当面摊开，王响追问王阳当年到底是怎么死的、沈墨为何失踪、为何让所有人以为她已不在人世。沈墨起初回避，情绪紧绷，面对王响的逼问难以再沉默。王响把王阳留下的旧物摆出来，讲自己这些年家破人亡的处境，逼她给出交代。沈墨在压力下松口，承认自己当年并未死去，并开始讲述案发前后的经过。王响听到与儿子有关的实情，情绪失控，但仍强撑着要她把话说完。</p>
+  <div class="events"><span class="ev">王响找到沈墨当面质问</span><span class="ev">沈墨承认当年假死</span><span class="ev">王响出示王阳旧物逼问</span><span class="ev">沈墨开始讲述案发经过</span></div>
+</section>
+
+<section class="seg" id="seg22">
+  <div class="head">
+    <span class="no">第 22 段</span>
+    <span class="tm">第11集·下</span>
+    <h3>沈墨讲出王阳救人溺亡</h3>
+  </div>
+  <p>沈墨向王响讲明当年的经过：碎尸案发后她处境凶险，王阳为救她卷入其中，最终在钢厂水塔一带溺水身亡，并非王响多年认定的那种死法。沈墨承认自己此后隐姓埋名，让外界以为她已死，傅卫军则替她承担了罪责。王响得知儿子是为救沈墨而死，多年的恨意与执念一时无处安放，既痛又难以接受。马德胜和龚彪在场，把沈墨的说法与旧案材料相互印证，确认其中关键环节能对上。王响没有当场发作，独自消化这个迟到了十八年的答案。</p>
+  <div class="events"><span class="ev">沈墨讲明王阳为救她而死</span><span class="ev">王阳死于水塔一带溺水</span><span class="ev">傅卫军替姐姐顶罪</span><span class="ev">王响得知真相难以接受</span></div>
+</section>
+
+<section class="seg" id="seg23">
+  <div class="head">
+    <span class="no">第 23 段</span>
+    <span class="tm">第12集·上</span>
+    <h3>沈墨决定自首了结旧案</h3>
+  </div>
+  <p>真相说开之后，沈墨不再回避自己的责任。她与王响、马德胜之间把碎尸案和卢文仲旧事的来龙去脉理清，承认这些年躲藏的生活已经走到尽头。马德胜作为当年办案的刑警，要求她把该交代的都交代清楚，给旧案一个正式的了结。沈墨做出自首的决定，向警方投案，把当年的事和自己的身份一并说明。傅卫军此前替她承担的罪责也因此被重新审视。王响看着这个与自己家破人亡纠缠了半辈子的人走进该去的地方，心里那口憋了十八年的气开始松动。</p>
+  <div class="events"><span class="ev">沈墨与众人理清旧案经过</span><span class="ev">马德胜要求正式了结旧案</span><span class="ev">沈墨向警方投案自首</span><span class="ev">傅卫军顶罪之事被重新审视</span></div>
+</section>
+
+<section class="seg" id="seg24">
+  <div class="head">
+    <span class="no">第 24 段</span>
+    <span class="tm">第12集·下</span>
+    <h3>王响放下执念走向新生活</h3>
+  </div>
+  <p>沈墨自首后，旧案有了交代，王响多年追查的答案落定：王阳是为救沈墨而死，并非他多年来想象的那样。王响不再把日子耗在追凶和自责上，与李巧云的关系也往前走了一步，两人开始搭伙过新的生活。龚彪、马德胜各自回到自己的日子，钢厂旧厂区的往事随人散去。王响走过熟悉的街道和厂区，把王阳的事在心里放下。漫长的季节过去，活着的人继续往前，剧集在众人各自安顿的日常中收束。</p>
+  <div class="events"><span class="ev">旧案随沈墨自首有了交代</span><span class="ev">王响与李巧云开始新生活</span><span class="ev">龚彪马德胜回归日常</span><span class="ev">王响放下对王阳之死的执念</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集</td><td>龚彪发现套牌车事故，王响认出与旧案相关</td></tr><tr><td>第4集</td><td>王阳与沈墨相恋，傅卫军为保护姐姐伤人</td></tr><tr><td>第6集</td><td>碎尸案发，王阳在钢厂水塔溺亡，沈墨失踪</td></tr><tr><td>第9集</td><td>马德胜追查发现傅卫军顶罪，沈墨假死</td></tr><tr><td>第11集</td><td>王响找到沈墨，得知王阳为救沈墨而死</td></tr><tr><td>第12集</td><td>沈墨自首，王响放下执念，众人走向新生活</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">命运与执念</span><span class="theme">时代变迁</span><span class="theme">家庭伤痛</span><span class="theme">真相与救赎</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">沈墨自首，王响得知儿子死因真相后释然，与李巧云开始新生活。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-10-26 07:24 · 模型 deepseek-chat · 共 24 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>辛德勒的名单 · 分段故事梗概 · 2026-11-20</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>辛德勒的名单<span class="year">1993</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-20</span><span class="chip">电影</span><span class="chip">美国</span><span class="chip">历史/战争</span><span class="chip">1993</span><span class="chip">电影片长约 195 分钟，按每 10 分钟一段切分，共 20 段</span><span class="chip">二战期间波兰</span></div>
+    <div class="logline">德国商人辛德勒在二战期间从利用犹太劳工牟利，转变为倾尽所有保护犹太人免遭纳粹屠杀。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 20 段</h2>
+      <ol><li><a href="#seg1">辛德勒抵达克拉科夫</a></li>
+<li><a href="#seg2">犹太人被迫迁入隔离区</a></li>
+<li><a href="#seg3">纳粹清除犹太隔离区</a></li>
+<li><a href="#seg4">辛德勒工厂运转正常</a></li>
+<li><a href="#seg5">辛德勒雇佣犹太工人</a></li>
+<li><a href="#seg6">隔离区清除行动</a></li>
+<li><a href="#seg7">普拉绍夫集中营建立</a></li>
+<li><a href="#seg8">辛德勒目睹大屠杀</a></li>
+<li><a href="#seg9">辛德勒震惊转变</a></li>
+<li><a href="#seg10">工厂扩大规模</a></li>
+<li><a href="#seg11">辛德勒与戈特周旋</a></li>
+<li><a href="#seg12">计划拯救行动</a></li>
+<li><a href="#seg13">辛德勒筹措资金</a></li>
+<li><a href="#seg14">名单交易谈判</a></li>
+<li><a href="#seg15">名单交易达成</a></li>
+<li><a href="#seg16">名单签署完成</a></li>
+<li><a href="#seg17">名单交易完成</a></li>
+<li><a href="#seg18">转移前夕准备</a></li>
+<li><a href="#seg19">工人名单转移</a></li>
+<li><a href="#seg20">战争结束与纪念</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">奥斯卡·辛德勒</span><span class="r">主角</span></div><div class="d">德国商人，从逐利到拯救犹太人的转变者</div></div>
+<div class="person"><div><span class="n">阿蒙·戈特</span><span class="r">对手</span></div><div class="d">纳粹集中营指挥官，残暴冷酷</div></div>
+<div class="person"><div><span class="n">伊萨克·斯特恩</span><span class="r">关键配角</span></div><div class="d">犹太会计师，协助辛德勒拯救同胞</div></div>
+<div class="person"><div><span class="n">海伦·赫希</span><span class="r">关键配角</span></div><div class="d">辛德勒犹太女仆，见证其转变</div></div>
+<div class="person"><div><span class="n">阿蒙·戈特的犹太女仆</span><span class="r">关键配角</span></div><div class="d">被迫与戈特保持关系的犹太女性</div></div>
+<div class="person"><div><span class="n">鲁道夫·赫斯</span><span class="r">关键配角</span></div><div class="d">纳粹军官，辛德勒的生意伙伴</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">战争商机</span><span class="ds">辛德勒利用战争建立工厂，雇佣廉价犹太劳工</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">目睹暴行</span><span class="ds">辛德勒目睹纳粹对犹太人的残酷迫害</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">拯救行动</span><span class="ds">辛德勒倾家荡产保护犹太工人，建立名单</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">战争结束</span><span class="ds">辛德勒被迫离开，犹太工人获救</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>辛德勒抵达克拉科夫</h3>
+  </div>
+  <p>1939年9月，德国商人奥斯卡·辛德勒抵达被德军占领的波兰克拉科夫。他身着精致西装，带着大量现金和礼物，准备在战争期间寻找商机。辛德勒住进豪华酒店，与当地纳粹军官鲁道夫·赫斯会面，两人商议合作建立一家搪瓷厂。辛德勒展示了自己的手腕表和名酒，表现出对纳粹政权的支持。他雇佣犹太会计师伊萨克·斯特恩帮助管理工厂，利用犹太廉价劳工降低成本。斯特恩虽然对辛德勒的动机有所怀疑，但仍协助他完成了工厂注册手续。</p>
+  <div class="events"><span class="ev">辛德勒抵达克拉科夫</span><span class="ev">与纳粹军官会面</span><span class="ev">雇佣犹太会计师</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>犹太人被迫迁入隔离区</h3>
+  </div>
+  <p>德军强迫克拉科夫的所有犹太人迁入指定的犹太隔离区。犹太家庭被迫离开家园，只能携带少量行李，在街头被士兵驱赶。辛德勒站在阳台上，冷漠地观察着这一幕。隔离区内条件恶劣，人口拥挤，疾病蔓延。辛德勒的搪瓷厂正式开工，他从隔离区招募犹太工人，支付极低工资。斯特恩为辛德勒筛选工人，优先考虑有专业技能的犹太人，以帮助他们获得工作机会。辛德勒与纳粹官员保持着良好关系，通过贿赂和社交手段确保自己的生意顺利进行。</p>
+  <div class="events"><span class="ev">犹太人迁入隔离区</span><span class="ev">辛德勒工厂开工</span><span class="ev">斯特恩筛选工人</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:29</span>
+    <h3>纳粹清除犹太隔离区</h3>
+  </div>
+  <p>纳粹开始系统性地清除克拉科夫犹太隔离区。党卫军士兵闯入犹太家庭，将居民赶到街上，许多人被当场处决。辛德勒骑马经过隔离区，目睹了这一暴行，但并未干预。他的工厂继续运营，成为许多犹太人的避难所。斯特恩暗中帮助更多犹太人获得工作，甚至伪造证件。辛德勒与纳粹集中营指挥官阿蒙·戈特会面，讨论工厂的劳工问题。戈特对辛德勒表现出轻蔑，但出于利益考虑，允许他继续使用犹太工人。</p>
+  <div class="events"><span class="ev">纳粹清除隔离区</span><span class="ev">辛德勒目睹暴行</span><span class="ev">与戈特会面</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:29–00:39</span>
+    <h3>辛德勒工厂运转正常</h3>
+  </div>
+  <p>辛德勒的搪瓷厂在战争期间运转良好，生产出高质量的金属制品供应德军。辛德勒过着奢侈的生活，举办奢华宴会款纳粹军官。海伦·赫希成为辛德勒的犹太女仆，负责照料他的日常生活。辛德勒对海伦表现出一定的尊重，与其他纳粹军官对待犹太人的态度形成鲜明对比。工厂内的犹太工人虽然处境艰难，但相比其他被送往集中营的犹太人，他们相对安全。斯特恩在工厂中扮演着重要角色，帮助辛德勒管理财务，同时暗中保护工人。</p>
+  <div class="events"><span class="ev">工厂正常运转</span><span class="ev">辛德勒奢华生活</span><span class="ev">海伦成为女仆</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:39–00:49</span>
+    <h3>辛德勒雇佣犹太工人</h3>
+  </div>
+  <p>辛德勒在会计师伊萨克·斯特恩的建议下，决定雇佣犹太工人到他的搪瓷厂工作。这些犹太工人是以极低工资被雇佣的，但至少暂时避开了被送入集中营的命运。斯特恩负责筛选有技能的犹太工人，包括工程师和熟练工人。辛德勒的工厂因此获得了廉价劳动力，生产效率大幅提高。纳粹军官鲁道夫·赫斯对辛德勒的生意表示赞赏，两人建立了商业合作关系。海伦·赫希作为辛德勒的犹太女仆，开始注意到辛德勒对工人的态度与其他纳粹分子有所不同。</p>
+  <div class="events"><span class="ev">雇佣犹太工人</span><span class="ev">斯特恩协助筛选</span><span class="ev">与赫斯合作</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:49–00:58</span>
+    <h3>隔离区清除行动</h3>
+  </div>
+  <p>纳粹对克拉科夫犹太隔离区进行大规模清除行动。党卫军士兵闯入犹太家庭，将居民驱赶到广场上，许多人被当场处决。辛德勒骑马经过隔离区，亲眼目睹了这一暴行，包括一名小女孩在混乱中躲藏的场景。尽管内心受到震动，辛德勒并未立即采取行动干预。他的工厂继续运转，成为许多犹太人的避难所。纳粹开始将犹太人送往普拉绍夫集中营，辛德勒的犹太工人暂时获得了豁免。这一系列暴行开始让辛德勒对纳粹的种族政策产生质疑。</p>
+  <div class="events"><span class="ev">隔离区清除</span><span class="ev">目睹屠杀</span><span class="ev">工人获豁免</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">00:58–01:08</span>
+    <h3>普拉绍夫集中营建立</h3>
+  </div>
+  <p>纳粹在克拉科夫附近建立了普拉绍夫集中营，由残暴的指挥官阿蒙·戈特管理。戈特随意处决囚犯，包括那些被认为没有劳动能力的人。辛德勒被迫与戈特保持商业关系，经常参加他举办的残酷聚会。在一次宴会上，戈特在阳台上随意射杀下面的囚犯，辛德勒亲眼目睹了这一暴行。辛德勒的工厂被指定为集中营的附属企业，他不得不与戈特谈判以保护他的工人。斯特恩继续帮助辛德勒筛选工人，确保有技能的犹太人能够被雇佣。海伦·赫希在辛德勒家中工作，开始感受到辛德勒性格中的矛盾之处。</p>
+  <div class="events"><span class="ev">集中营建立</span><span class="ev">戈特残暴统治</span><span class="ev">辛德勒谈判</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:08–01:18</span>
+    <h3>辛德勒目睹大屠杀</h3>
+  </div>
+  <p>辛德勒被邀请观看纳粹对犹太人的大规模屠杀行动。在克拉科夫附近的一个山谷中，纳粹士兵系统性地处决了数千名犹太人。辛德勒站在山坡上，通过望远镜目睹了这一令人震惊的暴行，包括尸体被推入 mass grave 的场景。这次经历彻底改变了辛德勒对战争和纳粹的看法。回到工厂后，辛德勒开始更加积极地保护他的犹太工人，甚至冒险从集中营中救出即将被处决的人。斯特恩成为辛德勒最信任的助手，帮助他处理工厂的日常事务并保护工人。海伦·赫希注意到辛德勒行为的变化，开始对他产生复杂的情感。</p>
+  <div class="events"><span class="ev">目睹大屠杀</span><span class="ev">辛德勒转变</span><span class="ev">冒险救人</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:18–01:28</span>
+    <h3>辛德勒震惊转变</h3>
+  </div>
+  <p>目睹大屠杀后，辛德勒内心受到极大震撼。他回到自己的搪瓷厂，找来犹太会计师斯特恩，要求他将所有工人名单转移至工厂安全区。辛德勒开始意识到犹太人的处境，决定利用自己的工厂保护更多犹太人。他向斯特恩表达了对纳粹暴行的厌恶，并暗示自己愿意冒险拯救犹太工人。辛德勒开始改变工厂性质，从生产搪瓷转为生产军用品，以获得纳粹的继续支持。他秘密地与斯特商讨如何扩大工厂规模，以容纳更多犹太工人。</p>
+  <div class="events"><span class="ev">辛德勒震惊</span><span class="ev">转变态度</span><span class="ev">寻求保护</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:28–01:38</span>
+    <h3>工厂扩大规模</h3>
+  </div>
+  <p>辛德勒决定扩大工厂规模以保护更多犹太人。他找到纳粹军官赫斯，贿赂他获得许可，将普拉绍夫集中营中的犹太工人转移到自己的工厂工作。辛德勒亲自挑选工人，特别关注那些有专业技能的犹太人。他甚至贿赂戈特，将原本应被处决的犹太人纳入工厂名单。工厂环境虽然艰苦，但相比集中营已是天堂。辛德勒开始投入大量资金改造工厂，增加生产线。斯特恩负责管理工厂的日常运作，确保犹太工人能够安全工作。辛德勒的商业伙伴开始对他的行为感到困惑和不满。</p>
+  <div class="events"><span class="ev">扩大工厂</span><span class="ev">贿赂军官</span><span class="ev">转移工人</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:38–01:47</span>
+    <h3>辛德勒与戈特周旋</h3>
+  </div>
+  <p>辛德勒频繁与普拉绍夫集中营指挥官戈特会面，周旋于纳粹高官之间。他利用自己的财富和社交技巧，讨好戈特，同时暗中保护犹太工人。辛德勒经常参加戈特举办的宴会，目睹戈特的残暴行为，包括随意处决囚犯。在一次宴会上，戈特的女仆海伦被戈特枪击受伤，辛德勒暗中安排她得到救治。辛德勒利用自己在纳粹中的关系网，不断为犹太工人争取更好的待遇。他开始意识到单纯保护工厂工人还不够，必须采取更大规模的行动。</p>
+  <div class="events"><span class="ev">周旋戈特</span><span class="ev">目睹暴行</span><span class="ev">救助女仆</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:47–01:57</span>
+    <h3>计划拯救行动</h3>
+  </div>
+  <p>随着战争局势变化，辛德勒开始策划更大规模的拯救行动。他得知纳粹计划将剩余犹太人转移到奥斯威辛集中营，决定倾尽所有财产买下这些犹太工人。辛德勒找到斯特恩，商讨制定一份完整的名单，包含所有需要拯救的犹太人姓名和技能。他变卖自己的财产，包括珠宝和豪车，筹集资金。辛德勒亲自前往柏林，贿赂纳粹高层，获得批准建立新的集中营，实际上是他的工厂分部。他开始秘密地转移犹太工人，准备在战争结束时保护他们。斯特恩全力协助，确保名单准确无误。</p>
+  <div class="events"><span class="ev">制定名单</span><span class="ev">变卖财产</span><span class="ev">贿赂高层</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">01:57–02:07</span>
+    <h3>辛德勒筹措资金</h3>
+  </div>
+  <p>辛德勒意识到需要大量资金来买下犹太工人。他与斯特恩一起计算所需金额，发现需要巨额财富。辛德勒变卖自己的珠宝、豪车等所有贵重物品。他前往银行提取存款，甚至向自己的犹太工人借钱。辛德勒向斯特坦白自己所有的财产都投入到拯救行动中，工厂的利润已经无法支撑。斯特恩被辛德勒的决心感动，开始协助他制定购买名单的具体方案。辛德勒四处寻找愿意接受贿赂的纳粹官员，为交易做准备。</p>
+  <div class="events"><span class="ev">变卖财产</span><span class="ev">筹措资金</span><span class="ev">制定计划</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:07–02:16</span>
+    <h3>名单交易谈判</h3>
+  </div>
+  <p>辛德勒直接找到戈特，提出购买犹太工人的要求。戈特起初拒绝，认为这些工人是他的财产。辛德勒不断提高价格，戈特最终同意以每个工人特定价格出售。两人讨价还价，辛德勒为关键工人支付更高价格。戈特要求现金交易，辛德勒不得不变卖更多资产。交易过程中，辛德勒特别强调名单上工人的技能，证明他们能为德国战争工业做贡献。戈特签署文件，将1100多名犹太工人转移到辛德勒的名下。</p>
+  <div class="events"><span class="ev">谈判价格</span><span class="ev">签署文件</span><span class="ev">转移工人</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">02:16–02:26</span>
+    <h3>名单交易达成</h3>
+  </div>
+  <p>辛德勒与戈特在集中营办公室进行交易谈判。戈特起初态度强硬，坚持每个工人价格不低于德国马克。辛德勒不断加价，提出给戈特一辆豪华轿车作为额外好处。戈特犹豫后同意，要求立即支付现金。辛德勒让斯特恩准备资金，两人当场签署文件。戈特在名单上圈定名字，每划掉一个名字就要求增加一笔费用。辛德勒被迫接受所有条件，最终确认名单上有1100名犹太工人。交易完成后，戈特提醒辛德勒这些工人必须为他的军工厂工作，否则名单无效。辛德勒点头答应，内心开始为即将到来的大规模拯救行动做准备。</p>
+  <div class="events"><span class="ev">交易谈判</span><span class="ev">价格加码</span><span class="ev">签署文件</span><span class="ev">确认名单</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">02:26–02:36</span>
+    <h3>名单签署完成</h3>
+  </div>
+  <p>辛德勒与戈特在集中营办公室完成交易，戈特在文件上签字确认将1100名犹太工人出售给辛德勒。辛德勒仔细核对名单，确保每个名字都准确无误。他意识到这是拯救这些犹太人的最后机会，紧张地确认每个名字。戈特在一旁冷漠地观察，不时提出额外要求。辛德勒一一满足，甚至答应给戈特一辆豪华轿车作为额外好处。交易完成后，辛德勒支付了巨额资金，戈特收钱后态度有所缓和，但仍然保持冷漠。辛德勒拿到名单后立即交给斯特恩，让他开始准备转移工作。两人意识到时间紧迫，必须尽快行动，以免纳粹改变主意。</p>
+  <div class="events"><span class="ev">名单签署</span><span class="ev">核对名字</span><span class="ev">支付资金</span><span class="ev">准备转移</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">02:36–02:46</span>
+    <h3>名单交易完成</h3>
+  </div>
+  <p>辛德勒与戈特最终达成交易，辛德勒以高昂价格买下1100名犹太工人。戈特在文件上签字确认，斯特恩在一旁紧张记录名单细节。辛德勒支付最后一笔款项，戈特收下钱后冷漠地表示这些工人现在属于辛德勒。辛德勒要求名单必须准确无误，确保每个名字都被记录下来。交易完成后，辛德勒松了一口气，但斯特恩提醒他这只是开始，后续工作更加艰巨。辛德勒检查名单，确保没有遗漏任何他想要拯救的人。</p>
+  <div class="events"><span class="ev">交易达成</span><span class="ev">名单确认</span><span class="ev">资金交付</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">02:46–02:56</span>
+    <h3>转移前夕准备</h3>
+  </div>
+  <p>辛德勒得知纳粹即将转移所有犹太工人，时间紧迫。他命令斯特恩立即通知所有名单上的工人收拾简单行李，准备前往新的工厂地点。辛德勒安排车辆和护卫，确保转移过程安全。戈特的手下不断催促，辛德勒坚持按照自己的节奏行事。海伦·赫希帮助整理名单，确保每个工人的信息准确无误。辛德勒检查工厂设备，确保能正常运转以掩护真实目的。工人们接到通知后，既有希望又充满恐惧，不明白为何突然被转移。</p>
+  <div class="events"><span class="ev">紧急通知</span><span class="ev">转移准备</span><span class="ev">名单核对</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">02:56–03:05</span>
+    <h3>工人名单转移</h3>
+  </div>
+  <p>转移日到来，辛德勒的名单工人被集中起来。纳粹军官监督整个过程，辛德勒以军需紧急为由要求优先处理他的工人。名单上的工人们被分批带上卡车，斯特恩负责清点人数。辛德勒与戈特周旋，拖延时间确保所有名单上的工人都被转移。一名不在名单上的犹太人试图混入，被辛德勒发现并救下。转移过程中紧张而混乱，但最终所有名单上的工人都安全登上卡车。辛德勒看着车队离开，知道这是他最后的拯救机会。</p>
+  <div class="events"><span class="ev">工人集中</span><span class="ev">名单清点</span><span class="ev">安全转移</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">03:05–03:15</span>
+    <h3>战争结束与纪念</h3>
+  </div>
+  <p>战争结束后，辛德勒被指控战争罪，被迫逃离德国。获救的犹太人在布拉格等待辛德勒，当他出现时，他们为他制作了一枚刻有&#x27;救一人即救全世界&#x27;的戒指。辛德勒懊悔未能救更多人，泪流满面。多年后，幸存者及其后代来到耶路撒冷的辛德勒墓前，放置石头纪念这位拯救者。画面切换至黑白现实场景，幸存者抚摸辛德勒的墓碑。字幕显示辛德勒一生所救犹太人超过1100人，他的故事成为人性光辉的象征。</p>
+  <div class="events"><span class="ev">指控逃离</span><span class="ev">戒指赠予</span><span class="ev">墓前纪念</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>辛德勒目睹纳粹对犹太人的大屠杀</td></tr><tr><td>约第60分钟</td><td>辛德勒决定将工厂转为军工厂保护犹太工人</td></tr><tr><td>约第120分钟</td><td>辛德勒倾尽所有财产买下犹太工人名单</td></tr><tr><td>约第150分钟</td><td>辛德勒被指控战争罪，被迫逃离</td></tr><tr><td>约第180分钟</td><td>辛德勒被犹太工人授予戒指，懊悔未能救更多人</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">救赎</span><span class="theme">人性转变</span><span class="theme">战争与道德</span><span class="theme">牺牲与拯救</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">战争结束后，获救的犹太人及其后代在辛德勒墓前放置石头，纪念这位拯救者。辛德勒一生所救犹太人超过1100人。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-20 17:46 · 模型 glm-4-air,glm-4-flash · 共 20 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
