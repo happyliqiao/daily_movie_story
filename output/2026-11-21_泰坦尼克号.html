@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>泰坦尼克号 · 分段故事梗概 · 2026-11-21</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>泰坦尼克号<span class="year">1997</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-21</span><span class="chip">电影</span><span class="chip">美国</span><span class="chip">爱情/灾难</span><span class="chip">1997</span><span class="chip">电影片长约 194 分钟，按每 10 分钟一段切分，共 19 段</span><span class="chip">1912年英国至美国的泰坦尼克号</span></div>
+    <div class="logline">贵族少女露丝与穷画家杰克在泰坦尼克号上相爱，阶级差异与海难成为他们爱情的最大考验。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 19 段</h2>
+      <ol><li><a href="#seg1">深海探秘泰坦尼克</a></li>
+<li><a href="#seg2">发现保险箱内钻石</a></li>
+<li><a href="#seg3">探险队发现钻石</a></li>
+<li><a href="#seg4">探宝队寻找钻石线索</a></li>
+<li><a href="#seg5">露丝初遇杰克</a></li>
+<li><a href="#seg6">杰克机智化解危机</a></li>
+<li><a href="#seg7">杰克获释露丝谢恩</a></li>
+<li><a href="#seg8">杰克带露丝体验三等舱</a></li>
+<li><a href="#seg9">杰克带露丝赴三等舱派对</a></li>
+<li><a href="#seg10">露丝与杰克在船舱相拥</a></li>
+<li><a href="#seg11">卡尔设局陷害杰克</a></li>
+<li><a href="#seg12">泰坦尼克号撞上冰山</a></li>
+<li><a href="#seg13">杰克脱困寻露丝</a></li>
+<li><a href="#seg14">船只倾斜加剧</a></li>
+<li><a href="#seg15">杰克露丝逃顶舱</a></li>
+<li><a href="#seg16">杰克露丝逃顶舱</a></li>
+<li><a href="#seg17">杰克露丝重返泰坦尼克号</a></li>
+<li><a href="#seg18">露丝救出杰克共赴生死</a></li>
+<li><a href="#seg19">露丝沉海杰克牺牲</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">杰克</span><span class="r">主角</span></div><div class="d">穷画家，自由奔放，爱上露丝</div></div>
+<div class="person"><div><span class="n">露丝</span><span class="r">主角</span></div><div class="d">贵族少女，渴望自由，爱上杰克</div></div>
+<div class="person"><div><span class="n">卡尔</span><span class="r">对手</span></div><div class="d">富家子弟，露丝的未婚夫，嫉妒杰克</div></div>
+<div class="person"><div><span class="n">露丝母亲</span><span class="r">关键配角</span></div><div class="d">势利，希望露丝嫁给卡尔</div></div>
+<div class="person"><div><span class="n">莫莉</span><span class="r">关键配角</span></div><div class="d">开朗贵妇，帮助露丝反抗束缚</div></div>
+<div class="person"><div><span class="n">船长</span><span class="r">关键配角</span></div><div class="d">自信过度，导致船只撞上冰山</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">相遇相知</span><span class="ds">露丝欲跳海被杰克救下，两人在船上相识</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">热恋反抗</span><span class="ds">杰克带露丝体验自由生活，反抗阶级束缚</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">海难降临</span><span class="ds">泰坦尼克号撞上冰山，开始沉没</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">生死抉择</span><span class="ds">杰克救露丝于冰冷海水，自己牺牲</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>深海探秘泰坦尼克</h3>
+  </div>
+  <p>深海探险队正在北大西洋搜寻泰坦尼克号残骸。科学家利用遥控潜水器深入海底，在幽暗的海床上发现了这艘沉船的巨大轮廓。潜水器缓缓驶过船体残骸，镜头捕捉到锈迹斑斑的船名和破损的船舱。探险队队长布洛克·洛维特对这一发现感到兴奋，他们计划进行更详细的探索，寻找船上可能存在的珍贵文物。</p>
+  <div class="events"><span class="ev">深海探秘</span><span class="ev">发现残骸</span><span class="ev">确认船名</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>发现保险箱内钻石</h3>
+  </div>
+  <p>探险队在船舱中发现一个保险箱，将其打开后发现里面有一幅画和一颗被称为&#x27;海洋之心&#x27;的蓝色钻石。布洛克认出画中女子正是露丝·道森，一位泰坦尼克号上的乘客。保险箱中还夹着一封露丝1912年写于泰坦尼克号上的信件，信中提到了她与杰克·道森的爱情故事。这颗钻石成为解开泰坦尼克号历史之谜的关键线索。</p>
+  <div class="events"><span class="ev">发现保险箱</span><span class="ev">找到钻石</span><span class="ev">认出露丝</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:31</span>
+    <h3>探险队发现钻石</h3>
+  </div>
+  <p>探险队成员在泰坦尼克号船舱内发现了一个保险箱，将其打开后找到了一幅画作和一颗名为&#x27;海洋之心&#x27;的蓝色钻石。布洛克仔细观察画作，认出画中的女子正是泰坦尼克号上的乘客露丝·道森。保险箱中还有其他物品，但布洛克对这颗蓝色钻石表现出特别的兴趣。探险队队长洛维特对这些发现感到兴奋，认为这可能帮助确认船员的身份。潜水器继续在船舱内探索，周围是寂静的海水和锈迹斑斑的船体残骸。</p>
+  <div class="events"><span class="ev">发现保险箱</span><span class="ev">找到蓝色钻石</span><span class="ev">认出露丝画像</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:31–00:41</span>
+    <h3>探宝队寻找钻石线索</h3>
+  </div>
+  <p>探宝队在发现露丝的画像后，开始寻找更多关于这颗钻石的信息。布洛克仔细研究画像，发现露丝画像中的姿势与保险箱中的照片相似。探险队成员在船舱中继续搜索，希望找到更多关于&#x27;海洋之心&#x27;的线索。他们在船舱中发现了一些私人物品，包括一封未寄出的信件。布洛克意识到这封信可能包含重要信息，决定将其带回研究。探宝队的科学家们开始分析已发现的物品，试图还原钻石背后的故事。与此同时，探宝队的技术人员正在分析海底影像，寻找可能藏有更多物品的区域。</p>
+  <div class="events"><span class="ev">研究露丝画像</span><span class="ev">发现未寄出信件</span><span class="ev">分析海底影像</span><span class="ev">寻找更多线索</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:41–00:51</span>
+    <h3>露丝初遇杰克</h3>
+  </div>
+  <p>露丝在甲栏边缘徘徊，内心痛苦不堪，决定结束生命。她跨过栏杆，准备跳入冰冷的大海，被路过的杰克发现。杰克不顾危险，迅速拉住露丝的手，用幽默和真诚的话语劝说她放弃轻生念头。经过一番拉扯，杰克成功将露丝救回甲板。这场意外让两人初次相遇，杰克对露丝产生好奇，而露丝则被杰克的勇气和真诚所打动。卡尔和露丝的母亲赶到现场，对杰克充满敌意，认为他是一个不速之客。</p>
+  <div class="events"><span class="ev">露丝欲跳海</span><span class="ev">杰克救下露丝</span><span class="ev">两人初次相遇</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:51–01:01</span>
+    <h3>杰克机智化解危机</h3>
+  </div>
+  <p>杰克成功救下露丝后，船上警卫赶到，误以为是杰克骚扰露丝。警卫粗暴地抓住杰克，要将他带走。杰克机智地解释自己是在救露丝，并指出露丝现在安全无恙。露丝为救杰克，谎称是自己一时糊涂，杰克只是好心帮忙。警卫半信半疑，但看在露丝的面子上，暂时放过了杰克。杰克临走前，邀请露丝到三等舱参加派对，让她体验不同的生活。露丝被杰克的真诚和自由不羁的性格所吸引，内心开始动摇，对即将到来的包办婚姻产生了怀疑。</p>
+  <div class="events"><span class="ev">警卫误抓杰克</span><span class="ev">露丝为杰克解围</span><span class="ev">杰克邀请露丝参加派对</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:01–01:11</span>
+    <h3>杰克获释露丝谢恩</h3>
+  </div>
+  <p>警卫带走了杰克后，露丝回到船舱，面对卡尔的质问和母亲的训斥，她谎称杰克只是想帮助她。卡尔愤怒不已，派人监视露丝的一举一动。露丝感到窒息，决定寻找杰克。她找到三等舱，发现杰克正在那里与朋友们分享绘画和音乐。杰克邀请露丝参加三等舱的派对，让她体验从未有过的自由生活。露丝被三等舱的热闹氛围所吸引，暂时忘却了上等阶级的束缚。杰克教她吐痰，露丝初次尝试，感到新奇又解放。两人在派对上跳舞，露丝的笑容逐渐多了起来。</p>
+  <div class="events"><span class="ev">警卫带走杰克</span><span class="ev">露丝寻找杰克</span><span class="ev">参加三等舱派对</span><span class="ev">杰克教露丝吐痰</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:11–01:22</span>
+    <h3>杰克带露丝体验三等舱</h3>
+  </div>
+  <p>露丝在三等舱找到杰克，杰克热情邀请她参加三等舱的派对。露丝起初犹豫不决，担心身份差异会引起麻烦，但在杰克的坚持下，她决定冒险一试。在三等舱，露丝体验到了从未有过的自由与欢乐，与杰克一起跳舞、欢笑，感受着平民生活的真实与热情。卡尔的手下发现露丝在三等舱，立即报告给卡尔。卡尔暴怒，赶到三等舱粗暴地带走露丝，杰克与卡尔发生冲突。露丝虽被带走，但内心已被杰克点燃了对自由的渴望，她开始质疑自己的生活选择和与卡尔的婚约。</p>
+  <div class="events"><span class="ev">露丝寻杰克</span><span class="ev">三等舱派对</span><span class="ev">卡尔暴怒带走露丝</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:22–01:32</span>
+    <h3>杰克带露丝赴三等舱派对</h3>
+  </div>
+  <p>杰克邀请露丝参加三等舱的派对，露丝换上朴素的衣服，跟随杰克穿过不同舱级的甲板。在三等舱，露丝体验到了与头等舱截然不同的自由氛围，人们欢快地跳舞、饮酒。杰克教露丝跳舞，两人沉浸在欢乐中，露丝暂时忘却了阶级束缚和与卡尔的婚约。卡尔在派对外看到这一幕，愤怒不已。露丝在三等舱的派对中找到了久违的快乐，与杰克的关系更加亲密。</p>
+  <div class="events"><span class="ev">杰克邀露丝赴派对</span><span class="ev">露丝体验三等舱欢乐</span><span class="ev">卡尔目睹心生怒火</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:32–01:42</span>
+    <h3>露丝与杰克在船舱相拥</h3>
+  </div>
+  <p>派对结束后，杰克带露丝参观泰坦尼克号的锅炉房。在震耳欲聋的机器轰鸣声中，杰克向露丝展示工人艰苦的工作环境。随后，两人来到杰克简陋的船舱，杰克为露丝画肖像。画的过程中，两人情感升温，杰克亲吻露丝。露丝感受到前所未有的自由与激情，决定反抗与卡尔的婚约。卡尔派人监视杰克，发现了露丝与杰克的关系。</p>
+  <div class="events"><span class="ev">参观锅炉房</span><span class="ev">杰克为露丝画像</span><span class="ev">两人情感升温</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:42–01:52</span>
+    <h3>卡尔设局陷害杰克</h3>
+  </div>
+  <p>卡尔发现露丝与杰克的关系后，设计陷害杰克。卡尔让仆人将海洋之心钻石放入杰克的口袋，并诬陷杰克偷窃。卡尔带着船警来到杰克的船舱，搜出钻石，杰克被指控盗窃并遭到拘禁。露丝试图解释，但无人相信她。露丝找到莫莉夫人求助，莫莉答应帮助杰克。露丝决心不惜一切代价救出杰克，两人的爱情面临严峻考验。</p>
+  <div class="events"><span class="ev">卡尔设下偷窃局</span><span class="ev">杰克被拘禁</span><span class="ev">露丝寻求帮助</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:52–02:03</span>
+    <h3>泰坦尼克号撞上冰山</h3>
+  </div>
+  <p>泰坦尼克号在夜色中高速航行，瞭望员发现冰山但为时已晚。船只右舷撞上冰山，船体出现裂缝，海水开始涌入。船长起初低估了撞击的严重性，但随着船体倾斜加剧，船员们意识到情况危急。乘客们开始察觉异常，但大部分人并未意识到危险临近。杰克被拘禁在船舱，对即将到来的灾难一无所知。露丝焦急地寻找方法救出杰克，同时船只开始缓慢下沉。</p>
+  <div class="events"><span class="ev">船只撞上冰山</span><span class="ev">海水涌入船舱</span><span class="ev">船长低估灾情</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">02:03–02:13</span>
+    <h3>杰克脱困寻露丝</h3>
+  </div>
+  <p>露丝得知杰克被卡尔陷害后，决心救出杰克。她找到卡尔，谎称愿意与他和好，条件是立即释放杰克。卡尔表面答应，实则暗中策划更恶毒的报复。露丝找到船警，谎称自己被杰克胁迫，要求亲自确认杰克的清白。在船长的默许下，露丝被允许前往拘禁杰克的底舱。杰克被关在锁链舱内，手铐锁在管道上。露丝找到杰克后，用小刀割断他的手铐，两人计划在船只沉没前逃离。</p>
+  <div class="events"><span class="ev">露丝救杰克</span><span class="ev">杰克获释</span><span class="ev">计划逃离</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:13–02:23</span>
+    <h3>船只倾斜加剧</h3>
+  </div>
+  <p>泰坦尼克号因撞上冰山，船体严重受损，船头已经完全没入水中。船体以越来越大的角度倾斜，甲板上的乘客惊慌失措。船员们开始组织妇女和儿童登上救生艇，但救生艇数量严重不足。船长意识到船只即将沉没，下令发出求救信号。无线电操作员持续发送SOS信号，希望有船只前来救援。船体断裂的迹象开始显现，海水涌入速度加快。杰克和露丝穿过混乱的甲板，寻找出路。</p>
+  <div class="events"><span class="ev">船体倾斜</span><span class="ev">乘客恐慌</span><span class="ev">救生不足</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">02:23–02:33</span>
+    <h3>杰克露丝逃顶舱</h3>
+  </div>
+  <p>杰克和露丝在倾斜的船体上艰难前行，避开慌乱的乘客和坍塌的设施。他们穿过豪华餐厅，看到水晶吊灯坠落，桌椅滑动。两人继续向上爬，经过逐渐被淹没的走廊。在船员帮助下，他们到达船顶，但发现这里同样混乱。卡尔带着仆人出现，试图带走露丝，与杰克发生冲突。混乱中，卡尔被仆人推倒，杰克趁机带着露丝逃离。两人决定前往船尾，那里可能还有机会逃生。</p>
+  <div class="events"><span class="ev">爬行逃生</span><span class="ev">餐厅坍塌</span><span class="ev">对抗卡尔</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">02:33–02:43</span>
+    <h3>杰克露丝逃顶舱</h3>
+  </div>
+  <p>杰克和露丝在倾斜的船体上艰难前行，避开慌乱的乘客和坍塌的设施。两人穿过豪华餐厅，看到水晶吊灯坠落，桌椅滑动。他们继续向上爬，经过逐渐被淹没的走廊。在船员帮助下，他们到达甲板，发现救生艇已所剩无几。杰克决定带露丝到船尾，那里可能还有希望。他们穿过拥挤的人群，有人推搡他们，但杰克紧紧抓住露丝的手。船体倾斜角度越来越大，海水从船头涌入。两人最终到达船尾，发现那里相对安全，但船体正在快速下沉。</p>
+  <div class="events"><span class="ev">攀爬倾斜船体</span><span class="ev">躲避坠落物品</span><span class="ev">到达船尾甲板</span><span class="ev">海水不断涌入</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">02:43–02:54</span>
+    <h3>杰克露丝重返泰坦尼克号</h3>
+  </div>
+  <p>杰克和露丝抵达甲板，发现救生艇已经基本撤离完毕。卡尔带着手下持枪出现，试图强行带走露丝。杰克与卡尔发生激烈冲突，露丝站在杰克一边，明确表示不愿与卡尔离开。混乱中，卡尔夺走了露丝的海洋之心项链，并栽赃给杰克。卡尔的手下将杰克推倒在地，杰克被拘禁。露丝看着杰克被带走，决心无论如何都要救出杰克。</p>
+  <div class="events"><span class="ev">杰克露丝抵甲板</span><span class="ev">卡尔持枪出现</span><span class="ev">项链被夺走</span><span class="ev">杰克被拘禁</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">02:54–03:04</span>
+    <h3>露丝救出杰克共赴生死</h3>
+  </div>
+  <p>露丝找到船警，谎称自己被杰克胁迫，要求释放杰克。船警释放了杰克，但警告他不要再骚扰露丝。杰克和露丝重逢，两人决定共同面对即将到来的灾难。他们决定回到正在下沉的泰坦尼克号，寻找露丝的母亲和朋友。在船体严重倾斜的情况下，两人艰难地在船内穿行，避开坍塌的设施和慌乱的乘客。他们穿过逐渐被淹没的走廊，寻找莫莉和其他人。</p>
+  <div class="events"><span class="ev">露丝智救杰克</span><span class="ev">两人共赴下沉船</span><span class="ev">船体严重倾斜</span><span class="ev">走廊被淹没</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">03:04–03:14</span>
+    <h3>露丝沉海杰克牺牲</h3>
+  </div>
+  <p>杰克和露丝回到正在下沉的泰坦尼克号船尾，随着船体倾斜加剧，两人从船尾滑落，掉入冰冷的海水中。杰克找到一扇漂浮的门，让露丝爬上去，自己则浸泡在海水中。杰克鼓励露丝活下去，承诺永不放弃。附近有其他落水者试图爬上这扇门，杰克将他们推下去，只为保护露丝。随着温度下降，杰克逐渐失去意识，但仍在鼓励露丝坚持。露丝承诺会好好活下去，杰克微笑着闭上眼睛，最终冻死在海水中。露丝守着承诺，在救援到来前一直坚持在门上，直到获救。</p>
+  <div class="events"><span class="ev">杰克露丝落海</span><span class="ev">杰克让出位置</span><span class="ev">杰克冻死</span><span class="ev">露丝获救</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>露丝欲跳海被杰克救下，两人相识</td></tr><tr><td>约第60分钟</td><td>杰克带露丝参加三等舱派对，感情升温</td></tr><tr><td>约第95分钟</td><td>卡尔设计陷害杰克，导致杰克被拘禁</td></tr><tr><td>约第120分钟</td><td>泰坦尼克号撞上冰山，开始沉没</td></tr><tr><td>约第160分钟</td><td>杰克将救生机会让给露丝，自己牺牲</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">阶级差异</span><span class="theme">自由与束缚</span><span class="theme">生死与爱情</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">获救的露丝活到老年，将海洋之心沉入大海，与杰克在天堂重逢</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-21 08:14 · 模型 glm-4-air,glm-4-flash · 共 19 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
