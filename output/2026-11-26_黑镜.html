@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黑镜 · 分段故事梗概 · 2026-11-26</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>黑镜<span class="year">2011</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-26</span><span class="chip">电视剧</span><span class="chip">英国</span><span class="chip">科幻/寓言</span><span class="chip">2011</span><span class="chip">电视剧共 6 集，单集约 44 分钟，每集拆 2 段，全剧共 12 段</span><span class="chip">近未来英国</span></div>
+    <div class="logline">一部未来科技寓言集，展示科技如何改变人类社会与人际关系，揭示科技背后的黑暗面。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 12 段</h2>
+      <ol><li><a href="#seg1">记忆系统初现</a></li>
+<li><a href="#seg2">真相浮现</a></li>
+<li><a href="#seg3">反抗开始</a></li>
+<li><a href="#seg4">系统反击</a></li>
+<li><a href="#seg5">记忆中心潜入</a></li>
+<li><a href="#seg6">记忆备份点</a></li>
+<li><a href="#seg7">记忆备份点争夺</a></li>
+<li><a href="#seg8">记忆备份争夺战</a></li>
+<li><a href="#seg9">记忆中心潜入</a></li>
+<li><a href="#seg10">记忆备份点寻找</a></li>
+<li><a href="#seg11">真相公之于众</a></li>
+<li><a href="#seg12">系统重启与同化</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">温斯顿</span><span class="r">主角</span></div><div class="d">记忆被篡改的教师，试图找回被删除的记忆</div></div>
+<div class="person"><div><span class="n">贝拉</span><span class="r">关键配角</span></div><div class="d">温斯顿的妻子，记忆被同样篡改</div></div>
+<div class="person"><div><span class="n">迈克尔</span><span class="r">对手</span></div><div class="d">控制记忆系统的政府官员</div></div>
+<div class="person"><div><span class="n">马琳</span><span class="r">关键配角</span></div><div class="d">记忆系统的开发者，后来成为反对者</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">记忆系统建立</span><span class="ds">政府实施记忆备份系统，人们可删除痛苦记忆</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">记忆危机</span><span class="ds">温斯顿发现记忆被篡改，开始质疑系统真实性</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">真相揭露</span><span class="ds">温斯顿找到证据，证明记忆系统被滥用</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">反抗与代价</span><span class="ds">温斯顿试图反抗系统，最终被系统同化</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·上</span>
+    <h3>记忆系统初现</h3>
+  </div>
+  <p>温斯顿是一名普通教师，生活在近未来英国。某天他收到系统提示，称其妻子贝拉的记忆备份即将过期。他带着贝拉来到记忆中心，发现人们普遍使用这项技术删除痛苦记忆。温斯顿注意到贝拉对某些事件的反应异常，却无法确定原因。记忆系统的开发者马琳向公众解释技术原理，称这能帮助人们摆脱心理创伤。温斯顿开始怀疑自己的记忆是否真实，特别是关于他和贝拉婚姻早期的关键记忆。</p>
+  <div class="events"><span class="ev">记忆备份提示</span><span class="ev">中心体验系统</span><span class="ev">记忆存疑</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·下</span>
+    <h3>真相浮现</h3>
+  </div>
+  <p>温斯顿私下调查记忆系统，发现政府官员迈克尔在暗中操控。他找到马琳，得知系统不仅能删除记忆，还能植入虚假记忆。马琳透露自己已后悔开发这项技术。温斯顿收集证据，证明贝拉的记忆被篡改，特别是关于他们女儿死亡的真相。他试图向贝拉揭示真相，但她拒绝相信，并指责他精神不稳定。迈克尔察觉到温斯顿的调查，开始监视他。温斯顿决定冒险获取更多证据，却被系统检测到异常行为。</p>
+  <div class="events"><span class="ev">发现系统操控</span><span class="ev">接触马琳</span><span class="ev">记忆被篡改</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第2集·上</span>
+    <h3>反抗开始</h3>
+  </div>
+  <p>温斯顿成立秘密小组，联合其他怀疑记忆系统的人。他们计划获取系统核心数据，揭露真相。迈克尔加强监控，开始清除知情者。温斯顿发现马琳已被软禁，设法与她取得联系。马琳告诉他系统存在致命缺陷——长期使用会导致人格分裂。温斯顿的行动引起系统注意，他的记忆开始出现混乱。贝拉对他的怀疑加深，关系恶化。小组内部出现分歧，有人选择退出，有人继续支持温斯顿。</p>
+  <div class="events"><span class="ev">组建反抗小组</span><span class="ev">发现系统缺陷</span><span class="ev">记忆开始混乱</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·下</span>
+    <h3>系统反击</h3>
+  </div>
+  <p>迈克尔启动应急程序，大规模清除可疑记忆。温斯顿的行动计划暴露，小组多人被捕。马琳提供关键信息，帮助温斯顿找到系统漏洞。温斯顿潜入记忆中心，试图获取核心数据，但被系统包围。关键时刻，马琳牺牲自己，为温斯顿创造机会。温斯顿成功获取证据，但被系统重新编辑记忆，反抗失败。他回到家中，接受新的记忆版本，与贝拉重新开始。系统继续运转，人们生活在被操控的幸福中，失去了真实的能力。</p>
+  <div class="events"><span class="ev">系统大规模清除</span><span class="ev">潜入记忆中心</span><span class="ev">记忆被重新编辑</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第3集·上</span>
+    <h3>记忆中心潜入</h3>
+  </div>
+  <p>温斯顿利用马琳提供的系统漏洞，成功潜入记忆中心。他避开层层安保，找到存储核心数据的机房。在获取过程中，系统异常警报突然响起，迈克尔亲自带队前来搜查。温斯顿被迫紧急转移数据，在狭窄的通风管道中艰难前行。他成功将部分数据复制到隐藏设备，但被巡逻人员发现。温斯顿与追捕者展开激烈对抗，利用对地形的熟悉逃脱，但随身设备受损，数据部分丢失。马琳通过秘密渠道告知温斯顿，迈克尔已经启动全国范围的记忆筛查，任何与记忆系统异常接触的人都将被清除。温斯顿意识到时间紧迫，必须尽快找到马琳所说的&#x27;记忆备份点&#x27;。</p>
+  <div class="events"><span class="ev">潜入记忆中心</span><span class="ev">获取核心数据</span><span class="ev">遭遇系统警报</span><span class="ev">紧急逃脱</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第3集·下</span>
+    <h3>记忆备份点</h3>
+  </div>
+  <p>温斯顿按照马琳的线索，前往城市废弃的地下数据中心寻找&#x27;记忆备份点&#x27;。途中他遭遇政府特工的追捕，通过城市复杂的地下管网系统躲避。在数据中心，温斯顿发现这里保存着人们被删除的原始记忆。马琳远程指导他如何访问这些记忆，并解释记忆系统的真正目的不仅是删除痛苦，更是为了控制人类思想。温斯顿找到了自己被删除的记忆片段，包括与贝拉的痛苦往事和系统建立前的真实社会状况。迈克尔带领大批特工包围数据中心，温斯顿被迫将部分记忆上传至公共网络，引发公众对记忆系统的质疑。在混乱中，马琳利用自己的后门程序暂时瘫痪了监控系统，为温斯顿争取了逃跑时间。</p>
+  <div class="events"><span class="ev">寻找备份点</span><span class="ev">发现原始记忆</span><span class="ev">上传记忆片段</span><span class="ev">系统短暂瘫痪</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第4集·上</span>
+    <h3>记忆备份点争夺</h3>
+  </div>
+  <p>温斯顿在地下数据中心找到记忆备份点，发现这里保存着被删除的原始记忆数据。他尝试复制这些数据，但数据中心的安全系统比预期更加严密。温斯顿与政府特工展开追逐战，利用地下管网的复杂地形周旋。在关键时刻，马琳远程协助温斯顿绕过最后一道防火墙。温斯顿成功获取了部分记忆备份，但发现自己的记忆也被部分篡改。他开始怀疑自己是否也曾被系统操控，陷入身份认同危机。迈克尔通过温斯顿的通讯痕迹定位了他的位置，大批特工正在逼近。温斯顿必须在被捕获前决定是带着数据逃亡，还是冒险尝试恢复自己的真实记忆。</p>
+  <div class="events"><span class="ev">找到记忆备份</span><span class="ev">遭遇特工追捕</span><span class="ev">获取部分数据</span><span class="ev">陷入身份危机</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第4集·下</span>
+    <h3>记忆备份争夺战</h3>
+  </div>
+  <p>温斯顿在地下数据中心与政府特工展开激烈追逐，利用复杂的地形躲避追捕。他成功接触到记忆备份核心，但发现数据量远超预期，无法在有限时间内全部复制。迈克尔下令启动数据中心自毁程序，温斯顿被迫选择最关键的原始记忆数据。在特工逼近的最后时刻，温斯顿将数据传输到马琳提供的隐藏设备，但自己未能逃脱。迈克尔亲自审讯温斯顿，试图获取他已传输的数据信息。温斯顿坚守秘密，最终被系统重新编辑记忆，成为系统的维护者，完全忘记了自己曾经反抗的事实。马琳在远处目睹一切，深知系统已无法被常规手段推翻。</p>
+  <div class="events"><span class="ev">数据争夺</span><span class="ev">自毁程序</span><span class="ev">记忆重编</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第5集·上</span>
+    <h3>记忆中心潜入</h3>
+  </div>
+  <p>温斯顿利用马琳提供的系统漏洞，成功潜入记忆中心。他避开层层安保，找到存储核心数据的机房。在获取过程中，系统异常警报突然响起，迈克尔亲自带队前来搜查。温斯顿被迫紧急行动，迅速复制了部分核心数据，但被系统监控发现。温斯顿与安保人员展开周旋，利用对建筑结构的了解暂时逃脱，但核心数据只复制了一小部分。马琳远程指导他如何处理这些数据，并警告他迈克尔已经启动了全面追捕程序。</p>
+  <div class="events"><span class="ev">潜入记忆中心</span><span class="ev">警报突然响起</span><span class="ev">复制核心数据</span><span class="ev">逃脱追捕</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第5集·下</span>
+    <h3>记忆备份点寻找</h3>
+  </div>
+  <p>温斯顿按照马琳的线索，前往城市废弃的地下数据中心寻找&#x27;记忆备份点&#x27;。途中他遭遇政府特工的追捕，通过城市复杂的地下管网系统躲避。在数据中心，温斯顿发现这里保存着人们被删除的原始记忆备份。他试图下载这些数据，但备份系统设置了多重保护。迈克尔得知温斯顿的位置后，派重兵封锁了整个区域。温斯顿与马琳合作，破解了部分保护措施，获取了关键证据，证明政府不仅删除记忆，还在植入虚假记忆。</p>
+  <div class="events"><span class="ev">前往地下数据中心</span><span class="ev">遭遇特工追捕</span><span class="ev">发现记忆备份</span><span class="ev">获取关键证据</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第6集·上</span>
+    <h3>真相公之于众</h3>
+  </div>
+  <p>温斯顿获得证据后，决定将真相公之于众。他联系了几个之前被系统操控的受害者，准备联合揭露记忆系统的黑暗面。迈克尔察觉到温斯顿的计划，启动紧急程序，大规模修改公众记忆，并诬陷温斯顿为恐怖分子。温斯顿在马琳的帮助下，利用媒体漏洞，在重要新闻时段播放了部分证据。公众开始质疑系统的真实性，引发社会动荡。政府被迫暂时关闭记忆系统，展开调查，温斯顿成为反抗运动的象征人物。</p>
+  <div class="events"><span class="ev">联系受害者</span><span class="ev">诬陷为恐怖分子</span><span class="ev">播放证据</span><span class="ev">系统暂时关闭</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第6集·下</span>
+    <h3>系统重启与同化</h3>
+  </div>
+  <p>在社会压力下，政府宣布对记忆系统进行全面改革。温斯顿参与新系统的设计，试图加入保护记忆真实性的机制。然而，改革过程中，迈克尔利用权力暗中操控，最终系统以更先进的形式重启。温斯顿发现系统已经完全不可逆转，任何反抗都会被同化。在绝望中，温斯顿选择接受新系统，被植入虚假的记忆，成为系统的拥护者。马琳目睹这一切，选择逃离，但最终也被系统捕获。记忆系统继续运行，人们生活在虚假的幸福中，失去了真实的能力。</p>
+  <div class="events"><span class="ev">系统改革失败</span><span class="ev">温斯顿被同化</span><span class="ev">马琳逃离被捕</span><span class="ev">系统继续运行</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集约15分钟</td><td>温斯顿发现记忆被篡改的证据</td></tr><tr><td>第1集约25分钟</td><td>温斯顿找到马琳，了解记忆系统的真相</td></tr><tr><td>第1集约35分钟</td><td>温斯顿的记忆被重新编辑，反抗失败</td></tr><tr><td>第1集末</td><td>温斯顿接受新记忆，系统继续运转</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">记忆操控</span><span class="theme">科技伦理</span><span class="theme">自由意志</span><span class="theme">社会控制</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">温斯顿最终接受被篡改的记忆，系统继续运行，人们永远生活在虚假的幸福中，失去了真实的能力。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-26 20:07 · 模型 glm-4-air,glm-4-flash · 共 12 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
