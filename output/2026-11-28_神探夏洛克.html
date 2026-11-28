@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>神探夏洛克 · 分段故事梗概 · 2026-11-28</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>神探夏洛克<span class="year">2010</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-28</span><span class="chip">电视剧</span><span class="chip">英国</span><span class="chip">悬疑/犯罪</span><span class="chip">2010</span><span class="chip">电视剧共 3 集，单集约 88 分钟，每集拆 3 段，全剧共 9 段</span><span class="chip">现代伦敦</span></div>
+    <div class="logline">天才侦探夏洛克与退伍军医华生搭档，在现代伦敦破解悬案，对抗犯罪天才莫里亚蒂的致命挑战。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 9 段</h2>
+      <ol><li><a href="#seg1">贝克街初相遇</a></li>
+<li><a href="#seg2">短信谜案初显身手</a></li>
+<li><a href="#seg3">出租车追逐显真功</a></li>
+<li><a href="#seg4">神秘画作引疑云</a></li>
+<li><a href="#seg5">美术馆谜案追踪</a></li>
+<li><a href="#seg6">莫里亚蒂初现身</a></li>
+<li><a href="#seg7">银行劫案惊魂</a></li>
+<li><a href="#seg8">屋顶生死对决</a></li>
+<li><a href="#seg9">夏洛克假死重生</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">夏洛克·福尔摩斯</span><span class="r">主角</span></div><div class="d">天才侦探，追求真相，厌恶平庸</div></div>
+<div class="person"><div><span class="n">约翰·华生</span><span class="r">主角</span></div><div class="d">退伍军医，夏洛克的忠实搭档</div></div>
+<div class="person"><div><span class="n">詹姆斯·莫里亚蒂</span><span class="r">对手</span></div><div class="d">犯罪天才，夏洛斯的宿敌</div></div>
+<div class="person"><div><span class="n">雷斯垂德探长</span><span class="r">关键配角</span></div><div class="d">苏格兰场警探，尊重夏洛克的才华</div></div>
+<div class="person"><div><span class="n">哈德森太太</span><span class="r">关键配角</span></div><div class="d">夏洛克与华生的房东，照顾他们的生活</div></div>
+<div class="person"><div><span class="n">玛丽·莫斯坦</span><span class="r">关键配角</span></div><div class="d">华生的女友，神秘案件相关人物</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">案件开端</span><span class="ds">夏洛克与华生相识，共同解决神秘案件</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">深入调查</span><span class="ds">追踪线索，揭示案件背后的复杂网络</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">对抗升级</span><span class="ds">面对莫里亚蒂的威胁，案件变得更加危险</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">最终对决</span><span class="ds">夏洛克与莫里亚蒂的智力与勇气较量</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·前</span>
+    <h3>贝克街初相遇</h3>
+  </div>
+  <p>退伍军医约翰·华生在阿富汗战场受伤后回到伦敦，寻找经济实惠的住所。通过朋友介绍，他认识了性格古怪的天才侦探夏洛克·福尔摩斯。两人共同租下贝克街221B公寓，房东哈德森太太热情接待。夏洛克向华生展示自己的职业，自称咨询侦探，能够解决警方无法破解的谜案。华生对夏洛克的怪异行为感到困惑，但同时也被他的推理能力所吸引。两人开始尝试合作，共同解决一起神秘的自杀案。</p>
+  <div class="events"><span class="ev">华生寻找住所</span><span class="ev">贝克街初遇</span><span class="ev">夏洛克展示才能</span><span class="ev">认识房东哈德森</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·中</span>
+    <h3>短信谜案初显身手</h3>
+  </div>
+  <p>雷斯垂德探长带来一起神秘自杀案，死者是女学生，现场留下&#x27;RACHE&#x27;字样。夏洛克发现这是德语&#x27;revenge&#x27;的拼写错误，而非名字。他通过观察死者手机，发现她收到多条神秘短信，规律是每11秒收到一条。夏洛克推理出这是一系列连环杀人案的开始，凶手故意留下线索。他利用网络和手机记录，迅速锁定嫌疑人，发现凶手通过短信控制受害者行动。华生对夏洛克的推理能力感到震惊，同时也注意到他注射药物的异常行为。</p>
+  <div class="events"><span class="ev">雷斯垂德求助</span><span class="ev">破解短信规律</span><span class="ev">锁定连环杀手</span><span class="ev">华生发现注射</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第1集·后</span>
+    <h3>出租车追逐显真功</h3>
+  </div>
+  <p>夏洛克推断出凶手是出租车司机，通过手机信号追踪到一辆黑色出租车。他与华生在伦敦街头展开激烈追逐，最终抓获凶手。审讯中，凶手承认受雇于一位神秘人物，负责测试夏洛克的推理能力。夏洛克发现&#x27;RACHE&#x27;案件背后隐藏着一个更大的阴谋，涉及多个看似无关的死亡事件。华生对夏洛克的推理能力印象深刻，但对他使用药物的行为表示担忧。两人开始建立合作关系，夏洛克邀请华生成为自己的搭档，共同调查更多案件。</p>
+  <div class="events"><span class="ev">街头追逐</span><span class="ev">抓获凶手</span><span class="ev">揭露测试阴谋</span><span class="ev">确立合作关系</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·前</span>
+    <h3>神秘画作引疑云</h3>
+  </div>
+  <p>夏洛克和华生接到一起神秘案件，涉及一名在美术馆死亡的艺术评论家。死者被发现时面带微笑，手中紧握一张价值连城的画作。夏洛克通过细致观察发现死者是被毒杀的，而画作是凶手留下的线索。他发现这幅画中隐藏着密码，指向一起多年前的艺术盗窃案。与此同时，华生通过约会软件认识了玛丽·莫斯坦，两人开始发展感情。夏洛克在调查中发现，案件背后牵涉到一个犯罪网络，而网络的核心人物似乎对夏洛克了如指掌。</p>
+  <div class="events"><span class="ev">美术馆命案</span><span class="ev">破解画作密码</span><span class="ev">华生约会玛丽</span><span class="ev">发现犯罪网络</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第2集·中</span>
+    <h3>美术馆谜案追踪</h3>
+  </div>
+  <p>夏洛克通过死者面容和手部姿势推断出艺术评论家是被毒杀，而非自然死亡。画作上隐藏着微小指纹，指向一位知名画家。夏洛克与华生走访画家工作室，发现画家已失踪。调查中，他们发现死者生前正在调查一系列艺术品盗窃案，这些案件都与一位神秘收藏家有关。夏洛克通过分析画作上的特殊颜料，推断出收藏家的身份，并发现这些艺术品被用于一个更大的犯罪网络。雷斯垂德提供线索，显示这些案件可能与一起跨国犯罪有关。</p>
+  <div class="events"><span class="ev">毒杀真相浮现</span><span class="ev">画家神秘失踪</span><span class="ev">艺术品盗窃案</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第2集·后</span>
+    <h3>莫里亚蒂初现身</h3>
+  </div>
+  <p>夏洛克追踪线索至一处废弃仓库，发现那里曾是犯罪集团的据点。仓库中留有加密信息，夏洛克破解后发现指向一位犯罪天才。与此同时，华生在约会中认识了玛丽·莫斯坦，她正收到神秘威胁短信。夏洛克发现这些案件背后是一个精心设计的犯罪网络，旨在测试他的推理能力。一名关键证人在保护性监护中被杀，夏洛克意识到对手极其聪明且危险。在调查过程中，莫里亚蒂首次通过电话与夏洛克对话，展示了他对犯罪计划的掌控力，并暗示这只是开始。</p>
+  <div class="events"><span class="ev">仓库发现线索</span><span class="ev">莫里亚蒂首现身</span><span class="ev">证人在监护被杀</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第3集·前</span>
+    <h3>银行劫案惊魂</h3>
+  </div>
+  <p>莫里亚蒂策划了一场精心设计的银行抢劫案，劫匪在抢劫过程中表现出异常冷静和专业。夏洛克通过监控录像发现劫匪的行动模式与之前案件有相似之处。华生继续调查玛丽·莫斯坦的背景，发现她可能与一系列失踪案有关。夏洛克推断出莫里亚蒂的真正目标并非银行本身，而是银行保险库中的一件特殊物品。警方行动失败后，夏洛克独自追踪线索，发现莫里亚蒂已在现场留下新的谜题。与此同时，华生发现玛丽的真实身份可能比她透露的更为复杂。</p>
+  <div class="events"><span class="ev">银行劫案发生</span><span class="ev">莫里亚蒂留谜题</span><span class="ev">玛丽身份疑云</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第3集·中</span>
+    <h3>屋顶生死对决</h3>
+  </div>
+  <p>夏洛克破解莫里亚蒂的谜题，发现他计划在全国范围内同时实施多起犯罪，以分散警方注意力。雷斯垂德提供线索显示莫里亚蒂的犯罪网络规模远超想象。夏洛克推断出莫里亚蒂的最终目标是针对特定目标，而非单纯的混乱。华生发现玛丽与莫里亚蒂有关联，但她声称自己是被迫合作。夏洛克追踪莫里亚蒂至一处建筑，两人在屋顶对峙。莫里亚蒂揭示他已经设置了一系列无法阻止的犯罪计划，并威胁夏洛克要么选择自杀，要么看着他杀掉无辜的人。夏洛克面临生死抉择，同时华生也在试图破解玛丽的谜团。</p>
+  <div class="events"><span class="ev">犯罪计划曝光</span><span class="ev">屋顶对峙开始</span><span class="ev">莫里亚蒂威胁</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第3集·后</span>
+    <h3>夏洛克假死重生</h3>
+  </div>
+  <p>夏洛克在屋顶与莫里亚蒂进行智力与勇气的终极对决。莫里亚蒂已安排多名杀手在全国各地准备行动，威胁夏洛克必须自杀。夏洛克意识到自己无法阻止所有杀手，于是选择跳楼自杀。华目击这一幕，悲痛欲绝，无法接受夏洛克已死的现实。然而，夏洛克其实事先安排好假死计划，利用特技和替身制造了跳楼的假象。莫里亚蒂随后被警方击毙。几个月后，华生开始新的生活，并与玛丽·莫斯坦发展感情。最终，在夏洛克的坟墓前，华生发现夏洛克还活着，两人重逢，继续合作破案。</p>
+  <div class="events"><span class="ev">夏洛克跳楼</span><span class="ev">莫里亚蒂被击毙</span><span class="ev">华生发现真相</span><span class="ev">夏洛克重生</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集第30分钟</td><td>夏洛克破解神秘短信，发现连环杀人案规律</td></tr><tr><td>第1集第50分钟</td><td>华生发现夏洛克注射药物，两人关系出现裂痕</td></tr><tr><td>第2集第40分钟</td><td>莫里亚蒂首次现身，挑战夏洛克的推理能力</td></tr><tr><td>第3集第60分钟</td><td>夏洛克发现莫里亚蒂的更大阴谋，必须阻止其计划</td></tr><tr><td>第3集第80分钟</td><td>夏洛克与莫里亚蒂在屋顶对决，面临生死抉择</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">理性与情感</span><span class="theme">天才与疯狂</span><span class="theme">正义与邪恶</span><span class="theme">友谊与背叛</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">夏洛克假死逃脱，莫里亚蒂被击毙。华生悲痛离开，后得知夏洛克仍活着，两人重逢继续合作。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-28 08:53 · 模型 glm-4-air,glm-4-flash · 共 9 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
