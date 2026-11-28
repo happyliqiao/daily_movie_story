@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>低俗小说 · 分段故事梗概 · 2026-11-21</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>低俗小说<span class="year">1994</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-21</span><span class="chip">电影</span><span class="chip">美国</span><span class="chip">犯罪/黑色幽默</span><span class="chip">1994</span><span class="chip">电影片长约 154 分钟，按每 10 分钟一段切分，共 15 段</span><span class="chip">1990年代洛杉矶</span></div>
+    <div class="logline">杀手文森特和朱尔斯执行任务，拳手布奇背叛黑帮，黑帮妻子与年轻男子调情，命运交织的暴力荒诞故事。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 15 段</h2>
+      <ol><li><a href="#seg1">餐厅抢劫案</a></li>
+<li><a href="#seg2">朱尔斯化解危机</a></li>
+<li><a href="#seg3">杀手清理现场</a></li>
+<li><a href="#seg4">杀手执行任务</a></li>
+<li><a href="#seg5">文森特赴约前的忐忑</a></li>
+<li><a href="#seg6">文森特与蜜娅约会</a></li>
+<li><a href="#seg7">蜜娅过量吸毒急救</a></li>
+<li><a href="#seg8">文森特紧急求救</a></li>
+<li><a href="#seg9">餐厅劫匪的意外结局</a></li>
+<li><a href="#seg10">布奇与拳击对手的生死对决</a></li>
+<li><a href="#seg11">文森特与蜜娅的致命约会</a></li>
+<li><a href="#seg12">布奇逃离路上的意外相遇</a></li>
+<li><a href="#seg13">布奇偶遇马沙</a></li>
+<li><a href="#seg14">蜜娅的生死时刻</a></li>
+<li><a href="#seg15">命运的终结</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">文森特</span><span class="r">主角</span></div><div class="d">冷酷杀手，迷恋黑帮妻子</div></div>
+<div class="person"><div><span class="n">朱尔斯</span><span class="r">主角</span></div><div class="d">杀手，寻求救赎</div></div>
+<div class="person"><div><span class="n">布奇</span><span class="r">关键配角</span></div><div class="d">拳手，背叛黑帮老板</div></div>
+<div class="person"><div><span class="n">蜜雅</span><span class="r">关键配角</span></div><div class="d">黑帮妻子，调情出轨</div></div>
+<div class="person"><div><span class="n">马沙</span><span class="r">对手</span></div><div class="d">黑帮老板，复仇心重</div></div>
+<div class="person"><div><span class="n">温斯顿</span><span class="r">关键配角</span></div><div class="d">餐厅劫匪，改变命运</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">任务与邂逅</span><span class="ds">杀手执行任务，黑帮妻子出轨</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">背叛与逃脱</span><span class="ds">拳手背叛黑帮，意外逃脱追杀</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">餐厅奇迹&quot;</span><span class="ds">劫匪与杀手对峙，命运转折</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">救赎与重生&quot;</span><span class="ds">杀手放弃暴力，寻求新生活</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>餐厅抢劫案</h3>
+  </div>
+  <p>餐厅内，两名劫匪 Pumpkin 和 Honey Bunny 正在用餐，突然决定抢劫这家餐厅。Pumpkin 持枪站起身，宣布抢劫行动，要求所有人交出财物。顾客和工作人员惊恐万分，配合举起双手。劫匪开始收集钱包和贵重物品。朱尔斯和文森特正在角落用餐，文森特冷静地观察局势，朱尔斯则保持镇定。当一名女顾客惊慌失措时，朱尔斯用枪指着她，让她冷静下来。整个餐厅陷入紧张气氛，劫匪继续搜刮财物，朱尔斯和文森特暗中观察，等待时机。</p>
+  <div class="events"><span class="ev">劫匪宣布抢劫</span><span class="ev">顾客配合举双手</span><span class="ev">朱尔斯用枪镇定女顾客</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:21</span>
+    <h3>朱尔斯化解危机</h3>
+  </div>
+  <p>朱尔斯和文森特表面配合，暗中准备反击。朱尔斯与劫匪 Pumpkin 对话，询问他是否愿意放弃抢劫并离开。Pumpkin 犹豫不决，气氛更加紧张。朱尔斯引用《圣经》经文，讲述神迹的力量，试图让劫匪冷静。文森特暗中观察，随时准备行动。朱尔斯继续劝说，强调暴力不是解决问题的办法。最终，Pumpkin 和 Honey Bunny 被朱尔斯的话语打动，决定放弃抢劫，带着劫得的财物离开餐厅。朱尔斯和文森特松了一口气，朱尔斯感慨命运的奇妙，文森特则继续专注于任务。</p>
+  <div class="events"><span class="ev">朱尔斯劝说劫匪</span><span class="ev">引用圣经经文</span><span class="ev">劫匪放弃离开</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:21–00:31</span>
+    <h3>杀手清理现场</h3>
+  </div>
+  <p>餐厅恢复平静后，朱尔斯和文森特开始清理现场。朱尔斯检查是否有目击者留下证据，文森特则处理劫匪留下的痕迹。两人讨论刚才的突发事件，朱尔斯认为这是命运的安排，而文森特则认为只是巧合。朱尔斯取出钱包，归还给一名女顾客，表示感谢她的配合。文森特则提醒朱尔斯不要感情用事，保持专业。两人离开餐厅，朱尔斯继续思考刚才的经历，文森特则专注于即将执行的任务。他们上车离开，前往下一个目的地。</p>
+  <div class="events"><span class="ev">清理现场证据</span><span class="ev">归还顾客钱包</span><span class="ev">讨论命运安排</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:31–00:41</span>
+    <h3>杀手执行任务</h3>
+  </div>
+  <p>文森特和朱尔斯驱车前往目标地点，准备执行一项谋杀任务。途中，文森特向朱尔斯透露他即将与黑帮老板马沙的妻子蜜娅约会，这让他感到不安。朱尔斯提醒文森特保持专业，不要让个人感情影响任务。到达目的地后，两人下车，进入公寓。文森特和朱尔斯找到目标，一名名叫布奇的拳击手。布奇正在收拾行李，似乎准备逃跑。朱尔斯和文森特制服布奇，文森特负责看守，朱尔斯则搜查房间寻找重要物品。布奇试图反抗，但被两人轻易制服。</p>
+  <div class="events"><span class="ev">文森特透露约会</span><span class="ev">找到拳击手布奇</span><span class="ev">制服准备逃跑的目标</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:41–00:51</span>
+    <h3>文森特赴约前的忐忑</h3>
+  </div>
+  <p>文森特在家中精心准备，洗澡、更衣，为即将与马沙妻子蜜娅的约会做准备。他反复检查自己的外表，显得紧张不安。文森特打电话给朱尔斯，表达对这次约会的担忧，特别是担心自己会对蜜娅产生不该有的感情。朱尔斯提醒他保持专业态度，不要忘记自己的身份和任务。文森特随后前往蜜娅的住所，内心充满矛盾和焦虑。</p>
+  <div class="events"><span class="ev">文森特精心打扮</span><span class="ev">电话向朱尔斯倾诉</span><span class="ev">前往蜜娅住所</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:51–01:02</span>
+    <h3>文森特与蜜娅约会</h3>
+  </div>
+  <p>文森特驾车前往马沙家，准备与蜜娅约会。他在车上不断整理仪容，显得紧张不安。到达目的地后，文森特被管家引入客厅，蜜娅优雅地现身。两人初次见面，气氛微妙。蜜娅邀请文森特共舞，两人在客厅中跳起慢舞，关系逐渐缓和。文森特对蜜娅产生好感，但内心仍保持警惕。蜜娅提议去附近的Jack Rabbit Slim&#x27;s餐厅用餐，文森特欣然同意。两人驾车前往餐厅，途中交谈轻松，蜜娅透露自己对文森特的作品有所了解。到达餐厅后，他们被领位员带到一个独特的座位，周围都是50年代风格的装饰。蜜娅点了一杯奶昔，文森特则要了啤酒，两人开始享受这顿不寻常的晚餐。</p>
+  <div class="events"><span class="ev">文森特赴约</span><span class="ev">蜜娅邀舞</span><span class="ev">共进晚餐</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:02–01:12</span>
+    <h3>蜜娅过量吸毒急救</h3>
+  </div>
+  <p>文森特与蜜娅在餐厅共舞后回到马沙家中，两人继续饮酒并吸食毒品。蜜娅在卫生间过量吸食可卡因后昏迷不醒，文森特惊慌失措，试图用冷水泼醒她但无济于事。情急之下，文森特想起朱尔斯曾提到过肾上腺素可以拯救过量吸毒者，于是用针管将肾上腺素直接注射进蜜娅心脏。经过一番紧张抢救，蜜娅奇迹般地苏醒过来。文森特惊魂未定，决定立即离开，留下蜜娅独自在家。他驾车在街上漫无目的地游荡，内心充满恐惧和不安，担心马沙会知道他照顾蜜娅不力。</p>
+  <div class="events"><span class="ev">过量吸毒</span><span class="ev">心脏急救</span><span class="ev">紧急逃离</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:12–01:22</span>
+    <h3>文森特紧急求救</h3>
+  </div>
+  <p>文森特发现蜜娅过量昏迷后惊慌失措，他迅速将蜜娅从卫生间抱回卧室，试图用冷水泼醒她但毫无效果。情急之下，文森特想起马沙的警告，不敢报警或叫医生，害怕面对马沙的怒火。他匆忙联系黑帮帮手温斯顿，温斯顿派来了神秘人物 Lance。Lance 见状立刻拿出肾上腺素，将针剂扎入蜜娅心脏。几秒后，蜜娅突然苏醒，大口喘气并呕吐不止。Lance 和文森特松了一口气，但文森特仍心有余悸，迅速收拾现场并准备离开。蜜娅醒来后对发生的事情毫无记忆，文森特不敢久留，匆忙告别后驾车离去，心中对这次经历感到极度不安。</p>
+  <div class="events"><span class="ev">蜜娅昏迷</span><span class="ev">文森特求救</span><span class="ev">Lance施救</span><span class="ev">蜜娅苏醒</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:22–01:32</span>
+    <h3>餐厅劫匪的意外结局</h3>
+  </div>
+  <p>朱尔斯和文森特制服了餐厅劫匪后，朱尔斯检查了劫匪的背包，发现里面有一本《圣经》。朱尔斯引用圣经经文，解释刚才的奇迹是神的旨意，他决定从此放弃杀手生涯。文森特对此不置可否，继续处理现场。朱尔斯让劫匪拿走钱包和钱包里的钱，警告他们不要再用抢劫这种方式生活，然后放他们离开。两人离开餐厅，朱尔斯向文森特表达了自己内心的变化，但文森特似乎并不理解也不认同朱尔斯的决定。两人驱车前往下一个任务地点。</p>
+  <div class="events"><span class="ev">朱尔斯引用圣经</span><span class="ev">劫匪被释放</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:32–01:43</span>
+    <h3>布奇与拳击对手的生死对决</h3>
+  </div>
+  <p>布奇在拳击比赛中故意输掉比赛，背叛了黑帮老板马沙。比赛结束后，布奇回到更衣室，发现拳击对手正在那里等待他。对手嘲讽布奇，两人发生激烈争执。布奇掏出手枪，与对手对峙。在紧张的对峙中，布奇意外开枪打死了对手。布奇迅速收拾行李，准备逃离洛杉矶。他在收拾过程中发现了一块金表，这是他父亲在集中营里藏下的，传给了他。布奇决定带上这块金表一起离开，这是他与家族历史的唯一联系。</p>
+  <div class="events"><span class="ev">布奇杀死对手</span><span class="ev">发现金表</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:43–01:53</span>
+    <h3>文森特与蜜娅的致命约会</h3>
+  </div>
+  <p>文森特来到马沙家与蜜娅约会。两人在客厅聊天，气氛暧昧。蜜娅邀请文森特共舞，两人在客厅中跳起了扭摆舞。随后，蜜娅提议去厨房准备一些饮料。文森特独自留在客厅，内心忐忑不安。蜜娅在厨房里吸食了过量毒品，随后晕倒在浴室。文森特发现后惊慌失措，急忙打电话向朱尔斯求助。朱尔斯告诉他去找马沙的医生帮忙。文森特按照指示，找来医生为蜜娅注射了肾上腺素，蜜娅逐渐苏醒。这场惊魂未定的约会让文森特更加确信自己不应该与蜜娅有任何瓜葛。</p>
+  <div class="events"><span class="ev">蜜娅过量吸毒</span><span class="ev">文森特求助</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:53–02:03</span>
+    <h3>布奇逃离路上的意外相遇</h3>
+  </div>
+  <p>布奇驾驶着租来的车逃离洛杉矶，途中在一家快餐店停车。他听到广播中播报自己被通缉的消息，更加坚定了离开的决心。布奇继续驾车行驶，突然发现自己与马沙的车迎面相遇。布奇紧急刹车，躲进了一家商店。马沙也停下车进入商店购买香烟。布奇躲在商店角落，手握武器，准备与马沙殊死一搏。就在这紧张时刻，马沙突然接到电话，得知自己的妻子蜜娅出事，立即匆忙离开。布奇趁机逃离商店，继续他的逃亡之旅，但这次意外相遇让他意识到自己的处境有多么危险。</p>
+  <div class="events"><span class="ev">布奇与马沙相遇</span><span class="ev">紧急逃离</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">02:03–02:13</span>
+    <h3>布奇偶遇马沙</h3>
+  </div>
+  <p>布奇与马沙的车在红灯前相遇，布奇认出马沙后惊慌失措，迅速倒车逃离。马沙察觉异常，立即派人追踪。布奇驾车逃亡途中，突然遇到红灯，他决定弃车逃跑。布奇躲进一家当铺，看到墙上挂着一把金色手枪，他买下这把枪。当铺老板告诉他这把枪有特殊来历，布奇不以为然。布奇继续逃亡，来到一个偏僻的旅馆，暂时躲藏起来。马沙的手下紧随其后，包围了旅馆区域。布奇意识到自己无处可逃，准备做最后的抵抗。</p>
+  <div class="events"><span class="ev">红灯相遇</span><span class="ev">弃车逃跑</span><span class="ev">购买金枪</span><span class="ev">旅馆躲藏</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:13–02:24</span>
+    <h3>蜜娅的生死时刻</h3>
+  </div>
+  <p>文森特回到马沙家，发现蜜娅因吸食过量毒品而昏迷不醒。他惊慌失措，试图用肾上腺素抢救蜜娅，但情况危急。文森特打电话给朱尔斯求助，朱尔斯赶到后冷静地帮助文森特处理危机。两人决定将蜜娅送到文森特的公寓，假装是蜜娅自己吸毒过量。在公寓里，朱尔斯用针筒将肾上腺素注入蜜娅的心脏，奇迹般地使她苏醒过来。蜜娅醒来后对发生的事情毫无记忆，文森特和朱尔斯松了一口气，迅速离开公寓。这次经历让文森特和朱尔斯都对自己的职业产生了深深的怀疑。</p>
+  <div class="events"><span class="ev">发现昏迷</span><span class="ev">紧急抢救</span><span class="ev">公寓救治</span><span class="ev">奇迹苏醒</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">02:24–02:34</span>
+    <h3>命运的终结</h3>
+  </div>
+  <p>朱尔斯决定放弃杀手生涯，他告诉文森特自己找到了内心的平静。文森特驾车去见布奇，两人再次相遇，布奇开枪打死了文森特为拳击对手报仇。布奇与马沙会面，马沙同意放过布奇，条件是他必须永远离开洛杉矶并放弃所有财产。布奇接受条件，带着费妮克斯离开。朱尔斯找到温斯顿，告诉他自己的决定，温斯顿尊重他的选择并给了他一笔钱。文森特的尸体被发现，马沙得知后平静地接受了这个结果。朱尔斯独自一人走向未知的未来，开始了新的人生。</p>
+  <div class="events"><span class="ev">朱尔斯抉择</span><span class="ev">文森特被杀</span><span class="ev">布奇和解</span><span class="ev">各自新生</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>文森特与蜜娅约会过量吸毒</td></tr><tr><td>约第60分钟</td><td>布奇杀死拳击对手逃跑</td></tr><tr><td>约第90分钟</td><td>餐厅劫匪与朱尔斯对峙</td></tr><tr><td>约第120分钟</td><td>布奇偶遇马沙险被杀</td></tr><tr><td>约第140分钟</td><td>朱尔斯决定放弃杀手生涯</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">暴力</span><span class="theme">救赎</span><span class="theme">命运</span><span class="theme">巧合</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">朱尔斯放弃杀手生涯，文森特被布奇射杀，布奇与费妮克斯和解，马沙接受布奇的条件，各自走向新生活。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-21 16:45 · 模型 glm-4-air,glm-4-flash · 共 15 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

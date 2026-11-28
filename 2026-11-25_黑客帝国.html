@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黑客帝国 · 分段故事梗概 · 2026-11-25</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>黑客帝国<span class="year">1999</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-25</span><span class="chip">电影</span><span class="chip">美国</span><span class="chip">科幻/动作</span><span class="chip">1999</span><span class="chip">电影片长约 136 分钟，按每 10 分钟一段切分，共 14 段</span><span class="chip">未来虚拟世界与真实废土</span></div>
+    <div class="logline">程序员尼奥发现现实是虚拟系统，加入反抗者学习真实世界，面对自己是否为救世者的命运。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 14 段</h2>
+      <ol><li><a href="#seg1">夜店中的神秘女子</a></li>
+<li><a href="#seg2">追踪与逃脱</a></li>
+<li><a href="#seg3">真相揭露</a></li>
+<li><a href="#seg4">重生与训练</a></li>
+<li><a href="#seg5">红药丸蓝药丸</a></li>
+<li><a href="#seg6">尼奥吞下红药丸</a></li>
+<li><a href="#seg7">觉醒于废土世界</a></li>
+<li><a href="#seg8">初见真实世界</a></li>
+<li><a href="#seg9">尼奥死亡时刻</a></li>
+<li><a href="#seg10">复活与觉醒</a></li>
+<li><a href="#seg11">重返矩阵</a></li>
+<li><a href="#seg12">救世者显现</a></li>
+<li><a href="#seg13">尼奥面对机器大军</a></li>
+<li><a href="#seg14">救世者的最终选择</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">尼奥</span><span class="r">主角</span></div><div class="d">怀疑现实的黑客，被选中的救世者候选人</div></div>
+<div class="person"><div><span class="n">墨菲斯</span><span class="r">关键配角</span></div><div class="d">引导尼奥觉醒的反抗领袖</div></div>
+<div class="person"><div><span class="n">崔妮蒂</span><span class="r">关键配角</span></div><div class="d">爱上尼奥的反抗战士</div></div>
+<div class="person"><div><span class="n">史密斯探员</span><span class="r">对手</span></div><div class="d">追捕人类的虚拟程序</div></div>
+<div class="person"><div><span class="n">先知</span><span class="r">关键配角</span></div><div class="d">预言尼奥命运的虚拟程序</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">觉醒</span><span class="ds">尼奥发现真实世界，被墨菲斯救出</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">训练</span><span class="ds">尼奥学习虚拟世界规则，接受救世者训练</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">抉择</span><span class="ds">尼奥选择救崔妮蒂而非逃离矩阵</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">重生</span><span class="ds">尼奥死亡后觉醒为救世者，击败史密斯</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>夜店中的神秘女子</h3>
+  </div>
+  <p>电脑程序员托马斯·安德森在办公室加班时，电脑屏幕上突然出现一行绿色代码。他收到一封神秘邮件，提示他寻找白色兔子。当晚，他在酒吧遇到一个纹身兔子图案的女子，女子在他耳边低语后迅速离开。尼奥跟踪她来到一家地下俱乐部，在那里遇到崔妮蒂。崔妮蒂告诉他墨菲斯知道矩阵的真相，随后尼奥被神秘人跟踪，紧急逃离现场。回到公寓，尼奥发现房间被搜查，电脑屏幕上再次出现红色警告字样。</p>
+  <div class="events"><span class="ev">神秘邮件出现</span><span class="ev">酒吧遇兔女</span><span class="ev">崔妮蒂告知真相</span><span class="ev">房间被搜查</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:19</span>
+    <h3>追踪与逃脱</h3>
+  </div>
+  <p>尼奥被一群神秘黑衣人包围，对方声称要为他戴上耳机。尼奥奋力反抗，但寡不敌众。关键时刻，墨菲斯通过电话联系尼奥，指导他如何逃脱。尼奥按照指示跳入废弃建筑，通过电话线进入另一个世界。醒来后发现自己躺在充满液体的舱室中，全身插满导管。墨菲斯的手下将他救出，带往真实世界的飞船。尼奥被取下身上的导管，第一次看到真实的自己，震惊不已。</p>
+  <div class="events"><span class="ev">被黑衣人围堵</span><span class="ev">墨菲斯电话指导</span><span class="ev">通过电话线逃脱</span><span class="ev">醒来在真实世界</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:19–00:29</span>
+    <h3>真相揭露</h3>
+  </div>
+  <p>墨菲斯向尼奥解释现实世界已被机器控制，人类生活在虚拟的矩阵中。他展示了一个由电缆连接的巨大人类农场，人类被用作机器的能源。墨菲斯称尼奥是救世者候选人，能够改变矩阵。尼奥起初难以接受真相，认为这荒谬可笑。墨菲斯让尼奥选择蓝色药丸继续生活在无知中，或红色药丸了解真相。尼奥选择红色药丸，随后被带回真实世界。飞船上，尼奥看到自己身体被取出培养槽，震惊于自己的真实身份。</p>
+  <div class="events"><span class="ev">矩阵真相揭露</span><span class="ev">人类农场展示</span><span class="ev">选择红色药丸</span><span class="ev">身体取出培养槽</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:29–00:39</span>
+    <h3>重生与训练</h3>
+  </div>
+  <p>尼奥在飞船上逐渐适应真实世界，学习基本的生存技能。他接受武术训练，通过虚拟程序快速掌握各种格斗技巧。墨菲斯解释救世者的使命，并展示先知的预言。尼奥在训练中表现出色，但内心仍对救世者的身份存疑。他学习如何在矩阵中操控规则，如快速移动、躲避子弹等。崔妮蒂与尼奥逐渐建立联系，分享自己的经历。尼奥开始接受自己可能是救世者的可能性，为接下来的挑战做准备。</p>
+  <div class="events"><span class="ev">适应真实世界</span><span class="ev">接受武术训练</span><span class="ev">学习操控规则</span><span class="ev">与崔妮蒂建立联系</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:39–00:49</span>
+    <h3>红药丸蓝药丸</h3>
+  </div>
+  <p>墨菲斯向尼奥展示两种药丸：红色代表真相，蓝色代表继续活在幻象中。尼奥犹豫片刻后选择红药丸，墨菲斯微笑着点头。飞船上的船员们紧张地看着这一幕，崔妮蒂向尼奥投去鼓励的目光。尼奥吞下红药丸后，墨菲斯解释这会唤醒他的意识，但过程会很痛苦。飞船突然剧烈震动，墨菲斯警告说机器已经察觉到异常，必须立即撤离。尼奥的身体开始不适，墨菲斯安排船员将他固定在椅子上。飞船被虚拟世界的警察追踪，墨菲斯指挥船员紧急启动撤离程序。尼奥在痛苦中挣扎，但墨菲斯告诉他这是必经之路，只有经历痛苦才能获得真相。飞船成功逃脱，但尼奥的身体已经发生剧烈变化，他的意识开始脱离矩阵的控制。</p>
+  <div class="events"><span class="ev">选择红药丸</span><span class="ev">身体不适</span><span class="ev">飞船被追踪</span><span class="ev">意识开始脱离</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:49–00:58</span>
+    <h3>尼奥吞下红药丸</h3>
+  </div>
+  <p>尼奥接过红药丸，毫不犹豫地吞下。墨菲斯微笑着点头，飞船上的船员们紧张而期待地看着。尼奥感到一阵眩晕，眼前景象开始扭曲变形，周围的虚拟世界逐渐崩塌。他看到自己的身体被无数电缆连接，浸泡在营养液中。随后，他从矩阵中被强制拔出，醒来时发现自己躺在飞船的医疗舱内，身体瘦弱不堪。崔妮蒂上前扶他起身，解释他已经在机器人的培养罐中生活了二十多年。尼奥难以置信地环顾四周，适应着真实世界的光线和声音，开始接受这个残酷的真相。墨菲斯告诉他，他将是救世者，能够改变人类与机器的命运。尼奥虽然充满怀疑，但已经开始思考自己的使命。</p>
+  <div class="events"><span class="ev">尼奥吞红药丸</span><span class="ev">虚拟世界崩塌</span><span class="ev">尼奥苏醒</span><span class="ev">接受真相</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">00:58–01:08</span>
+    <h3>觉醒于废土世界</h3>
+  </div>
+  <p>尼奥从虚拟世界中醒来，发现自己躺在充满粘液的容器里，身上插满管子。他被救出后，身体极度虚弱，无法正常行动。墨菲斯解释真实世界已被机器统治，人类沦为电池。尼奥难以接受这一残酷现实，情绪崩溃。飞船上的船员为他展示人类残存的最后据点锡安，那是人类最后的避难所。尼奥开始质疑自己的身份和存在的意义，墨菲斯告诉他他是被选中的救世者，能够改变人类的命运。尼奥尝试站起来，却因肌肉萎缩而摔倒，崔妮蒂伸手扶住他，给予鼓励。</p>
+  <div class="events"><span class="ev">尼奥苏醒</span><span class="ev">了解真相</span><span class="ev">情绪崩溃</span><span class="ev">接受现实</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:08–01:18</span>
+    <h3>初见真实世界</h3>
+  </div>
+  <p>尼奥被从液体容器中取出，身体虚弱不堪，难以适应真实世界的感官体验。墨菲斯解释人类生活在一个由机器创造的虚拟世界中，人类沦为机器的电池。尼奥难以接受这一现实，质疑自己生活的真实性。墨菲斯展示人类废土世界的景象，解释机器统治地球的原因。尼奥感到震惊和困惑，开始怀疑自己过去的生活是否真实。崔妮蒂向尼奥伸出援手，帮助他适应新环境。飞船上的船员们对尼奥的到来反应不一，有人怀疑，有人期待。</p>
+  <div class="events"><span class="ev">尼奥被取出容器</span><span class="ev">了解人类沦为电池</span><span class="ev">适应真实世界</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:18–01:27</span>
+    <h3>尼奥死亡时刻</h3>
+  </div>
+  <p>尼奥被史密斯探员枪杀，身体倒地不起。崔妮蒂悲痛欲绝，通过电话亲吻尼奥，表达爱意。墨菲斯和塞拉在真实世界中焦急等待尼奥的苏醒。先知预言尼奥会回来，但塞拉对此表示怀疑。崔妮蒂坚持相信尼奥就是救世者，拒绝接受他的死亡。墨菲斯意识到尼奥必须自己做出选择，不能依靠他人的信念。飞船上气氛凝重，每个人都为尼奥的命运担忧。崔妮蒂守在尼奥身边，不断呼唤他的名字。</p>
+  <div class="events"><span class="ev">尼奥被枪杀</span><span class="ev">崔妮蒂亲吻</span><span class="ev">先知预言</span><span class="ev">墨菲斯等待</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:27–01:37</span>
+    <h3>复活与觉醒</h3>
+  </div>
+  <p>尼奥突然睁开眼睛，完全复活。他能够看清矩阵代码，并掌握了超自然能力。尼奥轻松击退了周围的探员，表现出前所未有的控制力。他打电话给史密斯，宣告自己即将归来。墨菲斯和塞拉震惊于尼奥的复活，崔妮蒂喜极而泣。尼奥解释说他明白了先知的预言，自己必须回到矩阵。墨菲斯理解了尼奥的使命，同意让他返回。尼奥开始为重返矩阵做准备，展现出救世者的自信和决心。</p>
+  <div class="events"><span class="ev">尼奥复活</span><span class="ev">看清代码</span><span class="ev">击退探员</span><span class="ev">宣告归来</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:37–01:47</span>
+    <h3>重返矩阵</h3>
+  </div>
+  <p>尼奥通过电话重返矩阵，来到地铁站与塞拉会合。两人在站台上遭遇史密斯探员的追捕。尼奥展现出惊人的速度和力量，轻松躲避史密斯的攻击。他开始理解矩阵的规则，并能够打破这些规则。塞拉对尼奥的能力感到惊讶，但同时也担心他的安全。尼奥向塞拉解释他已经不再是普通人，而是救世者。两人在地铁站展开激烈对抗，尼奥逐渐占据上风。史密斯意识到尼奥已经变得不可战胜，开始感到恐惧。</p>
+  <div class="events"><span class="ev">重返矩阵</span><span class="ev">遭遇追捕</span><span class="ev">展现能力</span><span class="ev">对抗史密斯</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:47–01:57</span>
+    <h3>救世者显现</h3>
+  </div>
+  <p>尼奥完全掌控了自己的能力，能够躲避子弹并飞行。他轻松击败了史密斯和其他探员，展现出救世者的真正力量。尼奥前往先知那里，寻求进一步的指引。先知确认他就是预言中的救世者，并告诉他必须找到主系统才能解放人类。尼奥明白了自己的使命，决心结束机器对人类的统治。崔妮蒂在真实世界中看着这一切，为尼奥的成长感到骄傲。尼奥准备好迎接最终的挑战，为人类的自由而战。</p>
+  <div class="events"><span class="ev">掌控能力</span><span class="ev">击败探员</span><span class="ev">见先知</span><span class="ev">确认使命</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">01:57–02:06</span>
+    <h3>尼奥面对机器大军</h3>
+  </div>
+  <p>尼奥抵达机器城外的发电站，那里是连接矩阵与真实世界的枢纽。他看到无数机器大军包围着人类的最后据点锡安，准备发动总攻。墨菲斯和崔妮蒂等人在锡安抵抗，但力量悬殊。尼奥通过电话与先知联系，确认自己必须返回矩阵面对史密斯。他明白自己的使命不仅是拯救锡安，更要改变人类与机器的命运。尼奥决定独自返回矩阵，对抗史密斯和整个系统。</p>
+  <div class="events"><span class="ev">抵达机器城</span><span class="ev">目睹锡安危机</span><span class="ev">决定返回矩阵</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:06–02:16</span>
+    <h3>救世者的最终选择</h3>
+  </div>
+  <p>尼奥重返矩阵，在地铁站与史密斯对决。史密斯复制出无数个自己，形成压倒性优势。尼奥凭借对矩阵规则的掌控，轻松躲避所有攻击并最终击败史密斯。他进入矩阵核心，与先知对话后返回真实世界。在锡安即将被攻破之际，尼奥通过矩阵控制了所有机器，迫使机器停止攻击。他向机器提议和平共处，人类与机器的关系迎来转机。尼奥成为真正的救世者，为两个世界带来希望。</p>
+  <div class="events"><span class="ev">击败史密斯</span><span class="ev">控制机器系统</span><span class="ev">提出和平共处</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>尼奥被墨菲斯救出，得知真相</td></tr><tr><td>约第60分钟</td><td>尼奥接受训练，开始相信自己是救世者</td></tr><tr><td>约第90分钟</td><td>尼奥选择救崔妮蒂，违背预言</td></tr><tr><td>约第120分钟</td><td>尼奥被史密斯杀死，随后复活</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">现实与虚拟</span><span class="theme">自由意志</span><span class="theme">命运选择</span><span class="theme">人类反抗</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">尼奥觉醒为救世者，获得控制矩阵的能力，向人类宣告机器的终结，为人类与机器的和平带来希望。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-25 20:28 · 模型 glm-4-air,glm-4-flash · 共 14 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>继承之战 · 分段故事梗概 · 2026-11-25</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>继承之战<span class="year">2018</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-25</span><span class="chip">电视剧</span><span class="chip">美国</span><span class="chip">剧情/商战</span><span class="chip">2018</span><span class="chip">电视剧共 10 集，单集约 55 分钟，每集拆 3 段，全剧共 30 段</span><span class="chip">当代美国纽约</span></div>
+    <div class="logline">传媒大亨洛根的子女为争夺家族企业继承权展开残酷斗争，亲情与商业利益冲突不断。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 30 段</h2>
+      <ol><li><a href="#seg1">洛根中风危机</a></li>
+<li><a href="#seg2">第2段</a></li>
+<li><a href="#seg3">第3段</a></li>
+<li><a href="#seg4">第4段</a></li>
+<li><a href="#seg5">肯德尔寻求盟友</a></li>
+<li><a href="#seg6">家族会议暗流涌动</a></li>
+<li><a href="#seg7">肯德尔首次公开亮相</a></li>
+<li><a href="#seg8">肯德尔演讲受挫</a></li>
+<li><a href="#seg9">肯德尔公开背叛</a></li>
+<li><a href="#seg10">洛根反击行动</a></li>
+<li><a href="#seg11">家族权力重组</a></li>
+<li><a href="#seg12">肯德尔最后的挣扎</a></li>
+<li><a href="#seg13">肯德尔寻求外部支持</a></li>
+<li><a href="#seg14">家族会议暗流涌动</a></li>
+<li><a href="#seg15">肯德尔公开宣战</a></li>
+<li><a href="#seg16">洛根的惩罚与安抚</a></li>
+<li><a href="#seg17">肯德尔失去筹码</a></li>
+<li><a href="#seg18">肯德尔彻底溃败</a></li>
+<li><a href="#seg19">家族重组计划</a></li>
+<li><a href="#seg20">子女分权测试</a></li>
+<li><a href="#seg21">洛根的反击计划</a></li>
+<li><a href="#seg22">肯德尔的媒体攻势</a></li>
+<li><a href="#seg23">家族秘密曝光</a></li>
+<li><a href="#seg24">洛根的最终布局</a></li>
+<li><a href="#seg25">肯德尔公开叛变</a></li>
+<li><a href="#seg26">家族会议对决</a></li>
+<li><a href="#seg27">股东大会风暴</a></li>
+<li><a href="#seg28">洛根的最终选择</a></li>
+<li><a href="#seg29">家族晚宴暗流</a></li>
+<li><a href="#seg30">继承权最终分配</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">洛根·罗伊</span><span class="r">主角</span></div><div class="d">传媒巨头，操控子女继承权</div></div>
+<div class="person"><div><span class="n">肯德尔·罗伊</span><span class="r">主角</span></div><div class="d">长子，渴望证明自己</div></div>
+<div class="person"><div><span class="n">雪莉·罗伊</span><span class="r">主角</span></div><div class="d">长女，精明善变</div></div>
+<div class="person"><div><span class="n">罗马·罗伊</span><span class="r">关键配角</span></div><div class="d">次子，幽默但缺乏斗志</div></div>
+<div class="person"><div><span class="n">汤姆·沃姆斯利</span><span class="r">关键配角</span></div><div class="d">女婿，野心勃勃</div></div>
+<div class="person"><div><span class="n">格雷格·哈里森</span><span class="r">关键配角</span></div><div class="d">助理，渴望晋升</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">权力真空</span><span class="ds">洛根健康下滑，子女开始争夺继承权</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">明争暗斗</span><span class="ds">子女各自结盟，争夺公司控制权</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">背叛与重组</span><span class="ds">家族内部联盟不断变化，互相背叛</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">最终对决</span><span class="ds">子女与洛根展开终极权力较量</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·前</span>
+    <h3>洛根中风危机</h3>
+  </div>
+  <p>传媒大亨洛根·罗伊在游艇上突发中风，被紧急送往医院。他的四个子女肯德尔、雪莉、罗马和希夫匆忙赶到医院。洛根昏迷不醒，子女们开始讨论公司接班事宜。肯德尔渴望接管家族企业Waystar Royco，雪莉则质疑肯德尔的能力。罗马试图缓和气氛但失败。洛根的助手汤姆和格雷格在场协助处理危机。医生告知子女们洛根的情况稳定但需要观察。子女们开始为可能的权力真空做准备，各自暗中布局。</p>
+  <div class="events"><span class="ev">洛根中风</span><span class="ev">子女赶往医院</span><span class="ev">接班问题浮现</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·中</span>
+    <h3>第2段</h3>
+  </div>
+  <p>洛根苏醒后拒绝签署文件将公司控制权交给子女。他坚持要继续掌控公司，子女们感到失望和愤怒。肯德尔试图说服父亲让他暂时接管公司，遭到拒绝。雪莉与洛根发生激烈争吵，指责他偏心。罗马试图调解但无济于事。希夫保持沉默但内心焦虑。洛根要求子女们表现出团结和尊重，否则不会考虑交接。子女们表面上达成共识，各自回到工作岗位，但暗中都在为可能的权力斗争做准备。</p>
+  <div class="events"><span class="ev">洛根拒绝交权</span><span class="ev">子女争吵</span><span class="ev">表面共识达成</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第1集·后</span>
+    <h3>第3段</h3>
+  </div>
+  <p>洛根出院回到家中，子女们陪同参加新闻发布会。发布会上，洛根宣布自己将暂时退休，但未明确指定接班人。肯德尔在记者会上表现积极，试图展示领导能力。雪莉与丈夫汤姆讨论如何利用这一机会提升自己的地位。罗马与希夫对父亲的决定感到不安。发布会后，洛根私下与肯德尔谈话，暗示可能会选择他作为接班人，但条件是肯德尔必须证明自己有能力。肯德尔受到鼓舞，开始策划如何接管公司。</p>
+  <div class="events"><span class="ev">洛根宣布退休</span><span class="ev">记者会亮相</span><span class="ev">肯德尔获暗示</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·前</span>
+    <h3>第4段</h3>
+  </div>
+  <p>肯德尔开始积极准备接管公司，他与公司高管会面，试图建立自己的影响力。雪莉与汤姆合作，开始收集公司信息，寻找可能的机会。罗马与希夫保持距离，观察事态发展。洛根暗中观察子女们的行动，对肯德尔的急躁感到不满。格雷格作为希夫的助理，帮助她收集情报，同时寻求自己的晋升机会。公司内部开始出现派系分化，高管们开始站队。洛根的健康状况出现波动，子女们对继承权的争夺变得更加激烈。</p>
+  <div class="events"><span class="ev">肯德尔布局</span><span class="ev">雪莉收集情报</span><span class="ev">公司派系分化</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第2集·中</span>
+    <h3>肯德尔寻求盟友</h3>
+  </div>
+  <p>肯德尔试图联合兄弟姐妹共同对抗洛根，他私下与雪莉和罗马会面，提议三人结盟共同管理公司。雪莉表面支持但暗中与丈夫汤姆讨论其他可能性。罗马对肯德尔的计划持怀疑态度，担心父亲会察觉他们的密谋。洛根在背后观察子女的一举一动，与心腹希夫保持联系，了解子女们的动向。肯德尔在公司内部积极活动，试图争取高管们的支持，同时开始接触潜在的外部投资者，为可能的权力斗争做准备。雪莉则在暗中收集公司财务信息，寻找洛根管理中的漏洞。</p>
+  <div class="events"><span class="ev">肯德尔密谋结盟</span><span class="ev">雪莉暗中收集信息</span><span class="ev">罗马持怀疑态度</span><span class="ev">洛根监控子女</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第2集·后</span>
+    <h3>家族会议暗流涌动</h3>
+  </div>
+  <p>洛根召集子女召开家庭会议，表面上讨论公司未来，实则测试子女们的忠诚度。肯德尔在会上提出由他暂时接管公司的提议，雪莉支持但附加条件要求获得更多决策权。罗马则保持沉默，观察局势发展。会议结束后，洛根单独与肯德尔交谈，暗示他可以考虑让肯德尔接手部分业务，但前提是肯德尔必须证明自己的能力。雪莉与汤姆讨论肯德尔的提议，认为这可能是一个机会，但需要更多保障。洛根暗中指示希夫调查子女们的私下活动，收集他们的把柄。</p>
+  <div class="events"><span class="ev">洛根测试忠诚</span><span class="ev">肯德尔提出接手</span><span class="ev">雪莉附加条件</span><span class="ev">洛根暗中调查</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第3集·前</span>
+    <h3>肯德尔首次公开亮相</h3>
+  </div>
+  <p>洛根安排肯德尔在公司年度股东大会上首次公开亮相，作为公司未来的可能领导者。肯德尔精心准备演讲，试图展示自己的领导能力和对公司的愿景。雪莉和罗马也出席了会议，但态度各异。雪莉暗中与一些股东交流，试探他们对肯德尔的看法。罗马则在会上表现得漫不经心，似乎对权力斗争不感兴趣。洛根在台下观察肯德尔的表现，与希夫交换意见。会后，肯德尔与一些重要股东会面，试图建立更紧密的关系，同时开始规划自己的团队，准备在可能的权力交接中占据有利位置。</p>
+  <div class="events"><span class="ev">肯德尔公开亮相</span><span class="ev">雪莉试探股东</span><span class="ev">罗马态度冷淡</span><span class="ev">洛根暗中观察</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第3集·中</span>
+    <h3>肯德尔演讲受挫</h3>
+  </div>
+  <p>股东大会上，肯德尔按照父亲洛根的安排发表演讲，展示自己作为未来领导者的形象。然而演讲过程中，肯德尔显得紧张不安，多次忘记台词，不得不依靠提词器。台下股东们反应冷淡，质疑他的能力和准备。雪莉和罗马坐在台下，面无表情，没有给予任何支持。洛根在观察室全程观看，对肯德尔的表现明显不满。会后，洛根严厉批评肯德尔，认为他准备不足，缺乏真正的领导素质。肯德尔感到沮丧，意识到自己在父亲眼中的分量远不如想象。雪莉趁机与洛根单独谈话，暗示自己可能是更合适的继承人。罗马则借机离开，与朋友喝酒消愁，逃避家族压力。</p>
+  <div class="events"><span class="ev">肯德尔演讲失误</span><span class="ev">洛根严厉批评</span><span class="ev">雪莉私下争取</span><span class="ev">罗马借机逃离</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第3集·后</span>
+    <h3>肯德尔公开背叛</h3>
+  </div>
+  <p>洛根安排肯德尔在股东大会上作为公司未来领导者亮相，肯德尔精心准备演讲，试图展示领导能力和公司愿景。然而在会议结束后，肯德尔私下与雪莉和罗马会面，揭露洛根的健康状况和实际控制意图，要求他们共同对抗父亲。雪莉表面支持但暗中与丈夫汤姆讨论其他可能性。罗马对肯德尔的计划持怀疑态度。肯德尔随后联系媒体，准备公开洛根无法继续管理公司的证据，试图在董事会中争取支持。洛根得知后愤怒不已，召见子女进行对峙。</p>
+  <div class="events"><span class="ev">肯德尔亮相演讲</span><span class="ev">私下结盟对抗父亲</span><span class="ev">联系媒体准备曝光</span><span class="ev">洛根愤怒召见</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第4集·前</span>
+    <h3>洛根反击行动</h3>
+  </div>
+  <p>洛根得知肯德尔的背叛计划后迅速采取行动，他召集紧急董事会会议，提前揭露肯德尔的意图。洛根在会上展示肯德尔与媒体沟通的证据，使肯德尔在董事会中失去支持。同时，洛根宣布将重新评估所有子女在公司中的角色，暗示可能改变继承计划。肯德尔试图挽回局面，但洛根明确表示不再信任他。雪莉看到风向转变，开始与丈夫汤姆重新评估立场，暗中为自己寻找退路。罗马则陷入两难境地，不知该继续支持肯德尔还是转向洛根。</p>
+  <div class="events"><span class="ev">洛根召集董事会</span><span class="ev">揭露肯德尔背叛</span><span class="ev">重新评估子女角色</span><span class="ev">雪莉立场动摇</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第4集·中</span>
+    <h3>家族权力重组</h3>
+  </div>
+  <p>洛根开始在公司内部进行权力重组，他提拔了一批亲信进入高层，削弱子女们的影响力。肯德尔被暂时调离核心业务部门，被安排负责一个边缘项目。雪莉虽然保住了职位，但决策权被大幅削减。罗马则被完全排除在管理层之外，被要求暂时休假。汤姆趁机向洛根表忠心，希望借此获得更多权力和地位。格雷格作为助理，敏锐地察觉到家族内部权力变化，开始重新选择站队。洛根在家庭会议上宣布，子女们必须证明自己的价值才能重新获得信任。</p>
+  <div class="events"><span class="ev">洛根重组管理层</span><span class="ev">肯德尔被边缘化</span><span class="ev">雪莉权力削减</span><span class="ev">汤姆趁机表忠心</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第4集·后</span>
+    <h3>肯德尔最后的挣扎</h3>
+  </div>
+  <p>被边缘化的肯德尔不甘失败，他暗中联系公司大股东，试图获得他们的支持来对抗洛根。肯德尔提出一套公司转型计划，承诺将带来更高的回报，部分股东表示有兴趣。洛根得知后立即采取反制措施，他向股东们展示肯德尔的过往商业失败记录，并承诺将亲自带领公司进入新阶段。雪莉在丈夫汤姆的劝说下，决定暂时站在洛根一边，以保护自身利益。罗马则陷入消沉，对家族权力斗争感到厌倦。洛根在家族晚宴上宣布，他将重新考虑继承人选，暗示肯德尔可能已被排除在外。</p>
+  <div class="events"><span class="ev">肯德尔联系股东</span><span class="ev">洛根反制措施</span><span class="ev">雪莉倒向洛根</span><span class="ev">罗马消沉放弃</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第5集·前</span>
+    <h3>肯德尔寻求外部支持</h3>
+  </div>
+  <p>肯德尔秘密会见了公司主要股东，向他们展示了自己的转型计划，试图获得支持以对抗洛根。他承诺提高公司股价，增加股东回报，部分股东表示出兴趣。与此同时，肯德尔开始与媒体接触，准备在关键时刻向公众揭露洛根的管理问题。雪莉察觉到肯德尔的行动，选择向父亲报告，希望借此重新获得洛根的信任。洛根对肯德尔的背叛感到愤怒，但他表面上保持冷静，开始暗中布局应对。肯德尔的助理格雷格在中间传递信息，同时也在为自己寻找退路。</p>
+  <div class="events"><span class="ev">肯德尔见股东</span><span class="ev">雪莉告密</span><span class="ev">洛根布局</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第5集·中</span>
+    <h3>家族会议暗流涌动</h3>
+  </div>
+  <p>洛根召集家族会议，表面上讨论公司未来发展，实则试探子女们的立场。罗马在会议上表现出对父亲的支持，但他私下仍在考虑自己的出路。雪莉在会上积极发言，试图展现自己的价值，同时暗中削弱肯德尔的影响力。肯德尔在会议上坚持自己的转型计划，与父亲发生激烈争执。会议结束后，洛根单独与罗马谈话，暗示他可能会考虑罗马作为继承人之一，这让罗马既兴奋又不安。汤姆察觉到家族内部的权力变化，开始为自己和雪莉的未来做打算。</p>
+  <div class="events"><span class="ev">家族会议</span><span class="ev">罗马动摇</span><span class="ev">汤姆谋划</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第5集·后</span>
+    <h3>肯德尔公开宣战</h3>
+  </div>
+  <p>肯德尔决定不再等待，他与媒体达成协议，准备公开宣布与父亲决裂。在一家高级餐厅，肯德尔向几位关键股东正式提出罢免洛根的计划，承诺将带领公司走向新方向。洛根得知后立即采取行动，他召集紧急董事会，提前揭露肯德尔的计划，并展示肯德尔与媒体沟通的证据。董事会对肯德尔失去信任，公开表示支持洛根。肯德尔的公开宣战以失败告终，他的股价承诺也未能实现。雪莉在关键时刻选择站在父亲一边，进一步巩固了洛根的权威。</p>
+  <div class="events"><span class="ev">肯德尔宣战</span><span class="ev">董事会倒戈</span><span class="ev">雪莉站队</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第6集·前</span>
+    <h3>洛根的惩罚与安抚</h3>
+  </div>
+  <p>洛根对肯德尔的背叛进行惩罚，他将肯德尔从公司核心管理层中彻底剥离，只保留象征性的职位。同时，洛根开始安抚其他子女，他承诺罗马将负责一个重要项目，雪莉继续保持现有职位但获得更多自由。洛根还提拔了一批亲信进入高层，进一步巩固自己的权力。肯德尔被边缘化后，开始反思自己的处境，他试图通过父亲的老友重新获得信任，但遭到拒绝。格雷格在这次权力洗牌中表现出色，获得了洛根的注意，开始被赋予更多责任。</p>
+  <div class="events"><span class="ev">肯德尔被削权</span><span class="ev">洛根安抚子女</span><span class="ev">格雷格获提拔</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第6集·中</span>
+    <h3>肯德尔失去筹码</h3>
+  </div>
+  <p>肯德尔被父亲剥夺实权后，试图通过媒体反击。他与前妻举行新闻发布会，宣布将起诉洛根和公司，并指责父亲操纵家族企业。肯德尔还试图争取罗马的支持，但罗马拒绝卷入父子争端。雪莉表面上保持中立，实际上在向洛根汇报肯德尔的每一步行动。洛根通过媒体反击，公开质疑肯德尔的领导能力和心理健康。肯德尔的公开行动未能获得股东支持，反而加速了他在公司中的边缘化。</p>
+  <div class="events"><span class="ev">肯德尔开新闻发布会</span><span class="ev">罗马拒绝支持</span><span class="ev">雪莉暗中汇报</span><span class="ev">洛根反击质疑</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第6集·后</span>
+    <h3>肯德尔彻底溃败</h3>
+  </div>
+  <p>洛根得知肯德尔的新闻发布会后，立即召开紧急董事会，公开揭露肯德尔的财务问题和吸毒历史，彻底摧毁了他的信誉。肯德尔试图召集支持者，却发现大多数股东已经倒向洛根。雪莉表面上支持父亲，暗中却与汤姆谋划如何从家族争斗中获利。罗马被父亲委以重任，负责公司的一个重要项目，但他内心仍对肯德尔抱有同情。格雷格抓住机会，向洛根提供肯德尔的更多负面信息，希望借此获得晋升。最终，肯德尔不仅失去了公司的控制权，还面临法律诉讼和公众形象的崩塌，被迫回到父亲身边寻求和解。</p>
+  <div class="events"><span class="ev">董事会反击</span><span class="ev">肯德尔信誉崩塌</span><span class="ev">雪莉暗中谋划</span><span class="ev">格雷格出卖信息</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">第7集·前</span>
+    <h3>家族重组计划</h3>
+  </div>
+  <p>洛根召集子女与高层召开重要会议，宣布重组公司管理架构。他将家族企业分成四个部门，每个子女负责一个板块，表面上是分权管理，实则是测试他们的能力。肯德尔被排除在核心决策外，只能负责边缘业务。雪莉获得媒体部门控制权，罗马负责娱乐板块，而汤姆则协助雪莉管理。洛根强调这是家族企业，外人不得插手，暗示子女必须团结一致。会议中，洛根不断质疑肯德尔的决策能力，让他难堪。肯德尔表面上接受安排，暗中开始寻找机会反击。洛根还宣布将聘请外部顾问协助管理，进一步削弱子女的权力。</p>
+  <div class="events"><span class="ev">洛根分权管理</span><span class="ev">肯德尔被边缘化</span><span class="ev">子女获部门控制</span><span class="ev">引入外部顾问</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">第7集·中</span>
+    <h3>子女分权测试</h3>
+  </div>
+  <p>洛根在会议上详细阐述公司重组计划，将家族企业划分为四个主要部门：媒体、国际业务、主题公园和新兴技术。他指定肯德尔负责媒体部门，雪莉主管国际业务，罗马掌管主题公园，而将新兴技术部门交给希夫。洛根强调这只是临时安排，表现优异者将获得更大权力。会议中，子女们表面接受安排，暗地里各自盘算。肯德尔试图通过媒体部门重建影响力，雪莉立即着手国际业务扩张，罗马对主题公园表现出浓厚兴趣但缺乏具体计划。洛根暗中观察子女反应，并通过助理收集各方情报。会议结束后，洛根单独与希夫交谈，暗示新兴技术才是公司未来发展方向，并询问希夫对各子女能力的评估。</p>
+  <div class="events"><span class="ev">洛根分权</span><span class="ev">子女分工</span><span class="ev">希夫获宠</span></div>
+</section>
+
+<section class="seg" id="seg21">
+  <div class="head">
+    <span class="no">第 21 段</span>
+    <span class="tm">第7集·后</span>
+    <h3>洛根的反击计划</h3>
+  </div>
+  <p>洛根得知肯德尔的背叛后迅速采取行动。他召集公司高管，展示肯德尔与媒体合作的证据，证明儿子背叛家族利益。洛根同时开始秘密调查肯德尔的财务状况，寻找可利用的弱点。在与雪莉和罗马的私下会面中，洛根表面上安抚他们，承诺不会改变公司继承计划，实则暗中分化子女联盟。肯德尔察觉到父亲的行动，试图拉拢罗马共同对抗父亲，但罗马对权力斗争感到厌倦，选择保持中立。洛根还指示汤姆加强公司内部管控，防止肯德尔继续渗透。</p>
+  <div class="events"><span class="ev">洛根反击</span><span class="ev">分化子女</span><span class="ev">肯德尔孤立</span></div>
+</section>
+
+<section class="seg" id="seg22">
+  <div class="head">
+    <span class="no">第 22 段</span>
+    <span class="tm">第8集·前</span>
+    <h3>肯德尔的媒体攻势</h3>
+  </div>
+  <p>肯德尔被父亲剥夺实权后，决定通过媒体公开对抗洛根。他安排与知名记者的深度访谈，详细讲述自己被家族企业排挤的经历，并暗示公司内部存在严重管理问题。同时，肯德尔开始接触公司部分股东，试图争取他们的支持。雪莉得知肯德尔的行动后，私下与洛根沟通，表明自己立场，但洛根对她仍保持警惕。罗马则陷入自我怀疑，开始质疑自己是否真的适合接管家族企业。格雷格敏锐地察觉到权力真空，开始更积极地搜集信息，为可能的站队做准备。</p>
+  <div class="events"><span class="ev">肯德尔媒体战</span><span class="ev">雪莉立场摇摆</span><span class="ev">格雷格行动</span></div>
+</section>
+
+<section class="seg" id="seg23">
+  <div class="head">
+    <span class="no">第 23 段</span>
+    <span class="tm">第8集·中</span>
+    <h3>家族秘密曝光</h3>
+  </div>
+  <p>肯德尔在媒体访谈中意外透露了家族企业的某些不为人知的商业操作，引发轩然大波。洛根震怒，立即召开紧急董事会，试图控制危机。雪莉意识到事态严重，开始与肯德尔保持距离，转而寻求与父亲达成新的协议。罗马则在压力下开始酗酒，行为举止愈发不稳定，引起洛根的不满。汤姆趁机向洛根提议加强对公司的控制，并暗示雪莉可能不可靠。格雷格继续收集信息，发现肯德尔的财务状况比表面看起来更加脆弱。</p>
+  <div class="events"><span class="ev">商业秘密曝光</span><span class="ev">雪莉转向</span><span class="ev">罗马崩溃</span></div>
+</section>
+
+<section class="seg" id="seg24">
+  <div class="head">
+    <span class="no">第 24 段</span>
+    <span class="tm">第8集·后</span>
+    <h3>洛根的最终布局</h3>
+  </div>
+  <p>洛根利用肯德尔引发的危机，开始重新规划家族企业的未来。他秘密与部分股东达成协议，确保自己的控制权不受威胁。同时，洛根向雪莉提出新的条件，承诺给予她更大的管理权限，但要求她彻底与肯德尔划清界限。罗马因行为问题被洛根暂时排除在核心决策之外。肯德尔意识到自己的媒体攻势适得其反，开始寻求与父亲和解的可能性。汤姆则利用这一混乱局面，加速推进自己的计划，试图在公司中占据更有利的位置。格雷格发现肯德尔可能面临法律风险，开始考虑自己的下一步行动。</p>
+  <div class="events"><span class="ev">洛根重掌控制</span><span class="ev">雪莉交易</span><span class="ev">肯德尔求和</span></div>
+</section>
+
+<section class="seg" id="seg25">
+  <div class="head">
+    <span class="no">第 25 段</span>
+    <span class="tm">第9集·前</span>
+    <h3>肯德尔公开叛变</h3>
+  </div>
+  <p>肯德尔决定彻底背叛父亲，与媒体合作准备一篇爆炸性报道，揭露公司内部管理问题和洛根的专断作风。他秘密联系了长期关注Waystar公司的记者，提供了大量内部文件和录音作为证据。同时，肯德尔开始拉拢罗马，希望获得兄弟的支持。雪莉得知肯德尔的计划后陷入两难，既不想背叛父亲，又不想完全站在肯德尔的对立面。洛根察觉到肯德尔的行动，提前召集团队准备反击，同时暗中调查肯德尔的证据来源。肯德尔在媒体发布会上高调亮相，宣布将与父亲彻底决裂，并准备联合其他股东罢免洛根的CEO职位。</p>
+  <div class="events"><span class="ev">肯德尔叛变</span><span class="ev">联合媒体</span><span class="ev">拉拢罗马</span><span class="ev">洛根反击</span></div>
+</section>
+
+<section class="seg" id="seg26">
+  <div class="head">
+    <span class="no">第 26 段</span>
+    <span class="tm">第9集·中</span>
+    <h3>家族会议对决</h3>
+  </div>
+  <p>洛根召集紧急董事会，准备在肯德尔公开发布前控制局势。会议上，洛根展示肯德尔的背叛证据，并承诺给予股东更多回报。肯德尔突然现身，带着律师和记者，要求立即召开股东大会讨论罢免父亲。罗马在关键时刻选择支持肯德尔，雪莉则保持中立，只要求保护自己的利益。董事会陷入混乱，部分股东开始动摇。洛根被迫妥协，同意召开临时股东大会，但同时暗中联络其他股东，确保自己的控制权。肯德尔在会议结束后与罗马庆祝胜利，但雪莉警告他们不要低估洛根的能力。洛根私下与汤姆达成协议，承诺给予他更多权力，换取他在股东大会上的支持。</p>
+  <div class="events"><span class="ev">董事会对决</span><span class="ev">肯德尔现身</span><span class="ev">罗马支持</span><span class="ev">洛根妥协</span></div>
+</section>
+
+<section class="seg" id="seg27">
+  <div class="head">
+    <span class="no">第 27 段</span>
+    <span class="tm">第9集·后</span>
+    <h3>股东大会风暴</h3>
+  </div>
+  <p>临时股东大会上，肯德尔和洛根展开激烈交锋。肯德尔详细陈述公司管理问题和洛根的独断专行，出示了大量证据。洛根则反击指责肯德尔无能和背叛家族，并展示公司近年来的辉煌业绩。罗马发言支持肯德尔，但态度不够坚定。雪莉突然倒戈，支持洛根，认为肯德尔准备不足且过于冲动。投票结果出乎所有人意料，大多数股东支持洛根继续担任CEO。肯德尔遭受沉重打击，罗马当场崩溃，指责肯德尔把他们带入深渊。洛根在会后与肯德尔单独谈话，表面上给予他一些安慰，但实际上已经彻底放弃这个儿子。肯德尔意识到自己彻底失败，开始收拾个人物品准备离开公司。</p>
+  <div class="events"><span class="ev">股东投票</span><span class="ev">雪莉倒戈</span><span class="ev">罗马崩溃</span><span class="ev">肯德尔失败</span></div>
+</section>
+
+<section class="seg" id="seg28">
+  <div class="head">
+    <span class="no">第 28 段</span>
+    <span class="tm">第10集·前</span>
+    <h3>洛根的最终选择</h3>
+  </div>
+  <p>洛根开始为公司的未来重新布局，表面上将权力分散给子女，实则暗中掌控一切。他邀请肯德尔参加家庭晚宴，暗示可能给予他第二次机会，但条件是肯德尔必须完全服从他的安排。雪莉被任命为公司联席CEO，获得更多实权，但同时受到洛根的严密监控。罗马被边缘化，几乎被排除在核心决策之外。汤姆被提升为重要职位，成为洛根新的得力助手。肯德尔在晚宴上表现出悔意，愿意接受父亲的安排，但内心仍在盘算下一步行动。洛根私下与重要股东达成协议，确保即使自己退位，也能通过特殊股权结构继续控制公司。家族表面和解，但每个人都在为自己的未来做准备。</p>
+  <div class="events"><span class="ev">洛根布局</span><span class="ev">肯德尔示弱</span><span class="ev">雪莉升职</span><span class="ev">汤姆获重用</span></div>
+</section>
+
+<section class="seg" id="seg29">
+  <div class="head">
+    <span class="no">第 29 段</span>
+    <span class="tm">第10集·中</span>
+    <h3>家族晚宴暗流</h3>
+  </div>
+  <p>洛根在家族晚宴上看似给予肯德尔第二次机会，实则精心布局。晚宴上，洛根与肯德尔单独交谈，暗示若肯德尔完全服从他的安排，可能考虑让他重返管理层。雪莉和罗马被安排在另一房间，通过监视器观察一切。洛根向肯德尔展示公司最新战略，同时暗示他将重新评估所有子女在公司中的角色。肯德尔表面顺从，内心挣扎，试图在谈话中为自己争取更多权力。晚宴气氛紧张，每个人都在暗中评估洛根的真实意图。洛根最后宣布他将亲自监督公司下一阶段的转型，子女们的角色将在适当时候重新定义。</p>
+  <div class="events"><span class="ev">洛根与肯德尔密谈</span><span class="ev">雪莉罗马监视</span><span class="ev">公司战略展示</span></div>
+</section>
+
+<section class="seg" id="seg30">
+  <div class="head">
+    <span class="no">第 30 段</span>
+    <span class="tm">第10集·后</span>
+    <h3>继承权最终分配</h3>
+  </div>
+  <p>洛根召集子女进行最终决定，表面上宣布将由肯德尔担任公司CEO，但保留了关键决策权。他宣布将成立一个由他亲自监督的过渡委员会，子女们将在委员会中担任不同职位。雪莉被任命为董事会主席，罗马负责国际业务，而肯德尔虽然获得CEO头衔，但重大决策仍需洛根批准。洛根同时宣布将公司部分股份出售给外部投资者，以稀释子女们的控制权。晚宴结束后，子女们各自离开，表面接受决定，但每个人都开始私下布局，准备在洛根不在时争夺更多权力。家族关系彻底破裂，每个人都在为各自的利益而战。</p>
+  <div class="events"><span class="ev">肯德尔获CEO职位</span><span class="ev">洛根保留决策权</span><span class="ev">股份稀释计划</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集</td><td>洛根中风，子女继承危机爆发</td></tr><tr><td>第4集</td><td>肯德尔试图联合兄弟姐妹罢免父亲</td></tr><tr><td>第7集</td><td>洛根决定将公司交给子女共同管理</td></tr><tr><td>第9集</td><td>肯德尔公开背叛父亲，家族关系彻底破裂</td></tr><tr><td>第10集</td><td>洛根最终选择肯德尔作为继承人</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">权力斗争</span><span class="theme">家族背叛</span><span class="theme">商业野心</span><span class="theme">身份认同</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">洛根表面上选择肯德尔作为继承人，但实际仍在操控一切。家族关系彻底破裂，每个人都在为各自的利益而战。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-25 09:48 · 模型 glm-4-air,glm-4-flash · 共 30 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

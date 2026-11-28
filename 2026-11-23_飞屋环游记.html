@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>飞屋环游记 · 分段故事梗概 · 2026-11-23</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>飞屋环游记<span class="year">2009</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-23</span><span class="chip">电影</span><span class="chip">美国</span><span class="chip">动画/冒险</span><span class="chip">2009</span><span class="chip">电影片长约 96 分钟，按每 10 分钟一段切分，共 10 段</span><span class="chip">现代美国小镇与南美洲丛林</span></div>
+    <div class="logline">老人卡尔用气球带着房子飞向瀑布，意外带上男孩罗素，共同经历冒险后学会放下过去。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 10 段</h2>
+      <ol><li><a href="#seg1">童年卡尔与艾丽</a></li>
+<li><a href="#seg2">第2段</a></li>
+<li><a href="#seg3">第3段</a></li>
+<li><a href="#seg4">第4段</a></li>
+<li><a href="#seg5">追踪神秘大鸟</a></li>
+<li><a href="#seg6">遭遇危险鸟群</a></li>
+<li><a href="#seg7">凯文被掳查尔斯现身</a></li>
+<li><a href="#seg8">查尔斯揭露真面目</a></li>
+<li><a href="#seg9">卡尔放弃房子救罗素</a></li>
+<li><a href="#seg10">卡尔与罗素成为家人</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">卡尔</span><span class="r">主角</span></div><div class="d">固执老人，为履行对亡妻的承诺而冒险</div></div>
+<div class="person"><div><span class="n">罗素</span><span class="r">关键配角</span></div><div class="d">活泼男孩，渴望获得帮助者徽章</div></div>
+<div class="person"><div><span class="n">凯文</span><span class="r">关键配角</span></div><div class="d">稀有大鸟，卡尔与罗素的保护对象</div></div>
+<div class="person"><div><span class="n">查尔斯</span><span class="r">对手</span></div><div class="d">探险家，卡尔童年偶像，后变反派</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">准备出发</span><span class="ds">卡尔用气球拖动房子飞向瀑布</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">意外同行</span><span class="ds">罗素意外加入冒险旅程</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">丛林历险</span><span class="ds">遭遇危险动物和查尔斯的追捕</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">放下过去</span><span class="ds">卡尔选择救罗素而非完成承诺</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>童年卡尔与艾丽</h3>
+  </div>
+  <p>年轻的卡尔遇见同样热爱冒险的艾丽，两人共同制作梦想手册，计划去南美洲的仙境瀑布探险。他们结婚后努力工作存钱，但生活开销不断，不得不一次次推迟旅行计划。两人始终保持着对冒险的憧憬，在墙上标记着每一次的储蓄进度。随着时间推移，两人步入老年，梦想仍未实现。艾丽去世后，卡尔变得孤僻固执，守着充满回忆的房子，不愿与外界接触。</p>
+  <div class="events"><span class="ev">卡尔遇艾丽</span><span class="ev">制定冒险计划</span><span class="ev">梦想一再推迟</span><span class="ev">艾丽去世</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:19</span>
+    <h3>第2段</h3>
+  </div>
+  <p>卡尔决定履行对艾丽的承诺，用无数气球将房子吊起，飞向仙境瀑布。他收集了大量气球，在房子周围布置好绳索和固定装置。邻居们试图劝阻，认为他疯了，但卡尔坚持己见。施工过程中，他不小心将房子与地基分离，房子开始缓缓升空。卡尔站在门廊上，看着熟悉的小镇逐渐远去，表情既坚定又伤感。他带着艾丽留下的梦想手册和无数回忆，开始了这段特别的旅程。</p>
+  <div class="events"><span class="ev">准备气球飞行</span><span class="ev">邻居劝说阻拦</span><span class="ev">房子意外升空</span><span class="ev">告别小镇启程</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:19–00:29</span>
+    <h3>第3段</h3>
+  </div>
+  <p>飞行途中，卡尔发现罗素——一个活泼的男孩意外搭上了飞屋。罗素是一名探险家，正在寻找帮助者徽章。他通过烟囱进入房子，与卡尔相遇。起初卡尔并不欢迎这个不速之客，但罗素的热情和善良逐渐软化了他的心。两人在房子里交谈，罗素讲述自己的探险经历，卡尔则回忆与艾丽的往事。房子在飞行中遇到气流颠簸，两人不得不合作保持平衡，关系开始缓和。</p>
+  <div class="events"><span class="ev">罗素意外登屋</span><span class="ev">两人初次相遇</span><span class="ev">分享过往故事</span><span class="ev">共同应对颠簸</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:29–00:38</span>
+    <h3>第4段</h3>
+  </div>
+  <p>卡尔和罗素在飞行中发现一只奇特的大鸟凯文，它有着鲜艳的羽毛和长长的脖颈。两人决定寻找这只神秘生物，希望它能成为他们冒险的纪念。他们降落在一处丛林，开始追踪凯文的踪迹。罗素兴奋地准备探险装备，卡尔则显得有些犹豫。在丛林中，他们遇到了各种奇特的植物和小动物，罗素对这一切充满好奇，而卡尔则保持着警惕。两人逐渐深入丛林，寻找凯文的踪迹。</p>
+  <div class="events"><span class="ev">发现奇特大鸟</span><span class="ev">追踪凯文踪迹</span><span class="ev">降落丛林探索</span><span class="ev">遭遇奇妙生物</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:38–00:48</span>
+    <h3>追踪神秘大鸟</h3>
+  </div>
+  <p>卡尔和罗素深入丛林追踪那只奇特的大鸟凯文。他们穿过茂密的植被，涉过湍急的河流，在藤蔓交织的环境中艰难前行。罗素对周围的一切充满好奇，而卡尔则一心只想尽快找到凯文并继续他们的旅程。两人最终在一处瀑布旁发现了凯文的踪迹，但同时也遭遇了一群凶猛的狗狗。这些狗狗似乎与凯文有关联，它们对卡尔和罗素表现出敌意。卡尔决定先避开狗狗们的攻击，等待更好的时机接近凯文。</p>
+  <div class="events"><span class="ev">追踪大鸟</span><span class="ev">遭遇狗狗</span><span class="ev">发现瀑布</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:48–00:58</span>
+    <h3>遭遇危险鸟群</h3>
+  </div>
+  <p>卡尔和罗素继续追踪凯文，突然遭遇一群凶猛的鸟群攻击。这些鸟体型庞大，极具攻击性，将两人团团围住。罗素试图用对讲机呼救，但信号被干扰。卡尔拿出气球上的充气装置，制造噪音驱赶鸟群。混乱中，凯文被鸟群抓走，两人被迫分开行动。罗素冒险追捕鸟群，卡尔则寻找制高点观察。最终罗素成功从鸟群手中救下凯文，但自己被困在悬崖边缘。卡尔放下对房子的执念，果断放下房子的一部分，用绳索救下罗素。</p>
+  <div class="events"><span class="ev">遭遇鸟群攻击</span><span class="ev">救下罗素</span><span class="ev">放下房子</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">00:58–01:07</span>
+    <h3>凯文被掳查尔斯现身</h3>
+  </div>
+  <p>卡尔和罗素使用充气装置成功击退鸟群，但凯文被鸟群带走了。两人决定追踪凯文，穿过茂密的丛林，涉过湍急的河流。罗素不小心掉入水中，卡尔救起他后发现罗素的对讲机在水中损坏。两人继续前进，最终到达一处悬崖，发现凯文被关在查尔斯的笼子里。查尔斯和他的助手穆兹突然出现，揭露自己是卡尔童年偶像的真实面目，并计划将凯文卖给富有的收藏家。卡尔和罗素试图阻止，却被查尔斯的手下抓住。</p>
+  <div class="events"><span class="ev">凯文被掳</span><span class="ev">查尔斯现身</span><span class="ev">卡尔罗素被捕</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:07–01:17</span>
+    <h3>查尔斯揭露真面目</h3>
+  </div>
+  <p>卡尔和罗素追踪凯文至查尔斯的营地，发现查尔斯并非探险英雄，而是为了捕捉珍稀生物牟利的反派。查尔斯和他的助手门多萨用凯文的幼崽作为诱饵，设下陷阱。卡尔和罗素试图救出凯文，却落入陷阱。查尔斯得意地揭露自己当年抛弃卡尔童年偶像的真相，并计划用飞屋作为运输工具带走凯文。卡尔和罗素在陷阱中想办法脱身，同时保护凯文不被抓走。罗素利用从对讲机中取出的零件，制造了一个简易装置，试图引起注意。</p>
+  <div class="events"><span class="ev">查尔斯揭露真相</span><span class="ev">设陷阱抓凯文</span><span class="ev">卡尔罗素被困</span><span class="ev">罗素制造机关</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:17–01:26</span>
+    <h3>卡尔放弃房子救罗素</h3>
+  </div>
+  <p>卡尔发现罗素被查尔斯绑在悬崖边的树上，毫不犹豫地放下绳子去救他。查尔斯带着凯文离开，卡尔选择放弃飞屋去救罗素。房子从悬崖上坠落，卡尔和罗素一起滑向悬崖边缘，卡尔抓住罗素的手，两人悬在半空中。卡尔最终选择松开手，让飞屋坠落，自己则救下了罗素。罗素获得了他渴望的帮助者徽章，而卡尔意识到比完成对艾丽的承诺更重要的是帮助需要帮助的人。</p>
+  <div class="events"><span class="ev">救罗素</span><span class="ev">放弃房子</span><span class="ev">悬崖坠落</span><span class="ev">获得徽章</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:26–01:36</span>
+    <h3>卡尔与罗素成为家人</h3>
+  </div>
+  <p>卡尔和罗素回到城市，卡尔将房子送给罗素，搬进养老院。卡尔翻看艾丽的冒险日志，发现她一直希望卡尔继续冒险。卡尔带着罗素回到那座飞屋，两人一起坐在门廊上，卡尔为罗素讲述他和艾丽的故事。罗素终于获得了他的最后一枚帮助者徽章，卡尔和罗素成为了真正的家人。卡尔完成了对艾丽的承诺，不是通过到达瀑布，而是通过继续冒险和帮助他人。</p>
+  <div class="events"><span class="ev">送房子</span><span class="ev">翻看日志</span><span class="ev">获得徽章</span><span class="ev">成为家人</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第15分钟</td><td>卡尔用气球拖动房子起飞</td></tr><tr><td>约第25分钟</td><td>罗素意外进入飞屋</td></tr><tr><td>约第45分钟</td><td>发现凯文并遭遇暴风雨</td></tr><tr><td>约第65分钟</td><td>查尔斯揭露真实面目</td></tr><tr><td>约第85分钟</td><td>卡尔选择救罗素而非房子</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">梦想</span><span class="theme">家庭</span><span class="theme">放下</span><span class="theme">成长</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">卡尔与罗素回到城市，卡尔将房子送给罗素，搬进养老院，与罗素成为家人，完成了对艾丽的承诺</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-23 21:15 · 模型 glm-4-air,glm-4-flash · 共 10 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

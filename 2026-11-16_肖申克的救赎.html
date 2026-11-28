@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>肖申克的救赎 · 分段故事梗概 · 2026-11-16</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>肖申克的救赎<span class="year">1994</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-16</span><span class="chip">电影</span><span class="chip">美国</span><span class="chip">剧情</span><span class="chip">1994</span><span class="chip">电影片长约 142 分钟，按每 10 分钟一段切分，共 14 段</span><span class="chip">1947-1969年美国肖申克监狱</span></div>
+    <div class="logline">银行家安迪被冤入狱，在肖申克监狱中凭借智慧与毅力，最终获得自由并揭露腐败。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 14 段</h2>
+      <ol><li><a href="#seg1">银行家蒙冤入狱</a></li>
+<li><a href="#seg2">初入监狱的适应</a></li>
+<li><a href="#seg3">监狱中的初次冲突</a></li>
+<li><a href="#seg4">安迪赢得狱友尊重</a></li>
+<li><a href="#seg5">安迪赢得狱友尊重</a></li>
+<li><a href="#seg6">安迪扩建图书馆</a></li>
+<li><a href="#seg7">安迪揭露典狱长罪行</a></li>
+<li><a href="#seg8">安迪伪造身份</a></li>
+<li><a href="#seg9">安迪揭露贪污证据</a></li>
+<li><a href="#seg10">安迪扩建图书馆</a></li>
+<li><a href="#seg11">布鲁克斯出狱困境</a></li>
+<li><a href="#seg12">布鲁克斯之死</a></li>
+<li><a href="#seg13">安迪越狱行动</a></li>
+<li><a href="#seg14">瑞德寻获自由</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">安迪·杜佛兰</span><span class="r">主角</span></div><div class="d">被冤入狱的银行家，追求自由与正义</div></div>
+<div class="person"><div><span class="n">埃利斯·博伊德·瑞德</span><span class="r">关键配角</span></div><div class="d">安迪的狱友，最终获得自由</div></div>
+<div class="person"><div><span class="n">典狱长诺顿</span><span class="r">对手</span></div><div class="d">腐败的监狱管理者，表面虔诚实则伪善</div></div>
+<div class="person"><div><span class="n">警长哈德利</span><span class="r">关键配角</span></div><div class="d">暴虐的监狱警长，常被安迪利用</div></div>
+<div class="person"><div><span class="n">布鲁克斯·海特伦</span><span class="r">关键配角</span></div><div class="d">老狱友，出狱后无法适应外界生活</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">冤案入狱</span><span class="ds">银行家安迪被误判谋杀妻子及其情人，判处终身监禁</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">监狱适应</span><span class="ds">安迪在肖申克监狱中结识瑞德，逐渐建立地位与关系网</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">秘密行动</span><span class="ds">安迪利用财务知识为监狱和警长服务，暗中挖掘地道</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">越狱成功</span><span class="ds">安迪成功逃脱，揭露典狱长罪行，并帮助瑞德获得假释</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>银行家蒙冤入狱</h3>
+  </div>
+  <p>1947年，银行家安迪·杜佛兰被指控谋杀妻子及其情人。尽管安迪坚称自己无辜，但法庭仍判处他两个终身监禁，送往肖申克监狱服刑。在前往监狱的囚车上，安迪与其他囚犯初次接触，见识到监狱的残酷环境。他冷静地观察着周围的一切，保持着银行家的尊严，内心却承受着巨大的冤屈和痛苦。安迪被送入肖申克监狱，开始了他的监狱生涯，面对未知的未来和漫长的监禁时光。</p>
+  <div class="events"><span class="ev">安迪被控谋杀</span><span class="ev">法庭判终身监禁</span><span class="ev">前往肖申克监狱</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>初入监狱的适应</h3>
+  </div>
+  <p>安迪进入肖申克监狱后，经历了入狱程序，包括淋浴、消毒和发放囚服。他被分配到一个拥挤的牢房，与一群粗犷的囚犯同住。监狱里的生活严苛而压抑，囚犯们被编号称呼，失去个人身份。安迪遇到了囚犯埃利斯·博伊德·瑞德，瑞德能在监狱里弄到各种违禁品。安迪开始适应监狱的规则和生活方式，同时保持着内心的平静和对自由的渴望。他注意到监狱中的等级制度和暴力行为，意识到生存的艰难。</p>
+  <div class="events"><span class="ev">入狱程序</span><span class="ev">结识瑞德</span><span class="ev">适应监狱生活</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:30</span>
+    <h3>监狱中的初次冲突</h3>
+  </div>
+  <p>在监狱的院子里，安迪遭到一群囚犯的骚扰和欺凌，他们试图测试这个新来的银行家。安迪凭借冷静的应对和机智的保护自己免受严重伤害。这一幕被监狱警长哈德利注意到，他对安迪产生了一丝兴趣。安迪开始观察监狱的运作方式，了解囚犯和狱警之间的关系。他利用自己的财务知识，开始为狱警提供税务建议，逐渐在监狱中建立起自己的地位。瑞德对安迪的举动感到惊讶，开始重新评估这个看似文弱的银行家。</p>
+  <div class="events"><span class="ev">遭遇囚犯骚扰</span><span class="ev">展现财务才能</span><span class="ev">赢得初步尊重</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:30–00:41</span>
+    <h3>安迪赢得狱友尊重</h3>
+  </div>
+  <p>安迪凭借自己的财务知识，开始为监狱警长和狱警们处理税务问题，为自己赢得了特殊待遇。他请求瑞德帮助自己弄到一把小石锤，声称是为了雕刻石头。典狱长诺顿注意到安迪的才能，开始让他管理监狱的财务事务。安迪利用这一机会，为监狱和狱警们创造利益，同时也为自己争取到更好的待遇。在一次监狱屋顶修缮工作中，安迪冒着生命危险为警长哈德利解决了税务问题，作为回报，他为狱友们争取到了啤酒。这一举动让安迪在囚犯中赢得了前所未有的尊重。</p>
+  <div class="events"><span class="ev">管理监狱财务</span><span class="ev">获得石锤</span><span class="ev">为狱友争取啤酒</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:41–00:51</span>
+    <h3>安迪赢得狱友尊重</h3>
+  </div>
+  <p>安迪凭借自己的财务知识，开始为监狱警长和狱警们处理税务问题，为自己赢得了特殊待遇。他请求瑞德帮助自己弄到一把小石锤，声称是为了雕刻石头。典狱长诺顿注意到安迪的才智，开始利用他处理财务事务。安迪在监狱图书馆工作，改善图书馆条件，为狱友争取到更多的阅读材料。他逐渐在监狱中建立起自己的地位，不再是一个默默无闻的新囚犯。瑞德开始信任安迪，成为他在监狱中的重要盟友。安迪用小石锤开始了他看似无害的雕刻活动，实际上是在为越狱做准备。</p>
+  <div class="events"><span class="ev">安迪处理税务</span><span class="ev">获小石锤</span><span class="ev">改善图书馆</span><span class="ev">赢得信任</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:51–01:01</span>
+    <h3>安迪扩建图书馆</h3>
+  </div>
+  <p>安迪开始为监狱图书馆扩充书籍，每周坚持写信给州议会申请拨款。经过长达六年的坚持，终于获得批准，得到一批旧书和资金。安迪在图书馆内建立了一个小型学习中心，帮助狱友获得教育。典狱长诺顿表面支持，实则利用安迪的财务能力为自己洗钱。安迪在整理书籍时发现一本关于地质学的书，从中了解到监狱围墙的结构，为日后越狱做准备。瑞德对安迪的执着感到不解，认为这种努力在监狱中毫无意义。</p>
+  <div class="events"><span class="ev">扩建图书馆</span><span class="ev">六年坚持</span><span class="ev">获得拨款</span><span class="ev">典狱长利用</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:01–01:11</span>
+    <h3>安迪揭露典狱长罪行</h3>
+  </div>
+  <p>安迪在监狱图书馆工作时，偶然发现一本圣经，里面夹着一支笔。他开始用这支笔记录典狱长诺顿的贪污证据。安迪利用自己的财务知识，为诺顿建立了一个虚假的慈善基金会，将监狱囚犯的劳动所得转入这个基金，再由诺顿私下挪用。安迪暗中保留了所有账目复印件，藏在圣经中。当诺顿发现安迪可能成为威胁时，他安排安迪从另一个囚犯汤米那里得知安迪清白的证据，随后设计杀害了汤米灭口。安迪意识到自己的处境危险，决定加快越狱计划。</p>
+  <div class="events"><span class="ev">发现贪污证据</span><span class="ev">建立虚假基金会</span><span class="ev">汤米被杀灭口</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:11–01:21</span>
+    <h3>安迪伪造身份</h3>
+  </div>
+  <p>安迪继续利用财务知识为典狱长诺顿服务，建立了多个虚假账户来掩盖贪污行为。他获得了典狱长的完全信任，被任命为监狱财务顾问，接触到了监狱的所有账目。安迪开始秘密伪造自己的身份文件，包括出生证明和社会安全卡。他利用监狱的印刷设备，制作了一张新的身份证，将自己改名为彼得·史蒂文斯。安迪还利用职务之便，为自己准备了一套完整的假身份档案，包括虚假的税务记录和银行账户。瑞德注意到安迪的行为，但安迪只透露自己计划越狱，没有说明具体方法。典狱长诺顿对安迪越来越依赖，甚至让他管理自己的私人财务。</p>
+  <div class="events"><span class="ev">伪造身份文件</span><span class="ev">建立虚假账户</span><span class="ev">获得典狱长信任</span><span class="ev">准备越狱计划</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:21–01:31</span>
+    <h3>安迪揭露贪污证据</h3>
+  </div>
+  <p>典狱长诺顿要求安迪处理账目，安迪发现监狱存在大规模贪污。他利用财务知识为典狱长建立虚假账户，转移非法资金。安迪趁机收集诺顿贪污的确凿证据，包括伪造的账目和贿赂记录。他秘密将这些证据复制并藏匿在圣经中，同时向诺顿提议扩建监狱图书馆，以掩盖自己的行动。诺顿对安迪的才干更加信任，任命他为监狱财务顾问，安迪的地位进一步提高。</p>
+  <div class="events"><span class="ev">发现贪污</span><span class="ev">建立账户</span><span class="ev">收集证据</span><span class="ev">提升职位</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:31–01:41</span>
+    <h3>安迪扩建图书馆</h3>
+  </div>
+  <p>安迪向典狱长提议扩建监狱图书馆，获得批准后，他开始每周给州议会写信申请资金。六年后，州议会终于拨款两百美元，安迪坚持每年继续申请。他成功获得捐款，购买了数百本书和唱片，包括莫扎特的歌剧唱片。在图书馆扩建过程中，安迪帮助狱友获得高中 equivalency 文凭，同时暗中继续挖掘地道。瑞德注意到安迪的改变，他变得更加专注和坚定，似乎在计划着什么。</p>
+  <div class="events"><span class="ev">申请资金</span><span class="ev">扩建图书馆</span><span class="ev">购买唱片</span><span class="ev">帮助狱友</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:41–01:52</span>
+    <h3>布鲁克斯出狱困境</h3>
+  </div>
+  <p>老狱友布鲁克斯获得假释，但在监狱生活五十年后，他无法适应外面的世界。布鲁克斯在小镇的杂货店工作，却感到极度恐惧和不安。他考虑逃跑，甚至想伤害他人以便重返监狱。最终，布鲁克斯在一家旅店上吊自杀，留下遗书表达对监狱的依恋。瑞德目睹布鲁克斯的悲剧，意识到体制化对人的摧残，他开始思考自己假释后的生活，担心自己也会面临同样的困境。</p>
+  <div class="events"><span class="ev">获得假释</span><span class="ev">无法适应</span><span class="ev">自杀悲剧</span><span class="ev">瑞德反思</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:52–02:02</span>
+    <h3>布鲁克斯之死</h3>
+  </div>
+  <p>布鲁克斯在假释后无法适应监狱外的自由生活。他在小镇的杂货店担任助理，却因五十年的监禁生活而与社会脱节。布鲁克斯每天晚上都害怕自己会回到监狱，他甚至考虑故意犯罪以便重返熟悉的环境。尽管他尝试建立新的生活，但内心的恐惧和孤独最终压倒了他。布鲁克斯在房间里写下遗书，表达对监狱生活的怀念，随后上吊自杀。他的死震惊了肖申克的狱友们，尤其是瑞德，这让他开始思考自己未来出狱后的生活。布鲁克斯的死成为了安迪和瑞德心中关于自由的沉重思考。</p>
+  <div class="events"><span class="ev">布鲁克斯自杀</span><span class="ev">遗书怀念监狱</span><span class="ev">瑞德深受震撼</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">02:02–02:12</span>
+    <h3>安迪越狱行动</h3>
+  </div>
+  <p>安迪在牢房中撕下丽塔·海华丝的海报，露出背后挖了十九年的地道。他爬过五百码长的污秽通道，在暴风雨中爬出管道，重获自由。安迪典当了典狱长给他的戒指，用假身份取走了诺顿贪污的巨款。他给报社寄信，揭露诺顿贪污和谋杀汤米的真相。警长哈德利被逮捕，典狱长诺顿在安迪逃走后自杀身亡。安迪在墨西哥海滨小镇落脚，经营一家小船公司。</p>
+  <div class="events"><span class="ev">地道完成</span><span class="ev">爬出管道</span><span class="ev">揭露贪污</span><span class="ev">典狱长自杀</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:12–02:22</span>
+    <h3>瑞德寻获自由</h3>
+  </div>
+  <p>瑞德在监狱图书馆工作，获得假释后，他来到布鲁克斯生前住过的房间，感受到同样的恐惧与迷茫。瑞德按照安迪的指示，在缅因州巴克斯顿的田野里找到安迪埋下的盒子，里面有安迪的信和现金。瑞德决定违反假释规定，前往墨西哥寻找安迪。在边境小镇，瑞德看到安迪正在修理一艘船，两人重逢。瑞德感叹安迪实现了他承诺的自由，两人相视而笑，在海滩上拥抱，象征着真正的救赎与自由。</p>
+  <div class="events"><span class="ev">瑞德假释</span><span class="ev">寻找安迪</span><span class="ev">边境重逢</span><span class="ev">海滩拥抱</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>安迪为狱友争取到啤酒，赢得尊重</td></tr><tr><td>约第60分钟</td><td>安迪发现典狱长贪污证据，开始秘密行动</td></tr><tr><td>约第90分钟</td><td>安迪播放莫扎特歌剧，让狱友感受自由</td></tr><tr><td>约第120分钟</td><td>安迪成功越狱，典狱长自杀</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">希望</span><span class="theme">自由</span><span class="theme">坚韧</span><span class="theme">腐败</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">安迪在墨西哥海滨重获自由，瑞德假释后找到安迪，两人最终在墨西哥海滩重逢，实现了真正的自由。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-16 19:31 · 模型 glm-4-air,glm-4-flash · 共 14 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

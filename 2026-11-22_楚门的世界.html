@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>楚门的世界 · 分段故事梗概 · 2026-11-22</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>楚门的世界<span class="year">1998</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-22</span><span class="chip">电影</span><span class="chip">美国</span><span class="chip">剧情/寓言</span><span class="chip">1998</span><span class="chip">电影片长约 103 分钟，按每 10 分钟一段切分，共 10 段</span><span class="chip">现代摄影棚小镇</span></div>
+    <div class="logline">楚门生活在被全球直播的虚拟世界中，当他发现真相后，不惜一切代价寻找真实与自由。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 10 段</h2>
+      <ol><li><a href="#seg1">楚门的平凡早晨</a></li>
+<li><a href="#seg2">意外的初恋重逢</a></li>
+<li><a href="#seg3">寻找真相的线索</a></li>
+<li><a href="#seg4">虚假世界的破绽</a></li>
+<li><a href="#seg5">楚门驾车逃离计划</a></li>
+<li><a href="#seg6">海上封锁与危机</a></li>
+<li><a href="#seg7">楚门发现父亲&#x27;复活&#x27;</a></li>
+<li><a href="#seg8">楚门发现摄影棚边界&quot;</a></li>
+<li><a href="#seg9">撞墙发现真相</a></li>
+<li><a href="#seg10">楚门走向真实世界</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">楚门</span><span class="r">主角</span></div><div class="d">被操控的普通人，渴望探索未知世界</div></div>
+<div class="person"><div><span class="n">克里斯托弗</span><span class="r">对手</span></div><div class="d">节目制作人，楚门的&#x27;上帝&#x27;，控制一切</div></div>
+<div class="person"><div><span class="n">马龙</span><span class="r">关键配角</span></div><div class="d">节目导演，楚门的&#x27;父亲&#x27;，负责安抚</div></div>
+<div class="person"><div><span class="n">梅丽尔</span><span class="r">关键配角</span></div><div class="d">楚门&#x27;妻子&#x27;，演员，监视楚门行为</div></div>
+<div class="person"><div><span class="n">西尔维亚</span><span class="r">关键配角</span></div><div class="d">楚门初恋，揭露真相，唤醒他的意识</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">平凡生活</span><span class="ds">楚门在看似完美的小镇生活，发现异常</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">怀疑觉醒</span><span class="ds">楚门开始质疑世界真实性，寻找真相</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">逃离尝试</span><span class="ds">楚门多次尝试离开，被节目组阻止</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">真相揭露</span><span class="ds">楚门发现自己是真人秀主角，决心逃离</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>楚门的平凡早晨</h3>
+  </div>
+  <p>楚门在完美的小镇醒来，与妻子梅丽尔打招呼。他打开电视观看自己的节目，主持人介绍他平凡的一天。楚门出门工作，向邻居们打招呼，所有人都在配合他的生活节奏。他驾车前往保险公司上班，途中遇到老同学，对方热情地邀请他参加聚会。楚门工作认真，获得同事称赞。下班后他遇到马龙，马龙询问他是否还记得父亲去世的事，楚门表示记得但不愿多谈。晚上楚门与梅丽尔讨论旅行计划，梅丽尔巧妙地避开楚门想去斐济的想法。</p>
+  <div class="events"><span class="ev">楚门醒来</span><span class="ev">驾车上班</span><span class="ev">马龙提及父亲</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:21</span>
+    <h3>意外的初恋重逢</h3>
+  </div>
+  <p>楚门在公寓楼下偶遇初恋西尔维亚，她突然出现并认出他。西尔维亚试图提醒楚门世界是虚假的，但被周围人阻拦。楚门感到困惑，西尔维亚在混乱中喊出&#x27;他们都在看着你&#x27;。马龙及时出现，将西尔维亚带走，解释她精神有问题。楚门回到家中，查看旧照片，发现西尔维亚确实存在。他尝试联系西尔维亚，但电话无法接通。楚门开始怀疑，观察周围人的行为模式。他注意到一些不自然的细节，如邻居重复相同台词。</p>
+  <div class="events"><span class="ev">西尔维亚出现</span><span class="ev">揭露真相</span><span class="ev">楚门开始怀疑</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:21–00:31</span>
+    <h3>寻找真相的线索</h3>
+  </div>
+  <p>楚门决定寻找西尔维亚，询问马龙关于她的事。马龙否认西尔维亚的存在，称她只是楚门的幻想。楚门翻看旧物，发现一张西尔维亚的照片背面写着&#x27;如果你想我，就抬头看月亮&#x27;。晚上楚门独自在阳台仰望月亮，突然看到一束光划过天空。他开始调查小镇的地图，发现所有道路都指向同一个方向。楚门尝试开车离开小镇，但路上突然出现&#x27;核泄漏&#x27;事故，被迫返回。他感到更加困惑，决定寻找其他方法离开。</p>
+  <div class="events"><span class="ev">寻找西尔维亚</span><span class="ev">发现照片线索</span><span class="ev">驾车逃离受阻</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:31–00:41</span>
+    <h3>虚假世界的破绽</h3>
+  </div>
+  <p>楚门在酒吧喝酒时，注意到电视中自己的反应被实时播放。他意识到自己可能一直在被监视。楚门开始测试周围人，发现他们总是重复相同的台词和行为模式。他尝试与马龙交谈，询问关于世界的问题，马龙回避并转移话题。楚门发现父亲&#x27;复活&#x27;，马龙解释这是楚门的幻觉。楚门更加确信世界不真实，开始寻找出口。他注意到天空有时会出现人工痕迹，决定晚上偷偷探索小镇边界。</p>
+  <div class="events"><span class="ev">发现被监视</span><span class="ev">测试周围人</span><span class="ev">父亲&#x27;复活&#x27;</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:41–00:52</span>
+    <h3>楚门驾车逃离计划</h3>
+  </div>
+  <p>楚门决定离开小镇，谎称要去佛罗里达度假。他收拾行李时偷偷准备了一艘小船，计划乘船穿越大海。梅丽尔试图阻止，楚门坚持己见。楚门与邻居道别，邻居们表现出过度夸张的不舍。楚门驾车离开小镇，驶向海边。节目组发现楚门的真实意图，开始紧张监控。马龙试图通过车载广播与楚门沟通，但楚门关闭了收音机。</p>
+  <div class="events"><span class="ev">准备小船</span><span class="ev">谎称度假</span><span class="ev">驾车离镇</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:52–01:02</span>
+    <h3>海上封锁与危机</h3>
+  </div>
+  <p>楚门驾车到达海边，将小船拖入海中。他开始划船离开海岸，节目组紧急启动预案。克里斯托弗命令制造一场&#x27;核泄漏&#x27;事故，封锁楚门前进的海域。楚门前方突然出现剧烈爆炸，火光冲天。楚门被爆炸冲击波震伤，小船受损。楚门尝试继续前进，但海面出现燃烧的残骸和警告标志。楚门被迫改变方向，寻找其他出路。</p>
+  <div class="events"><span class="ev">海上爆炸</span><span class="ev">核泄漏封锁</span><span class="ev">船只受损</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:02–01:12</span>
+    <h3>楚门发现父亲&#x27;复活&#x27;</h3>
+  </div>
+  <p>楚门在海上遭遇爆炸后并未放弃，继续驾船前行。风暴中他意外看到漂浮的&#x27;父亲&#x27;马龙，这个早已&#x27;去世&#x27;的人突然出现在海上，让楚门震惊不已。马龙试图劝说楚门返回，声称外面世界充满危险。楚门质问父亲为何&#x27;复活&#x27;，马龙语无伦次。楚门意识到整个世界都是虚假的，包括自己的父亲。他拒绝返回，继续划船前行，尽管遭遇恶劣天气和节目组的各种阻挠，楚门的决心愈发坚定。马龙最终被撤离现场，楚门独自面对浩瀚大海，意识到必须找到真相。</p>
+  <div class="events"><span class="ev">发现父亲&#x27;复活&#x27;</span><span class="ev">质问马龙</span><span class="ev">意识到世界虚假</span><span class="ev">继续前行</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:12–01:22</span>
+    <h3>楚门发现摄影棚边界&quot;</h3>
+  </div>
+  <p>楚门继续在海上航行，遭遇一场特大风暴。他紧紧抓住船体，在狂风巨浪中挣扎。风暴平息后，楚门发现前方天空出现异常的黑色边界。他继续前进，最终撞上了一堵巨大的墙，墙后是黑暗的空间。楚门意识到自己一直生活在巨大的摄影棚中。他开始在墙上寻找出口，最终发现了一扇门。楚门面对门，准备做出最终决定。</p>
+  <div class="events"><span class="ev">遭遇风暴</span><span class="ev">发现墙壁</span><span class="ev">找到出口</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:22–01:33</span>
+    <h3>撞墙发现真相</h3>
+  </div>
+  <p>楚门撞上巨大墙壁后，墙后突然出现灯光。他沿着墙壁探索，发现墙上挂着许多标志性的照片，包括自己的童年照片和西尔维亚的照片。楚门意识到自己生活在一个巨大的摄影棚里。他继续探索，发现墙上有出口的标志。楚门开始敲击墙壁，发现墙壁是布景板，后面是黑暗的空间。他用力推开了布景板，发现了一个楼梯，通向摄影棚的上方。楚门爬上楼梯，看到了摄影棚的顶部，包括灯光和摄影设备。他终于明白自己的整个生活都是一个被精心设计的真人秀节目。</p>
+  <div class="events"><span class="ev">撞上墙壁</span><span class="ev">发现照片</span><span class="ev">探索布景板</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:33–01:43</span>
+    <h3>楚门走向真实世界</h3>
+  </div>
+  <p>楚门沿着墙壁继续探索，最终发现了一扇门。他打开门，看到通往真实世界的楼梯。克里斯托弗通过广播试图挽留楚门，承诺给他一个没有谎言的世界。楚门拒绝继续留在虚假生活中，他向克里斯托弗告别，说再见。楚门走上楼梯，进入真实世界，摄影棚内一片寂静。楚门站在真实世界门口，回头望了一眼摄影棚，然后坚定地迈出了第一步，踏入了未知但真实的世界。</p>
+  <div class="events"><span class="ev">发现出口门</span><span class="ev">克里斯托弗挽留</span><span class="ev">楚门告别离开</span><span class="ev">踏入真实世界</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第15分钟</td><td>楚门初恋西尔维亚突然出现，揭露真相</td></tr><tr><td>约第30分钟</td><td>楚门驾车逃离，遭遇&#x27;核泄漏&#x27;封锁</td></tr><tr><td>约第60分钟</td><td>楚门发现父亲&#x27;复活&#x27;，意识到世界虚假</td></tr><tr><td>约第85分钟</td><td>楚门发现摄影棚边界，决定逃离</td></tr><tr><td>约第100分钟</td><td>楚门面对克里斯托弗的最后对话，选择真实</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">真实与虚假</span><span class="theme">自由与控制</span><span class="theme">媒体伦理</span><span class="theme">自我觉醒</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">楚门最终找到出口，向世界告别，踏向真实世界，留下克里斯托弗独自面对空摄影棚。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-22 17:04 · 模型 glm-4-air,glm-4-flash · 共 10 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

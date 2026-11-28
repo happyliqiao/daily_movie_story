@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>卧虎藏龙 · 分段故事梗概 · 2026-11-04</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>卧虎藏龙<span class="year">2000</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-04</span><span class="chip">电影</span><span class="chip">中国台湾/香港/美国</span><span class="chip">武侠/爱情</span><span class="chip">2000</span><span class="chip">电影片长约 120 分钟，按每 10 分钟一段切分，共 12 段</span><span class="chip">清朝末年，江南与北京</span></div>
+    <div class="logline">李慕白欲退隐江湖，却因青冥剑失窃卷入恩怨，与玉娇龙在武功与爱情间寻找自我救赎。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 12 段</h2>
+      <ol><li><a href="#seg1">李慕白赠剑</a></li>
+<li><a href="#seg2">贝勒爷托付</a></li>
+<li><a href="#seg3">玉娇龙初现</a></li>
+<li><a href="#seg4">剑失镖局</a></li>
+<li><a href="#seg5">李慕白追查盗剑</a></li>
+<li><a href="#seg6">玉娇龙现身镖局</a></li>
+<li><a href="#seg7">李慕白夜探玉府</a></li>
+<li><a href="#seg8">碧眼狐狸现身</a></li>
+<li><a href="#seg9">玉娇龙身世揭露</a></li>
+<li><a href="#seg10">李慕白中毒</a></li>
+<li><a href="#seg11">李慕白临终</a></li>
+<li><a href="#seg12">江湖恩怨了</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">李慕白</span><span class="r">主角</span></div><div class="d">侠义剑客，欲退隐江湖却因剑失窃重涉恩怨</div></div>
+<div class="person"><div><span class="n">玉娇龙</span><span class="r">对手</span></div><div class="d">贵族小姐，向往自由却困于身份与规矩</div></div>
+<div class="person"><div><span class="n">俞秀莲</span><span class="r">关键配角</span></div><div class="d">镖局女掌柜，深爱李慕白却克制情感</div></div>
+<div class="person"><div><span class="n">碧眼狐狸</span><span class="r">关键配角</span></div><div class="d">邪派高手，盗剑并传授玉娇龙武功</div></div>
+<div class="person"><div><span class="n">贝勒爷</span><span class="r">关键配角</span></div><div class="d">青冥剑主人，委托李慕白寻回宝剑</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">剑失江湖</span><span class="ds">李慕白欲赠青冥剑给贝勒爷，剑却遭盗</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">追踪盗贼&quot;</span><span class="ds">俞秀莲调查剑失案，发现玉娇龙嫌疑</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">爱恨交织&quot;</span><span class="ds">李慕白与玉娇龙相遇，武功与情感交织</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">真相大白&quot;</span><span class="ds">碧眼狐狸身份揭露，玉娇龙身世之谜解开</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>李慕白赠剑</h3>
+  </div>
+  <p>清朝末年，侠义剑客李慕白与俞秀莲在镖局对弈。李慕白表示自己即将退隐江湖，欲将珍藏多年的青冥剑赠予贝勒爷。俞秀莲听闻后神色复杂，两人间暗藏情愫。李慕白回忆起年轻时与贝勒爷的约定，认为此剑代表了江湖中的规矩与道义。俞秀莲担心此剑会引来不必要的麻烦，但李慕白已下定决心。镖局内，李慕白小心翼翼地取出青冥剑，剑身寒光闪烁，剑鞘古朴典雅。俞秀莲望着剑，眼中闪过一丝忧虑。</p>
+  <div class="events"><span class="ev">李慕白赠剑</span><span class="ev">俞秀莲忧心</span><span class="ev">剑出鞘寒光</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>贝勒爷托付</h3>
+  </div>
+  <p>贝勒府内，贝勒爷收到李慕白的信函后决定亲自前往镖局。贝勒爷向李慕白讲述青冥剑的历史，此剑曾是乾隆皇帝御赐，代表着皇家的威严与江湖的道义。李慕白表示自己已厌倦江湖纷争，希望借此机会彻底退出。贝勒爷理解李慕白的心境，但仍希望他能暂时保管此剑，直到找到合适的传承者。俞秀莲在一旁听着，心中明白李慕白的退隐之意已决。两人对弈时，贝勒爷提到江湖上近来不太平，提醒李慕白注意安全。</p>
+  <div class="events"><span class="ev">贝勒爷赠剑</span><span class="ev">剑的历史</span><span class="ev">李慕白退隐</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:30</span>
+    <h3>玉娇龙初现</h3>
+  </div>
+  <p>贝勒府内，贝勒爷的女儿玉娇龙正在练习书法。她表面温婉娴静，却眼神中透露出叛逆与不安。玉娇龙对父亲安排的婚事不满，渴望自由与冒险。她偶然听到父亲与李慕白的谈话，对青冥剑产生浓厚兴趣。深夜，玉娇龙潜入父亲的房间，第一次见到青冥剑的真容。她被剑的美丽与神秘所吸引，心中萌生盗取的念头。玉娇龙暗中观察父亲与李慕白的动向，等待时机。</p>
+  <div class="events"><span class="ev">玉娇龙叛逆</span><span class="ev">初见青冥剑</span><span class="ev">盗剑念头</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:30–00:40</span>
+    <h3>剑失镖局</h3>
+  </div>
+  <p>李慕白与俞秀莲在镖局内商议青冥剑的保管事宜。俞秀莲建议将剑存放在镖局的保险柜中，李慕白则认为此剑太过珍贵，不宜存放。两人争执不下时，突然发现青冥剑不翼而飞。李慕白震惊不已，俞秀莲立即派人四处搜寻。镖局内一片混乱，所有人都成为怀疑对象。李慕白意识到此事非同小可，青冥剑的失窃将引发江湖大乱。俞秀莲冷静分析，认为盗剑者对镖局极为熟悉。</p>
+  <div class="events"><span class="ev">剑失踪</span><span class="ev">镖局混乱</span><span class="ev">搜寻无果</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:40–00:50</span>
+    <h3>李慕白追查盗剑</h3>
+  </div>
+  <p>李慕白与俞秀莲发现青冥剑被盗后，立即展开调查。李慕白推断盗剑者武功高强，且熟悉镖局布局。俞秀莲回忆近期有陌生人到访镖局，李慕白则注意到窗户被撬痕迹。两人分头行动，俞秀莲查访镖局附近的可疑人物，李慕白则前往贝勒府告知剑失消息。途中，李慕白在屋顶上发现一名黑衣人留下的脚印，判断对方轻功了得。李慕白决定先不将剑失之事告知贝勒爷，以免引起恐慌。两人约定在镖局会合，继续追查线索。</p>
+  <div class="events"><span class="ev">剑被盗查</span><span class="ev">分头行动</span><span class="ev">发现脚印</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:50–01:00</span>
+    <h3>玉娇龙现身镖局</h3>
+  </div>
+  <p>俞秀莲在镖局附近调查时，发现一名年轻女子形迹可疑。该女子身着普通衣衫，却身手敏捷，俞秀莲认出她是贝勒爷的女儿玉娇龙。玉娇龙否认与盗剑有关，言辞间却闪烁其词。俞秀莲试探玉娇龙的武功，发现她竟有不错的身手。与此同时，李慕白在贝勒府附近遇到玉娇龙，两人交谈中，李慕白察觉玉娇龙对青冥剑异常熟悉。玉娇龙借口离开后，李慕白与俞秀莲在镖局会合，两人交换信息后，都开始怀疑玉娇龙与盗剑案有关。</p>
+  <div class="events"><span class="ev">玉娇龙现身</span><span class="ev">武功试探</span><span class="ev">剑案疑云</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:00–01:10</span>
+    <h3>李慕白夜探玉府</h3>
+  </div>
+  <p>李慕白决定夜探贝勒府，寻找玉娇龙与盗剑案的线索。他避开守卫，潜入玉娇龙的闺房，发现房内有练功痕迹和一把仿制的青冥剑。李慕白正要离开时，玉娇龙突然返回，两人展开交手。玉娇龙武功虽高，但经验不足，很快被李慕白制服。李慕白质问玉娇龙为何盗剑，玉娇龙拒不承认，只表示自己只是想见识传说中的宝剑。两人交谈中，李慕白察觉玉娇龙背后似乎有高人指点，决定暂且放她离开，继续追查幕后黑手。</p>
+  <div class="events"><span class="ev">夜探玉府</span><span class="ev">剑房交锋</span><span class="ev">放虎归山</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:10–01:20</span>
+    <h3>碧眼狐狸现身</h3>
+  </div>
+  <p>李慕白与俞秀莲继续调查，发现玉娇龙曾与一名神秘女子频繁接触。俞秀莲认出那女子是江湖上臭名昭著的碧眼狐狸。李慕白回忆起年轻时与碧眼狐狸的一段恩怨，怀疑她才是盗剑的真凶。两人决定分头行动，俞秀莲监视玉娇龙，李慕白则追踪碧眼狐狸。李慕白在城外破庙中找到碧眼狐狸，两人展开激战。碧眼狐狸武功诡异，李慕白虽占上风，但难以速战速决。激战中，碧眼狐狸透露玉娇龙是她精心培养的弟子，令李慕白震惊不已。</p>
+  <div class="events"><span class="ev">狐狸现身</span><span class="ev">旧怨浮现</span><span class="ev">庙中激战</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:20–01:30</span>
+    <h3>玉娇龙身世揭露</h3>
+  </div>
+  <p>碧眼狐狸与玉娇龙在破庙中重逢，碧眼狐狸质问玉娇龙为何背叛自己。玉娇龙承认自己早已知晓碧眼狐狸当年毒害自己养父母的事实，两人展开激烈打斗。俞秀莲和李慕白追踪而至，目睹了这场师徒对决。碧眼狐狸在打斗中受伤，玉娇龙趁机逃离，李慕白紧追不舍。俞秀莲则留下对付碧眼狐狸，两人在破庙中展开生死搏斗。李慕白一路追击玉娇龙至悬崖边，玉娇龙面对李慕白的质问，终于承认自己盗剑是为了向碧眼狐狸学习武功，并揭露了自己被收养的真相。</p>
+  <div class="events"><span class="ev">师徒决裂</span><span class="ev">身世真相</span><span class="ev">悬崖对峙</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:30–01:40</span>
+    <h3>李慕白中毒</h3>
+  </div>
+  <p>李慕白与玉娇龙在悬崖边展开了一场惊心动魄的打斗。玉娇龙使出碧眼狐狸传授的毒针，李慕白不幸中毒。尽管身中剧毒，李慕白仍凭借高超武功制服了玉娇龙。俞秀莲赶到现场，发现李慕白中毒，立即施救。碧眼狐狸趁机逃脱，留下复仇的狠话。玉娇龙被俞秀莲和李慕白带回镖局。李慕白知道自己时日无多，决定将青冥剑交给俞秀莲保管，并嘱托她照顾好玉娇龙。俞秀莲心痛不已，却只能强忍悲伤。玉娇龙被关在镖局房间，内心挣扎不已，既后悔自己的行为，又不愿屈服于命运的安排。</p>
+  <div class="events"><span class="ev">李慕白中毒</span><span class="ev">青冥剑托付</span><span class="ev">玉娇龙囚禁</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:40–01:50</span>
+    <h3>李慕白临终</h3>
+  </div>
+  <p>李慕白毒性发作，生命垂危。俞秀莲守在他身边，两人在最后的时光里倾诉了多年积压的情感。李慕白向俞秀莲忏悔自己年轻时与碧眼狐狸的恩怨，以及未能及时阻止她作恶的遗憾。玉娇龙得知李慕白即将离世，内心深受触动，决定向俞秀莲坦白一切。她承认自己盗剑是为了追求自由，却没想到会害死李慕白。碧眼狐狸突然出现，企图抢走青冥剑。俞秀莲与碧眼狐狸展开激战，玉娇龙在关键时刻出手相助，两人合力击败了碧眼狐狸。李慕白在看到玉娇龙走上正道后，安详离世。</p>
+  <div class="events"><span class="ev">李慕白离世</span><span class="ev">碧眼狐狸来袭</span><span class="ev">师徒联手</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:50–02:00</span>
+    <h3>江湖恩怨了</h3>
+  </div>
+  <p>俞秀莲按照李慕白的遗愿，将青冥剑沉入湖底，了结这场江湖恩怨。玉娇龙决定离开京城，回到自己的家乡。在离开前，她来到李慕白墓前，表达了自己的敬意和悔意。俞秀莲独自站在湖边，望着平静的湖面，心中释然。她决定继承李慕白的遗志，继续行侠仗义。玉娇龙骑马远去，身影渐渐消失在远方。江湖上关于青冥剑的传说也随之消散，只留下一段关于爱与救赎、自由与责任的故事，在人们口中流传。</p>
+  <div class="events"><span class="ev">青冥剑沉湖</span><span class="ev">玉娇龙离去</span><span class="ev">江湖恩怨了</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>玉娇龙盗取青冥剑，与李慕白初次交手</td></tr><tr><td>约第50分钟</td><td>李慕白发现玉娇龙武功来自碧眼狐狸</td></tr><tr><td>约第75分钟</td><td>玉娇龙与碧眼狐狸决裂，身份被揭露</td></tr><tr><td>约第95分钟</td><td>李慕白为救玉娇龙身中剧毒</td></tr><tr><td>约第110分钟</td><td>玉娇龙跳崖，李慕白临终托付</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">自由与束缚</span><span class="theme">爱情与责任</span><span class="theme">身份认同</span><span class="theme">救赎与放下</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">李慕白毒发身亡，俞秀莲继承其遗志，玉娇龙跳崖而去，江湖恩怨随青冥剑沉入湖底。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-04 07:28 · 模型 glm-4-air,glm-4-flash · 共 12 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

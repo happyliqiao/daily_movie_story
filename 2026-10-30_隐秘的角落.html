@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隐秘的角落 · 分段故事梗概 · 2026-10-30</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>隐秘的角落<span class="year">2020</span></h1>
+    <div class="chips"><span class="chip hot">2026-10-30</span><span class="chip">电视剧</span><span class="chip">中国</span><span class="chip">悬疑/犯罪</span><span class="chip">2020</span><span class="chip">电视剧共 12 集，单集约 45 分钟，每集拆 2 段，全剧共 24 段</span><span class="chip">中国南方小城</span></div>
+    <div class="logline">三个少年目睹一场谋杀，被迫与凶手周旋，在保护自己与揭露真相间艰难抉择。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 24 段</h2>
+      <ol><li><a href="#seg1">景区目睹谋杀案</a></li>
+<li><a href="#seg2">三个少年结盟</a></li>
+<li><a href="#seg3">张东升试探孩子们</a></li>
+<li><a href="#seg4">普普弟弟被绑架</a></li>
+<li><a href="#seg5">张东升警告朱朝阳</a></li>
+<li><a href="#seg6">普普弟弟被绑架</a></li>
+<li><a href="#seg7">朱朝阳发现父亲秘密</a></li>
+<li><a href="#seg8">张东升杀人灭口</a></li>
+<li><a href="#seg9">朱朝阳被迫合作</a></li>
+<li><a href="#seg10">张东升控制局势</a></li>
+<li><a href="#seg11">朱永平暗中调查</a></li>
+<li><a href="#seg12">普普弟弟获救</a></li>
+<li><a href="#seg13">朱朝阳发现父亲秘密</a></li>
+<li><a href="#seg14">银行对峙与逃脱</a></li>
+<li><a href="#seg15">普普弟弟被转移</a></li>
+<li><a href="#seg16">真相浮出水面</a></li>
+<li><a href="#seg17">朱朝阳寻找普普</a></li>
+<li><a href="#seg18">普普险遭绑架</a></li>
+<li><a href="#seg19">张东升杀人灭口</a></li>
+<li><a href="#seg20">景区最终对决</a></li>
+<li><a href="#seg21">严良追踪真相</a></li>
+<li><a href="#seg22">张东升的反击</a></li>
+<li><a href="#seg23">景区对峙</a></li>
+<li><a href="#seg24">真相与坠落</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">张东升</span><span class="r">对手</span></div><div class="d">数学老师，为财产杀害岳父母</div></div>
+<div class="person"><div><span class="n">朱朝阳</span><span class="r">主角</span></div><div class="d">优等生，渴望父爱被卷入案件</div></div>
+<div class="person"><div><span class="n">严良</span><span class="r">关键配角</span></div><div class="d">老刑警，追查真相</div></div>
+<div class="person"><div><span class="n">普普</span><span class="r">关键配角</span></div><div class="d">朱朝阳朋友，保护弟弟</div></div>
+<div class="person"><div><span class="n">朱永平</span><span class="r">关键配角</span></div><div class="d">朱朝阳父亲，为保护儿子</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">目击凶案</span><span class="ds">三个孩子景区目睹张东升杀害岳父母</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">危险试探</span><span class="ds">张东升与孩子们互相试探，关系紧张</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">真相揭露</span><span class="ds">朱朝阳发现父亲与张东升的关联</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">最终对决</span><span class="ds">所有人聚集在景区，真相与谎言交织</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·上</span>
+    <h3>景区目睹谋杀案</h3>
+  </div>
+  <p>数学老师张东升带岳父母去景区游玩，三人站在悬崖边拍照时，张东升突然将岳父母推下山崖。朱朝阳、普普和严良三个孩子在景区游玩，意外目睹了这一幕。张东升发现孩子们后，假装悲伤，实则暗中观察。孩子们被吓坏，迅速逃离现场。朱朝阳回家后，母亲周春红发现他情绪异常，但朱朝阳没有说出实情。普普则带着弟弟严良回到家中，发现家里没人，弟弟也不见了。</p>
+  <div class="events"><span class="ev">张东升杀岳父母</span><span class="ev">孩子们目睹凶案</span><span class="ev">朱朝阳回家隐瞒</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·下</span>
+    <h3>三个少年结盟</h3>
+  </div>
+  <p>朱朝阳在学校被同学欺负，成绩下滑，父亲朱永平再婚并有了新女儿。普普和严良在城中村寻找弟弟，遇到朱朝阳。三人决定保守目睹凶案的秘密，互相帮助。普普告诉朱朝阳，她怀疑弟弟被张东升绑架。张东升回到家中，假装悲痛，实则冷静处理岳父母后事。朱朝阳在父亲家见到张东升，感觉不安。三个少年决定联手调查张东升，同时寻找普普的弟弟。</p>
+  <div class="events"><span class="ev">朱朝阳遭同学欺凌</span><span class="ev">三人结盟调查</span><span class="ev">张东升处理后事</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第2集·上</span>
+    <h3>张东升试探孩子们</h3>
+  </div>
+  <p>张东升在学校找到朱朝阳，暗示他知道孩子们目睹了凶案，警告他们不要声张。普普和严良跟踪张东升，发现他与一个神秘人见面。朱朝阳父亲朱永平对儿子的异常行为感到担忧，与张东升交谈后更加不安。三个少年决定收集证据，证明张东升是凶手。普普设法联系上弟弟，得知他被张东升控制。张东升开始监视三个孩子，气氛紧张。</p>
+  <div class="events"><span class="ev">张东升警告朱朝阳</span><span class="ev">普普联系弟弟</span><span class="ev">三人收集证据</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·下</span>
+    <h3>普普弟弟被绑架</h3>
+  </div>
+  <p>张东升绑架了普普的弟弟，以此威胁普普和严良。三个少年被迫与张东升周旋，朱朝阳陷入两难境地。张东升要求孩子们保守秘密，否则伤害普普弟弟。朱朝阳发现父亲朱永平与张东升有联系，更加不安。严良决定独自调查张东升，结果被抓。三个少年被迫分开行动，朱朝阳决定帮助普普和严良，同时保护自己。张东升的威胁升级，局势更加危险。</p>
+  <div class="events"><span class="ev">普普弟弟被绑</span><span class="ev">严良被抓</span><span class="ev">朱朝阳发现父关联</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第3集·上</span>
+    <h3>张东升警告朱朝阳</h3>
+  </div>
+  <p>朱朝阳回到家中，发现父亲朱永平和新家庭已经适应没有他的生活。张东升在学校找到朱朝阳，暗示他知道孩子们目睹了凶案，警告他们不要声张。普普和严良跟踪张东升，发现他与一个神秘人见面，似乎在谋划什么。朱朝阳内心挣扎，既想保护自己又想揭露真相。张东升进一步试探，暗示他知道普普和严良在寻找弟弟。朱朝阳开始怀疑张东升的目的，担心自己和普普的安全。</p>
+  <div class="events"><span class="ev">张东升警告朱朝阳</span><span class="ev">普普跟踪张东升</span><span class="ev">朱朝阳内心挣扎</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第3集·下</span>
+    <h3>普普弟弟被绑架</h3>
+  </div>
+  <p>普普和严良继续寻找弟弟，但毫无线索。张东升突然出现在他们面前，透露他知道普普弟弟的下落。朱朝阳接到普普的紧急电话，得知普普弟弟被绑架，张东升以此威胁他们保守秘密。三个少年被迫与张东升周旋，朱朝阳陷入两难境地。张东升要求他们互相监视，确保没人背叛他。朱朝阳发现父亲朱永平与张东升的关系不一般，更加困惑。普普和严良决定暂时听从张东升的安排，寻找机会救出弟弟。</p>
+  <div class="events"><span class="ev">普普弟弟被绑架</span><span class="ev">张东升威胁三人</span><span class="ev">朱朝阳发现父亲关联</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第4集·上</span>
+    <h3>朱朝阳发现父亲秘密</h3>
+  </div>
+  <p>朱朝阳暗中调查父亲朱永平与张东升的关系，发现两人曾是同学，且朱永平可能知道张东升杀害岳父母的事。朱朝阳母亲察觉到儿子的异常行为，询问原因但朱朝阳隐瞒真相。张东升安排三个少年一起生活，以便监视他们。普普和严良计划在张东升松懈时救出弟弟。朱朝阳在学校表现异常，引起老师和同学的注意。朱永平对儿子的行为感到担忧，试图与儿子沟通但被拒绝。</p>
+  <div class="events"><span class="ev">朱朝阳发现父亲秘密</span><span class="ev">三人被迫同住</span><span class="ev">普普计划救弟弟</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第4集·下</span>
+    <h3>张东升杀人灭口</h3>
+  </div>
+  <p>张东升发现普普和严良可能背叛他，决定采取行动。他绑架了普普和严良，威胁朱朝阳配合他。朱朝阳被迫帮助张东升处理证据，内心挣扎加剧。严良在关键时刻反抗，与张东升发生冲突。朱永平得知儿子与张东升的关联，试图介入但被卷入其中。张东升在混乱中受伤，但依然控制着局面。朱朝阳面临艰难选择，是保护家人还是揭露真相。</p>
+  <div class="events"><span class="ev">张东升绑架普普严良</span><span class="ev">朱朝阳被迫配合</span><span class="ev">严良反抗冲突</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第5集·上</span>
+    <h3>朱朝阳被迫合作</h3>
+  </div>
+  <p>朱朝阳接到普普的紧急电话，得知普普弟弟被张东升绑架。张东升威胁朱朝阳必须配合他保守秘密，否则伤害普普弟弟。朱朝阳被迫答应，内心充满恐惧和挣扎。张东升要求朱朝阳协助处理证据，包括删除景区监控和销毁相关物品。朱朝阳在张东升的监视下，小心翼翼地按照指示行动，同时暗中思考对策。普普和严良被张东升控制，无法逃脱，只能等待机会。</p>
+  <div class="events"><span class="ev">朱朝阳被迫合作</span><span class="ev">普普弟弟被绑架</span><span class="ev">处理证据销毁监控</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第5集·下</span>
+    <h3>张东升控制局势</h3>
+  </div>
+  <p>张东升继续控制朱朝阳、普普和严良，将他们带到自己家中。他严密监视每个人的行动，防止有人背叛。朱朝阳试图寻找机会通知父亲朱永平求助，但被张东升察觉。张东升警告朱朝阳不要轻举妄动，并展示了他对普普弟弟的控制能力。严良暗中观察张东升的弱点，寻找逃脱机会。普普担心弟弟的安全，情绪激动，张东升以弟弟的安全威胁她保持冷静。朱朝阳陷入两难境地，既想保护普普弟弟，又想摆脱张东升的控制。</p>
+  <div class="events"><span class="ev">张东升严密监视</span><span class="ev">朱朝阳寻找求助机会</span><span class="ev">严良观察弱点</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第6集·上</span>
+    <h3>朱永平暗中调查</h3>
+  </div>
+  <p>朱永平察觉到儿子朱朝阳的异常行为，暗中调查。他发现朱朝阳与张东升有联系，开始怀疑张东升与岳父母死亡有关。朱永平找到老同学周春红，询问张东升的情况，得知张东升近期行为反常。朱永平决定亲自调查，暗中跟踪张东升，发现他与普普和严良接触。朱永平意识到事态严重，试图联系警方，但被张东升发现。张东升警告朱永平不要插手，否则伤害朱朝阳。朱永平陷入恐慌，不知如何是好。</p>
+  <div class="events"><span class="ev">朱永平暗中调查</span><span class="ev">发现张东升异常</span><span class="ev">被张东升警告</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第6集·下</span>
+    <h3>普普弟弟获救</h3>
+  </div>
+  <p>严良利用张东升的疏忽，设法联系到警方。警方迅速行动，成功救出普普弟弟。张东升察觉到警方介入，决定逃亡。他挟持朱朝阳作为人质，逼迫朱永平准备逃亡资金。朱永平被迫妥协，暗中安排警方埋伏。在逃亡过程中，张东升与朱朝阳发生激烈冲突，朱朝阳趁机反抗。警方及时赶到，张东升被包围。在最后的对峙中，张东升试图跳楼逃脱，但失足坠楼身亡。普普与弟弟团聚，朱朝阳安全，但事件的真相仍未完全公开。</p>
+  <div class="events"><span class="ev">普普弟弟获救</span><span class="ev">张东升挟持朱朝阳</span><span class="ev">警方行动围捕</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第7集·上</span>
+    <h3>朱朝阳发现父亲秘密</h3>
+  </div>
+  <p>张东升挟持朱朝阳前往朱永平家，要求准备逃亡资金。朱永平表面上配合，暗中安排妻子报警。朱朝阳在父亲家中发现一张老照片，看到父亲与张东升以及岳父母的合影，意识到父亲可能知道张东升杀害岳父母的真相。朱朝阳质问父亲，朱永平承认早就怀疑张东升，但苦无证据。张东升察觉到朱永平的异常，威胁要伤害朱朝阳。朱永平被迫妥协，同意带张东平去银行取钱。</p>
+  <div class="events"><span class="ev">张东升挟持朝阳</span><span class="ev">朝阳发现父亲秘密</span><span class="ev">永平表面配合</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第7集·下</span>
+    <h3>银行对峙与逃脱</h3>
+  </div>
+  <p>朱永平带张东升到银行取钱，暗中通知警方。银行内，朱永平故意拖延时间，等待警方行动。张东升察觉异常，情绪失控，持枪威胁银行职员和顾客。混乱中，朱朝阳趁机逃跑，张东升追捕未果。警方赶到现场，与张东升对峙。朱永平趁机制服张东升，将其交给警方。案件暂时告一段落，但朱朝阳心中的疑团未解，他开始怀疑父亲隐瞒了更多事情。</p>
+  <div class="events"><span class="ev">银行对峙</span><span class="ev">朝阳趁机逃跑</span><span class="ev">永平制服张东升</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第8集·上</span>
+    <h3>普普弟弟被转移</h3>
+  </div>
+  <p>普普的弟弟被警方保护起来，但张东升的同伙仍在暗中寻找机会。严良继续调查张东升的背景，发现他与朱永平有更深的联系。朱朝阳回家后，发现父亲朱永平行为异常，经常接到神秘电话。朱朝阳暗中跟踪父亲，发现他与一个陌生男子秘密会面。与此同时，普普担心弟弟安全，决定带他离开警方的保护。严良察觉到普普的意图，试图阻止她。</p>
+  <div class="events"><span class="ev">严良继续调查</span><span class="ev">普普带走弟弟</span><span class="ev">朝阳跟踪父亲</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第8集·下</span>
+    <h3>真相浮出水面</h3>
+  </div>
+  <p>朱朝阳最终发现父亲朱永平与张东升的关联——朱永平知道张东升杀害岳父母的事实，但选择沉默。普普带着弟弟躲藏，却被张东升的同伙找到。危急时刻，严良赶到救下普普和她的弟弟。朱朝阳面对父亲的秘密，内心挣扎。他质问父亲为何隐瞒真相，朱永平承认自己曾目睹张东升处理岳父母的尸体，但因恐惧和私心选择不举报。朱朝阳感到失望和愤怒，父子关系陷入危机。</p>
+  <div class="events"><span class="ev">朝阳发现父亲隐瞒</span><span class="ev">普普遇险获救</span><span class="ev">父子关系破裂</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第9集·上</span>
+    <h3>朱朝阳寻找普普</h3>
+  </div>
+  <p>朱朝阳在校园里四处寻找普普的下落，却一无所获。他联系严良，得知普普和弟弟被张东升的同伙盯上。张东升利用朱永平对儿子的担忧，逼迫他继续协助自己。朱永平内心矛盾，既想保护儿子，又害怕张东升的威胁。朱朝阳发现父亲与张东升的联系，质问朱永平为何隐瞒真相。朱永平无奈之下，承认自己知道张东升杀害岳父母的事实，但选择沉默以保全家庭。朱朝阳感到被背叛，与父亲发生激烈争吵。</p>
+  <div class="events"><span class="ev">朝阳寻普普</span><span class="ev">永平被胁迫</span><span class="ev">朝阳知真相</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第9集·下</span>
+    <h3>普普险遭绑架</h3>
+  </div>
+  <p>普普带着弟弟躲藏在小旅馆，张东升的同伙根据线索找到他们。危急时刻，严良及时出现救下普普和她的弟弟。严良带普普和弟弟秘密转移，同时继续调查张东升的背景。朱朝阳在家中翻找线索，发现父亲与张东升的更多联系，包括他们曾共同处理岳父母的尸体。朱朝阳内心挣扎，不知是否应该揭露真相。张东升察觉到朱永平的犹豫，决定亲自出马，威胁朱朝阳就范。朱永平为了保护儿子，被迫答应张东升的要求。</p>
+  <div class="events"><span class="ev">普普险被绑</span><span class="ev">严良相救</span><span class="ev">朝阳查线索</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">第10集·上</span>
+    <h3>张东升杀人灭口</h3>
+  </div>
+  <p>张东升怀疑朱永平已经背叛自己，决定采取行动。他跟踪朱永平到偏僻处，准备杀人灭口。危急时刻，朱朝阳出现，阻止了张东升的行动。张东升向朱朝阳坦白自己的动机，包括对朱永平的怨恨。严良通过调查，发现张东升杀害岳父母的更多证据，并联系警方准备行动。朱朝阳在父亲和张东升之间陷入两难，不知道应该站在哪一边。普普和弟弟在严良的保护下暂时安全，但张东升的同伙仍在寻找机会。</p>
+  <div class="events"><span class="ev">张东升杀人</span><span class="ev">朝阳阻行</span><span class="ev">严良查证据</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">第10集·下</span>
+    <h3>景区最终对决</h3>
+  </div>
+  <p>所有人聚集在景区，张东升、朱朝阳、朱永平和严良形成对峙。张东升威胁要杀死所有人，场面紧张。严良试图说服张东升自首，但张东升拒绝。混乱中，朱永平为保护儿子，与张东升发生搏斗。朱朝阳目睹父亲的牺牲，情绪激动。最终，张东升在搏斗中失足坠楼身亡。严良被警方带走接受调查。朱朝阳独自面对这一切，选择了沉默，保护了父亲的名誉。</p>
+  <div class="events"><span class="ev">景区对峙</span><span class="ev">永平搏斗</span><span class="ev">张东坠楼</span></div>
+</section>
+
+<section class="seg" id="seg21">
+  <div class="head">
+    <span class="no">第 21 段</span>
+    <span class="tm">第11集·上</span>
+    <h3>严良追踪真相</h3>
+  </div>
+  <p>严良继续调查张东升的背景，发现他与多起失踪案有关。严良找到朱朝阳了解情况，朱朝阳犹豫是否说出真相。同时，张东升怀疑普普和弟弟的下落，开始四处搜寻。朱朝阳接到父亲朱永平的电话，得知张东升可能已经知道他们的位置。朱朝阳陷入两难境地，既想保护朋友又想保护父亲。严良通过线索找到张东升的老家，发现了他杀害岳父母的证据。严良决定联系警方，但担心打草惊蛇。</p>
+  <div class="events"><span class="ev">严良查案</span><span class="ev">朱朝阳犹豫</span><span class="ev">张东升搜寻</span></div>
+</section>
+
+<section class="seg" id="seg22">
+  <div class="head">
+    <span class="no">第 22 段</span>
+    <span class="tm">第11集·下</span>
+    <h3>张东升的反击</h3>
+  </div>
+  <p>张东升找到朱朝阳，威胁他说出普普和弟弟的下落。朱朝阳拒绝合作，张东升决定采取极端手段。他绑架了朱朝阳的朋友周春红，以此要挟朱朝阳。朱朝阳被迫带张东升找到普普和弟弟的藏身之处。严良暗中跟踪，发现张东升的行动，试图联系警方支援。张东升对普普和弟弟下手，危急时刻，严良出现阻止。张东升逃脱，但留下更多线索。朱朝阳意识到事态严重，决定不再隐瞒，向严良坦白一切。</p>
+  <div class="events"><span class="ev">张东升威胁</span><span class="ev">绑架周春红</span><span class="ev">严良阻止</span></div>
+</section>
+
+<section class="seg" id="seg23">
+  <div class="head">
+    <span class="no">第 23 段</span>
+    <span class="tm">第12集·上</span>
+    <h3>景区对峙</h3>
+  </div>
+  <p>所有人在景区最终对峙，张东升、朱朝阳、朱永平和严良形成紧张局面。张东升威胁要杀死所有人，场面陷入僵局。严良试图说服张东升自首，揭露他杀害岳父母的真相。朱永平得知张东升是杀害自己妻子的凶手，情绪激动。朱朝阳站在中间，不知如何选择。普普和弟弟被张东升控制，成为人质。张东升提出条件，要求朱朝阳为他作伪证，证明他无罪。朱朝阳面临艰难抉择，既要保护朋友又要保护父亲。</p>
+  <div class="events"><span class="ev">景区对峙</span><span class="ev">张东升威胁</span><span class="ev">朱朝阳抉择</span></div>
+</section>
+
+<section class="seg" id="seg24">
+  <div class="head">
+    <span class="no">第 24 段</span>
+    <span class="tm">第12集·下</span>
+    <h3>真相与坠落</h3>
+  </div>
+  <p>混乱中，朱永平为保护儿子，与张东升发生搏斗。张东升失足坠楼，当场死亡。严良被警方带走协助调查。朱朝阳选择沉默，保护父亲免受牵连。普普和弟弟被安全送回家。朱朝阳独自面对秘密与成长，内心充满挣扎。严良被释放后，继续调查此案，但证据不足。朱朝阳的生活回归平静，但内心永远被这个秘密改变。朱朝阳与父亲的关系有所缓和，但两人之间仍有隔阂。故事结束，朱朝阳站在高处，俯瞰着这个充满秘密的小城。</p>
+  <div class="events"><span class="ev">张东升坠亡</span><span class="ev">朱朝阳沉默</span><span class="ev">严良被带走</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集</td><td>三个孩子目睹张东升杀害岳父母</td></tr><tr><td>第4集</td><td>张东升威胁孩子们，普普弟弟被绑架</td></tr><tr><td>第7集</td><td>朱朝阳发现父亲与张东升的关联</td></tr><tr><td>第10集</td><td>严良介入调查，张东升开始杀人灭口</td></tr><tr><td>第12集</td><td>景区最终对决，朱朝阳选择沉默</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">家庭创伤</span><span class="theme">道德选择</span><span class="theme">谎言与真相</span><span class="theme">少年成长</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">朱朝阳选择保护父亲，张东坠楼死亡，严良被带走，朱朝阳独自面对秘密与成长。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-10-30 07:02 · 模型 glm-4-air,glm-4-flash · 共 24 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

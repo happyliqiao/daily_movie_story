@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>地球上的星星 · 分段故事梗概 · 2026-11-15</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>地球上的星星<span class="year">2007</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-15</span><span class="chip">电影</span><span class="chip">印度</span><span class="chip">剧情/教育</span><span class="chip">2007</span><span class="chip">电影片长约 165 分钟，按每 10 分钟一段切分，共 16 段</span><span class="chip">现代印度城市</span></div>
+    <div class="logline">读写障碍男孩伊夏被误解为问题学生，直到美术老师尼克发现他的绘画天赋，帮助他重拾自信。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 16 段</h2>
+      <ol><li><a href="#seg1">伊夏的世界</a></li>
+<li><a href="#seg2">课堂上的困境</a></li>
+<li><a href="#seg3">课堂上的困境</a></li>
+<li><a href="#seg4">寄宿学校的决定</a></li>
+<li><a href="#seg5">伊夏初入寄宿学校</a></li>
+<li><a href="#seg6">第6段</a></li>
+<li><a href="#seg7">第7段</a></li>
+<li><a href="#seg8">第8段</a></li>
+<li><a href="#seg9">尼克家访伊夏家</a></li>
+<li><a href="#seg10">尼克设计特殊教学</a></li>
+<li><a href="#seg11">伊夏初显进步迹象</a></li>
+<li><a href="#seg12">尼克组织绘画比赛</a></li>
+<li><a href="#seg13">绘画比赛进行时</a></li>
+<li><a href="#seg14">评委们震惊不已</a></li>
+<li><a href="#seg15">伊夏意外获奖</a></li>
+<li><a href="#seg16">父子和解与成长</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">伊夏</span><span class="r">主角</span></div><div class="d">有读写障碍的八岁男孩，渴望被理解</div></div>
+<div class="person"><div><span class="n">尼克</span><span class="r">关键配角</span></div><div class="d">新来的美术老师，发现伊夏的天赋</div></div>
+<div class="person"><div><span class="n">伊夏父亲</span><span class="r">对手</span></div><div class="d">严厉父亲，期望儿子成绩优异</div></div>
+<div class="person"><div><span class="n">拉姆老师</span><span class="r">关键配角</span></div><div class="d">尼克同事，帮助伊夏学习</div></div>
+<div class="person"><div><span class="n">伊夏哥哥</span><span class="r">配角</span></div><div class="d">成绩优异的哥哥，常被拿来比较</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">问题少年</span><span class="ds">伊夏因读写障碍在学校表现差，被父亲送入寄宿学校</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">尼克到来</span><span class="ds">新美术老师尼克发现伊夏的绘画天赋，开始了解他的问题</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">特殊教育</span><span class="ds">尼克用创新方法帮助伊夏学习，与学校传统教育方式冲突</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">转变与成长</span><span class="ds">伊夏在尼克帮助下重拾自信，在学校绘画比赛中获奖</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>伊夏的世界</h3>
+  </div>
+  <p>八岁的伊夏充满好奇心，喜欢观察周围的一切。他看到蝴蝶会追逐，对水中的倒影着迷，喜欢用想象力描绘世界。然而在学校，他无法集中注意力，阅读和写字对他来说极其困难。老师批评他上课走神，作业一塌糊涂，同学们嘲笑他笨。父亲对他失望，经常责骂他不用功。伊夏的世界五彩斑斓，却无人能理解他的独特视角。他用自己的方式观察和感受世界，但在这个只看重成绩的环境中，他被视为问题儿童。</p>
+  <div class="events"><span class="ev">伊夏观察世界</span><span class="ev">学习困难受批评</span><span class="ev">父亲责骂</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:21</span>
+    <h3>课堂上的困境</h3>
+  </div>
+  <p>在课堂上，伊夏无法集中注意力，经常走神。老师提问时，他要么答非所问，要么沉默不语。数学课上，他无法理解数字和符号的含义，作业本上满是错误。语文课上，他读课文时磕磕巴巴，经常读错字。老师认为他懒惰不努力，经常当众批评他。伊夏感到沮丧和困惑，不知道为什么别人能做到的事情他却如此困难。</p>
+  <div class="events"><span class="ev">课堂注意力不集中</span><span class="ev">读写困难</span><span class="ev">老师公开批评</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:21–00:31</span>
+    <h3>课堂上的困境</h3>
+  </div>
+  <p>数学课上，伊夏无法理解数字和符号的含义，作业本上满是错误。老师提问时，他要么答非所问，要么沉默不语。语文课上，他读课文时磕磕巴巴，常常被同学嘲笑。老师多次警告他注意听讲，但伊夏的注意力总是被窗外的蝴蝶或云彩吸引。一天，老师发现他在课本上涂鸦，愤怒地撕掉了他的画纸。伊夏低头不语，眼中含泪。放学后，同学们嘲笑他是笨蛋，伊夏独自一人留在教室，试图重新画被撕掉的画。</p>
+  <div class="events"><span class="ev">数学课出错</span><span class="ev">老师撕画纸</span><span class="ev">同学嘲笑伊夏</span><span class="ev">伊夏重绘画纸</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:31–00:41</span>
+    <h3>寄宿学校的决定</h3>
+  </div>
+  <p>伊夏的学校成绩持续下滑，老师频繁向家长反映情况。父亲认为问题出在伊夏缺乏纪律，决定将他送入寄宿学校。母亲试图反对，但在丈夫坚持下妥协。伊夏得知要离开家人、独自生活时感到恐惧和抗拒。收拾行李时，他带上了自己心爱的画笔和颜料，这是他唯一感到安全的东西。父亲严厉地告诉他，到了新学校必须认真学习，不能再像现在这样。</p>
+  <div class="events"><span class="ev">成绩持续下滑</span><span class="ev">决定送寄宿学校</span><span class="ev">伊夏恐惧抗拒</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:41–00:52</span>
+    <h3>伊夏初入寄宿学校</h3>
+  </div>
+  <p>伊夏被父亲送入寄宿学校，行李箱中装满了他不喜欢的衣物和书籍。学校环境陌生，宿舍里其他孩子都已相互熟悉。伊夏独自坐在床边，整理着家人的照片。他尝试与新同学交流，但因说话方式和表达问题遭到嘲笑。食堂里，伊夏打翻了餐盘，食物洒了一地，引来其他学生的嘲笑和老师的责备。夜晚，伊夏躺在床上辗转反侧，想念家人和家中的宠物狗。他偷偷拿出藏在枕头下的家人照片，泪水无声地滑落。第二天早晨，伊夏在课堂上再次无法集中注意力，被老师点名批评。</p>
+  <div class="events"><span class="ev">伊夏抵达寄宿学校</span><span class="ev">与新同学交流受挫</span><span class="ev">夜晚思念家人</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:52–01:02</span>
+    <h3>第6段</h3>
+  </div>
+  <p>尼克老师来到学校担任美术教师，他的教学方式与众不同，鼓励学生自由表达。第一堂美术课上，尼克注意到伊夏在纸上画满了奇特的图案，与其他学生的作品截然不同。课后，尼克主动与伊夏交谈，发现这个男孩虽然无法正常读写，但观察力惊人。尼克开始留意伊夏在课堂上的表现，发现他经常走神，但似乎在观察窗外的云朵和飞鸟。尼克向其他老师询问伊夏的情况，得到的都是负面评价。晚上，尼克翻阅学生的作业本，发现伊夏的数学作业本上满是错误，但他的绘画本上却充满了生动的想象和细节。</p>
+  <div class="events"><span class="ev">尼克担任美术老师</span><span class="ev">发现伊夏绘画天赋</span><span class="ev">开始关注伊夏表现</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:02–01:12</span>
+    <h3>第7段</h3>
+  </div>
+  <p>尼克决定深入了解伊夏的问题，他开始查阅关于读写障碍的资料。课堂上，尼克采用特殊方式帮助伊夏学习，通过图像和颜色帮助他理解抽象概念。伊夏逐渐在美术课上表现出色，但其他科目仍然困难。尼克注意到伊夏经常在课后独自留在教室画画，这些画作充满了情感和想象力。他收集了伊夏的作品，想找到他学习困难的原因。一次偶然的机会，尼克发现伊夏在数学课上无法理解数字，却能准确画出复杂的几何图形。尼克开始怀疑伊夏不是懒惰，而是有特殊的学习障碍。</p>
+  <div class="events"><span class="ev">尼克研究读写障碍</span><span class="ev">采用特殊教学方法</span><span class="ev">发现伊夏特殊才能</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:12–01:22</span>
+    <h3>第8段</h3>
+  </div>
+  <p>尼克决定家访伊夏的家庭，了解他的成长环境和家庭教育情况。伊夏的母亲热情接待，但父亲态度冷淡，坚持认为儿子只是不够努力。尼克展示了伊夏的画作，特别是那些充满想象力的作品，试图让父亲看到儿子的才能。父亲起初不屑一顾，但在看到伊夏画的一幅全家福后，态度有所软化。尼克向父亲解释了读写障碍的概念，以及伊夏可能面临的困难。父亲虽然仍有所保留，但同意给儿子更多时间。离开前，尼克向伊夏保证会帮助他，伊夏眼中闪烁着希望的光芒。</p>
+  <div class="events"><span class="ev">尼克家访伊夏家</span><span class="ev">展示伊夏画作</span><span class="ev">向父亲解释学习障碍</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:22–01:33</span>
+    <h3>尼克家访伊夏家</h3>
+  </div>
+  <p>尼克来到伊夏家，母亲热情接待，父亲却冷淡疏离。尼克展示了伊夏充满想象力的画作，试图证明儿子的天赋而非懒惰。父亲坚持认为伊夏只是不够努力，对尼克的建议持怀疑态度。尼克观察到家中墙上贴满了伊夏哥哥的奖状，暗示伊夏一直生活在哥哥的阴影下。父亲强调成绩的重要性，对艺术毫无兴趣。尼克耐心解释读写障碍不是智力问题，而是需要特殊教育方法。这场家访让尼克更坚定帮助伊夏的决心，也为后续与父亲的冲突埋下伏笔。</p>
+  <div class="events"><span class="ev">尼克家访</span><span class="ev">父亲质疑</span><span class="ev">展示画作</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:33–01:43</span>
+    <h3>尼克设计特殊教学</h3>
+  </div>
+  <p>尼克回到学校后，开始设计针对伊夏的特殊教学方法。他发现伊夏对色彩和形状异常敏感，便利用这一特点设计课程。尼克在教室里设置了&#x27;阅读角&#x27;，用彩色卡片和图画帮助伊夏理解单词。他鼓励伊夏通过绘画表达想法，将抽象概念转化为具体图像。尼克还请拉姆老师协助，在数学课上使用视觉化教具。这些创新方法遭到其他老师质疑，认为尼克太过纵容学生。尼克坚持自己的教育理念，与保守派教师展开辩论，校长也对尼克的非常规教学方法表示担忧。</p>
+  <div class="events"><span class="ev">设计特殊教学</span><span class="ev">创新方法</span><span class="ev">教师质疑</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:43–01:53</span>
+    <h3>伊夏初显进步迹象</h3>
+  </div>
+  <p>在尼克的特殊教学方法指导下，伊夏开始出现明显进步。他能够识别一些简单单词，虽然速度仍然较慢。美术课上，伊夏的画作得到全班同学的赞赏，这极大地增强了他的自信心。尼克发现伊夏对自然现象有独特见解，便鼓励他用绘画记录观察到的世界。伊夏开始主动参与课堂活动，虽然仍有困难，但不再像以前那样逃避。拉姆老师注意到伊夏的变化，开始在常规课程中采用尼克的建议。父亲收到学校的进步报告，态度有所缓和，但仍对儿子的成绩不太满意。</p>
+  <div class="events"><span class="ev">伊夏进步</span><span class="ev">画作获赞</span><span class="ev">自信提升</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:53–02:04</span>
+    <h3>尼克组织绘画比赛</h3>
+  </div>
+  <p>尼克决定举办全校绘画比赛，希望通过这个活动让伊夏展示才能。他特别设计了主题为&#x27;我的世界&#x27;，鼓励学生用自己的方式表达。伊夏起初犹豫不决，担心自己画得不够好。尼克耐心引导，告诉他每个人眼中的世界都不同，没有对错之分。比赛准备过程中，伊夏展现出惊人的创造力，画作充满童趣和想象力。其他老师对比赛持保留态度，认为会分散学生学习精力。尼克坚持认为艺术教育同样重要，与校长再次发生争执。伊夏在哥哥的鼓励下，最终完成了参赛作品，画面中充满了对自然的独特理解和情感表达。</p>
+  <div class="events"><span class="ev">举办比赛</span><span class="ev">伊夏犹豫</span><span class="ev">画作完成</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">02:04–02:14</span>
+    <h3>绘画比赛进行时</h3>
+  </div>
+  <p>绘画比赛当天，伊夏站在画板前犹豫不决，手中的画笔迟迟不敢落下。尼克走到他身边轻声鼓励，告诉他只需画出自己心中的世界。在尼克的注视下，伊夏逐渐放松，开始在画布上挥洒色彩。他的画作充满想象力和独特的视角，色彩运用大胆而富有情感。其他同学看到伊夏的作品后纷纷惊叹，有人甚至停下自己的创作驻足观看。比赛过程中，伊夏完全沉浸在自己的创作中，忘记了周围的一切，展现出前所未有的专注和热情。尼克在一旁欣慰地看着，知道这次比赛对伊夏而言意义非凡。</p>
+  <div class="events"><span class="ev">伊夏开始创作</span><span class="ev">画作惊艳全场</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:14–02:24</span>
+    <h3>评委们震惊不已</h3>
+  </div>
+  <p>评委们仔细审视着每一幅参赛作品，当他们看到伊夏的画作时，表情从严肃转为震惊。这幅画色彩斑斓，构图独特，展现了孩子内心世界的丰富想象。评委们相互交换眼神，显然被作品的艺术价值所折服。尼克站在一旁，内心既紧张又期待。其他参赛学生的家长也开始注意到伊夏的作品，有人低声赞叹不已。校长也注意到了这幅画，他走近仔细观察，脸上露出难以置信的表情。伊夏看到评委们的反应，紧张地攥紧了衣角，手心冒汗，担心自己的作品不够好。尼克注意到伊夏的紧张，向他投去鼓励的目光。</p>
+  <div class="events"><span class="ev">评委发现画作价值</span><span class="ev">伊夏紧张等待</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">02:24–02:35</span>
+    <h3>伊夏意外获奖</h3>
+  </div>
+  <p>评奖结果揭晓时，主持人宣布伊夏获得一等奖。全场响起热烈的掌声，伊夏难以置信地站起身，眼中闪烁着激动的泪光。尼克走上前拥抱了伊夏，为他感到骄傲。伊夏的父亲站在人群中，表情复杂，既有惊讶也有难以置信。获奖后，其他学生和家长纷纷围上来向伊夏表示祝贺，有人询问他的创作灵感。伊夏在众人的注视下变得有些害羞，但眼中充满了自信的光芒。尼克趁机向在场的人解释了伊夏的特殊情况，呼吁大家理解和接纳每个孩子的独特之处。伊夏的父亲看着儿子的作品和众人的反应，内心开始动摇，重新审视自己对儿子的期望。</p>
+  <div class="events"><span class="ev">伊夏获一等奖</span><span class="ev">父亲态度转变</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">02:35–02:45</span>
+    <h3>父子和解与成长</h3>
+  </div>
+  <p>颁奖典礼结束后，伊夏的父亲找到尼克，真诚地感谢他的帮助和教导。他承认自己一直误解了儿子，过分关注成绩而忽视了孩子的天赋和感受。尼克温和地告诉他每个孩子都有自己的成长节奏，重要的是理解和支持。伊夏站在一旁，听着父亲的话，眼中第一次充满了理解和接纳。父子俩相视而笑，多年的隔阂在这一刻消融。尼克看着这一幕，感到欣慰。最后，伊夏和父亲一起走在回家的路上，伊夏兴奋地向父亲讲述自己的创作想法，父亲耐心倾听，脸上露出久违的笑容。伊夏终于被理解和接纳，重拾自信与快乐。</p>
+  <div class="events"><span class="ev">父亲感谢尼克</span><span class="ev">父子和解</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>尼克发现伊夏的绘画天赋，意识到他不是懒惰而是有学习障碍</td></tr><tr><td>约第60分钟</td><td>尼克家访了解伊夏家庭情况，发现父亲的高期望与伊夏的差距</td></tr><tr><td>约第90分钟</td><td>尼克与校长冲突，坚持用特殊方法帮助伊夏学习</td></tr><tr><td>约第120分钟</td><td>伊夏在尼克的帮助下开始进步，父亲开始理解儿子的天赋</td></tr><tr><td>约第150分钟</td><td>伊夏在学校绘画比赛中获奖，父亲终于认可儿子的才能</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">教育</span><span class="theme">理解</span><span class="theme">天赋</span><span class="theme">成长</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">伊夏在绘画比赛中获奖，父亲终于理解并接纳儿子的独特才能，尼克老师的教育理念得到认可，伊夏重拾自信与快乐。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-15 07:48 · 模型 glm-4-air,glm-4-flash · 共 16 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

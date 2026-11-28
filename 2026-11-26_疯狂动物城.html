@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>疯狂动物城 · 分段故事梗概 · 2026-11-26</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>疯狂动物城<span class="year">2016</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-26</span><span class="chip">电影</span><span class="chip">美国</span><span class="chip">动画/悬疑</span><span class="chip">2016</span><span class="chip">电影片长约 108 分钟，按每 10 分钟一段切分，共 11 段</span><span class="chip">现代多元动物城</span></div>
+    <div class="logline">兔子警官朱迪为证明自己能力，与狐狸尼克合作调查失踪案，揭露动物城偏见与阴谋。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 11 段</h2>
+      <ol><li><a href="#seg1">兔子警官的梦想</a></li>
+<li><a href="#seg2">初入警局遭遇挫折</a></li>
+<li><a href="#seg3">朱迪接受失踪案调查</a></li>
+<li><a href="#seg4">朱迪立下赌约</a></li>
+<li><a href="#seg5">尼克拒绝合作</a></li>
+<li><a href="#seg6">夜入自然博物馆</a></li>
+<li><a href="#seg7">发现食肉动物规律</a></li>
+<li><a href="#seg8">朱迪错误指控</a></li>
+<li><a href="#seg9">朱迪辞职离城</a></li>
+<li><a href="#seg10">朱迪发现真相线索</a></li>
+<li><a href="#seg11">真相大白于众</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">朱迪</span><span class="r">主角</span></div><div class="d">怀揣梦想的兔子警官，打破偏见证明自己</div></div>
+<div class="person"><div><span class="n">尼克</span><span class="r">关键配角</span></div><div class="d">街头狐狸，被朱迪说服协助调查</div></div>
+<div class="person"><div><span class="n">狮市长</span><span class="r">对手</span></div><div class="d">动物城市长，操控失踪案幕后黑手</div></div>
+<div class="person"><div><span class="n">羊副市长</span><span class="r">关键配角</span></div><div class="d">表面温顺，实际策划社会恐慌</div></div>
+<div class="person"><div><span class="n">牛局长</span><span class="r">关键配角</span></div><div class="d">朱迪上司，质疑兔子能力</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">梦想与挑战</span><span class="ds">朱迪成为首位兔子警官，接受失踪案调查任务</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">合作调查</span><span class="ds">朱迪与尼克联手，发现失踪动物规律</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">真相揭露</span><span class="ds">发现食肉动物回归野蛮的阴谋，朱迪被停职</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">危机解决</span><span class="ds">朱迪与尼克揭露真相，恢复动物城和谐</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>兔子警官的梦想</h3>
+  </div>
+  <p>兔子朱迪从小梦想成为警察，在动物城舞台上表演并立志改变世界。成年后，她前往警察学院报到，面对身材高大、体格强壮的动物同学们，朱迪面临体能训练的巨大挑战。尽管受到牛局长和其他同学的质疑，朱迪凭借毅力和智慧完成各项训练，最终以优异成绩毕业。毕业典礼上，牛局长勉强授予她警徽，并警告她现实世界比想象中残酷。</p>
+  <div class="events"><span class="ev">朱迪立志当警察</span><span class="ev">警察学院受质疑</span><span class="ev">以优异成绩毕业</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>初入警局遭遇挫折</h3>
+  </div>
+  <p>朱迪满怀热情来到动物城警局报到，却被分配为交通协管员，负责管理违章停车。她努力工作，却因体型小而难以控制大型动物，屡次遭遇困难。一天，朱迪目睹一桩失踪案，她主动请缨调查，但被牛局长以她没有经验为由拒绝。朱迪坚持要证明自己，牛局长给她48小时破案期限，若成功则让她参与调查，否则辞职。朱迪开始在街头寻找线索，遇到了狐狸尼克。</p>
+  <div class="events"><span class="ev">分配为交通协管</span><span class="ev">目睹失踪案</span><span class="ev">获48小时破案期限</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:29</span>
+    <h3>朱迪接受失踪案调查</h3>
+  </div>
+  <p>朱迪向牛局长报告目击的失踪案，请求接手调查。牛局长认为兔子不适合处理重大案件，但朱迪坚持自己的能力。她立下48小时内破案的赌约，否则主动辞职。牛局长勉强同意，并给她一个旧录音笔作为调查工具。朱迪开始分析案件，发现失踪动物都是小型哺乳动物，且都在夜间失踪。她决定从夜店老板尼克入手调查，尽管尼克名声不佳。</p>
+  <div class="events"><span class="ev">朱迪立下赌约</span><span class="ev">获得调查工具</span><span class="ev">分析失踪规律</span><span class="ev">决定调查尼克</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:29–00:39</span>
+    <h3>朱迪立下赌约</h3>
+  </div>
+  <p>朱迪向牛局长报告目击的失踪案，请求接手调查。牛局长认为体型小的兔子不适合处理重大案件，建议她继续做交通协管。朱迪不服，坚持自己的能力，立下48小时内破案的赌约，否则主动辞职。牛局长被她的决心打动，勉强同意给她机会，但警告她如果失败必须离开警队。朱迪接受了挑战，开始着手调查案件，决心证明自己有能力成为一名真正的警官。她仔细询问目击细节，分析案件线索，展现出敏锐的观察力和坚定的决心。</p>
+  <div class="events"><span class="ev">朱迪请求调查</span><span class="ev">立下赌约</span><span class="ev">接受挑战</span><span class="ev">分析线索</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:39–00:49</span>
+    <h3>尼克拒绝合作</h3>
+  </div>
+  <p>朱迪找到尼克，请求他协助调查失踪案。尼克起初拒绝，回忆起童年被其他动物欺负的经历，以及因狐狸身份而受到的不公平待遇。朱迪试图用胡萝卜录音笔打动尼克，但尼克识破了这个把戏。朱迪坚持自己的信念，表示动物城应该变得更好，尼克最终被说服，同意帮助朱迪调查。两人约定，如果朱迪能证明失踪案与尼克无关，尼克就协助她破案。</p>
+  <div class="events"><span class="ev">朱迪找尼克帮忙</span><span class="ev">尼克回忆童年创伤</span><span class="ev">尼克被说服合作</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:49–00:59</span>
+    <h3>夜入自然博物馆</h3>
+  </div>
+  <p>朱迪和尼克来到自然博物馆调查失踪案。他们发现失踪的动物都曾在这里出现过。在博物馆里，他们找到了一只失踪的鼩鼱留下的线索，指向一个神秘的爪痕。朱迪和尼克顺着线索来到一个秘密实验室，发现这里正在进行某种实验。实验室里有许多失踪动物的照片，以及一个奇怪的装置。朱迪和尼克意识到失踪案可能与这个实验室有关，决定继续深入调查。</p>
+  <div class="events"><span class="ev">夜探自然博物馆</span><span class="ev">发现失踪动物线索</span><span class="ev">找到神秘实验室</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">00:59–01:09</span>
+    <h3>发现食肉动物规律</h3>
+  </div>
+  <p>朱迪和尼克调查发现所有失踪者都是食肉动物，且都在情绪激动后失踪。他们前往雨林区寻找线索，遇到一只发疯的豹子袭击。朱迪成功制服豹子，但豹子恢复清醒后完全不记得自己做了什么。朱迪和尼克意识到食肉动物可能被某种药物控制。他们回到警局，向牛局长报告发现，但牛局长不以为然，认为这只是巧合。朱迪坚持自己的判断，决定继续调查，尼克则开始怀疑自己。</p>
+  <div class="events"><span class="ev">发现失踪规律</span><span class="ev">遭遇发疯豹子</span><span class="ev">向局长报告发现</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:09–01:19</span>
+    <h3>朱迪错误指控</h3>
+  </div>
+  <p>朱迪在记者会上公开表示食肉动物会因野蛮本能回归本性，引发社会恐慌。尼克得知后感到被背叛，与朱迪发生激烈争吵，揭露自己童年因被歧视而成为街头骗子的经历。朱迪意识到自己的错误，试图道歉，但尼克心碎离开。朱迪被牛局长停职，离开警局。朱迪回到家乡，向父母坦白自己的失败，但父母依然支持她。朱迪决定回到动物城，找出真相，洗清食肉动物的冤屈。</p>
+  <div class="events"><span class="ev">记者会引发恐慌</span><span class="ev">尼克与朱迪决裂</span><span class="ev">朱迪被停职辞职</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:19–01:28</span>
+    <h3>朱迪辞职离城</h3>
+  </div>
+  <p>朱迪因错误指控食肉动物而深感内疚，向牛局长提交辞呈。朱迪回到家乡与父母团聚，但心中仍放不下未解的失踪案。朱迪发现失踪案与自己播报的新闻时间吻合，意识到自己可能被利用。与此同时，尼克回到旧城区继续调查，被羊副市长邀请加入警察学院，但尼克拒绝了这份工作。朱迪在家乡的广播中听到尼克被邀请的消息，感到自责。朱迪决定返回动物城，找出真相并弥补自己的错误。</p>
+  <div class="events"><span class="ev">朱迪辞职</span><span class="ev">尼克拒邀</span><span class="ev">朱迪自责</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:28–01:38</span>
+    <h3>朱迪发现真相线索</h3>
+  </div>
+  <p>朱迪在家乡观看自己录制的新闻视频，发现失踪动物发疯的时间点与她播报新闻的时间完全吻合。她意识到自己可能被利用了。朱迪立即联系尼克，尽管尼克仍在生气，但听到这个线索后决定继续调查。两人回到动物城，找到羊副市长的办公室，发现她正在秘密实验室进行某种实验。他们偷听到羊副市长计划制造食肉动物回归野蛮的恐慌，目的是让狮市长的支持率下降，自己取而代之。</p>
+  <div class="events"><span class="ev">朱迪发现时间吻合</span><span class="ev">尼克同意继续调查</span><span class="ev">潜入羊副市长办公室</span><span class="ev">听到阴谋计划</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:38–01:48</span>
+    <h3>真相大白于众</h3>
+  </div>
+  <p>朱迪和尼克潜入动物城博物馆，找到羊副市长藏匿的证据。羊副市长试图逃脱，被朱迪和尼克联手制服。在记者会上，朱迪公开揭露羊副市长利用夜嚎花制造恐慌的阴谋，证明食肉动物回归野蛮是被陷害。狮市长也被揭露是幕后帮凶，被捕入狱。动物城恢复和平，朱迪被牛局长重新接纳为警官。尼克决定加入警队，成为正式警官。朱迪和尼克站在动物城广场上，看着和谐共处的动物们，象征着偏见与误解的消除。</p>
+  <div class="events"><span class="ev">揭露阴谋</span><span class="ev">制服反派</span><span class="ev">恢复和谐</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第15分钟</td><td>朱迪说服尼克协助调查失踪案</td></tr><tr><td>约第30分钟</td><td>发现失踪动物都是食肉动物</td></tr><tr><td>约第50分钟</td><td>朱迪错误指控尼克导致关系破裂</td></tr><tr><td>约第70分钟</td><td>朱迪辞职，尼克拒绝继续调查</td></tr><tr><td>约第85分钟</td><td>朱迪发现真相，与尼克和解合作</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">偏见与包容</span><span class="theme">社会操控</span><span class="theme">自我证明</span><span class="theme">友谊与信任</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">羊副市长被捕，动物城恢复和谐。朱迪成为英雄，尼克加入警队，两人成为朋友，打破偏见共同守护城市。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-26 09:27 · 模型 glm-4-air,glm-4-flash · 共 11 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

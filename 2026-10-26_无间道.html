@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无间道 · 分段故事梗概 · 2026-10-26</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>无间道<span class="year">2002</span></h1>
+    <div class="chips"><span class="chip hot">2026-10-26</span><span class="chip">电影</span><span class="chip">中国香港</span><span class="chip">犯罪/悬疑</span><span class="chip">2002</span><span class="chip">电影片长约 101 分钟，按每 10 分钟一段切分，共 10 段</span><span class="chip">1990年代至2002年的香港</span></div>
+    <div class="logline">警方卧底陈永仁与黑帮内鬼刘建明各自潜伏多年，在身份清查中互相追捕，最终一个殉职一个暴露。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 10 段</h2>
+      <ol><li><a href="#seg1">陈永仁刘建明各自受命卧底</a></li>
+<li><a href="#seg2">陈永仁卧底黑帮 刘建明警队晋升</a></li>
+<li><a href="#seg3">黄志诚施压韩琛 陈永仁提供情报</a></li>
+<li><a href="#seg4">韩琛设局试探 陈永仁险暴露</a></li>
+<li><a href="#seg5">黄志诚被杀 陈永仁身份危机</a></li>
+<li><a href="#seg6">刘建明接手调查 陈永仁寻求合作</a></li>
+<li><a href="#seg7">刘建明确认陈永仁卧底身份</a></li>
+<li><a href="#seg8">陈永仁天台揭穿刘建明</a></li>
+<li><a href="#seg9">天台对峙后录音落入刘手</a></li>
+<li><a href="#seg10">大厦枪战陈永仁殉职</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">陈永仁</span><span class="r">主角</span></div><div class="d">警方卧底，潜伏黑帮多年，渴望恢复身份</div></div>
+<div class="person"><div><span class="n">刘建明</span><span class="r">对手</span></div><div class="d">黑帮内鬼，潜入警队，试图洗白自己</div></div>
+<div class="person"><div><span class="n">黄志诚</span><span class="r">关键配角</span></div><div class="d">重案组警司，陈永仁的上司与唯一联络人</div></div>
+<div class="person"><div><span class="n">韩琛</span><span class="r">关键配角</span></div><div class="d">黑帮老大，刘建明的幕后老板</div></div>
+<div class="person"><div><span class="n">倪永孝</span><span class="r">关键配角</span></div><div class="d">黑帮家族首领，陈永仁的哥哥</div></div>
+<div class="person"><div><span class="n">李心儿</span><span class="r">关键配角</span></div><div class="d">心理医生，陈永仁的倾诉对象</div></div>
+<div class="person"><div><span class="n">林国平</span><span class="r">关键配角</span></div><div class="d">警队内务部警官，刘建明的同事</div></div>
+<div class="person"><div><span class="n">傻强</span><span class="r">关键配角</span></div><div class="d">黑帮成员，陈永仁的伙伴</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">卧底开端</span><span class="ds">陈永仁被派入黑帮，刘建明被安插警队</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">双线潜伏</span><span class="ds">两人各自在对方阵营中艰难生存</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">身份追查</span><span class="ds">黄志诚之死引发双方互相追查内鬼</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">正面交锋</span><span class="ds">刘建明发现陈永仁身份，试图合作</span></div>
+<div class="act"><span class="idx">05</span><span class="nm">结局</span><span class="ds">陈永仁殉职，刘建明暴露被捕</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>陈永仁刘建明各自受命卧底</h3>
+  </div>
+  <p>黑帮头目韩琛安排手下刘建明进入警队当卧底，刘建明接受任务，考入警察训练学校。同期，警校学生陈永仁被警司黄志诚秘密选中，要求他放弃警察身份，潜入黑帮长期卧底。陈永仁起初犹豫，但最终答应。两人在警校擦肩而过，彼此不知对方底细。陈永仁离开警校后，以古惑仔身份混入黑帮，开始收集情报。刘建明在警队表现良好，逐步晋升，同时暗中向韩琛传递警方消息。两人各自走上相反的潜伏道路。</p>
+  <div class="events"><span class="ev">韩琛派刘建明考警校当卧底</span><span class="ev">黄志诚选中陈永仁潜入黑帮</span><span class="ev">两人警校擦肩而过</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>陈永仁卧底黑帮 刘建明警队晋升</h3>
+  </div>
+  <p>陈永仁在黑帮中逐渐取得信任，跟随韩琛手下做事，参与多次犯罪活动，同时向黄志诚传递情报。刘建明在警队内表现突出，获得上司赏识，被调入重案组，开始接触核心案件。韩琛对刘建明提供的情报表示满意，要求他继续潜伏。陈永仁在一次行动中与刘建明在音响店偶遇，两人因试听音响而短暂交谈，彼此不知对方真实身份。陈永仁回到黑帮后，继续执行任务，内心渴望恢复警察身份。</p>
+  <div class="events"><span class="ev">陈永仁取得黑帮信任</span><span class="ev">刘建明调入重案组</span><span class="ev">两人音响店偶遇</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:30</span>
+    <h3>黄志诚施压韩琛 陈永仁提供情报</h3>
+  </div>
+  <p>黄志诚率队打击韩琛的犯罪集团，多次行动受阻，怀疑警队内部有内鬼。陈永仁向黄志诚提供韩琛的毒品交易情报，黄志诚部署抓捕，但韩琛提前得到消息逃脱。黄志诚质问陈永仁情报是否准确，陈永仁坚称无误，两人关系紧张。刘建明在警队中暗中调查内鬼，同时向韩琛通风报信。韩琛怀疑身边有警方卧底，开始清查手下。陈永仁面临暴露风险，黄志诚要求他找出内鬼。</p>
+  <div class="events"><span class="ev">黄志诚部署抓捕韩琛失败</span><span class="ev">陈永仁提供情报遭质疑</span><span class="ev">韩琛开始清查卧底</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:30–00:40</span>
+    <h3>韩琛设局试探 陈永仁险暴露</h3>
+  </div>
+  <p>韩琛安排一次毒品交易，故意放出假消息试探内鬼。陈永仁将消息传给黄志诚，黄志诚行动后发现是陷阱，警方扑空。韩琛借此排查身边人，陈永仁成为怀疑对象。陈永仁机智应对，将嫌疑引向他人。刘建明在警队中协助韩琛化解危机，同时暗中调查陈永仁身份。黄志诚与陈永仁秘密会面，要求他尽快找出韩琛的卧底。陈永仁压力倍增，开始怀疑刘建明。</p>
+  <div class="events"><span class="ev">韩琛设假交易试探</span><span class="ev">陈永仁转移嫌疑</span><span class="ev">黄志诚要求找出内鬼</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:40–00:50</span>
+    <h3>黄志诚被杀 陈永仁身份危机</h3>
+  </div>
+  <p>黄志诚独自与陈永仁在天台会面，商讨清查内鬼事宜。韩琛手下跟踪陈永仁，发现黄志诚身份，突然袭击。黄志诚为保护陈永仁，被韩琛手下从高楼扔下身亡。陈永仁目睹惨剧，悲痛欲绝，但必须隐藏情绪。刘建明得知黄志诚死讯，意识到内鬼调查将更严厉。陈永仁失去唯一联络人，身份无法证明，陷入孤立。韩琛加紧清查，陈永仁成为重点目标。</p>
+  <div class="events"><span class="ev">黄志诚天台会面陈永仁</span><span class="ev">黄志诚被韩琛手下杀害</span><span class="ev">陈永仁失去联络人</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:50–01:01</span>
+    <h3>刘建明接手调查 陈永仁寻求合作</h3>
+  </div>
+  <p>刘建明被指派调查黄志诚被杀案及警队内鬼，他表面积极，实则暗中销毁证据。陈永仁找到刘建明，暗示自己掌握内鬼线索，要求合作。刘建明怀疑陈永仁身份，但未揭穿。陈永仁通过心理医生李心儿倾诉压力，李心儿建议他恢复身份。刘建明调查中发现陈永仁的档案被加密，开始怀疑他是警方卧底。韩琛要求刘建明尽快找出卧底，刘建明陷入两难。</p>
+  <div class="events"><span class="ev">刘建明接手内鬼调查</span><span class="ev">陈永仁暗示合作</span><span class="ev">刘建明发现陈永仁档案异常</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:01–01:11</span>
+    <h3>刘建明确认陈永仁卧底身份</h3>
+  </div>
+  <p>刘建明侵入警队系统，破解陈永仁的加密档案，确认他是黄志诚安排的卧底。刘建明没有立即揭发，而是约陈永仁在天台见面，提出合作：他帮陈永仁恢复身份，陈永仁帮他掩盖内鬼身份。陈永仁假意答应，暗中录音。韩琛察觉刘建明有异心，派人监视。刘建明为自保，开始销毁自己与韩琛联系的证据。陈永仁将录音交给李心儿保管，以防不测。</p>
+  <div class="events"><span class="ev">刘建明破解档案确认陈永仁身份</span><span class="ev">天台合作提议</span><span class="ev">陈永仁暗中录音</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:11–01:21</span>
+    <h3>陈永仁天台揭穿刘建明</h3>
+  </div>
+  <p>陈永仁约刘建明在天台见面，当面揭穿他是韩琛派入警队的卧底，并播放录音证据。刘建明试图辩解，但陈永仁态度坚决，要求他自首。刘建明恳求陈永仁给他机会洗白，陈永仁拒绝。两人僵持之际，林国平突然出现，持枪指向陈永仁。刘建明犹豫是否阻止，林国平开枪击中陈永仁。陈永仁倒地，刘建明震惊。林国平要求刘建明一起处理现场，刘建明内心挣扎。</p>
+  <div class="events"><span class="ev">陈永仁天台揭穿刘建明</span><span class="ev">林国平突然出现</span><span class="ev">林国平枪杀陈永仁</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:21–01:31</span>
+    <h3>天台对峙后录音落入刘手</h3>
+  </div>
+  <p>天台谈判破裂，陈永仁拒绝给刘建明洗白机会，刘建明表面退让，暗中已决定夺回主动权。陈永仁手中握有韩琛与刘建明通话的录音，这是他恢复身份的关键证据，他把录音交给李心儿医生保管，自己继续追查。刘建明利用职务之便调取警队内部资料，锁定陈永仁的档案与联络关系，同时向韩琛一方通风，使黑帮开始清除与黄志诚案有关的知情人。陈永仁察觉有人抢先一步灭口，意识到自己的行动被泄露，判断警队内部仍有刘建明的同伙。他试图通过李心儿取回录音备份，却发现刘建明已抢先追查到录音的下落。双方围绕这盘录音展开争夺，陈永仁被迫转入隐蔽，刘建明则以办案为名收紧包围，局势向刘建明一方倾斜。</p>
+  <div class="events"><span class="ev">陈永仁把录音交李心儿保管</span><span class="ev">刘建明调档锁定陈永仁联络网</span><span class="ev">知情人被灭口，陈永仁察觉泄密</span><span class="ev">刘建明抢先追查录音下落</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:31–01:41</span>
+    <h3>大厦枪战陈永仁殉职</h3>
+  </div>
+  <p>刘建明以录音为筹码约陈永仁在大厦见面，声称愿意交还证据、安排他恢复身份，陈永仁带着戒心赴约。楼内埋伏着韩琛残余手下与警队人员，局面迅速失控，爆发枪战。陈永仁在混战中制服刘建明，用枪指住他，逼他承认自己是韩琛安插的内鬼，并要将他押往警局公开真相。就在此时，与刘建明同为内鬼的林国平出现，从背后开枪击中陈永仁。陈永仁倒地，刘建明得以脱身。刘建明随即开枪打死林国平灭口，清除最后一名知情同伙。事后警方封锁现场，陈永仁的卧底身份经档案核实得到确认，被追认为警察；刘建明虽暂时脱身，但其涉案疑点已被记录，最终在警局接受调查。</p>
+  <div class="events"><span class="ev">刘建明以录音诱陈永仁赴约</span><span class="ev">楼内枪战，陈永仁制服刘建明</span><span class="ev">林国平背后开枪，陈永仁殉职</span><span class="ev">刘建明杀林国平灭口后被调查</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第20分钟</td><td>陈永仁与刘建明在音响店首次相遇</td></tr><tr><td>约第45分钟</td><td>黄志诚被韩琛手下杀害</td></tr><tr><td>约第70分钟</td><td>刘建明发现陈永仁是警方卧底</td></tr><tr><td>约第85分钟</td><td>陈永仁在天台揭穿刘建明身份</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">身份认同</span><span class="theme">忠诚与背叛</span><span class="theme">善恶无间</span><span class="theme">因果轮回</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">陈永仁被林国平枪杀，刘建明杀死林国平后被捕，陈永仁恢复警察身份，刘建明在警局接受调查。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-10-26 07:23 · 模型 deepseek-chat · 共 10 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

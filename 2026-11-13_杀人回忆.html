@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>杀人回忆 · 分段故事梗概 · 2026-11-13</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>杀人回忆<span class="year">2003</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-13</span><span class="chip">电影</span><span class="chip">韩国</span><span class="chip">犯罪/悬疑</span><span class="chip">2003</span><span class="chip">电影片长约 139 分钟，按每 10 分钟一段切分，共 14 段</span><span class="chip">1986年韩国乡村小镇</span></div>
+    <div class="logline">乡村警察与首尔刑警联手调查连环杀人案，面对证据不足与时代局限，真相逐渐迷失在迷雾中。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 14 段</h2>
+      <ol><li><a href="#seg1">雨夜女尸发现</a></li>
+<li><a href="#seg2">首尔刑警到访</a></li>
+<li><a href="#seg3">朴斗满走访调查</a></li>
+<li><a href="#seg4">第二名受害者出现</a></li>
+<li><a href="#seg5">暴力审讯嫌疑人</a></li>
+<li><a href="#seg6">朴兴圭被冤枉</a></li>
+<li><a href="#seg7">白光浩浮出水面</a></li>
+<li><a href="#seg8">证据丢失与僵局</a></li>
+<li><a href="#seg9">朴兴圭受刑认罪</a></li>
+<li><a href="#seg10">白光浩被释放</a></li>
+<li><a href="#seg11">徐泰润返回首尔</a></li>
+<li><a href="#seg12">朴斗满独自追查</a></li>
+<li><a href="#seg13">朴斗满与神秘男子对峙</a></li>
+<li><a href="#seg14">真相永远成谜</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">朴斗满</span><span class="r">主角</span></div><div class="d">乡村警察，凭直觉办案，执着于真相</div></div>
+<div class="person"><div><span class="n">徐泰润</span><span class="r">对手</span></div><div class="d">首尔刑警，理性科学办案，与朴斗满冲突</div></div>
+<div class="person"><div><span class="n">白光浩</span><span class="r">关键配角</span></div><div class="d">嫌疑人，智力超群但被警方忽视</div></div>
+<div class="person"><div><span class="n">朴兴圭</span><span class="r">关键配角</span></div><div class="d">嫌疑人，被冤枉的残疾人</div></div>
+<div class="person"><div><span class="n">曹刑警</span><span class="r">关键配角</span></div><div class="d">朴斗满的同事，提供支持</div></div>
+<div class="person"><div><span class="n">受害女孩</span><span class="r">关键配角</span></div><div class="d">案件受害者，引发调查的关键人物</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">案件发生</span><span class="ds">雨夜发现女尸，乡村警察与首尔刑警合作调查</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">调查深入</span><span class="ds">警方追查嫌疑人，暴力审讯与科学方法冲突</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">真相迷雾</span><span class="ds">关键证据丢失，嫌疑人白光浩被忽视</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">无力结局</span><span class="ds">案件未解，时代变迁，真相永远成谜</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>雨夜女尸发现</h3>
+  </div>
+  <p>1986年夏天，韩国乡村小镇郊外的稻田里发现一名年轻女尸。女孩穿着红色连衣裙，赤脚躺在泥水中，双眼紧闭。当地警察朴斗满赶到现场，看到尸体后震惊不已。他注意到女孩身上有明显的暴力痕迹，稻田周围有挣扎的痕迹。朴斗满立即展开初步调查，询问附近村民是否看到异常情况。天空下着小雨，现场气氛阴森恐怖。朴斗满蹲在尸体旁，表情凝重，意识到这起案件不简单。</p>
+  <div class="events"><span class="ev">稻田女尸</span><span class="ev">朴斗满到场</span><span class="ev">暴力痕迹</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>首尔刑警到访</h3>
+  </div>
+  <p>朴斗满向上级报告案情后，首尔派来的刑警徐泰润赶到现场。徐泰润穿着西装，与朴斗满的乡村形象形成鲜明对比。两人对案件的初步看法存在分歧，徐泰润注重科学证据，而朴斗满则凭直觉判断。徐泰润检查尸体后认为死者是被勒死后抛尸，而朴斗满注意到死者手腕上有奇怪的淤青。两人开始争论调查方向，徐泰润强调需要法医报告，朴斗满则坚持立即搜查周边区域寻找线索。当地村民围观现场，议论纷纷。</p>
+  <div class="events"><span class="ev">徐泰润到访</span><span class="ev">调查方法分歧</span><span class="ev">死者淤青</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:30</span>
+    <h3>朴斗满走访调查</h3>
+  </div>
+  <p>朴斗满不顾徐泰润的反对，开始在村庄里走访调查。他询问了附近几户人家，特别是案发当晚行踪不明的人。一位老人告诉他，案发当晚看到一名陌生男子在稻田附近徘徊。朴斗满还发现死者可能是镇上工厂的女工。与此同时，徐泰润在法医检查后确认死者是被强奸后勒死，死亡时间大约在案发当晚10点左右。两人在调查方法上的冲突愈发明显，徐泰润认为朴斗满的做法不够科学，而朴斗满则认为徐泰润过于死板。</p>
+  <div class="events"><span class="ev">走访村民</span><span class="ev">陌生男子线索</span><span class="ev">死亡时间确认</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:30–00:40</span>
+    <h3>第二名受害者出现</h3>
+  </div>
+  <p>就在警方调查期间，第二名受害者被发现。同样是一名年轻女性，穿着相似的红色连衣裙，死状与第一名受害者极其相似。案件升级为连环杀人案，引起当地恐慌。朴斗满和徐泰润被迫暂时放下分歧，联合调查。第二名受害者的被发现证实了朴斗满的直觉——凶手仍在镇上活动。警方扩大调查范围，开始排查所有有前科的人员。朴斗满注意到两名受害者都曾在同一工厂工作，怀疑凶手可能与工厂有关。徐泰润则坚持要从法医报告中寻找更多线索。</p>
+  <div class="events"><span class="ev">第二名受害者</span><span class="ev">连环杀人确认</span><span class="ev">工厂线索</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:40–00:50</span>
+    <h3>暴力审讯嫌疑人</h3>
+  </div>
+  <p>朴斗满和徐泰润锁定一名嫌疑人，朴斗满不顾程序对其进行暴力审讯，嫌疑人被迫认罪。徐泰润反对这种做法，认为缺乏科学证据。两人发生激烈争执，徐泰润坚持要将嫌疑人带回首尔进行正规调查。朴斗满则认为凶手就在本地，不应放过任何线索。最终徐泰润妥协，同意在继续调查的同时将嫌疑人带回警局。朴斗满对嫌疑人施加更多压力，试图获取更多口供，但嫌疑人翻供，称自己只是被冤枉。案件陷入僵局，两人之间的矛盾加深。</p>
+  <div class="events"><span class="ev">暴力审讯</span><span class="ev">嫌疑人翻供</span><span class="ev">警员冲突</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:50–01:00</span>
+    <h3>朴兴圭被冤枉</h3>
+  </div>
+  <p>警方将注意力转向残疾人朴兴圭，因为他曾在案发地点附近出现。朴斗满和徐泰润对朴兴圭进行审讯，朴兴圭因智力缺陷无法清晰表达自己的不在场证明。警方发现朴兴圭收藏女性物品，认定他有恋物癖，将其视为重要嫌疑人。朴斗满对朴兴圭进行长时间审讯，试图逼迫他认罪。徐泰润则收集物证，认为朴兴圭可能是凶手。当地居民也因恐慌而指认朴兴圭，警方将他正式逮捕。朴兴圭被媒体曝光，成为连环杀人案的嫌疑人，引发公众关注。</p>
+  <div class="events"><span class="ev">锁定残疾嫌疑人</span><span class="ev">收集物证</span><span class="ev">正式逮捕</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:00–01:10</span>
+    <h3>白光浩浮出水面</h3>
+  </div>
+  <p>调查过程中，一名目击者提供线索，案发当晚看到白光浩在案发地点附近出现。白光浩是当地一名高中生，成绩优异但性格孤僻。警方传讯白光浩，他承认案发当晚在附近，但声称只是散步。朴斗满注意到白光浩对案件细节异常了解，产生怀疑。白光浩的鞋印与现场发现的脚印相似，警方将其列为重要嫌疑人。徐泰润对白光浩进行科学测试，包括测谎和心理学评估，结果不明确。白光浩的家人为他提供不在场证明，但警方不予采信。白光浩成为调查焦点，但缺乏直接证据。</p>
+  <div class="events"><span class="ev">高中生嫌疑人</span><span class="ev">鞋印证据</span><span class="ev">心理测试</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:10–01:19</span>
+    <h3>证据丢失与僵局</h3>
+  </div>
+  <p>警方收集的关键DNA样本在送往首尔的途中丢失，案件调查陷入僵局。朴斗满和徐泰润因调查方法产生严重分歧，徐泰润决定返回首尔，留下朴斗满继续调查。朴兴圭和白光浩都被释放，但警方仍认为凶手就在他们中间。朴斗满独自继续调查，走访更多村民，收集线索。他发现多名受害者都曾穿红色连衣裙，推测凶手有特定目标。当地民众恐慌加剧，要求政府介入调查。朴斗满坚持认为凶手仍在本地，拒绝放弃案件调查。随着时间推移，案件逐渐被其他事件掩盖，但朴斗满仍执着于寻找真相。</p>
+  <div class="events"><span class="ev">DNA证据丢失</span><span class="ev">徐泰润离开</span><span class="ev">调查陷入僵局</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:19–01:29</span>
+    <h3>朴兴圭受刑认罪</h3>
+  </div>
+  <p>警方对朴兴圭进行严刑逼供，长时间殴打和恐吓后，朴兴圭被迫认罪。朴斗满虽有所怀疑，但在压力下接受了这一结果。警方组织村民指认朴兴圭为凶手，村民们因恐慌和偏见纷纷指证。朴兴圭的家人被村民排斥，生活陷入困境。朴斗满内心不安，私下调查朴兴圭的过往，发现他虽有收藏女性物品的癖好，但没有暴力倾向。徐泰润对朴兴圭的认罪表示怀疑，认为案件另有隐情，但迫于上级压力不得不结案。</p>
+  <div class="events"><span class="ev">朴兴圭认罪</span><span class="ev">村民指认</span><span class="ev">朴斗满怀疑</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:29–01:39</span>
+    <h3>白光浩被释放</h3>
+  </div>
+  <p>警方重新调查白光浩，发现他案发当晚确实在案发地附近，但没有直接证据证明他作案。白光浩的家人和学校为他提供不在场证明，证明他当晚在参加学校活动。徐泰润对白光浩进行科学测试，包括测谎和生理反应测试，结果均无法证明他有罪。朴斗满直觉认为白光浩可疑，但缺乏证据支持。最终，警方因证据不足释放白光浩，案件陷入僵局。白光浩被释放后，村民们对他态度复杂，既恐惧又怀疑。</p>
+  <div class="events"><span class="ev">证据不足</span><span class="ev">白光浩释放</span><span class="ev">警方僵局</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:39–01:49</span>
+    <h3>徐泰润返回首尔</h3>
+  </div>
+  <p>徐泰润因调查无果且与朴斗满的办案理念冲突，决定返回首尔。临行前，徐泰润将剩余案件资料交给朴斗满，并建议他不要再执着于破案。朴斗满拒绝放弃，表示会继续调查直到找到真凶。徐泰润离开后，朴斗满独自调查，走访案发地点附近居民，收集更多线索。他发现凶手可能对特定类型的女性下手，且作案手法有固定模式。朴兴圭虽被认定为凶手，但朴斗满内心始终无法完全接受这一结论。</p>
+  <div class="events"><span class="ev">徐泰润离开</span><span class="ev">朴斗满坚持</span><span class="ev">案件线索</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:49–01:59</span>
+    <h3>朴斗满独自追查</h3>
+  </div>
+  <p>朴斗满继续独自调查，走访受害者家属，了解受害者生前习惯和最后行踪。他发现所有受害者都是在雨夜独自出行时遇害，且都穿着红色衣物。朴斗满开始怀疑凶手可能是在特定条件下选择目标，而非随机作案。他重新审视白光浩的线索，发现白光浩对天气和受害者特征有异常了解。朴斗满暗中监视白光浩，发现他行为诡异，但无法取得直接证据。案件调查陷入困境，朴斗满感到无力，但仍不愿放弃追查真相。</p>
+  <div class="events"><span class="ev">独自调查</span><span class="ev">发现规律</span><span class="ev">监视白光浩</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">01:59–02:09</span>
+    <h3>朴斗满与神秘男子对峙</h3>
+  </div>
+  <p>朴斗满在雨夜巡逻时发现一名可疑男子，男子行为诡异，引起朴斗满警觉。两人对峙时，朴斗满注意到男子手上有伤，与受害者描述的凶手特征相似。男子否认自己与案件有关，但无法提供当晚的不在场证明。朴斗满试图逮捕男子，但男子挣脱逃跑。朴斗满在追捕过程中摔倒，让男子逃脱。朴斗满回到警局，将这一情况报告给同事，但大家认为这只是巧合。朴斗满坚信这名男子与案件有关，决定继续追查。他开始调查镇上所有符合描述的男子，包括那些有暴力前科的人。同时，朴斗满发现最近又有一名女孩失踪，他担心连环杀人案仍在继续。</p>
+  <div class="events"><span class="ev">发现可疑男子</span><span class="ev">对峙与逃跑</span><span class="ev">继续追查</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:09–02:19</span>
+    <h3>真相永远成谜</h3>
+  </div>
+  <p>多年后，朴斗满已成为普通警察，在首尔街头偶遇白光浩。白光浩已成为成功商人，气质与当年判若两人。朴斗满确认白光浩就是当年连环杀人案的凶手，但已无法追究正义。白光浩对朴斗满微笑致意，仿佛在嘲笑他多年的执着。朴斗满回到家乡，发现小镇已经面目全非，当年的痕迹荡然无存。他来到案发地，回忆起那些无辜受害的女孩和自己的无力。朴斗满最终接受真相可能永远无法大白于天下的现实。影片结尾，朴斗满站在田野上，望着远方，表情复杂而无奈。时代的变迁掩盖了罪恶，正义未能伸张，但朴斗满的执着与坚持成为那个黑暗时代中的一丝微光。</p>
+  <div class="events"><span class="ev">偶遇白光浩</span><span class="ev">确认凶手身份</span><span class="ev">接受现实</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>第二名受害者被发现，案件升级为连环杀人案</td></tr><tr><td>约第60分钟</td><td>朴兴圭被冤枉，警方错误方向调查</td></tr><tr><td>约第90分钟</td><td>白光浩成为嫌疑人，但因证据不足被释放</td></tr><tr><td>约第120分钟</td><td>关键DNA证据丢失，案件陷入僵局</td></tr><tr><td>约第135分钟</td><td>朴斗满多年后重遇白光浩，确认凶手身份</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">真相与谎言</span><span class="theme">时代局限</span><span class="theme">执法困境</span><span class="theme">人性复杂</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">多年后朴斗满偶遇白光浩，确认其是凶手，但已无法追究正义。时代变迁，真相永远成谜。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-13 07:51 · 模型 glm-4-air,glm-4-flash · 共 14 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

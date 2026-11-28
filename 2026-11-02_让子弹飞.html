@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>让子弹飞 · 分段故事梗概 · 2026-11-02</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>让子弹飞<span class="year">2010</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-02</span><span class="chip">电影</span><span class="chip">中国</span><span class="chip">黑色喜剧/动作</span><span class="chip">2010</span><span class="chip">电影片长约 132 分钟，按每 10 分钟一段切分，共 13 段</span><span class="chip">民国时期南方鹅城</span></div>
+    <div class="logline">张麻子冒充县长深入鹅城，与恶霸黄四郎展开权力博弈，在欺骗与反欺骗中寻求公平正义。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 13 段</h2>
+      <ol><li><a href="#seg1">火车上的神秘来客</a></li>
+<li><a href="#seg2">第2段</a></li>
+<li><a href="#seg3">第3段</a></li>
+<li><a href="#seg4">第4段</a></li>
+<li><a href="#seg5">鸿门宴前奏</a></li>
+<li><a href="#seg6">鸿门宴交锋</a></li>
+<li><a href="#seg7">鸿门宴高潮</a></li>
+<li><a href="#seg8">鸿门宴尾声</a></li>
+<li><a href="#seg9">汤师爷遭酷刑</a></li>
+<li><a href="#seg10">黄四郎设局反制</a></li>
+<li><a href="#seg11">张麻子将计就计</a></li>
+<li><a href="#seg12">百姓集体起义</a></li>
+<li><a href="#seg13">黄四郎覆灭</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">张麻子</span><span class="r">主角</span></div><div class="d">冒充县长的土匪头子，为鹅城百姓讨公道</div></div>
+<div class="person"><div><span class="n">黄四郎</span><span class="r">对手</span></div><div class="d">鹅城恶霸，地方势力代表，贪财好色</div></div>
+<div class="person"><div><span class="n">汤师爷</span><span class="r">关键配角</span></div><div class="d">左右摇摆的中间人，在利益与道德间挣扎</div></div>
+<div class="person"><div><span class="n">胡万</span><span class="r">关键配角</span></div><div class="d">黄四郎的帮凶，心狠手辣的爪牙</div></div>
+<div class="person"><div><span class="n">张牧之</span><span class="r">关键配角</span></div><div class="d">张麻子真实身份，曾经的革命者</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">冒名上任</span><span class="ds">张麻子冒充县长抵达鹅城，初露锋芒</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">权力博弈</span><span class="ds">张麻子与黄四郎展开明争暗斗，斗智斗勇</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">民心向背</span><span class="ds">张麻子赢得百姓支持，黄四郎势力渐弱</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">决战鹅城</span><span class="ds">张麻子带领百姓推翻黄四郎统治</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>火车上的神秘来客</h3>
+  </div>
+  <p>民国时期，一列火车疾驰在南方山野间，车中坐着三位陌生人：张牧之、汤师爷和黄四郎的特使胡万。张牧之自称县长，带着委任状和随从抵达鹅城。三人途中遭遇劫匪袭击，张牧之临危不乱，展现出非凡的胆识和枪法。劫匪头目认出张牧之是土匪张麻子，却因忌惮他的枪法而退去。抵达鹅城后，当地百姓早已在城门口等候新县长。张牧之下车时，一个小孩突然冲出人群，被胡万推倒在地。张牧之立即制止胡万，并对小孩表现出善意，这一举动让围观百姓感到意外。黄四郎派来的管家迎接新县长，张牧之坦然接受，准备开始他在鹅城的冒险。</p>
+  <div class="events"><span class="ev">张牧之上任</span><span class="ev">火车遇劫</span><span class="ev">胡万推倒小孩</span><span class="ev">黄府管家迎接</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>第2段</h3>
+  </div>
+  <p>张麻子一行人抵达鹅城城门口，受到当地百姓迎接。黄四郎的手下胡万和汤师爷已在此等候，两人对张麻子的身份存疑。汤师爷表面上欢迎，暗中观察。进城后，张麻子看到鹅城百姓生活困苦，黄四郎势力横行。张麻子故意在公开场合表现出对黄四郎的不满，引起百姓注意。汤师爷试图拉拢张麻子，暗示与黄四郎合作可能获利，但张麻子婉拒。</p>
+  <div class="events"><span class="ev">抵达鹅城</span><span class="ev">身份存疑</span><span class="ev">表现不满</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:30</span>
+    <h3>第3段</h3>
+  </div>
+  <p>张麻子入住县衙，开始行使县长职权。他下令免除百姓赋税，引起黄四郎警觉。黄四郎派胡万前来试探，张麻子巧妙应对，既不直接得罪也不完全屈服。汤师爷在中间调和，试图维护双方平衡。张麻子发现县衙账目空虚，百姓负担沉重。他决定从黄四郎的税收入手，开始实施自己的计划。晚上，张麻子与手下商议如何对付黄四郎，表明真实身份是土匪头子张牧之。</p>
+  <div class="events"><span class="ev">行使职权</span><span class="ev">免除赋税</span><span class="ev">账目空虚</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:30–00:41</span>
+    <h3>第4段</h3>
+  </div>
+  <p>张麻子开始调查黄四郎的势力范围，发现他垄断了鹅城的鸦片和盐业。他故意在公开场合批评黄四郎的恶行，赢得百姓支持。黄四郎意识到张麻子不是简单合作对象，决定设局对付他。汤师爷在双方之间摇摆不定，既想讨好张麻子，又不敢得罪黄四郎。张麻子察觉到汤师爷的犹豫，开始利用这一点。黄四郎邀请张麻子赴宴，张麻子明知有诈，决定将计就计，准备在鸿门宴上与黄四郎正面交锋。</p>
+  <div class="events"><span class="ev">调查势力</span><span class="ev">赢得民心</span><span class="ev">鸿门宴邀</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:41–00:51</span>
+    <h3>鸿门宴前奏</h3>
+  </div>
+  <p>黄四郎设下鸿门宴邀请张麻子，表面上是欢迎新县长，实则是想试探其底细。宴会上，黄四郎安排了歌舞表演，暗中观察张麻子的反应。张麻子识破计谋，表面上与黄四郎周旋，暗中却让兄弟们做好应对准备。汤师爷夹在中间，既想讨好黄四郎，又不想得罪张麻子，处境尴尬。张麻子在宴会上公开批评黄四郎的恶行，引起在场宾客的骚动。黄四郎表面不动声色，但眼神中已露出杀机。</p>
+  <div class="events"><span class="ev">设鸿门宴</span><span class="ev">张麻子周旋</span><span class="ev">汤师爷为难</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:51–01:01</span>
+    <h3>鸿门宴交锋</h3>
+  </div>
+  <p>鸿门宴正式开始，黄四郎不断试探张麻子的身份和意图。张麻子将计就计，假意透露自己与上级关系密切，暗示自己背后有靠山。胡万在一旁煽风点火，质疑张麻子的真实身份。汤师爷试图调解，反被黄四郎冷落。张麻子借机提出要黄四郎交出一部分权力，作为交换条件。黄四郎表面答应，暗中却安排人手准备暗杀张麻子。宴会气氛紧张，双方暗中较劲。</p>
+  <div class="events"><span class="ev">身份试探</span><span class="ev">权力交换</span><span class="ev">暗杀准备</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:01–01:11</span>
+    <h3>鸿门宴高潮</h3>
+  </div>
+  <p>宴会达到高潮，黄四郎突然发难，质疑张麻子的真实身份。张麻子临危不乱，巧妙应对，反而揭露黄四郎的种种恶行。胡万拔枪威胁，被张麻子的人制住。汤师爷见势不妙，试图逃跑，被张麻子的人拦下。黄四郎见阴谋败露，恼羞成怒，下令手下动手。双方爆发冲突，场面混乱。张麻子趁机带走汤师爷，作为人质和筹码。</p>
+  <div class="events"><span class="ev">身份质疑</span><span class="ev">冲突爆发</span><span class="ev">带走汤师爷</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:11–01:21</span>
+    <h3>鸿门宴尾声</h3>
+  </div>
+  <p>鸿门宴以黄四郎的失败告终，张麻子成功脱身。黄四郎损失惨重，手下多人被抓或受伤，颜面尽失。张麻子带走汤师爷后，开始利用他作为突破口，进一步瓦解黄四郎的势力。汤师爷在生死关头，终于表明立场，愿意协助张麻子对付黄四郎。张麻子利用汤师爷提供的信息，开始制定下一步计划。黄四郎意识到局势对自己不利，开始调集更多资源准备反击。</p>
+  <div class="events"><span class="ev">张麻子脱身</span><span class="ev">汤师爷倒戈</span><span class="ev">制定反击计划</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:21–01:31</span>
+    <h3>汤师爷遭酷刑</h3>
+  </div>
+  <p>张麻子将汤师爷带回据点，对他进行严厉审讯。汤师爷起初坚称自己只是中间人，但面对张麻子的威逼利诱，最终屈服。张麻子利用汤师爷对黄四郎的了解，制定下一步计划。汤师爷被迫透露黄四郎的财政来源和势力分布，并同意配合张麻子瓦解黄四郎的势力。张麻子给汤师爷两个选择：要么成为内应，要么被处死。汤师爷权衡利弊后选择前者，开始为张麻子提供情报。</p>
+  <div class="events"><span class="ev">汤师爷被审讯</span><span class="ev">被迫提供情报</span><span class="ev">选择成为内应</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:31–01:42</span>
+    <h3>黄四郎设局反制</h3>
+  </div>
+  <p>得知汤师爷背叛后，黄四郎勃然大怒，设下毒计反制。他故意放出消息称汤师爷已死，并伪造了汤师爷的遗书，声称张麻子才是真正的土匪。黄四郎还散布谣言，称张麻子即将离开鹅城，以此动摇民心。同时，他暗中调动人手，准备在张麻子离开时发动突袭。胡万建议黄四郎直接除掉张麻子，但黄四郎认为先摧毁张麻子的声誉更为重要。</p>
+  <div class="events"><span class="ev">黄四郎设局</span><span class="ev">散布谣言</span><span class="ev">准备突袭</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:42–01:52</span>
+    <h3>张麻子将计就计</h3>
+  </div>
+  <p>张麻子识破黄四郎的计谋，决定将计就计。他假装中计，公开宣布即将离开鹅城，并邀请百姓参加告别宴会。宴会当天，张麻子当众揭露黄四郎的阴谋，展示汤师爷还活着的证据。他宣布黄四郎才是真正的恶霸，并号召百姓团结起来反抗。汤师爷现身作证，揭露黄四郎的种种恶行。百姓群情激愤，开始公开反对黄四郎的统治。</p>
+  <div class="events"><span class="ev">张麻子假意中计</span><span class="ev">公开揭露阴谋</span><span class="ev">号召百姓反抗</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:52–02:02</span>
+    <h3>百姓集体起义</h3>
+  </div>
+  <p>在张麻子的号召下，鹅城百姓开始集体起义。他们冲进黄四郎的府邸，抢夺粮食和财产。黄四郎的手下试图镇压，但面对愤怒的百姓节节败退。胡万试图组织抵抗，但被百姓包围。张麻子带领起义军占领了黄四郎的府邸，黄四郎仓皇逃窜。张麻子宣布将黄四郎的财产分给百姓，并承诺建立新的秩序。起义军控制了鹅城的主要区域，黄四郎的势力土崩瓦解。</p>
+  <div class="events"><span class="ev">百姓起义</span><span class="ev">占领府邸</span><span class="ev">黄四郎逃窜</span><span class="ev">财产分给百姓</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">02:02–02:12</span>
+    <h3>黄四郎覆灭</h3>
+  </div>
+  <p>黄四郎被逼至碉楼，绝望中点燃火药与手下同归于尽。张麻子带领百姓彻底摧毁黄四郎的势力范围，将抢夺的财富全部分给鹅城百姓。胡万被百姓抓住，在混乱中被处决。张麻子站在黄府废墟上，宣告鹅城新时代的开始。他安排汤师爷留下协助治理，自己则带领兄弟们继续前行。临行前，张麻子将县令大印交给百姓，象征着权力的真正回归。夕阳下，他骑马离开鹅城，留下一个开放式的结局，暗示着革命与权力的永恒循环。</p>
+  <div class="events"><span class="ev">黄四郎自尽</span><span class="ev">财富分给百姓</span><span class="ev">胡万被处决</span><span class="ev">张麻子离城</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>张麻子与黄四郎初次交锋，确立对立关系</td></tr><tr><td>约第60分钟</td><td>汤师爷被识破身份，立场开始动摇</td></tr><tr><td>约第90分钟</td><td>黄四郎设下鸿门宴，张麻子将计就计</td></tr><tr><td>约第110分钟</td><td>百姓响应号召，集体反抗黄四郎统治</td></tr><tr><td>约第125分钟</td><td>黄四郎势力覆灭，张麻子离开鹅城</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">权力</span><span class="theme">欺骗</span><span class="theme">反抗</span><span class="theme">公平</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">黄四郎势力被推翻，张麻子将财富分给百姓后离开，鹅城迎来短暂和平，但权力更迭的循环仍在继续。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-02 07:38 · 模型 glm-4-air,glm-4-flash · 共 13 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

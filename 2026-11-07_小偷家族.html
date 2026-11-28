@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小偷家族 · 分段故事梗概 · 2026-11-07</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>小偷家族<span class="year">2018</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-07</span><span class="chip">电影</span><span class="chip">日本</span><span class="chip">家庭/剧情</span><span class="chip">2018</span><span class="chip">电影片长约 121 分钟，按每 10 分钟一段切分，共 12 段</span><span class="chip">现代东京，破旧社区</span></div>
+    <div class="logline">边缘家庭收留被忽视女孩，靠偷窃维生，当秘密暴露，他们面临家庭定义与社会判断的双重拷问。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 12 段</h2>
+      <ol><li><a href="#seg1">海边初现边缘家庭</a></li>
+<li><a href="#seg2">超市里的默契配合</a></li>
+<li><a href="#seg3">家庭日常与秘密</a></li>
+<li><a href="#seg4">海边嬉戏与家庭纽带</a></li>
+<li><a href="#seg5">海边嬉戏与家庭纽带</a></li>
+<li><a href="#seg6">祥太偷窃被抓</a></li>
+<li><a href="#seg7">祥太被捕后的混乱</a></li>
+<li><a href="#seg8">家人被捕真相揭露</a></li>
+<li><a href="#seg9">家庭秘密暴露</a></li>
+<li><a href="#seg10">审讯室里的真相</a></li>
+<li><a href="#seg11">凛的内心挣扎</a></li>
+<li><a href="#seg12">凛的独自前行</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">治</span><span class="r">主角</span></div><div class="d">靠偷窃维生的中年男子，家庭支柱</div></div>
+<div class="person"><div><span class="n">信代</span><span class="r">主角</span></div><div class="d">超市临时工，照顾家庭的女主人</div></div>
+<div class="person"><div><span class="n">祥太</span><span class="r">关键配角</span></div><div class="d">被收养的男孩，跟随治偷窃</div></div>
+<div class="person"><div><span class="n">凛</span><span class="r">关键配角</span></div><div class="d">被忽视的小女孩，被收养后获得关爱</div></div>
+<div class="person"><div><span class="n">初枝</span><span class="r">关键配角</span></div><div class="d">靠养老金维持家庭的老妇人</div></div>
+<div class="person"><div><span class="n">亚纪</span><span class="r">关键配角</span></div><div class="d">在风俗店工作的年轻女性，家庭一员</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">边缘家庭</span><span class="ds">无血缘关系的一家人靠偷窃和零工艰难维生</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">新成员加入</span><span class="ds">家庭收留被忽视的凛，给予她缺失的关爱</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">危机浮现</span><span class="ds">祥太偷窃被抓，家庭秘密开始暴露</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">家庭解体</span><span class="ds">成员被捕，真相揭露，各自命运转折</span></div>
+<div class="act"><span class="idx">05</span><span class="nm">新的开始</span><span class="ds">凛回归原生家庭却选择离开，独自面对世界</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>海边初现边缘家庭</h3>
+  </div>
+  <p>影片开始，年幼的祥太在海边教妹妹凛如何偷窃，两人配合默契。随后他们回到拥挤破旧的小屋，与信代、初枝和亚纪共同生活。治回家后，一家人围坐吃饭，看似普通家庭，却透露出非血缘关系的微妙氛围。治和祥太出门购物，在超市顺手牵羊偷窃日用品，展现了他们赖以为生的生存方式。影片通过日常片段勾勒出这个特殊家庭的基本构成和生存状态，暗示着他们与传统家庭的差异。</p>
+  <div class="events"><span class="ev">海边偷窃教学</span><span class="ev">非血缘家庭聚餐</span><span class="ev">超市顺手牵羊</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:20</span>
+    <h3>超市里的默契配合</h3>
+  </div>
+  <p>治和祥太在超市熟练地配合偷窃，祥太负责分散店员注意力，治则将商品藏入随身携带的包中。信代在超市做临时工，与同事保持表面友好关系，但下班后立即回到家中。亚纪在风俗店工作，回到家中时带着疲惫和冷漠。初枝则在家中照顾孩子们，偶尔外出领取养老金。影片通过不同家庭成员的一天，展现了这个边缘家庭如何依靠零工和小偷小摸维持生计，以及每个成员在社会中的不同身份和处境。</p>
+  <div class="events"><span class="ev">超市分工偷窃</span><span class="ev">信代打工回家</span><span class="ev">亚纪风俗店工作</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:20–00:30</span>
+    <h3>家庭日常与秘密</h3>
+  </div>
+  <p>一家人在家中度过平凡夜晚，治教导祥太如何识别目标，信代关心凛的学习情况，初枝则默默计算着家庭开支。影片通过细节揭示这个家庭的秘密：成员间没有血缘关系，靠养老金和偷窃维持生活。凛在原生家庭中遭受虐待，被这个边缘家庭收留后第一次感受到温暖。祥太对凛表现出保护欲，两人在阳台上看星星，分享彼此的孤独。这个夜晚展现了家庭成员间的情感纽带，也暗示着他们共同面临的生存困境。</p>
+  <div class="events"><span class="ev">家庭秘密浮现</span><span class="ev">凛获温暖关怀</span><span class="ev">祥太保护凛</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:30–00:40</span>
+    <h3>海边嬉戏与家庭纽带</h3>
+  </div>
+  <p>一家人来到海边玩耍，祥太和凛在海边嬉戏，治和信代在一旁看着，脸上露出难得的笑容。初枝独自坐在一旁，默默观察着这个她一手组建的家庭。亚纪也暂时放下工作中的疲惫，加入孩子们的嬉戏。影片通过这一刻展现了这个非血缘家庭中的温情时刻，成员间建立起的深厚情感纽带。然而，欢乐氛围中仍透露出不安，如初枝对养老金的担忧，信代对工作的厌倦，暗示着这个家庭随时可能面临的危机。</p>
+  <div class="events"><span class="ev">海边欢乐时光</span><span class="ev">非血缘家庭温情</span><span class="ev">暗藏生活忧虑</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:40–00:50</span>
+    <h3>海边嬉戏与家庭纽带</h3>
+  </div>
+  <p>一家人来到海边玩耍，祥太和凛在海边嬉戏，祥太教凛如何用贝壳吹出声音，凛起初不得要领，但在祥太的耐心指导下终于成功。治和信代在一旁看着，脸上露出难得的笑容，信代为凛擦去脸上的海水。初枝独自坐在一旁，默默观察着这个她一手组建的家庭。亚纪也暂时放下工作中的疲惫，加入孩子们的嬉戏。傍晚时分，一家人在沙滩上留下脚印，然后一起回家，初枝计算着这次出行的开支，提醒大家下次要节省。</p>
+  <div class="events"><span class="ev">海边嬉戏</span><span class="ev">贝壳教学</span><span class="ev">初枝观察</span><span class="ev">回家计算</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:50–01:00</span>
+    <h3>祥太偷窃被抓</h3>
+  </div>
+  <p>祥太跟随治在商场偷窃，按照教导寻找目标。祥太将目标锁定在一个带着孩子的女人身上，悄悄靠近她的钱包。就在祥太伸手的一刻，女人突然转身，发现了他的行为。祥太惊慌失措，拔腿就跑，女人高声呼喊抓小偷。治在远处看到情况不妙，试图追赶但未能追上。祥太在逃跑过程中慌不择路，冲向商场外的自动扶梯，却意外摔倒在地。商场保安和路人迅速将他围住，祥太被抓住。治远远目睹这一幕，无奈地转身离开，脸上露出担忧的神情。祥太被抓的事件，让这个边缘家庭的秘密开始暴露在公众面前。</p>
+  <div class="events"><span class="ev">祥太偷窃</span><span class="ev">被发现逃跑</span><span class="ev">摔倒被抓</span><span class="ev">治目睹无奈离开</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:00–01:11</span>
+    <h3>祥太被捕后的混乱</h3>
+  </div>
+  <p>祥太偷窃被抓后，商场保安将他围住，祥太挣扎中不小心推倒了凛。治见状冲上前试图解释，但保安们已经报警。信代和亚纪闻声赶来，信代试图用钱平息事态，但为时已晚。凛被这突如其来的变故吓呆，站在原地不知所措。初枝赶到现场，看到这一幕，脸上露出复杂的表情。祥太被带走前，回头看了治一眼，眼神中既有恐惧也有决心。治被警方询问，他谎称祥太是自己的侄子，但警方已经起疑。一家人回到破旧的家中，气氛沉重，信代默默流泪，初枝则冷静地分析情况，暗示他们可能面临更严重的后果。</p>
+  <div class="events"><span class="ev">祥太被捕</span><span class="ev">家人赶到现场</span><span class="ev">警方询问治</span><span class="ev">家庭气氛沉重</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:11–01:21</span>
+    <h3>家人被捕真相揭露</h3>
+  </div>
+  <p>凛被祥太推倒后哭泣，治试图解释却被保安控制。警察赶到现场，询问家庭成员关系时，初枝和亚纪也赶来。面对警察的盘问，家庭成员的回答前后矛盾，暴露了他们没有血缘关系的事实。警察开始调查每个人的背景，发现治有前科，信代曾离家出走，亚纪与父母关系疏远。凛被带走时，治和信代向她保证会来接她。祥太被带走前，治告诉他要坚强。警察带走所有家庭成员，这个靠偷窃维生的边缘家庭就此解体。</p>
+  <div class="events"><span class="ev">凛被带走</span><span class="ev">家庭解体</span><span class="ev">真相揭露</span><span class="ev">成员被捕</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:21–01:31</span>
+    <h3>家庭秘密暴露</h3>
+  </div>
+  <p>治和信代被警察带走接受调查，家中只剩下初枝、亚纪和孩子们。初枝在警察询问中承认自己冒领了前夫的养老金，并透露了这个没有血缘关系的家庭的真相。信代在审讯中承认自己曾伤害前夫，但坚称是为了保护凛。祥太被送到儿童福利设施，面对工作人员的询问，他沉默不语，只是不断画着一家人的肖像画。凛则被送回原生家庭，面对冷漠的母亲和继父，她感到陌生而恐惧。</p>
+  <div class="events"><span class="ev">治信代被捕</span><span class="ev">初枝坦白真相</span><span class="ev">祥太被送福利院</span><span class="ev">凛回归原生家庭</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:31–01:41</span>
+    <h3>审讯室里的真相</h3>
+  </div>
+  <p>信代在审讯中承认自己从未见过祥太的亲生父母，只是从街上捡到了他。她承认自己和治是情人关系，而初枝冒领了前夫的养老金来维持家庭生活。警察调查发现，这个家庭成员之间都没有血缘关系，包括凛也是被信代从娘家带出来的。信代承认她曾带着凛逃离家暴的丈夫，之后遇到了治，组成了这个特殊的家庭。审讯中，警察发现这个家庭靠偷窃和零工维生，成员之间互相依靠又互相隐瞒真相。信代表示她从未想过伤害凛，只是想给她一个温暖的家。</p>
+  <div class="events"><span class="ev">信代坦白家庭真相</span><span class="ev">凛被原生家庭接回</span><span class="ev">审讯揭露家庭秘密</span><span class="ev">凛面临新选择</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:41–01:51</span>
+    <h3>凛的内心挣扎</h3>
+  </div>
+  <p>凛被带回原生家庭，面对陌生环境和冷漠的父母，她感到无所适从。母亲对她态度冷淡，父亲则视而不见。凛独自坐在房间角落，回忆起在小偷家族中的温暖时光。她尝试与父母交流，但得到的只是敷衍的回应。凛在阳台上看到楼下玩耍的孩子们，羡慕他们与父母亲密互动。晚餐时，家人各自沉默，凛感到格格不入。她开始思考自己的归属，最终决定离开这个没有爱的家庭。</p>
+  <div class="events"><span class="ev">凛回归原生家庭</span><span class="ev">感受家庭冷漠</span><span class="ev">独自思考归属</span><span class="ev">决定离开</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:51–02:01</span>
+    <h3>凛的独自前行</h3>
+  </div>
+  <p>凛回到原生家庭后，与父母的关系依旧疏离。一天晚上，她听到父母在讨论如何将她送回福利院。凛决定独自离开，收拾好自己的行李，在清晨时分悄悄出门。她走在东京的街道上，看到一家服装店的橱窗里挂着漂亮的连衣裙，她驻足凝视。随后，凛走进一家餐厅，开始独自用餐，她尝试用筷子夹食物，却显得有些生疏。最后，凛站在海边，望着远方的海平面，脸上露出了若有所思的表情，似乎在思考自己的未来。她深吸一口气，迈步向前，开始了独自面对世界的生活。</p>
+  <div class="events"><span class="ev">凛离开原生家庭</span><span class="ev">凛独自逛街用餐</span><span class="ev">凛站在海边思考</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第25分钟</td><td>家庭收留被忽视的凛，给予她关爱</td></tr><tr><td>约第50分钟</td><td>祥太偷窃被抓，家庭秘密开始暴露</td></tr><tr><td>约第75分钟</td><td>家庭成员相继被捕，真相揭露</td></tr><tr><td>约第95分钟</td><td>凛回到原生家庭却感到陌生</td></tr><tr><td>约第110分钟</td><td>凛选择独自面对世界，开始新生活</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">家庭定义</span><span class="theme">社会边缘</span><span class="theme">爱与依赖</span><span class="theme">生存困境</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">凛回到原生家庭却感到陌生，最终选择独自面对世界。治在狱中见到祥太，两人相视一笑，各自接受命运。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-07 07:02 · 模型 glm-4-air,glm-4-flash · 共 12 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

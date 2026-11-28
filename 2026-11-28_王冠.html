@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>王冠 · 分段故事梗概 · 2026-11-28</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>王冠<span class="year">2016</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-28</span><span class="chip">电视剧</span><span class="chip">英国</span><span class="chip">历史/传记</span><span class="chip">2016</span><span class="chip">电视剧共 10 集，单集约 60 分钟，每集拆 3 段，全剧共 30 段</span><span class="chip">20世纪中后期英国</span></div>
+    <div class="logline">伊丽莎白二世女王在家族与国家间寻找平衡，在政治变革与个人情感中坚守王权职责。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 30 段</h2>
+      <ol><li><a href="#seg1">国王病重</a></li>
+<li><a href="#seg2">继承王位</a></li>
+<li><a href="#seg3">王室责任</a></li>
+<li><a href="#seg4">身份危机</a></li>
+<li><a href="#seg5">菲利普身份之争</a></li>
+<li><a href="#seg6">女王初掌国家</a></li>
+<li><a href="#seg7">玛格丽特爱情抉择</a></li>
+<li><a href="#seg8">王室责任优先</a></li>
+<li><a href="#seg9">女王决断亲情</a></li>
+<li><a href="#seg10">王室访问风波</a></li>
+<li><a href="#seg11">首相更迭考验</a></li>
+<li><a href="#seg12">王室危机应对</a></li>
+<li><a href="#seg13">女王首次出访美国</a></li>
+<li><a href="#seg14">菲利普身份危机加剧</a></li>
+<li><a href="#seg15">访美风波平息</a></li>
+<li><a href="#seg16">苏伊士危机爆发</a></li>
+<li><a href="#seg17">苏伊士危机升级</a></li>
+<li><a href="#seg18">国际地位受挫</a></li>
+<li><a href="#seg19">王室访问澳洲</a></li>
+<li><a href="#seg20">王室身份争议</a></li>
+<li><a href="#seg21">女王与菲利普和解</a></li>
+<li><a href="#seg22">麦克米伦接任首相</a></li>
+<li><a href="#seg23">王室访问加勒比</a></li>
+<li><a href="#seg24">王室现代化改革</a></li>
+<li><a href="#seg25">加勒比访问结束</a></li>
+<li><a href="#seg26">访问归来后的讨论</a></li>
+<li><a href="#seg27">殖民统治问题讨论</a></li>
+<li><a href="#seg28">权力冲突与妥协</a></li>
+<li><a href="#seg29">权力博弈与妥协</a></li>
+<li><a href="#seg30">权力妥协之路</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">伊丽莎白二世</span><span class="r">主角</span></div><div class="d">英国女王，在责任与个人间寻找平衡</div></div>
+<div class="person"><div><span class="n">菲利普亲王</span><span class="r">关键配角</span></div><div class="d">女王的丈夫，寻找王室身份定位</div></div>
+<div class="person"><div><span class="n">玛格丽特公主</span><span class="r">关键配角</span></div><div class="d">女王的妹妹，爱情与王位的抉择</div></div>
+<div class="person"><div><span class="n">丘吉尔</span><span class="r">关键配角</span></div><div class="d">英国首相，引导年轻女王</div></div>
+<div class="person"><div><span class="n">玛格丽特·撒切尔</span><span class="r">关键配角</span></div><div class="d">铁娘子首相与女王的权力博弈</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">继承王位</span><span class="ds">年轻的伊丽莎白意外继承王位，适应女王角色</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">王室危机</span><span class="ds">王室成员面临个人危机与公众质疑</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">权力更迭</span><span class="ds">多位首相交替，女王在政治中保持中立</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">现代挑战</span><span class="ds">王室在现代社会中寻找新定位</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·前</span>
+    <h3>国王病重</h3>
+  </div>
+  <p>1952年，伊丽莎白和菲利普正在肯尼亚进行国事访问。乔治六世国王病情加重，伊丽莎白接到电话得知父亲健康状况恶化。菲利普建议女王提前结束行程回国，但伊丽莎白坚持完成原定计划。当晚，两人继续参加皇家晚宴，伊丽莎白展现王室成员应有的镇定。深夜，王室秘书再次来电，告知国王病情急剧恶化。伊丽莎白在菲利普陪伴下返回住所，等待进一步消息。她开始思考即将面临的王室责任，而菲利普则对王室传统表示质疑。</p>
+  <div class="events"><span class="ev">肯尼亚访问</span><span class="ev">国王病重</span><span class="ev">女王坚持行程</span><span class="ev">等待消息</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·中</span>
+    <h3>继承王位</h3>
+  </div>
+  <p>王室秘书确认乔治六世国王已经去世，伊丽莎白成为英国女王。伊丽莎白立即返回伦敦，菲利普跟随。伊丽莎白开始适应女王角色，处理国事文件，签署文件时需要使用新名字。菲利普感到失落，因为他的地位将次于妻子。丘吉尔作为首相前来觐见，向年轻女王表达敬意并提供政治指导。伊丽莎白需要同时处理悲伤情绪和新的王室责任，她与妹妹玛格丽特分享对未来的担忧。王室工作人员开始安排加冕典礼的准备工作，而伊丽莎白则在适应从公主到女王的身份转变。</p>
+  <div class="events"><span class="ev">国王去世</span><span class="ev">女王返英</span><span class="ev">菲利普失落</span><span class="ev">丘吉尔指导</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第1集·后</span>
+    <h3>王室责任</h3>
+  </div>
+  <p>伊丽莎白女王开始履行君主职责，每周与丘吉尔首相会面讨论国家事务。她面临关于王室住所温莎城堡的修复问题，需要平衡预算与历史保护。菲利普亲王继续寻找自己在王室中的定位，对传统仪式感到不满。玛格丽特公主向姐姐表达希望嫁给彼得·汤森的愿望，但伊丽莎白作为女王必须考虑政治影响。王室顾问们提醒伊丽莎白，她的个人选择将影响整个君主制度的未来。伊丽莎白开始理解作为女王意味着牺牲个人意愿，为国家利益服务。</p>
+  <div class="events"><span class="ev">首相会面</span><span class="ev">菲利普不满</span><span class="ev">玛格丽特爱情</span><span class="ev">王室顾问提醒</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·前</span>
+    <h3>身份危机</h3>
+  </div>
+  <p>菲利普亲王在王室中感到身份危机，他抱怨自己不能使用姓氏，也不能有独立事业。他提出更改王室姓氏的建议，遭到王室传统派的反对。伊丽莎白试图在支持丈夫和维护王室传统之间寻找平衡。玛格丽特公主继续与彼得·汤森的恋情，但王室顾问提醒这段关系可能引发宪法危机。丘吉尔首相向伊丽莎白建议，玛格丽特应该等待几年再考虑婚姻，以避免对君主制造成冲击。伊丽莎白面临家庭责任与王室义务之间的艰难抉择。</p>
+  <div class="events"><span class="ev">菲利普抱怨</span><span class="ev">姓氏争议</span><span class="ev">玛格丽特恋情</span><span class="ev">首相建议</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第2集·中</span>
+    <h3>菲利普身份之争</h3>
+  </div>
+  <p>伊丽莎白女王与丘吉尔首相讨论菲利普亲王提出更改王室姓氏的建议。丘吉尔坚决反对，认为这违背传统。女王在私人会面中向菲利普解释王室传统的重要性，同时承诺会为他寻找更多公共职责。菲利普在海军的晋升被搁置，他感到自己的事业受到王室身份的限制。女王面临在支持丈夫和维护王室传统之间的艰难平衡，最终决定暂时搁置姓氏更改问题，但开始为菲利普安排更多的王室公务。</p>
+  <div class="events"><span class="ev">姓氏更改提议</span><span class="ev">丘吉尔反对</span><span class="ev">菲利普晋升搁置</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第2集·后</span>
+    <h3>女王初掌国家</h3>
+  </div>
+  <p>伊丽莎白女王开始独立处理国家事务，每周与丘吉尔的会面逐渐转变为真正的政治咨询。她面临温莎城堡修复的资金问题，需要在历史保护与预算限制之间做出决策。女王展现出对国家事务的敏锐理解，在预算会议上提出明智的建议。菲利普亲王开始接受自己在王室中的角色，接受更多的公共职责。女王与妹妹玛格丽特公主的关系因王室责任而变得复杂，玛格丽特对姐姐的生活方式感到困惑。女王在首次独立国事活动中表现出色，赢得丘吉尔的尊重。</p>
+  <div class="events"><span class="ev">独立处理国事</span><span class="ev">温莎预算决策</span><span class="ev">菲利普接受角色</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第3集·前</span>
+    <h3>玛格丽特爱情抉择</h3>
+  </div>
+  <p>玛格丽特公主与彼得·汤森的恋情公开，引发王室危机。汤森是离过婚的男子，按照王室传统，玛格丽特无法嫁给他。女王在妹妹的个人幸福与王室责任之间陷入两难。丘吉尔建议女王在妹妹年满25岁前保持现状，届时她可自行决定婚姻。玛格丽特要求女王给予时间等待汤逊离婚，但女王认为这会给王室带来持续争议。菲利普亲王试图在中间调解，理解玛格丽特的痛苦但也明白王室义务的必要性。</p>
+  <div class="events"><span class="ev">恋情公开</span><span class="ev">婚姻限制</span><span class="ev">女王两难抉择</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第3集·中</span>
+    <h3>王室责任优先</h3>
+  </div>
+  <p>伊丽莎白女王最终决定玛格丽特不能等待汤森离婚，必须放弃这段恋情。女王私下与汤森会面，请求他离开英国。玛格丽特得知后愤怒于姐姐的干预，威胁放弃王室头衔。女王在王室会议上坚持传统的重要性，认为婚姻决定将影响君主制的稳定性。菲利普支持女王的立场，但也对玛格丽特的痛苦表示同情。玛格丽特最终妥协，但与姐姐的关系变得疏远。女王在个人情感与王室责任之间做出了艰难选择，展现了君主制的无情一面。</p>
+  <div class="events"><span class="ev">女王干预恋情</span><span class="ev">玛格丽特威胁</span><span class="ev">关系疏远</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第3集·后</span>
+    <h3>女王决断亲情</h3>
+  </div>
+  <p>伊丽莎白女王面对妹妹玛格丽特的激烈反应，坚定维护王室传统。女王与菲利普亲王讨论玛格丽特处境，菲利普理解但无法完全支持女王的决定。玛格丽特在公开场合表现出对姐姐的不满，引发公众关注。丘吉尔首相建议女王考虑玛格丽特的感受，但强调王室责任高于个人情感。女王最终私下与玛格丽特长谈，表达对妹妹的爱与理解，但坚持王室规矩不能改变。玛格丽特虽然痛苦，但暂时接受了现实，同意暂时离开英国度假。女王在亲情与责任间找到平衡点，维护了王室形象。</p>
+  <div class="events"><span class="ev">女王坚持传统</span><span class="ev">玛格丽特接受现实</span><span class="ev">女王平衡亲情</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第4集·前</span>
+    <h3>王室访问风波</h3>
+  </div>
+  <p>伊丽莎白女王与菲利普亲王准备对美国进行国事访问，这是女王登基后的首次重大外事活动。白金汉宫团队精心安排行程，包括与艾森豪威尔总统的会晤和电视演讲。菲利普亲王对访问行程表达不满，认为自己的角色被边缘化。女王需要在国家利益与丈夫感受间寻求平衡。访问期间，女王展现出卓越的外交才能，赢得美国民众喜爱。然而，菲利普在公开场合的言论引发争议，被媒体解读为对英国王室的不满。女王私下与菲利普沟通，提醒他作为王室成员的责任。访问取得成功，但夫妻间的关系出现微妙变化。</p>
+  <div class="events"><span class="ev">美国访问筹备</span><span class="ev">菲利普不满边缘化</span><span class="ev">女王展现外交才能</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第4集·中</span>
+    <h3>首相更迭考验</h3>
+  </div>
+  <p>英国政坛发生变化，丘吉尔年事已高，健康状况不佳，保守党内部分裂。女王密切关注首相更迭进程，与各方保持谨慎沟通。安东尼·艾登被推举为新首相候选人，女王正式任命他为首相。艾登上任后立即面临苏伊士运河危机，女王定期听取简报，提供王室支持。菲利普亲王对政治危机表达看法，与女王产生分歧。白金汉宫成为政治风暴中的避风港，女王展现出政治智慧和稳定性。王室在危机中保持中立，同时为国家提供精神支持。女王与艾登首相建立工作关系，开始形成自己的统治风格。</p>
+  <div class="events"><span class="ev">丘吉尔退位</span><span class="ev">艾登继任首相</span><span class="ev">苏伊士危机考验</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第4集·后</span>
+    <h3>王室危机应对</h3>
+  </div>
+  <p>苏伊士运河危机升级，英国国际地位受损，王室面临前所未有的挑战。女王密切关注局势发展，在公开场合表达对政府的支持，同时私下向艾登首相提出建议。媒体对王室的作用提出质疑，王室形象受到威胁。女王通过精心安排的公共活动重振王室声望，包括参观工业中心和与普通民众会面。菲利普亲王继续表达对政治事务的看法，与女王的关系趋于紧张。女王在危机中展现出非凡的领导力，平衡国家利益与王室责任。危机过后，女王开始思考现代君主制的定位，为未来的统治奠定基础。</p>
+  <div class="events"><span class="ev">危机加剧</span><span class="ev">女王重振形象</span><span class="ev">思考现代君主制</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第5集·前</span>
+    <h3>女王首次出访美国</h3>
+  </div>
+  <p>伊丽莎白女王与菲利普亲王抵达美国进行国事访问，这是女王登基后的首次重大外事活动。在白宫晚宴上，艾森豪威尔总统与女王讨论国际局势，女王展现出政治智慧。菲利普亲王则安排了独自的行程，包括参观海军学院，引发媒体关注。白金汉宫团队精心安排了电视演讲，女王通过这一现代媒介向美国民众传达英友谊。访问期间，女王面临如何平衡传统王室礼仪与新兴媒体关系的挑战。菲利普亲王对行程安排感到不满，认为自己的角色被限制过多，夫妻间出现微妙摩擦。</p>
+  <div class="events"><span class="ev">白宫晚宴</span><span class="ev">电视演讲</span><span class="ev">菲利普不满</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第5集·中</span>
+    <h3>菲利普身份危机加剧</h3>
+  </div>
+  <p>访美期间，菲利普亲王的身份危机进一步加深。他在加拿大独立进行访问时，公开表达对王室生活限制的不满，引起白金汉宫担忧。女王得知后，与丈夫进行坦诚沟通，表达理解的同时也强调王室责任的重要性。玛格丽特公主此时正与彼得·汤森的恋情遭遇阻碍，女王面临妹妹的个人情感与王室责任的艰难抉择。丘吉尔首相健康状况恶化，保守党内部分歧加剧，政治不确定性上升。女王在处理家庭事务的同时，还要密切关注国内政治动向，平衡多方关系。</p>
+  <div class="events"><span class="ev">菲利普言论</span><span class="ev">汤森恋情</span><span class="ev">丘吉尔病重</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第5集·后</span>
+    <h3>访美风波平息</h3>
+  </div>
+  <p>女王访美期间，菲利普亲王在加拿大访问时对王室生活限制的不满言论引发关注。女王与丈夫坦诚沟通，表达理解并安抚公众情绪。媒体对王室的报道逐渐转向正面，王室形象得到一定程度的修复。</p>
+  <div class="events"><span class="ev">菲利普亲王言论引发风波</span><span class="ev">女王与丈夫沟通安抚情绪</span><span class="ev">媒体报道转向正面</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第6集·前</span>
+    <h3>苏伊士危机爆发</h3>
+  </div>
+  <p>第6集前，苏伊士运河危机爆发，埃及总统纳赛尔宣布将运河收归国有，引发国际紧张。英国、法国和以色列决定联合军事行动，女王在白金汉宫密切关注局势，与首相丘吉尔进行紧急会议，讨论应对策略。同时，女王收到玛格丽特公主的信件，表达对局势的担忧和对王室的忠诚。</p>
+  <div class="events"><span class="ev">苏伊士运河危机爆发</span><span class="ev">女王与丘吉尔紧急会议</span><span class="ev">玛格丽特公主表达担忧</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第6集·中</span>
+    <h3>苏伊士危机升级</h3>
+  </div>
+  <p>艾登首相因苏伊士运河危机面临政治压力，女王密切关注局势发展。艾登计划与法国和以色列联合行动，重新控制苏伊士运河。女王对此行动表示担忧，认为可能损害英国的国际声誉。艾登坚持军事行动的必要性，女王在公开场合表达对政府的支持，同时私下向艾登提出建议。内阁会议上，艾登的军事计划获得通过，女王被迫接受这一决定。菲利普亲王对女王的处境表示理解，提醒她保持政治中立。</p>
+  <div class="events"><span class="ev">艾登计划联合行动</span><span class="ev">女王表达担忧</span><span class="ev">内阁通过军事计划</span><span class="ev">菲利普提醒保持中立</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第6集·后</span>
+    <h3>国际地位受挫</h3>
+  </div>
+  <p>英国对埃及的军事行动引发国际谴责，美国反对英国的殖民行为。联合国要求英法军队撤出苏伊士运河，英国陷入外交孤立。艾登首相健康状况恶化，被迫辞职。女王面临艰难抉择，既要维护王室形象，又要应对政府更迭。她与麦克米伦首相会面，讨论如何恢复英国的国际地位。女王在公开演讲中强调和平与外交的重要性，试图挽回英国的声誉。菲利普亲王在访问澳大利亚期间，表达了对英国国际地位下降的担忧。</p>
+  <div class="events"><span class="ev">军事行动遭谴责</span><span class="ev">美国反对殖民</span><span class="ev">艾登辞职</span><span class="ev">麦克米伦继任首相</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">第7集·前</span>
+    <h3>王室访问澳洲</h3>
+  </div>
+  <p>伊丽莎白女王与菲利普亲王对澳大利亚进行正式访问，这是英国王室在苏伊士危机后重建国际形象的重要举措。在堪培拉，女王发表演讲强调英澳关系的重要性，试图转移公众对苏伊士危机的关注。菲利普亲王在访问期间多次表达对王室角色的看法，引起媒体关注。澳大利亚总理提出共和制讨论，引发王室支持者的担忧。女王在私下场合表示理解不同国家的政治发展，但强调君主制对稳定的重要性。访问期间，女王与当地民众互动，展现亲和力。</p>
+  <div class="events"><span class="ev">女王访问澳洲</span><span class="ev">强调英澳关系</span><span class="ev">菲利普表达观点</span><span class="ev">共和制讨论</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">第7集·中</span>
+    <h3>王室身份争议</h3>
+  </div>
+  <p>菲利普亲王在访问新西兰期间，再次公开表达对王室生活限制的不满，媒体广泛报道其言论，引发王室身份争议。女王回到英国后，与菲利普进行深入沟通，讨论王室成员的角色与责任。女王理解丈夫的困境，但强调王室传统的重要性。王室顾问建议菲利普承担更多公共职责，以转移公众对其言论的注意力。女王在圣诞广播中强调家庭团结与王室传统，间接回应近期争议。菲利普亲王开始重新审视自己的王室角色，逐渐接受责任与义务。</p>
+  <div class="events"><span class="ev">菲利普言论引争议</span><span class="ev">女王与丈夫沟通</span><span class="ev">建议承担更多职责</span><span class="ev">圣诞广播强调团结</span></div>
+</section>
+
+<section class="seg" id="seg21">
+  <div class="head">
+    <span class="no">第 21 段</span>
+    <span class="tm">第7集·后</span>
+    <h3>女王与菲利普和解</h3>
+  </div>
+  <p>伊丽莎白女王与菲利普亲王在公开场合保持王室形象，私下却因亲王的身份危机产生紧张关系。女王邀请菲利普参与更多国家事务，希望给他更多责任感和归属感。两人在苏格兰度假期间，女王坦诚表达对王室传统与个人情感平衡的困难，菲利普则分享在王室生活中的压抑感。最终，女王理解菲利普需要更多自主空间，允许他独立领导一些王室项目，如爱丁堡公爵奖。菲利普逐渐接受自己的角色定位，认识到自己作为女王丈夫的独特价值。女王与菲利普的关系在相互理解中得到缓和，王室形象得以修复。</p>
+  <div class="events"><span class="ev">菲利普身份危机</span><span class="ev">女王给予责任</span><span class="ev">苏格兰度假</span><span class="ev">关系缓和</span></div>
+</section>
+
+<section class="seg" id="seg22">
+  <div class="head">
+    <span class="no">第 22 段</span>
+    <span class="tm">第8集·前</span>
+    <h3>麦克米伦接任首相</h3>
+  </div>
+  <p>哈罗德·麦克米伦接替辞职的安东尼·艾登成为英国首相。女王对新首相进行正式会面，评估其政治立场和政策方向。麦克米伦承诺带领英国走出苏伊士危机后的外交困境，女王表示支持并强调保持政治中立的重要性。首相开始重组内阁，引入年轻政治力量，女王密切关注这些变化对国家稳定的影响。同时，王室筹备对加勒比地区的访问，旨在加强与英联邦国家的联系。女王在私下与顾问讨论如何平衡王室传统与现代政治需求，确保君主制在变革中保持稳定。</p>
+  <div class="events"><span class="ev">麦克米伦接任</span><span class="ev">女王评估首相</span><span class="ev">内阁重组</span><span class="ev">加勒比访问筹备</span></div>
+</section>
+
+<section class="seg" id="seg23">
+  <div class="head">
+    <span class="no">第 23 段</span>
+    <span class="tm">第8集·中</span>
+    <h3>王室访问加勒比</h3>
+  </div>
+  <p>伊丽莎白女王与菲利普亲王开始对加勒比地区进行正式访问，行程包括牙买加、巴巴多斯和特立尼达和多巴哥。在访问过程中，女王目睹英国殖民统治的历史遗留问题，以及当地民众对独立的渴望。巴巴多斯总理表达独立意向，女王谨慎回应，既尊重当地意愿又维护英联邦关系。菲利普在参观期间发表关于种族平等的言论，引发争议。女王在公开场合强调英联邦的团结价值，同时私下记录下殖民问题对王室形象的潜在影响。此次访问被视为英国王室应对民族独立浪潮的重要外交行动。</p>
+  <div class="events"><span class="ev">加勒比访问</span><span class="ev">殖民问题</span><span class="ev">巴巴多斯独立意向</span><span class="ev">菲利普种族平等言论</span></div>
+</section>
+
+<section class="seg" id="seg24">
+  <div class="head">
+    <span class="no">第 24 段</span>
+    <span class="tm">第8集·后</span>
+    <h3>王室现代化改革</h3>
+  </div>
+  <p>访问归来后，女王与王室顾问讨论现代化改革方案，以应对战后社会变革。菲利普推动王室精简开支，减少不必要的宫廷仪式，提高工作效率。女王批准一系列改革，包括允许媒体有限度地拍摄王室日常生活，增加王室成员与公众互动。同时，王室开始关注社会问题，如贫困和住房短缺，女王参与慈善活动，展现王室的社会责任感。玛格丽特公主对改革持保留态度，担心过度现代化会削弱王室传统权威。女王在平衡传统与现代中找到中间路线，确保王室的适应性和延续性。</p>
+  <div class="events"><span class="ev">现代化改革</span><span class="ev">媒体有限度参与</span><span class="ev">关注社会问题</span><span class="ev">玛格丽特保留态度</span></div>
+</section>
+
+<section class="seg" id="seg25">
+  <div class="head">
+    <span class="no">第 25 段</span>
+    <span class="tm">第9集·前</span>
+    <h3>加勒比访问结束</h3>
+  </div>
+  <p>女王和菲利普亲王结束对加勒比地区的访问，回国途中讨论了访问所见和英国殖民统治的问题。女王对殖民统治的历史遗留问题表示关注，并询问了殖民地的未来发展。菲利普亲王则提出了一些改革建议，希望减少英国在殖民地的负担。回国后，女王与首相麦克米伦会面，讨论了如何处理殖民地的未来，并寻求英国在国际舞台上的新定位。</p>
+  <div class="events"><span class="ev">访问结束</span><span class="ev">讨论殖民统治问题</span><span class="ev">提出改革建议</span></div>
+</section>
+
+<section class="seg" id="seg26">
+  <div class="head">
+    <span class="no">第 26 段</span>
+    <span class="tm">第9集·中</span>
+    <h3>访问归来后的讨论</h3>
+  </div>
+  <p>女王和菲利普亲王结束加勒比访问，回国途中讨论了访问所见和英国殖民统治问题。女王关注殖民统治遗留问题，询问殖民地未来发展。菲利普亲王提出减少宫廷仪式，提高工作效率的建议，女王批准改革，允许媒体有限度报道王室生活。同时，女王与玛格丽特公主讨论王室现代化问题，公主表达了对改革的担忧。</p>
+  <div class="events"><span class="ev">女王关注殖民统治遗留问题</span><span class="ev">女王批准改革允许媒体报道</span><span class="ev">玛格丽特公主担忧改革</span></div>
+</section>
+
+<section class="seg" id="seg27">
+  <div class="head">
+    <span class="no">第 27 段</span>
+    <span class="tm">第9集·后</span>
+    <h3>殖民统治问题讨论</h3>
+  </div>
+  <p>女王与菲利普亲王回国后，就殖民统治问题展开深入讨论。女王关注殖民统治遗留问题，询问殖民地未来发展。菲利普亲王提出减少宫廷仪式，提高工作效率。女王批准一系列改革，包括允许媒体有条件地进入王室活动，以增强王室与民众的联系。同时，女王与首相就殖民政策进行磋商，表达了对殖民地未来发展的担忧。</p>
+  <div class="events"><span class="ev">女王关注殖民统治遗留问题</span><span class="ev">女王批准王室改革</span><span class="ev">女王与首相磋商殖民政策</span></div>
+</section>
+
+<section class="seg" id="seg28">
+  <div class="head">
+    <span class="no">第 28 段</span>
+    <span class="tm">第10集·前</span>
+    <h3>权力冲突与妥协</h3>
+  </div>
+  <p>女王与玛格丽特·撒切尔就权力问题展开辩论，撒切尔提出紧缩政策，女王表示担忧经济影响。两人达成妥协，撒切尔同意在预算上给予女王更多自主权。同时，女王对撒切尔的领导风格表示赞赏，两人的关系有所缓和。</p>
+  <div class="events"><span class="ev">女王与撒切尔辩论权力问题</span><span class="ev">撒切尔提出紧缩政策</span><span class="ev">女王担忧经济影响</span><span class="ev">双方达成妥协</span></div>
+</section>
+
+<section class="seg" id="seg29">
+  <div class="head">
+    <span class="no">第 29 段</span>
+    <span class="tm">第10集·中</span>
+    <h3>权力博弈与妥协</h3>
+  </div>
+  <p>女王与撒切尔就权力问题展开辩论，撒切尔提出紧缩政策，女王表示担忧经济影响。两人达成妥协，撒切尔同意在预算上给予女王更多自主权。同时，女王对撒切尔的领导表示赞赏，两人关系得到改善。女王在晚宴上与撒切尔讨论国家大事，两人就教育、医疗等议题交换意见，女王对撒切尔的务实态度表示认同。撒切尔邀请女王参观她的办公室，女王对撒切尔的办公环境和工作态度印象深刻。</p>
+  <div class="events"><span class="ev">女王与撒切尔辩论权力问题</span><span class="ev">撒切尔提出紧缩政策</span><span class="ev">女王担忧经济影响</span><span class="ev">两人达成妥协</span></div>
+</section>
+
+<section class="seg" id="seg30">
+  <div class="head">
+    <span class="no">第 30 段</span>
+    <span class="tm">第10集·后</span>
+    <h3>权力妥协之路</h3>
+  </div>
+  <p>女王与撒切尔达成妥协，撒切尔同意在预算上给予女王更多自主权。女王表达对撒切尔竞选首相的支持，强调政治应保持中立。两人共同应对国家挑战。女王私下与首相讨论政治局势，寻求共识。撒切尔表示愿意与女王合作，共同应对国家挑战。</p>
+  <div class="events"><span class="ev">女王与撒切尔达成预算妥协</span><span class="ev">女王支持撒切尔竞选首相</span><span class="ev">女王与首相讨论政治局势</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集</td><td>乔治六世去世，伊丽莎白继承王位</td></tr><tr><td>第2集</td><td>菲利普亲王的身份危机与女王的支持</td></tr><tr><td>第4集</td><td>玛格丽特公主放弃爱情选择王室责任</td></tr><tr><td>第6集</td><td>苏伊士危机考验女王的政治判断</td></tr><tr><td>第10集</td><td>女王与撒切尔的权力冲突与妥协</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">王室责任</span><span class="theme">个人牺牲</span><span class="theme">政治中立</span><span class="theme">家族纽带</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">女王在变革中坚守传统，平衡个人情感与国家责任，王室延续但面临现代挑战。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-28 17:31 · 模型 glm-4-air,glm-4-flash · 共 30 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

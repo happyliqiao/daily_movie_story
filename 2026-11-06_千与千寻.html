@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>千与千寻 · 分段故事梗概 · 2026-11-06</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>千与千寻<span class="year">2001</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-06</span><span class="chip">电影</span><span class="chip">日本</span><span class="chip">动画/奇幻</span><span class="chip">2001</span><span class="chip">电影片长约 125 分钟，按每 10 分钟一段切分，共 12 段</span><span class="chip">现代日本神灵世界</span></div>
+    <div class="logline">少女千寻误入神灵世界，父母变猪后她必须在汤屋工作，找回名字并救回家人。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 12 段</h2>
+      <ol><li><a href="#seg1">搬家途中迷路</a></li>
+<li><a href="#seg2">穿越神秘隧道</a></li>
+<li><a href="#seg3">第3段</a></li>
+<li><a href="#seg4">第4段</a></li>
+<li><a href="#seg5">千寻签下工作契约</a></li>
+<li><a href="#seg6">千寻初次工作</a></li>
+<li><a href="#seg7">千寻寻找白龙真名</a></li>
+<li><a href="#seg8">千寻寻找白龙真名</a></li>
+<li><a href="#seg9">钱婆婆帮千寻织线</a></li>
+<li><a href="#seg10">千寻乘海上列车返回</a></li>
+<li><a href="#seg11">千寻回归汤屋</a></li>
+<li><a href="#seg12">千寻回归人间</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">千寻</span><span class="r">主角</span></div><div class="d">胆小的少女在神灵世界寻找自我并救回父母</div></div>
+<div class="person"><div><span class="n">白龙</span><span class="r">关键配角</span></div><div class="d">神秘河神，帮助千寻并失去记忆</div></div>
+<div class="person"><div><span class="n">汤婆婆</span><span class="r">对手</span></div><div class="d">贪婪的汤屋老板娘，控制员工和客人</div></div>
+<div class="person"><div><span class="n">钱婆婆</span><span class="r">关键配角</span></div><div class="d">白龙的奶奶，善良的魔法师</div></div>
+<div class="person"><div><span class="n">无脸男</span><span class="r">关键配角</span></div><div class="d">孤独的精灵，被千寻的善良感动</div></div>
+<div class="person"><div><span class="n">锅炉爷爷</span><span class="r">关键配角</span></div><div class="d">汤屋锅炉房工人，帮助千寻适应</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">误入神界</span><span class="ds">千寻随父母进入神灵世界，父母变猪</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">适应新环境</span><span class="ds">千寻在汤屋工作，结识白龙和无脸男</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">自我成长</span><span class="ds">千寻勇敢面对挑战，找回白龙记忆</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">拯救与回归</span><span class="ds">千寻救回父母，重返人类世界</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>搬家途中迷路</h3>
+  </div>
+  <p>十岁的千随父母搬家，乘坐父亲驾驶的汽车行驶在乡间小路上。千寻对即将搬去的新环境感到不安，母亲安慰她会适应新学校。途中父亲执意走一条据说有废弃主题公园的捷径，道路越来越狭窄，最终汽车陷入深水中无法前进。一家人下车探索，发现前方有一座荒凉但神秘的隧道，千寻感到不安但父母坚持穿过隧道。</p>
+  <div class="events"><span class="ev">搬家启程</span><span class="ev">选择捷径</span><span class="ev">汽车陷水</span><span class="ev">发现隧道</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:21</span>
+    <h3>穿越神秘隧道</h3>
+  </div>
+  <p>千寻一家穿过黑暗的隧道，眼前出现一个荒废的游乐场，场内设施破旧但隐约可见曾经的热闹。父母被美食香气吸引，不顾千寻的劝阻走向空无一人的餐厅。千寻独自游荡，注意到游乐场异常安静，周围环境不断变化，天空从白昼转为黄昏。她回到餐厅发现父母已变成猪，正贪婪地吃食物。千惊慌失措，游乐场开始消失，水面上涨，她急忙逃跑。</p>
+  <div class="events"><span class="ev">穿越隧道</span><span class="ev">发现游乐场</span><span class="ev">父母变猪</span><span class="ev">千寻逃跑</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:21–00:31</span>
+    <h3>第3段</h3>
+  </div>
+  <p>千寻在逃跑过程中遇到神秘少年白龙，他警告她必须在天亮前离开这里并给她食物。千寻吃了食物后身体变得透明，险些消失。白龙带她穿过一个小桥，进入一个充满神灵的世界。千寻看到一艘载满食物的船驶向一座巨大的浴场建筑。白龙告诉她这里是汤屋，为神灵提供沐浴服务，并警告她不要被汤婆婆发现，否则会被强迫工作。</p>
+  <div class="events"><span class="ev">遇见白龙</span><span class="ev">身体透明</span><span class="ev">进入神界</span><span class="ev">发现汤屋</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:31–00:42</span>
+    <h3>第4段</h3>
+  </div>
+  <p>千寻跟随白龙穿过汤屋后门，进入一个繁忙的锅炉房。锅炉爷爷和一群煤灰精灵正在工作，他认出白龙并帮助千寻藏身。汤婆婆发现有人闯入，派出青蛙精灵搜查。白龙让千寻去找锅炉爷爷的孙子小玲，寻求工作机会。千寻在锅炉房帮忙运送煤块，展现出勤劳的一面。锅炉爷爷决定帮助她，给了她一张工作申请表，但警告汤婆婆是个严厉的老板。</p>
+  <div class="events"><span class="ev">进入锅炉房</span><span class="ev">躲藏搜查</span><span class="ev">寻求帮助</span><span class="ev">获得工作机会</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:42–00:52</span>
+    <h3>千寻签下工作契约</h3>
+  </div>
+  <p>千寻在锅炉爷爷的指引下找到汤婆婆的办公室。汤婆婆正在为众多客人服务，看到千寻后询问她是否会工作。千寻紧张地回答自己什么都能做，汤婆婆便让她签下工作契约，剥夺了她的真名，只留下&#x27;千&#x27;这个名字。汤婆婆给了她一个工作牌，命令她立刻去工作。千寻被迫接受契约，开始在汤屋工作，成为锅炉房的小工，负责运送食物和打扫卫生。</p>
+  <div class="events"><span class="ev">签下契约</span><span class="ev">被剥夺真名</span><span class="ev">开始工作</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:52–01:02</span>
+    <h3>千寻初次工作</h3>
+  </div>
+  <p>千寻被锅炉爷爷安排在汤屋工作，汤婆婆给她取名为小千。千寻被分配打扫大浴场，面对众多神灵客人感到恐惧和无助。白龙出现教她如何接待客人，特别是河神的处理方法。千寻努力记住每个客人的需求，但工作繁重且不熟练，常常出错。无脸男在角落观察千寻，似乎对她产生兴趣。千寻在混乱中保持冷静，逐渐适应了汤屋的工作节奏。</p>
+  <div class="events"><span class="ev">千寻被雇用</span><span class="ev">打扫浴场</span><span class="ev">白龙指导</span><span class="ev">无脸男出现</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:02–01:13</span>
+    <h3>千寻寻找白龙真名</h3>
+  </div>
+  <p>千寻乘坐海上列车前往钱婆婆的小屋，无脸男也一同前往。列车上，千寻发现无脸男一直在她身边，默默陪伴。到达钱婆婆的小屋后，千寻发现这里与汤婆婆的奢华截然不同，朴素而温馨。钱婆婆告诉千寻白龙的真实身份是河川的琥珀川，并帮助千寻制作了治疗白龙的草药。千寻和无脸男一起回到汤婆婆的汤屋，发现白龙已被汤婆婆的魔法控制，正在疯狂飞行。千寻不顾危险，将草药喂给白龙，帮助他恢复记忆和真名。白龙感谢千寻的救命之恩，并承诺会帮助千寻救回父母。</p>
+  <div class="events"><span class="ev">海上列车之旅</span><span class="ev">钱婆婆相助</span><span class="ev">白龙恢复记忆</span><span class="ev">千寻施救</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:13–01:23</span>
+    <h3>千寻寻找白龙真名</h3>
+  </div>
+  <p>千寻决定帮助白龙找回他的真名和记忆。她乘坐海上列车前往钱婆婆的小屋，途中无脸男也跟随而来。在列车上，千寻和无脸男安静地坐着，窗外是变幻莫测的海洋景色。千寻注意到无脸男一直在为她准备食物，表现出对她的依赖和关心。列车到达后，他们找到了钱婆婆的小屋，一个宁静而充满魔法的地方。钱婆婆热情地接待了千寻，并告诉她白龙的真名是琥珀川。千寻意识到白龙就是她小时候掉入河流时救过的少年，这唤起了她的记忆。钱婆婆开始教导千寻一些简单的魔法，帮助她更好地理解这个神秘的世界。</p>
+  <div class="events"><span class="ev">千寻乘海上列车</span><span class="ev">寻找白龙真名</span><span class="ev">遇见钱婆婆</span><span class="ev">回忆童年往事</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:23–01:34</span>
+    <h3>钱婆婆帮千寻织线</h3>
+  </div>
+  <p>钱婆婆得知千寻的来意后，决定帮助她。她用魔法将千寻的衣服变回原来的样子，并教她如何编织有魔法的线。钱婆婆告诉千寻，白龙的名字是琥珀川，这条河流已经被填平，所以他失去了记忆。钱婆婆还送给千寻一个特制的发带，可以保护她不被汤婆婆的魔法伤害。无脸男在钱婆婆的小屋里找到了平静，他安静地坐在角落，不再贪婪地吞食食物。钱婆婆用她的魔法让无脸男感到舒适和被接纳。</p>
+  <div class="events"><span class="ev">钱婆婆施法</span><span class="ev">织魔法线</span><span class="ev">告知白龙真名</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:34–01:44</span>
+    <h3>千寻乘海上列车返回</h3>
+  </div>
+  <p>千寻和无脸男乘坐海上列车返回汤屋。列车行驶在神奇的海面上，窗外是变幻莫测的景色。千寻坐在座位上，思考着如何帮助白龙找回记忆。无脸男一直安静地陪伴在她身边，不再像在汤屋那样贪婪。列车上，千寻遇到了之前在汤屋见过的河神，河神感谢千寻之前的帮助，并告诉她要相信自己的直觉。千寻决定不再害怕，而是勇敢面对挑战。她紧紧握住钱婆婆给她的发带，这给了她力量和勇气。</p>
+  <div class="events"><span class="ev">海上列车返程</span><span class="ev">河神出现</span><span class="ev">千寻坚定决心</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:44–01:55</span>
+    <h3>千寻回归汤屋</h3>
+  </div>
+  <p>千寻和无脸男乘坐海上列车返回汤屋。列车行驶在神奇的海面上，窗外景色变幻莫测。千寻坐在座位上，思考着如何帮助白龙找回记忆。无脸男一直安静地陪伴在她身边，不再像之前那样贪婪地索要食物。列车到站后，千寻和无脸男回到汤屋，发现汤婆婆正在寻找他们。千寻勇敢地面对汤婆婆，表明自己要找回白龙真名的决心。汤婆婆试图阻拦，但千寻坚定地表示必须帮助白龙。无脸男站在千寻身边，给予她支持。最终，千寻成功摆脱汤婆婆的控制，继续她的计划。</p>
+  <div class="events"><span class="ev">千寻返汤屋</span><span class="ev">面对汤婆婆</span><span class="ev">坚定决心</span><span class="ev">摆脱控制</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:55–02:05</span>
+    <h3>千寻回归人间</h3>
+  </div>
+  <p>千寻和无脸男回到汤屋后，千寻立即寻找白龙。她发现白龙被汤婆婆控制，失去了记忆。千寻用钱婆婆给的魔法线帮助白龙找回记忆，白龙恢复真名琥珀川。千寻拒绝汤婆婆的挽留，坚持要回到人类世界。她找到已经变回父母的二人，带着大家一起离开神灵世界。在离开前，白龙送给千寻一朵花作为纪念，并承诺会一直记得她。千寻穿过隧道时，回头望去，发现神灵世界已经消失不见。</p>
+  <div class="events"><span class="ev">找回白龙记忆</span><span class="ev">拒绝汤婆婆</span><span class="ev">回归人类世界</span><span class="ev">白龙送别</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第15分钟</td><td>千寻父母因贪吃变成猪，她被迫留在汤屋</td></tr><tr><td>约第30分钟</td><td>白龙警告千寻不要忘记自己的名字</td></tr><tr><td>约第60分钟</td><td>无脸男跟随千寻进入钱婆婆小屋</td></tr><tr><td>约第90分钟</td><td>千寻帮助白龙找回真名和记忆</td></tr><tr><td>约第110分钟</td><td>千寻拒绝汤婆婆的挽留，选择离开</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">成长</span><span class="theme">记忆</span><span class="theme">贪婪与善良</span><span class="theme">自我认同</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">千寻救回父母，成功回到人类世界。白龙恢复真名，送别千寻后继续守护河流。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-06 07:54 · 模型 glm-4-air,glm-4-flash · 共 12 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

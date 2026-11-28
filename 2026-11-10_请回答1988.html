@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>请回答1988 · 分段故事梗概 · 2026-11-10</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>请回答1988<span class="year">2015</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-10</span><span class="chip">电视剧</span><span class="chip">韩国</span><span class="chip">家庭/青春</span><span class="chip">2015</span><span class="chip">电视剧共 20 集，单集约 60 分钟，每集拆 3 段，全剧共 60 段</span><span class="chip">1988年韩国首尔双门洞</span></div>
+    <div class="logline">双门洞五户家庭的孩子在成长中经历友情、初恋与亲情，面对时代变迁与家庭困境，寻找人生答案。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 60 段</h2>
+      <ol><li><a href="#seg1">双门洞五家邻居</a></li>
+<li><a href="#seg2">德善的生日风波</a></li>
+<li><a href="#seg3">胡同里的日常</a></li>
+<li><a href="#seg4">高考前的紧张</a></li>
+<li><a href="#seg5">德善的生日惊喜</a></li>
+<li><a href="#seg6">胡同里的日常</a></li>
+<li><a href="#seg7">善宇高考前的紧张</a></li>
+<li><a href="#seg8">父亲失业的秘密</a></li>
+<li><a href="#seg9">德善发现父亲失业</a></li>
+<li><a href="#seg10">德善的生日礼物</a></li>
+<li><a href="#seg11">德善的生日惊喜</a></li>
+<li><a href="#seg12">德善生日惊喜</a></li>
+<li><a href="#seg13">德善的生日惊喜</a></li>
+<li><a href="#seg14">胡同里的冲突</a></li>
+<li><a href="#seg15">善宇的高考决定</a></li>
+<li><a href="#seg16">父亲的秘密兼职</a></li>
+<li><a href="#seg17">父亲兼职被发现</a></li>
+<li><a href="#seg18">胡同里的温暖</a></li>
+<li><a href="#seg19">高考前的紧张备考</a></li>
+<li><a href="#seg20">高考前夕的温暖</a></li>
+<li><a href="#seg21">善宇高考冲刺</a></li>
+<li><a href="#seg22">正焕告白前夕</a></li>
+<li><a href="#seg23">胡同里的告白</a></li>
+<li><a href="#seg24">德善的选择</a></li>
+<li><a href="#seg25">高考后的聚会</a></li>
+<li><a href="#seg26">醉酒后的表白</a></li>
+<li><a href="#seg27">告白后的尴尬</a></li>
+<li><a href="#seg28">胡同里的和解</a></li>
+<li><a href="#seg29">正焕的生日惊喜</a></li>
+<li><a href="#seg30">胡同里的温情时刻</a></li>
+<li><a href="#seg31">德善的围棋比赛</a></li>
+<li><a href="#seg32">胡同里的秘密</a></li>
+<li><a href="#seg33">崔泽夺冠庆功宴</a></li>
+<li><a href="#seg34">德善生日惊喜</a></li>
+<li><a href="#seg35">正焕的告白</a></li>
+<li><a href="#seg36">胡同里的抉择</a></li>
+<li><a href="#seg37">正焕的犹豫</a></li>
+<li><a href="#seg38">德善的困惑</a></li>
+<li><a href="#seg39">胡同的变故</a></li>
+<li><a href="#seg40">青春的告别</a></li>
+<li><a href="#seg41">正焕的告白</a></li>
+<li><a href="#seg42">胡同的抗议</a></li>
+<li><a href="#seg43">善宇的荣耀</a></li>
+<li><a href="#seg44">德善的选择</a></li>
+<li><a href="#seg45">善宇的大学生活</a></li>
+<li><a href="#seg46">双门洞的危机</a></li>
+<li><a href="#seg47">正焕的抉择</a></li>
+<li><a href="#seg48">拆迁前的聚会</a></li>
+<li><a href="#seg49">德善父亲的抉择</a></li>
+<li><a href="#seg50">正焕的告白与犹豫</a></li>
+<li><a href="#seg51">高考与家庭希望</a></li>
+<li><a href="#seg52">拆迁前的最后抗争</a></li>
+<li><a href="#seg53">双门洞最后的抗争</a></li>
+<li><a href="#seg54">拆迁前的最后告别</a></li>
+<li><a href="#seg55">成年后的重逢</a></li>
+<li><a href="#seg56">青春记忆的追寻</a></li>
+<li><a href="#seg57">双门洞最后的记忆</a></li>
+<li><a href="#seg58">成年后的各自生活</a></li>
+<li><a href="#seg59">真相与释怀</a></li>
+<li><a href="#seg60">青春的答案</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">成德善</span><span class="r">主角</span></div><div class="d">双门洞二女儿，在家庭责任与个人梦想间挣扎的少女</div></div>
+<div class="person"><div><span class="n">金正焕</span><span class="r">对手</span></div><div class="d">暗恋德善却不敢表达的邻家男孩</div></div>
+<div class="person"><div><span class="n">崔泽</span><span class="r">关键配角</span></div><div class="d">天才围棋少年，在友情与爱情中成长的孤独天才</div></div>
+<div class="person"><div><span class="n">成善宇</span><span class="r">关键配角</span></div><div class="d">德善哥哥，学霸长子，肩负家庭期望</div></div>
+<div class="person"><div><span class="n">成东日</span><span class="r">关键配角</span></div><div class="d">德善父亲，失业后努力维持家庭生计</div></div>
+<div class="person"><div><span class="n">李一花</span><span class="r">关键配角</span></div><div class="d">德善母亲，坚强持家的家庭主妇</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">青春初体验</span><span class="ds">五家孩子共同学习、成长，建立深厚友谊</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">情感萌芽期</span><span class="ds">青春期情感萌动，暗恋与友情交织的复杂关系</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">家庭危机</span><span class="ds">经济困难与家庭变故，孩子们面临成长挑战</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">青春告别</span><span class="ds">高考、入伍、留学，各自走向不同人生道路</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·前</span>
+    <h3>双门洞五家邻居</h3>
+  </div>
+  <p>1988年韩国首尔双门洞，五户家庭比邻而居。成家是五个孩子中的二女儿德善，金家有个沉默寡言的儿子正焕，崔家是天才围棋少年崔泽，朴家是学霸善宇和妹妹珍珠，还有单亲家庭的柳东龙。五家关系密切，孩子们从小一起长大，形同家人。德善性格开朗活泼，但常被父母忽视，因为是家里的二女儿。金正焕表面冷漠，实则内心细腻，暗恋着德善却不敢表达。崔泽是围棋天才，但内心孤独，渴望朋友。善宇是学霸，成绩优异，是父母的骄傲。东龙活泼开朗，是五人中的开心果。五人在双门洞的胡同里一起学习、玩耍，度过了无忧无虑的童年时光。</p>
+  <div class="events"><span class="ev">五家邻居介绍</span><span class="ev">孩子们童年友谊</span><span class="ev">德善家庭位置</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·中</span>
+    <h3>德善的生日风波</h3>
+  </div>
+  <p>德善生日当天，家里因为经济困难，母亲只准备了一碗炸酱面作为生日餐。德善期待着父母能记得她的生日，却只得到了简单的面食。与此同时，哥哥善宇收到了心仪大学的录取通知书，全家沉浸在喜悦中，完全忘记了德善的生日。德善失望地回到房间，正焕得知后悄悄为德善准备了生日礼物，却因为害羞而没能送出。崔泽也察觉到德善的失落，用自己赢得的围棋比赛奖金为德善买了她想要的运动鞋。德善收到礼物后非常感动，但不知道礼物是谁送的。当天晚上，德善在院子里许愿，希望明年生日时能得到一个生日蛋糕。</p>
+  <div class="events"><span class="ev">德善生日被忽视</span><span class="ev">正焕准备礼物</span><span class="ev">崔泽送运动鞋</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第1集·后</span>
+    <h3>胡同里的日常</h3>
+  </div>
+  <p>双门洞的胡同里充满了生活的气息。德善每天和朋友们一起上学放学，在胡同里玩耍。正焕表面上对德善很冷淡，实则默默关注着她的一举一动。崔泽每天专心于围棋训练，很少有时间和朋友玩耍。善宇努力学习，准备大学入学考试。东龙则是五人中的开心果，经常组织大家一起玩。五家人经常在胡同里聚餐，分享食物和快乐。德善的母亲李一花是个坚强持家的主妇，虽然家里经济不宽裕，但总是尽力让家人吃得饱穿得暖。德善的父亲成东日是个普通的上班族，工作辛苦但收入微薄。一天，胡同里来了一位新的邻居，给平静的双门洞带来了新的变化。</p>
+  <div class="events"><span class="ev">胡同日常生活</span><span class="ev">五家聚餐</span><span class="ev">新邻居到来</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·前</span>
+    <h3>高考前的紧张</h3>
+  </div>
+  <p>善宇即将参加高考，全家人都为他紧张忙碌。德善的父母把希望寄托在善宇身上，希望他能考上名牌大学，改变家庭的命运。善宇每天学习到深夜，压力巨大。德善虽然也面临高考，但父母对她的期望远不如对哥哥的高。正焕看到善宇的努力，更加坚定了自己要好好学习的决心。崔泽因为围棋比赛而暂时放下了学业，但朋友们都支持他的选择。东龙则是对学习不太感兴趣，整天想着怎么和朋友们一起玩。高考前一天，五家人聚在一起为善宇加油打气，德善偷偷为哥哥准备了护身符，希望他能考出好成绩。</p>
+  <div class="events"><span class="ev">善宇高考压力</span><span class="ev">全家期待</span><span class="ev">五人鼓励善宇</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第2集·中</span>
+    <h3>德善的生日惊喜</h3>
+  </div>
+  <p>德善生日当天，母亲只准备了一碗炸酱面作为生日餐，德善期待着父母能记得她的生日，却只得到了简单的面食。德善失落不已，独自回到房间。晚上，哥哥善宇悄悄拿出自己积攒的钱，为德善买了一个蛋糕。善宇告诉德善，虽然家里经济困难，但他希望妹妹能感受到家人的爱。德善感动得流下眼泪，感受到了哥哥的关爱。与此同时，胡同里的朋友们也为德善准备了简单的生日惊喜，正焕虽然表面上冷淡，但也默默为德善准备了礼物。德善感受到了友情和亲情的温暖，度过了虽然简单但充满爱意的生日。</p>
+  <div class="events"><span class="ev">德善生日被忽视</span><span class="ev">善宇买蛋糕</span><span class="ev">胡同朋友庆生</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第2集·后</span>
+    <h3>胡同里的日常</h3>
+  </div>
+  <p>双门洞的胡同里充满了生活的气息。德善每天和朋友们一起上学放学，在胡同里玩耍。正焕表面上对德善很冷淡，实则默默关注着她的一举一动。崔泽每天专心于围棋训练，很少有时闲。胡同里的邻居们互相帮助，形成了紧密的社区关系。德善的母亲李一花虽然家境困难，但总是尽力帮助邻居，赢得了大家的尊重。德善的父亲成东日因为失业，心情低落，但仍然努力维持家庭的正常运转。胡同里的人们面临各自的困难，但邻里之间的互助和温暖让他们能够共同面对生活的挑战。</p>
+  <div class="events"><span class="ev">胡同邻里互助</span><span class="ev">正焕暗恋德善</span><span class="ev">崔泽专注围棋</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第3集·前</span>
+    <h3>善宇高考前的紧张</h3>
+  </div>
+  <p>善宇即将参加高考，全家人都为他紧张忙碌。德善的父母把希望寄托在善宇身上，希望他能考上名牌大学，改变家庭的命运。善宇每天学习到深夜，压力巨大。德善虽然也面临高考，但父母对她的期望远不如对善宇的高。德善感到有些失落，但也理解家庭的困境。善宇在复习过程中遇到了困难，特别是数学成绩不理想。德善主动提出帮助哥哥复习，尽管她自己的学习任务也很繁重。善宇感激妹妹的帮助，两人一起努力备考。</p>
+  <div class="events"><span class="ev">善宇备考压力大</span><span class="ev">德善帮哥哥复习</span><span class="ev">家庭期望集中</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第3集·中</span>
+    <h3>父亲失业的秘密</h3>
+  </div>
+  <p>成东日失业的消息终于被家人知道，家庭经济陷入困境。成东日每天假装上班，实则四处找工作，却屡屡碰壁。李一花为了维持家庭生计，开始做兼职工作，甚至变卖自己的首饰。德善和善宇察觉到家里的变化，主动分担家务，减少开支。正焕得知德善家的困境，虽然嘴上不说，但经常偷偷给德善带食物和学习用品。崔泽也通过自己的方式帮助德善，比如邀请她去家里吃晚饭。双门洞的邻居们得知成东日的困境后，纷纷伸出援手，体现了邻里间的深厚情谊。</p>
+  <div class="events"><span class="ev">成东日失业</span><span class="ev">家人隐瞒困境</span><span class="ev">邻居伸出援手</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第3集·后</span>
+    <h3>德善发现父亲失业</h3>
+  </div>
+  <p>德善偶然发现父亲成东日白天在家，才得知他已经失业多日。她看到父亲每天假装上班，实则四处找工作却屡屡碰壁。德善心中五味杂陈，既心疼父亲又担忧家庭经济状况。母亲李一花为了维持生计，开始做兼职工作，甚至变卖了自己的首饰。德善决定不再向家里要零花钱，开始帮母亲分担家务。她省吃俭用，把饭钱省下来贴补家用。正焕察觉到德善家的变化，默默帮她解决了许多困难。崔泽虽然专注于围棋训练，但也注意到了德善的困境，时常在训练结束后为她准备食物。胡同里的邻居们得知成家的情况后，纷纷伸出援手，展现了邻里间的温暖情谊。</p>
+  <div class="events"><span class="ev">德善发现失业</span><span class="ev">母亲变卖首饰</span><span class="ev">德善省吃俭用</span><span class="ev">邻居伸出援手</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第4集·前</span>
+    <h3>德善的生日礼物</h3>
+  </div>
+  <p>德善生日当天，家人却因善宇高考而忽视了她。母亲李一花只给了德善一个作为安慰的鸡蛋，父亲成东日则因失业心情低落，没有表示。德善感到失落，独自回到房间。正焕和东龙为德善准备了惊喜，带她去吃炸鸡，并送她礼物。崔泽也送了德善一本《小王子》，并告诉她这是自己最喜欢的书。德善感动之余，仍对家人的忽视感到委屈。晚上，德善发现善宇偷偷为她准备了礼物，内心感到温暖，但仍对白天被忽视的事情耿耿于怀。</p>
+  <div class="events"><span class="ev">德善生日被忽视</span><span class="ev">正焕东龙庆生</span><span class="ev">崔泽送书</span><span class="ev">善宇暗中准备</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第4集·中</span>
+    <h3>德善的生日惊喜</h3>
+  </div>
+  <p>德善生日当天，家人因善宇高考而忽视了她。母亲李一花只给了德善一个作为安慰的鸡蛋，父亲成东日则因失业心情低落，没有表示。德善感到失落，独自回到房间。正焕和东龙为德善准备了简单的生日蛋糕，但正焕看到德善的失落表情后默默离开。崔泽也来到双门洞，为德善准备了生日礼物，并邀请她一起观看自己的围棋比赛。德善虽然感动，但仍因家人的忽视而心情低落。当晚，德善在房间里默默流泪，母亲李一花进来道歉，并解释因为善宇高考压力大，全家都忽略了德善的感受。德善理解了家人的处境，但仍希望能在生日这天得到更多关注。</p>
+  <div class="events"><span class="ev">德善生日被忽视</span><span class="ev">正焕默默离开</span><span class="ev">崔泽邀请观赛</span><span class="ev">德善理解父母</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第4集·后</span>
+    <h3>德善生日惊喜</h3>
+  </div>
+  <p>德善回到房间后，正焕和东龙带着蛋糕和礼物出现在她家。三人正庆祝时，崔泽也送来了礼物，并邀请德善一起去看电影。德善开心地接受了邀请，但电影票却被善宇不小心拿走。善宇高考结束，家人为他准备了丰盛的晚餐，却再次忘记了德善的生日。德善独自在房间吃泡面，正焕默默为她准备了生日蛋糕和礼物，却因不善表达而悄悄离开。德善发现后追出门，正焕却假装只是路过。最终，德善和朋友们一起度过了难忘的生日，感受到了友情带来的温暖。</p>
+  <div class="events"><span class="ev">正焕送蛋糕</span><span class="ev">崔泽约看电影</span><span class="ev">德善吃泡面</span><span class="ev">正焕默默离开</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第5集·前</span>
+    <h3>德善的生日惊喜</h3>
+  </div>
+  <p>正焕为德善准备了生日蛋糕，却因家庭困境无法购买。善宇得知后，用自己攒下的钱偷偷买了一个蛋糕。德善生日当天，家人都忘记了她的生日，只有正焕在胡同里为她准备了蛋糕。德善感动落泪，正焕趁机表白心意，却因不善言辞而尴尬收场。崔泽看到这一幕，内心复杂。晚上，善宇回家后，德善发现了哥哥准备的蛋糕，一家人在简陋的家中温馨庆祝。正焕在窗外看着这一幕，既欣慰又失落。</p>
+  <div class="events"><span class="ev">正焕准备蛋糕</span><span class="ev">善宇偷偷购买</span><span class="ev">德善感动落泪</span><span class="ev">家人温馨庆祝</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第5集·中</span>
+    <h3>胡同里的冲突</h3>
+  </div>
+  <p>胡同里的小团体因一件小事发生争执。正焕与善宇因德善的问题产生矛盾，两人激烈争吵。崔泽试图调解，却被卷入其中。德善夹在中间左右为难，最终选择离开。冲突过后，正焕和善宇都感到后悔，但碍于面子不肯道歉。胡同里的其他邻居也受到影响，气氛变得紧张。李一花察觉到孩子们的矛盾，试图开导他们，但效果甚微。这场冲突让双门洞的邻里关系面临考验，也为孩子们的情感发展增添了变数。</p>
+  <div class="events"><span class="ev">正善发生争执</span><span class="ev">崔泽卷入其中</span><span class="ev">德善左右为难</span><span class="ev">邻里关系紧张</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第5集·后</span>
+    <h3>善宇的高考决定</h3>
+  </div>
+  <p>善宇面临高考压力，同时也要考虑家庭经济困境。他主动提出放弃复读，选择尽快工作减轻家庭负担。成东日和李一花虽然希望儿子继续学业，但也不得不接受现实。德善得知后，内心既敬佩又心疼，她开始更加努力学习，希望将来能帮助家里。正焕看到善宇的担当，深受触动，开始反思自己的行为。崔泽得知善宇的决定，主动提出可以为他提供学习资料和帮助。胡同里的邻居们也纷纷伸出援手，为善宇加油鼓劲。</p>
+  <div class="events"><span class="ev">善宇放弃复读</span><span class="ev">德善努力学习</span><span class="ev">正焕深受触动</span><span class="ev">崔泽提供帮助</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第6集·前</span>
+    <h3>父亲的秘密兼职</h3>
+  </div>
+  <p>成东日为了补贴家用，开始秘密兼职送报纸。每天凌晨，他悄悄起床工作，白天则假装在家休息。李一花起初不知情，后来发现后既心疼又无奈。德善和善宇也察觉到父亲的异常，暗中观察后发现了真相。一家人没有点破，而是更加团结地面对困境。正焕看到成东日的辛苦，主动提出帮忙，却被成东日婉拒。胡同里的邻居们也伸出援手，有人介绍工作，有人送来食物。成东日感受到邻里间的温暖，重新燃起对生活的希望。</p>
+  <div class="events"><span class="ev">成东日送报纸</span><span class="ev">家人暗中观察</span><span class="ev">邻居伸出援手</span><span class="ev">重燃生活希望</span></div>
+</section>
+
+<section class="seg" id="seg17">
+  <div class="head">
+    <span class="no">第 17 段</span>
+    <span class="tm">第6集·中</span>
+    <h3>父亲兼职被发现</h3>
+  </div>
+  <p>成东日送报纸的秘密被家人发现。李一花看到丈夫凌晨出门，跟踪后发现他在送报纸。她既心疼又生气，责备丈夫为何不告诉她。成东日解释是为了补贴家用，不想让孩子们担心。善宇和德善得知后，主动提出减少零花钱，并帮忙做家务分担家庭压力。成东日感动于孩子们的理解，但依然坚持兼职。金社长偶然间发现成东日的兼职，主动提出给他加薪，但被成东日婉拒。双门洞的其他邻居也得知此事，纷纷伸出援手，帮助成家渡过难关。成东日感受到邻居们的温暖，内心既感激又有些许愧疚。</p>
+  <div class="events"><span class="ev">父亲送报被跟踪</span><span class="ev">家人主动分担</span><span class="ev">邻居伸出援手</span></div>
+</section>
+
+<section class="seg" id="seg18">
+  <div class="head">
+    <span class="no">第 18 段</span>
+    <span class="tm">第6集·后</span>
+    <h3>胡同里的温暖</h3>
+  </div>
+  <p>双门洞的邻居们自发组织起来帮助成家。金社长经常在成家吃饭，名义上是品尝李一花的手艺，实际上是暗中补贴。善宇的高考压力与家庭经济困境交织，他更加努力学习，希望考上大学减轻家庭负担。正焕注意到善宇的辛苦，主动提出帮他补习功课。德善在父母面前装作不知情，暗中为家人准备惊喜。她用自己的零花钱买了一条围巾送给父亲，虽然材质普通，但成东日感动不已。崔泽也加入帮助行列，用围棋比赛赢来的奖金为成家购买食物。胡同里的孩子们一起帮忙做家务，笑声不断，暂时缓解了成家的经济压力。</p>
+  <div class="events"><span class="ev">邻居暗中帮助</span><span class="ev">善宇努力学习</span><span class="ev">德善买围巾</span><span class="ev">崔泽赠奖金</span></div>
+</section>
+
+<section class="seg" id="seg19">
+  <div class="head">
+    <span class="no">第 19 段</span>
+    <span class="tm">第7集·前</span>
+    <h3>高考前的紧张备考</h3>
+  </div>
+  <p>善宇进入高考冲刺阶段，学习压力倍增。每晚复习到深夜，李一花会为他准备夜宵，默默陪伴。成东日虽然失业，但为了不影响孩子们学习，尽量在家中保持安静。金社长家经常邀请善宇一起学习，正焕也暗中为善宇整理复习资料。德善看到哥哥的辛苦，主动承担更多家务，减轻父母负担。一天晚上，善宇复习过度晕倒，全家陷入紧张，幸无大碍。这次意外让家人更加关注善宇的健康，李一花开始调整饮食，确保营养均衡。崔泽得知后，也邀请善宇去他家放松，缓解压力。胡同里的邻居们纷纷给予善宇鼓励，形成了一个支持网络。</p>
+  <div class="events"><span class="ev">善宇高考冲刺</span><span class="ev">全家默默支持</span><span class="ev">善宇晕倒</span><span class="ev">邻居鼓励</span></div>
+</section>
+
+<section class="seg" id="seg20">
+  <div class="head">
+    <span class="no">第 20 段</span>
+    <span class="tm">第7集·中</span>
+    <h3>高考前夕的温暖</h3>
+  </div>
+  <p>善宇进入高考最后冲刺阶段，学习压力达到顶峰。每天凌晨四点起床复习，深夜才睡，李一花默默为他准备夜宵，深夜陪伴。成东日虽然失业，但为了不影响孩子们学习，尽量在家中保持安静，甚至不敢看电视。金社长家经常邀请善宇去学习，提供安静环境和营养餐食。胡同里的邻居们也纷纷以各种方式帮助成家，东龙家送来水果，善英家借来参考书。崔泽看到善宇如此辛苦，主动提出用围棋比赛奖金为善宇买复习资料。善宇在全家人的支持和自己的努力下，高考状态逐渐稳定，对考试充满信心。</p>
+  <div class="events"><span class="ev">善宇冲刺备考</span><span class="ev">家人默默支持</span><span class="ev">邻居伸出援手</span><span class="ev">崔泽提供帮助</span></div>
+</section>
+
+<section class="seg" id="seg21">
+  <div class="head">
+    <span class="no">第 21 段</span>
+    <span class="tm">第7集·后</span>
+    <h3>善宇高考冲刺</h3>
+  </div>
+  <p>善宇进入高考冲刺阶段，学习压力巨大。成家经济状况依然紧张，德善和正焕主动为善宇准备学习资料和营养餐。崔泽在围棋比赛中取得优异成绩，金社长为他举办庆祝会，邀请双门洞邻居们参加。李一花为了省钱，减少自己的伙食开支，身体日渐消瘦。德善发现母亲异常，主动承担更多家务。善宇在模拟考试中表现优异，全家倍感欣慰。成东日继续秘密送报纸，但身体状况开始出现问题。胡同里的邻居们暗中帮助成家，形成互助网络。</p>
+  <div class="events"><span class="ev">善宇备考</span><span class="ev">母亲节俭</span><span class="ev">崔泽夺冠</span><span class="ev">父亲送报</span></div>
+</section>
+
+<section class="seg" id="seg22">
+  <div class="head">
+    <span class="no">第 22 段</span>
+    <span class="tm">第8集·前</span>
+    <h3>正焕告白前夕</h3>
+  </div>
+  <p>正焕对德善的感情日益加深，却始终不敢表白。他暗中观察德善的一举一动，发现她与崔泽的互动增多，内心充满嫉妒。胡同里的孩子们一起准备高考复习资料，正焕故意安排自己与德善单独相处的机会。善宇高考在即，全家气氛紧张。德善为了支持哥哥，放弃自己的学习时间，帮助整理笔记。崔泽邀请德善观看他的围棋比赛，正焕得知后更加焦虑。金社长察觉到正焕的心事，旁敲侧击地鼓励他表达感情。胡同里的邻居们开始为善宇的高考祈福。</p>
+  <div class="events"><span class="ev">正焕暗恋</span><span class="ev">德善崔泽</span><span class="ev">善宇备考</span><span class="ev">金社长点拨</span></div>
+</section>
+
+<section class="seg" id="seg23">
+  <div class="head">
+    <span class="no">第 23 段</span>
+    <span class="tm">第8集·中</span>
+    <h3>胡同里的告白</h3>
+  </div>
+  <p>善宇高考结束，全家人都松了一口气。正焕鼓起勇气准备向德善表白，却发现德善与崔泽的关系更加亲密。胡同里的孩子们为庆祝善宇高考结束，组织了一场聚会。聚会上，正焕喝醉了酒，在众人面前大声表达对德善的感情。德善感到尴尬和不知所措，崔泽默默观察着这一切。李一花看到儿子醉酒，既心疼又无奈。成东日送报纸的秘密被胡同里更多人知道，邻居们更加主动地帮助成家。德善对正焕的表白感到困惑，不知道如何回应。</p>
+  <div class="events"><span class="ev">正焕醉酒</span><span class="ev">公开表白</span><span class="ev">德善困惑</span><span class="ev">邻里相助</span></div>
+</section>
+
+<section class="seg" id="seg24">
+  <div class="head">
+    <span class="no">第 24 段</span>
+    <span class="tm">第8集·后</span>
+    <h3>德善的选择</h3>
+  </div>
+  <p>德善对正焕的告白感到不知所措，开始认真思考自己的感情。崔泽察觉到德善的困扰，主动找她谈话，表达了自己对她的好感。胡同里的邻居们察觉到三人之间的复杂关系，暗中关注事态发展。善宇高考成绩公布，成功考入理想大学，全家欢欣鼓舞。成东日因过度劳累，送报纸时晕倒，被送往医院。李一花在医院照顾丈夫，德善和善宇轮流照顾家庭。正焕看到德善与崔泽的互动，决定暂时不表白，选择默默守护。胡同里的邻居们轮流到成家帮忙，展现深厚的邻里情谊。</p>
+  <div class="events"><span class="ev">德善困惑</span><span class="ev">崔泽表白</span><span class="ev">父亲病倒</span><span class="ev">邻里相助</span></div>
+</section>
+
+<section class="seg" id="seg25">
+  <div class="head">
+    <span class="no">第 25 段</span>
+    <span class="tm">第9集·前</span>
+    <h3>高考后的聚会</h3>
+  </div>
+  <p>善宇高考结束，双门洞邻居们为他举办庆祝聚会。聚会上，善宇的朋友们纷纷送来礼物，表达对他的祝贺。德善准备了一本笔记本，里面写满了鼓励的话语。正焕则默默观察德善与崔泽的互动，发现两人相处自然，内心充满不安。聚会中，胡同的孩子们一起回忆备考时光，分享各自的压力和期待。成东日和李一花也参加了聚会，为善宇感到骄傲，同时也不忘提醒其他孩子努力学习。聚会气氛热烈，但正焕始终无法集中注意力，他的目光总是不自觉地追随着德善。</p>
+  <div class="events"><span class="ev">善宇高考结束</span><span class="ev">邻居庆祝聚会</span><span class="ev">正焕观察德善崔泽</span><span class="ev">成家父母出席</span></div>
+</section>
+
+<section class="seg" id="seg26">
+  <div class="head">
+    <span class="no">第 26 段</span>
+    <span class="tm">第9集·中</span>
+    <h3>醉酒后的表白</h3>
+  </div>
+  <p>聚会进行到高潮，正焕喝了太多酒，情绪开始失控。他借着酒劲向德善表白，说出自己一直以来的感情。德善被这突如其来的告白弄得措手不及，不知如何回应。崔泽注意到这一幕，虽然心中不悦，但没有插手。胡同里的其他朋友都震惊地看着这一幕，有人试图打圆场，但正焕已经无法控制自己的情绪。德善尴尬地拒绝了正焕，表示只把他当朋友。正焕失望地离开聚会，独自在胡同里徘徊，思考自己的未来。</p>
+  <div class="events"><span class="ev">正焕醉酒表白</span><span class="ev">德善不知所措</span><span class="ev">崔泽默默观察</span><span class="ev">正焕独自离开</span></div>
+</section>
+
+<section class="seg" id="seg27">
+  <div class="head">
+    <span class="no">第 27 段</span>
+    <span class="tm">第9集·后</span>
+    <h3>告白后的尴尬</h3>
+  </div>
+  <p>第二天，胡同里的气氛变得异常尴尬。正焕见到德善时不知如何面对，刻意回避她的目光。德善也感到不自在，不知道该如何处理与正焕的关系。崔泽察觉到两人的变化，主动与德善交谈，试图缓解她的尴尬。善宇看出了妹妹的心事，耐心倾听她的烦恼，并给予建议。成东日和李一花注意到孩子们的异常，但以为是正常的青春期情绪波动，没有过多干涉。胡同里的邻居们也察觉到三人之间的微妙关系，暗中观察事态发展。</p>
+  <div class="events"><span class="ev">正焕回避德善</span><span class="ev">崔泽主动交谈</span><span class="ev">善宇开导妹妹</span><span class="ev">邻居暗中观察</span></div>
+</section>
+
+<section class="seg" id="seg28">
+  <div class="head">
+    <span class="no">第 28 段</span>
+    <span class="tm">第10集·前</span>
+    <h3>胡同里的和解</h3>
+  </div>
+  <p>几天后，正焕决定面对自己的感情，主动找德善谈话。他坦诚自己的心情，并表示尊重德善的选择。德善感谢正焕的真诚，两人终于恢复了正常的友谊。崔泽看到这一幕，内心复杂，但选择尊重正焕。胡同里的孩子们一起准备期中考试，学习氛围浓厚。善宇开始为大学入学做准备，向崔泽请教学习方法。成东日找到一份临时工作，虽然辛苦但能为家庭分担压力。李一花更加努力地操持家务，确保家人生活无忧。双门洞的生活继续，邻里之间的情谊更加深厚。</p>
+  <div class="events"><span class="ev">正焕主动和解</span><span class="ev">德善恢复友谊</span><span class="ev">崔泽尊重选择</span><span class="ev">善宇准备大学</span></div>
+</section>
+
+<section class="seg" id="seg29">
+  <div class="head">
+    <span class="no">第 29 段</span>
+    <span class="tm">第10集·中</span>
+    <h3>正焕的生日惊喜</h3>
+  </div>
+  <p>胡同里为正焕举办生日派对，大家都精心准备了礼物。德善亲手做了蛋糕，虽然形状不太美观但充满心意。崔泽带来了一副围棋棋盘作为礼物，正焕表面嫌弃却暗自喜欢。派对进行中，胡同里的长辈们突然出现，带来更多食物和祝福。正焕感动于大家的用心，特别是德善特意为他准备的礼物。然而当正焕看到德善送给崔泽的围巾与自己收到的礼物形成对比时，内心开始感到失落。崔泽察觉到正焕的情绪变化，试图缓解气氛但效果不佳。</p>
+  <div class="events"><span class="ev">生日派对</span><span class="ev">德善做蛋糕</span><span class="ev">长辈惊喜出现</span><span class="ev">正焕内心失落</span></div>
+</section>
+
+<section class="seg" id="seg30">
+  <div class="head">
+    <span class="no">第 30 段</span>
+    <span class="tm">第10集·后</span>
+    <h3>胡同里的温情时刻</h3>
+  </div>
+  <p>生日派对结束后，胡同里的年轻人聚在德善家聊天。正焕虽然表面平静，但酒后吐真言，再次表达了对德善的感情。德善尴尬不知如何回应，崔泽站出来打圆场，转移话题到围棋比赛上。善宇和东日讨论家庭经济状况，一花安慰大家困难只是暂时的。深夜，正焕独自坐在胡同长椅上，崔泽找到他，两人进行了一次深谈。崔泽表示理解正焕的心情，但也希望他能尊重德善的选择。正焕虽然难过但接受了崔泽的劝告，决定将感情藏在心底。</p>
+  <div class="events"><span class="ev">正焕酒后吐真言</span><span class="ev">崔泽调解</span><span class="ev">家庭经济讨论</span><span class="ev">正焕藏起感情</span></div>
+</section>
+
+<section class="seg" id="seg31">
+  <div class="head">
+    <span class="no">第 31 段</span>
+    <span class="tm">第11集·前</span>
+    <h3>德善的围棋比赛</h3>
+  </div>
+  <p>崔泽参加重要围棋比赛，德善和胡同的朋友们一起去为他加油。比赛现场气氛紧张，崔泽表现稳定但面临强劲对手。德善紧张得手心出汗，正焕看在眼里默默递给她纸巾。中场休息时，崔泽看到德善和正焕亲密互动，表情复杂。最终崔泽赢得比赛，大家欢呼庆祝。赛后，崔泽单独感谢德善的到场，正焕看到这一幕默默离开。德善察觉到正焕的失落，追上去安慰他。正焕强装无事，让德善不要担心，但德善已经感受到三人之间微妙的变化。</p>
+  <div class="events"><span class="ev">崔泽比赛</span><span class="ev">德善加油</span><span class="ev">崔泽获胜</span><span class="ev">正焕失落离开</span></div>
+</section>
+
+<section class="seg" id="seg32">
+  <div class="head">
+    <span class="no">第 32 段</span>
+    <span class="tm">第11集·中</span>
+    <h3>胡同里的秘密</h3>
+  </div>
+  <p>德善发现正焕最近总是独自一人，关心询问却被正焕冷淡回应。胡同里的其他人察觉到三人之间的气氛变化，但没人敢提起。一天晚上，德善意外听到正焕和崔泽的对话，得知正决定放弃表白，选择默默守护。德善内心感动又愧疚，不知如何面对。与此同时，善宇准备高考，全家为他创造安静的学习环境。东日找到临时工作补贴家用，一花精打细算维持生计。德善看到家人的付出，决定将感情问题暂时放在一边，专注于帮助家人度过难关。</p>
+  <div class="events"><span class="ev">正焕冷漠</span><span class="ev">德善偷听对话</span><span class="ev">正焕放弃表白</span><span class="ev">德善专注家庭</span></div>
+</section>
+
+<section class="seg" id="seg33">
+  <div class="head">
+    <span class="no">第 33 段</span>
+    <span class="tm">第11集·后</span>
+    <h3>崔泽夺冠庆功宴</h3>
+  </div>
+  <p>崔泽在围棋比赛中获得冠军，胡同的朋友们为他举办庆功宴。崔泽激动地感谢大家的支持，尤其是德善的到场。正焕看着两人互动，表情复杂。德善为崔泽准备礼物，正焕默默记在心中。晚宴上，胡同里的年轻人尽情欢笑，分享喜悦。崔泽提出要请客吃饭，德善欣然答应。正焕借口有事提前离开，德善察觉到他的异常但未多问。崔泽送德善回家时，两人聊起未来的梦想，气氛温馨。德善表示会一直支持崔泽的围棋事业，崔泽感动地握住她的手。</p>
+  <div class="events"><span class="ev">崔泽夺冠</span><span class="ev">正焕离席</span><span class="ev">德善送礼</span></div>
+</section>
+
+<section class="seg" id="seg34">
+  <div class="head">
+    <span class="no">第 34 段</span>
+    <span class="tm">第12集·前</span>
+    <h3>德善生日惊喜</h3>
+  </div>
+  <p>德善生日当天，胡同的朋友们准备给她惊喜。正焕精心挑选了德善一直想要的皮鞋，却迟迟不敢送出。崔泽也准备了特别的礼物，是一副他亲手制作的围棋棋子。善宇和余晖帮忙布置房间，准备派对。德善放学回家，看到朋友们准备的惊喜，感动不已。正焕看着开心的德善，更加犹豫是否要表白。崔泽趁机邀请德善一起去下围棋，德善欣然答应。正焕看到这一幕，情绪低落。派对上，朋友们为德善唱生日歌，气氛温馨。德善收到大家的祝福，特别是崔泽的礼物让她格外开心。</p>
+  <div class="events"><span class="ev">准备惊喜</span><span class="ev">正焕犹豫</span><span class="ev">崔泽邀约</span></div>
+</section>
+
+<section class="seg" id="seg35">
+  <div class="head">
+    <span class="no">第 35 段</span>
+    <span class="tm">第12集·中</span>
+    <h3>正焕的告白</h3>
+  </div>
+  <p>正焕终于下定决心向德善表白。在一个安静的夜晚，他约德善到胡同口，紧张地表达了自己的感情。德善惊讶不已，不知如何回应。正焕表示自己一直默默关注德善，希望她能接受自己。德善坦言只把正焕当作好朋友，无法接受他的感情。正焕虽然失落，但还是尊重德善的决定。德善安慰正焕，希望两人能继续做朋友。正焕勉强答应，但情绪明显低落。这一幕被远处的崔泽看在眼里，若有所思。德善回家后，心情复杂，不知道该如何处理与两位男生的关系。</p>
+  <div class="events"><span class="ev">正焕表白</span><span class="ev">德善拒绝</span><span class="ev">友谊危机</span></div>
+</section>
+
+<section class="seg" id="seg36">
+  <div class="head">
+    <span class="no">第 36 段</span>
+    <span class="tm">第12集·后</span>
+    <h3>胡同里的抉择</h3>
+  </div>
+  <p>德善陷入两难境地，不知该如何面对正焕和崔泽。崔泽察觉到德善的困扰，主动找她谈话。崔泽表示自己尊重德善的选择，不会给她压力。德善感谢崔泽的理解，但内心依然纠结。正焕则开始刻意回避德善，两人之间的气氛变得尴尬。胡同里的其他人察觉到这一变化，试图调解。一天晚上，德善和朋友们在屋顶聊天，正焕突然出现，表示自己需要时间冷静。德善追出去，两人坦诚相待，约定暂时保持距离。德善最终决定先专注于学业和自己的梦想，感情问题暂且搁置。</p>
+  <div class="events"><span class="ev">德善纠结</span><span class="ev">崔泽让步</span><span class="ev">正焕回避</span></div>
+</section>
+
+<section class="seg" id="seg37">
+  <div class="head">
+    <span class="no">第 37 段</span>
+    <span class="tm">第13集·前</span>
+    <h3>正焕的犹豫</h3>
+  </div>
+  <p>正焕向德善表白后陷入尴尬，两人见面变得不自然。正焕每天跟踪德善上学，却始终不敢上前搭话。德善察觉到正焕的异常，但不确定他为何躲避自己。崔泽注意到德善的困惑，主动关心她是否遇到困难。正焕的朋友们都劝他勇敢面对，但他内心挣扎，害怕失去与德善的友谊。德善生日后，正焕更加沉默，连一起打乒乓球都心不在焉。胡同里的朋友们察觉到两人之间的微妙变化，却不知如何调解。正焕的内心矛盾日益加剧，既希望德善回应自己的感情，又害怕破坏现有的友谊。</p>
+  <div class="events"><span class="ev">正焕躲避德善</span><span class="ev">崔泽关心德善</span><span class="ev">正焕内心挣扎</span></div>
+</section>
+
+<section class="seg" id="seg38">
+  <div class="head">
+    <span class="no">第 38 段</span>
+    <span class="tm">第13集·中</span>
+    <h3>德善的困惑</h3>
+  </div>
+  <p>德善对正焕的突然疏远感到困惑，试图通过余晖了解情况。余晖透露正焕可能喜欢她，德善震惊之余开始反思自己对正焕的感情。崔泽邀请德善一起看电影，两人相处愉快。正焕看到后更加失落，但依然没有勇气主动。德善的姐姐宝拉察觉到妹妹的烦恼，建议她明确自己的心意。德善尝试与正焕沟通，却发现他总是找借口避开。胡同里的朋友们组织了一场聚会，希望缓解两人之间的尴尬。聚会上，正焕喝醉后差点说出真心话，被善宇及时打断。德善对正焕的醉酒行为感到不安，开始认真思考两人之间的关系。</p>
+  <div class="events"><span class="ev">德善了解真相</span><span class="ev">崔泽邀约德善</span><span class="ev">正焕醉酒吐露真心</span></div>
+</section>
+
+<section class="seg" id="seg39">
+  <div class="head">
+    <span class="no">第 39 段</span>
+    <span class="tm">第13集·后</span>
+    <h3>胡同的变故</h3>
+  </div>
+  <p>双门洞面临拆迁通知，邻里关系变得紧张。五家父母聚在一起商议对策，决定联合抗议拆迁计划。正焕的父亲作为社区代表，带头组织居民签名反对。德善一家经济困难，父亲失业后更加担忧搬迁问题。胡同里的孩子们也受到影响，担心童年记忆消失。崔泽的棋院面临搬迁，他的师傅决定放弃坚守，接受现实。正焕将德善的皮鞋礼物藏在抽屉深处，决定不再表白。德善看到家人为拆迁烦恼，主动承担更多家务，减轻父母负担。胡同里的居民们组织了一场抗议活动，但最终发现无法改变决定。</p>
+  <div class="events"><span class="ev">双门洞面临拆迁</span><span class="ev">居民联合抗议</span><span class="ev">崔泽棋院将搬迁</span></div>
+</section>
+
+<section class="seg" id="seg40">
+  <div class="head">
+    <span class="no">第 40 段</span>
+    <span class="tm">第14集·前</span>
+    <h3>青春的告别</h3>
+  </div>
+  <p>善宇高考成功，全家欢庆。善宇考入理想大学，成为家庭的骄傲。德善为哥哥感到高兴，但对自己未来的学业感到迷茫。正焕看到善宇的成功，更加自卑，认为自己无法考上好大学。崔泽在围棋比赛中获得重要胜利，但无人分享他的喜悦。胡同里的朋友们为善宇举办庆祝派对，气氛热烈但带着一丝离别的伤感。德善在派对上与正焕单独相处，两人终于坦诚相对。正焕表示尊重德善的选择，希望保持朋友关系。德善松了一口气，但内心仍有失落感。双门洞的拆迁日期确定，邻居们开始整理物品，准备搬离。</p>
+  <div class="events"><span class="ev">善宇高考成功</span><span class="ev">崔泽比赛胜利</span><span class="ev">正焕与德善和解</span></div>
+</section>
+
+<section class="seg" id="seg41">
+  <div class="head">
+    <span class="no">第 41 段</span>
+    <span class="tm">第14集·中</span>
+    <h3>正焕的告白</h3>
+  </div>
+  <p>德善继续对正焕的疏远感到困惑，主动找正焕谈话。正焕无法掩饰自己的感情，终于向德善表白，承认自己一直喜欢她。德善震惊不已，不知如何回应，只能含糊其辞。正焕见德善没有明确拒绝，以为还有希望，心情复杂。与此同时，崔泽邀请德善一起参加围棋比赛，两人在相处中逐渐拉近关系。正焕看到德善和崔泽亲密互动，内心更加痛苦，却只能默默关注。德善在正焕的告白后开始反思自己的感情，意识到自己可能正焕也有好感，但又不确定这种感情是否是爱情。</p>
+  <div class="events"><span class="ev">正焕表白</span><span class="ev">德善困惑</span><span class="ev">崔泽邀约</span></div>
+</section>
+
+<section class="seg" id="seg42">
+  <div class="head">
+    <span class="no">第 42 段</span>
+    <span class="tm">第14集·后</span>
+    <h3>胡同的抗议</h3>
+  </div>
+  <p>双门洞面临拆迁通知，五家父母决定联合抗议。正焕的父亲作为社区代表，带头组织居民签名反对拆迁计划。德善一家经济困难，父亲失业后更加拮据，母亲四处打零工维持生计。德善看到父母为家庭奔波，内心充满愧疚，更加努力学习希望减轻家庭负担。正焕看到德善家的困境，主动提出帮助，但德善婉拒。胡同里的邻居们团结一致，共同抵制拆迁，组织游行示威。五家孩子在父母的行动影响下，也积极参与到保护家园的行动中，邻里关系在共同危机中得到升华。</p>
+  <div class="events"><span class="ev">联合抗议</span><span class="ev">经济困境</span><span class="ev">邻里团结</span></div>
+</section>
+
+<section class="seg" id="seg43">
+  <div class="head">
+    <span class="no">第 43 段</span>
+    <span class="tm">第15集·前</span>
+    <h3>善宇的荣耀</h3>
+  </div>
+  <p>善宇高考成功，考入理想大学，成为全家的骄傲。德善为哥哥的成功感到高兴，但对自己未来的学业感到迷茫。正焕看到善宇的成功，更加自卑，认为自己无法考上好大学。善宇在家人庆祝宴上分享备考经验，鼓励妹妹德善不要放弃自己的梦想。崔泽得知善宇考上大学，主动向德善表示祝贺，并邀请她一起庆祝。德善在哥哥的鼓励和崔泽的支持下，重新燃起对未来的希望。正焕看到德善和崔泽的互动，心情复杂，默默祝福德善能够找到自己的幸福。</p>
+  <div class="events"><span class="ev">善宇成功</span><span class="ev">德善迷茫</span><span class="ev">崔泽鼓励</span></div>
+</section>
+
+<section class="seg" id="seg44">
+  <div class="head">
+    <span class="no">第 44 段</span>
+    <span class="tm">第15集·中</span>
+    <h3>德善的选择</h3>
+  </div>
+  <p>德善在正焕的告白和崔泽的追求之间陷入两难。正焕虽然表白，但总是保持距离，不敢主动接近。崔泽则一直温柔体贴，经常陪伴德善度过难关。德善开始正视自己的感情，发现自己可能更倾向于崔泽。正焕察觉到德善的心意，决定不再打扰，选择默默守护。德善最终选择接受崔泽的感情，两人正式成为恋人。正焕看到这一幕，虽然心痛，但也为德善感到高兴。双门洞的孩子们在青春的懵懂与成长中，逐渐明白了自己真正的心意，各自的感情也有了明确的归属。</p>
+  <div class="events"><span class="ev">感情选择</span><span class="ev">崔泽表白</span><span class="ev">正焕退让</span></div>
+</section>
+
+<section class="seg" id="seg45">
+  <div class="head">
+    <span class="no">第 45 段</span>
+    <span class="tm">第15集·后</span>
+    <h3>善宇的大学生活</h3>
+  </div>
+  <p>善宇开始大学生活，适应新的环境与挑战。他努力保持优异成绩，同时兼职补贴家用。德善送哥哥去大学，看到哥哥的新生活既羡慕又失落。正焕得知善宇在大学表现优秀，更加自卑，对自己的未来感到迷茫。德善母亲继续打零工维持家庭，父亲尝试找工作但屡屡碰壁。崔泽邀请德善观看自己的围棋比赛，德善欣然前往，两人在比赛中度过愉快的时光。正焕看到德善与崔泽亲近，心中复杂，却仍然没有勇气表达自己的感情。</p>
+  <div class="events"><span class="ev">善宇入学</span><span class="ev">德善失落</span><span class="ev">正焕自卑</span></div>
+</section>
+
+<section class="seg" id="seg46">
+  <div class="head">
+    <span class="no">第 46 段</span>
+    <span class="tm">第16集·前</span>
+    <h3>双门洞的危机</h3>
+  </div>
+  <p>双门洞的拆迁计划进入最后阶段，开发商态度强硬。五家父母决定加大抗议力度，组织居民集体请愿。正焕父亲作为社区代表，四处奔走协调。德善家庭经济状况恶化，母亲不得不接受更辛苦的工作。善宇得知家庭困难，决定减少开支，甚至考虑退学打工。德善看到家人为生计奔波，内心挣扎，开始认真考虑自己的未来规划。崔泽察觉到德善的烦恼，主动安慰并鼓励她追求自己的梦想。正焕看到德善的困境，默默帮助，却仍然保持距离。</p>
+  <div class="events"><span class="ev">拆迁升级</span><span class="ev">经济困难</span><span class="ev">请愿行动</span></div>
+</section>
+
+<section class="seg" id="seg47">
+  <div class="head">
+    <span class="no">第 47 段</span>
+    <span class="tm">第16集·中</span>
+    <h3>正焕的抉择</h3>
+  </div>
+  <p>正焕面临人生重要选择，是否复读重考大学。他犹豫不决，既想改变现状又害怕失败。德善得知正焕的困扰，主动找他谈话，鼓励他追随自己的内心。正焕被德善的真诚打动，决定再给自己一次机会。崔泽邀请德善参加自己的围棋比赛庆功宴，正焕得知后内心复杂。德善在正焕和崔泽之间更加摇摆不定，无法确定自己的真实感受。善宇在大学表现优异，获得奖学金，减轻了家庭负担。德善母亲为儿子的成就感到欣慰，同时更加担心德善的未来。</p>
+  <div class="events"><span class="ev">正焕抉择</span><span class="ev">德善摇摆</span><span class="ev">崔泽邀约</span></div>
+</section>
+
+<section class="seg" id="seg48">
+  <div class="head">
+    <span class="no">第 48 段</span>
+    <span class="tm">第16集·后</span>
+    <h3>拆迁前的聚会</h3>
+  </div>
+  <p>双门洞五家人在拆迁前最后一次聚会，回忆共同度过的岁月。孩子们分享各自的心愿与担忧，成年人则表达对未来的期待与不舍。正焕终于鼓起勇气向德善表白，但德善没有给出明确回应。崔泽默默观察这一切，选择尊重德善的决定。善宇鼓励妹妹不要放弃自己的梦想，德善深受感动。聚会结束后，五家人约定即使搬迁也要保持联系，双门洞的情谊不会因为拆迁而结束。德善在回家的路上思考自己的感情归属和未来方向，青春期的困惑与成长交织在一起。</p>
+  <div class="events"><span class="ev">最后聚会</span><span class="ev">正焕表白</span><span class="ev">约定未来</span></div>
+</section>
+
+<section class="seg" id="seg49">
+  <div class="head">
+    <span class="no">第 49 段</span>
+    <span class="tm">第17集·前</span>
+    <h3>德善父亲的抉择</h3>
+  </div>
+  <p>成东日面临失业后的严峻经济困境，不得不放下尊严在市场做临时工。李一花则接缝纫活计补贴家用，日夜操劳。德善察觉到家庭压力，主动放弃报考大学的梦想，准备提前就业减轻负担。善宇得知后与父母激烈争执，坚持要让妹妹完成学业。正焕无意中得知德善的牺牲，内心深受触动，开始重新审视自己的感情。崔泽在围棋比赛中失利，情绪低落，善宇前去安慰并鼓励他重新振作。五家人聚在一起，共同商议应对拆迁和各自面临的困境。</p>
+  <div class="events"><span class="ev">东日做临时工</span><span class="ev">德善放弃大学梦</span><span class="ev">善宇与父母争执</span></div>
+</section>
+
+<section class="seg" id="seg50">
+  <div class="head">
+    <span class="no">第 50 段</span>
+    <span class="tm">第17集·中</span>
+    <h3>正焕的告白与犹豫</h3>
+  </div>
+  <p>正焕终于鼓起勇气向德善表白，但德善没有给出明确回应。正焕陷入矛盾，既希望得到德善的回应，又害怕破坏现有的友谊。与此同时，崔泽对德善的感情日益明显，经常找机会与德善相处。德善在家庭压力和情感困惑中挣扎，开始反思自己的真实感受。善宇在高考前夕压力巨大，全家人都为他加油打气。正焕父亲在拆迁抗议中受伤，正焕不得不暂时放下个人情感，回家照顾父亲。德善得知后前去探望，正焕再次向德善表达心意，但德善依然犹豫不决。</p>
+  <div class="events"><span class="ev">正焕表白被拒</span><span class="ev">崔泽感情升温</span><span class="ev">正焕父亲受伤</span></div>
+</section>
+
+<section class="seg" id="seg51">
+  <div class="head">
+    <span class="no">第 51 段</span>
+    <span class="tm">第17集·后</span>
+    <h3>高考与家庭希望</h3>
+  </div>
+  <p>善宇参加高考，全家人都为他祈祷。考试结束后，善宇自信满满，全家都对他寄予厚望。德善在超市找到兼职工作，努力补贴家用。正焕决定复读一年，争取考上理想的大学。崔泽在围棋比赛中获得重要胜利，逐渐走出低谷。五家父母共同商议如何应对拆迁，决定采取更积极的抗议措施。德善在工作中遇到困难，正焕默默帮助她，两人关系有所缓和。善宇收到高考成绩，成功考入理想大学，全家欢欣鼓舞。德善为哥哥感到高兴，同时也为自己的未来感到迷茫。</p>
+  <div class="events"><span class="ev">善宇高考成功</span><span class="ev">德善超市兼职</span><span class="ev">正焕决定复读</span></div>
+</section>
+
+<section class="seg" id="seg52">
+  <div class="head">
+    <span class="no">第 52 段</span>
+    <span class="tm">第18集·前</span>
+    <h3>拆迁前的最后抗争</h3>
+  </div>
+  <p>双门洞的拆迁计划进入最后阶段，开发商态度更加强硬。五家父母组织居民集体请愿，正焕父亲作为社区代表四处奔走协调。德善家庭经济状况持续恶化，母亲不得不接更多缝纫活计。正焕在复读期间压力巨大，德善时常鼓励他。崔泽在围棋比赛中表现出色，获得赞助邀请。五家邻居决定在拆迁前举行最后一次社区聚会，共同度过最后的时光。德善和正焕在聚会中再次相遇，两人交谈甚欢。善宇开始大学生活，适应新环境的同时也思念家人。五家人在聚会上回忆共同度过的岁月，表达对未来的期待与不舍。</p>
+  <div class="events"><span class="ev">居民集体请愿</span><span class="ev">德善家经济恶化</span><span class="ev">最后一次社区聚会</span></div>
+</section>
+
+<section class="seg" id="seg53">
+  <div class="head">
+    <span class="no">第 53 段</span>
+    <span class="tm">第18集·中</span>
+    <h3>双门洞最后的抗争</h3>
+  </div>
+  <p>五家父母组织居民集体请愿，抗议拆迁计划。正焕父亲作为社区代表四处奔走协调，与开发商多次谈判未果。德善家庭经济状况持续恶化，母亲不得不接更多缝纫活计，父亲则四处寻找工作机会。崔泽在围棋比赛中表现出色，获得冠军奖金，但他将奖金全部交给德善家庭。德善在超市兼职时与顾客发生争执，被主管责骂，正焕得知后前去理论，两人关系因此更加微妙。双门洞的居民们在最后一次社区聚会上，互相赠送礼物表达感谢，气氛温馨感人。</p>
+  <div class="events"><span class="ev">居民请愿</span><span class="ev">正焕协调</span><span class="ev">崔泽献金</span><span class="ev">德善受委屈</span></div>
+</section>
+
+<section class="seg" id="seg54">
+  <div class="head">
+    <span class="no">第 54 段</span>
+    <span class="tm">第18集·后</span>
+    <h3>拆迁前的最后告别</h3>
+  </div>
+  <p>拆迁公告正式发布，双门洞居民开始陆续搬离。德善一家搬进较小的公寓，生活空间更加拥挤。正焕家搬走前，正焕约德善单独见面，再次表达心意，但德善仍没有明确回应。崔泽在搬家前将自己珍藏的围棋棋盘送给德善，希望她能记住这段友谊。善宇考上理想大学，全家欢庆，但也为经济压力担忧。五家孩子们在空荡荡的双门洞最后一次聚会，约定以后常联系。德善在整理旧物时发现崔泽小时候写给她的信，心中感动却无法回应他的感情。</p>
+  <div class="events"><span class="ev">居民搬离</span><span class="ev">正焕表白</span><span class="ev">崔泽赠礼</span><span class="ev">善宇升学</span></div>
+</section>
+
+<section class="seg" id="seg55">
+  <div class="head">
+    <span class="no">第 55 段</span>
+    <span class="tm">第19集·前</span>
+    <h3>成年后的重逢</h3>
+  </div>
+  <p>五年后，德善在电视台担任节目主持人，工作繁忙但成就感强。正焕复读成功，考入理想大学，成为一名医生。崔泽成为职业围棋手，在国际比赛中屡获佳绩。善宇大学毕业后进入银行工作，成为家里的经济支柱。五家人在一家餐厅重逢，大家都发生了很大变化。德善讲述了自己工作中的趣事，正焕则关心地询问她的感情状况。崔泽沉默寡言，但眼神始终关注着德善。餐后，五人相约一起回到已经不存在的双门洞旧址，回忆童年时光，感慨万千。</p>
+  <div class="events"><span class="ev">德善主持</span><span class="ev">正焕从医</span><span class="ev">崔泽夺冠</span><span class="ev">五人重逢</span></div>
+</section>
+
+<section class="seg" id="seg56">
+  <div class="head">
+    <span class="no">第 56 段</span>
+    <span class="tm">第19集·中</span>
+    <h3>青春记忆的追寻</h3>
+  </div>
+  <p>五人站在双门洞旧址，回忆童年趣事。德善提到小时候被忽视的经历，正焕突然打断，承认自己一直暗恋德善，却从未敢表白。崔泽则默默站在一旁，眼中带着失落。善宇分享了自己当年努力学习的原因，是为了减轻家庭负担。大家各自讲述了这些年的成长经历和心路历程。德善表示自己一直在寻找被爱的感觉，却忽视了身边人的真心。夕阳西下，五人约定以后每年都要这样重聚，无论生活如何变化，友情永存。</p>
+  <div class="events"><span class="ev">正焕坦白</span><span class="ev">崔泽失落</span><span class="ev">善宇分享</span><span class="ev">德善感悟</span></div>
+</section>
+
+<section class="seg" id="seg57">
+  <div class="head">
+    <span class="no">第 57 段</span>
+    <span class="tm">第19集·后</span>
+    <h3>双门洞最后的记忆</h3>
+  </div>
+  <p>五人站在双门洞旧址前，各自讲述青春中最难忘的片段。德善提到小时候总是被父母忽视的感受，正焕突然打断，承认自己一直暗恋德善，却从未敢表白。崔泽默默站在一旁，眼中带着失落。善宇分享了初恋失败的经历，泽熙则感慨自己总是被当作天才而非普通人看待。五人一起回到曾经的家，在空荡荡的房间里回忆童年趣事。最后，五人在双门洞入口合影留念，约定以后每年都要重聚。德善离开时，正焕追上来，递给她一封信，但德善没有当场打开。</p>
+  <div class="events"><span class="ev">正焕表白</span><span class="ev">崔泽失落</span><span class="ev">五人合影</span><span class="ev">德善收信</span></div>
+</section>
+
+<section class="seg" id="seg58">
+  <div class="head">
+    <span class="no">第 58 段</span>
+    <span class="tm">第20集·前</span>
+    <h3>成年后的各自生活</h3>
+  </div>
+  <p>时间快进到成年后的五人。德善在电视台担任节目主持人，工作繁忙但成就感强。正焕复读成功，考入理想大学，成为一名医生。崔泽成为职业围棋手，在国际比赛中屡获佳绩。善宇大学毕业后进入银行工作，与妻子美兰生活幸福。泽熙则成为了一名成功的商人。五人在一家高级餐厅重逢，讨论各自的生活和工作。德善分享了自己主持节目的经历，正焕则提到在医院实习的趣事。崔泽表示自己虽然事业有成，但有时感到孤独。善宇和泽熙则感叹时间过得太快，青春仿佛就在昨天。</p>
+  <div class="events"><span class="ev">德善做主持</span><span class="ev">正焕成医生</span><span class="ev">崔泽获佳绩</span><span class="ev">五人重聚</span></div>
+</section>
+
+<section class="seg" id="seg59">
+  <div class="head">
+    <span class="no">第 59 段</span>
+    <span class="tm">第20集·中</span>
+    <h3>真相与释怀</h3>
+  </div>
+  <p>餐厅聚会后，五人来到德善的公寓继续聊天。德善打开正焕给她的信，发现里面是他从未说出口的心意。正焕承认自己一直默默关注德善，看着她与崔泽的恋情，内心痛苦却从未表露。崔泽坦白自己对德善的感情，但表示自己更珍惜五人之间的友谊。德善感动于两人的真诚，坦言自己曾经对正焕也有好感，但错过了表达的机会。五人一起回忆青春岁月，分享各自的遗憾和成长。正焕表示自己已经释怀，希望德善能找到真正的幸福。崔泽则承诺会一直支持德善的任何决定。</p>
+  <div class="events"><span class="ev">德善读信</span><span class="ev">正焕表白</span><span class="ev">崔泽释怀</span><span class="ev">五人谈心</span></div>
+</section>
+
+<section class="seg" id="seg60">
+  <div class="head">
+    <span class="no">第 60 段</span>
+    <span class="tm">第20集·后</span>
+    <h3>青春的答案</h3>
+  </div>
+  <p>五人再次回到双门洞旧址，这里已经被现代化建筑取代。他们站在曾经的家门前，回忆童年的点点滴滴。德善终于明白，青春中最珍贵的不是爱情，而是与朋友和家人共同度过的时光。正焕承认自己已经放下了对德善的感情，找到了属于自己的幸福。崔泽表示自己虽然孤独，但事业的成功给了他成就感。善宇和泽熙则分享了各自的家庭生活。五人约定，无论未来如何变化，都要保持联系，每年都要重聚。最后，五人一起走向夕阳，带着对青春的怀念和对未来的期待，继续各自的人生旅程。</p>
+  <div class="events"><span class="ev">重返旧址</span><span class="ev">德善醒悟</span><span class="ev">正焕释怀</span><span class="ev">五人约定</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第3集</td><td>德善父亲失业，家庭经济陷入困境</td></tr><tr><td>第8集</td><td>正焕向德善表白被拒，崔泽对德善产生感情</td></tr><tr><td>第15集</td><td>善宇高考成功，家庭迎来希望</td></tr><tr><td>第18集</td><td>双门洞面临拆迁，邻里情谊面临考验</td></tr><tr><td>第20集</td><td>成年后重聚，各自找到人生答案</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">家庭</span><span class="theme">友情</span><span class="theme">青春</span><span class="theme">时代变迁</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">成年后的五家人重聚双门洞，回忆青春岁月，各自在人生道路上找到答案，带着温暖与遗憾继续前行。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-10 17:01 · 模型 glm-4-air,glm-4-flash · 共 60 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

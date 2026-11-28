@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>盗火线 · 分段故事梗概 · 2026-11-22</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>盗火线<span class="year">1995</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-22</span><span class="chip">电影</span><span class="chip">美国</span><span class="chip">犯罪/动作</span><span class="chip">1995</span><span class="chip">电影片长约 145 分钟，按每 10 分钟一段切分，共 14 段</span><span class="chip">1990年代洛杉矶</span></div>
+    <div class="logline">职业劫匪尼尔与警探文森特在猫鼠游戏中互相尊重，却因各自职业操守走向宿命对决。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 14 段</h2>
+      <ol><li><a href="#seg1">文森特追踪嫌犯</a></li>
+<li><a href="#seg2">尼尔策划银行抢劫</a></li>
+<li><a href="#seg3">文森特调查银行劫案</a></li>
+<li><a href="#seg4">尼尔团队准备行动</a></li>
+<li><a href="#seg5">运钞车抢劫行动</a></li>
+<li><a href="#seg6">第6段</a></li>
+<li><a href="#seg7">第7段</a></li>
+<li><a href="#seg8">第8段</a></li>
+<li><a href="#seg9">团队内部分歧</a></li>
+<li><a href="#seg10">文森特施压调查</a></li>
+<li><a href="#seg11">迪恩身份暴露</a></li>
+<li><a href="#seg12">最后抢劫准备</a></li>
+<li><a href="#seg13">机场对峙</a></li>
+<li><a href="#seg14">宿命结束</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">尼尔·麦考利</span><span class="r">主角</span></div><div class="d">职业劫匪，追求完美犯罪，渴望正常生活</div></div>
+<div class="person"><div><span class="n">文森特·汉纳</span><span class="r">对手</span></div><div class="d">执着警探，追捕重案嫌犯，工作狂人</div></div>
+<div class="person"><div><span class="n">克里斯·谢尔里斯</span><span class="r">关键配角</span></div><div class="d">尼尔团队成员，年轻冲动，易出纰漏</div></div>
+<div class="person"><div><span class="n">迪恩·基顿</span><span class="r">关键配角</span></div><div class="d">尼尔团队成员，前警察，身份复杂</div></div>
+<div class="person"><div><span class="n">艾琳·麦考利</span><span class="r">关键配角</span></div><div class="d">尼尔女友，渴望稳定生活</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">犯罪与追捕</span><span class="ds">尼尔策划银行抢劫，文森特开始调查追踪</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">猫鼠游戏</span><span class="ds">双方展开激烈交锋，互相试探对方底线</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">背叛与冲突</span><span class="ds">团队内部矛盾爆发，文森特施压调查</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">宿命对决</span><span class="ds">最终对峙，双方各为其道，走向必然结局</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">00:00–00:10</span>
+    <h3>文森特追踪嫌犯</h3>
+  </div>
+  <p>文森特·汉纳警探带领团队突袭一处住宅，追捕一名涉嫌谋杀的重案嫌犯。行动中嫌犯试图逃跑，文森特紧追不舍，两人在狭窄的巷道中展开激烈追逐。最终嫌犯被制服，文森特冷静地将其铐住，随后注意到嫌犯家中的一张照片。文森特表现出工作狂的特质，对队友的关心置之不理，只关注案件本身。行动结束后，文森特回到警局，向上司汇报案情，同时接到了新的案件线索。</p>
+  <div class="events"><span class="ev">突袭住宅</span><span class="ev">激烈追逐</span><span class="ev">嫌犯被铐</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">00:10–00:21</span>
+    <h3>尼尔策划银行抢劫</h3>
+  </div>
+  <p>尼尔·麦考利与团队成员在一家餐厅会面，讨论即将进行的银行抢劫计划。尼尔展现了他作为职业劫匪的专业素养，详细规划了每个步骤和分工。团队成员包括前警察迪恩·易出纰漏的克里斯和负责技术支持的人员。尼尔强调这次行动必须完美执行，不能有任何失误。同时，尼尔的女友艾琳表达了她希望尼尔能金盆洗手、过正常生活的愿望，但尼尔暂时无法放弃这份高风险高回报的工作。</p>
+  <div class="events"><span class="ev">团队会面</span><span class="ev">制定计划</span><span class="ev">女友劝退</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">00:21–00:31</span>
+    <h3>文森特调查银行劫案</h3>
+  </div>
+  <p>文森特开始调查一起银行抢劫案，发现手法专业且组织严密。他走访了案发现场，仔细分析劫匪的作案手法和逃跑路线。文森特注意到这起案件与之前几起未破的银行抢劫案有相似之处，怀疑是同一伙人所为。同时，文森特得知尼尔正在策划新的抢劫行动，但缺乏直接证据。文森特展现出对案件的执着，拒绝休假，全身心投入到追捕尼尔团队的工作中。</p>
+  <div class="events"><span class="ev">调查银行劫案</span><span class="ev">分析作案手法</span><span class="ev">锁定嫌疑人</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">00:31–00:41</span>
+    <h3>尼尔团队准备行动</h3>
+  </div>
+  <p>尼尔团队开始为即将进行的运钞车抢劫做最后准备。迪恩展示了他作为前警察的专业知识，提供了警方可能采取的应对措施。团队成员之间出现了一些紧张气氛，特别是克里斯表现出不安和犹豫。尼尔察觉到团队的不稳，强调了纪律的重要性。同时，尼尔与女友艾琳的关系出现裂痕，艾琳无法再忍受这种提心吊胆的生活。尼尔面临职业与个人生活的双重压力，但仍坚持完成这次行动。</p>
+  <div class="events"><span class="ev">运钞车准备</span><span class="ev">团队紧张</span><span class="ev">女友矛盾</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">00:41–00:52</span>
+    <h3>运钞车抢劫行动</h3>
+  </div>
+  <p>尼尔团队按计划实施运钞车抢劫，成员们分工明确，各司其职。尼尔亲自驾驶车辆，控制整体行动节奏。迪恩利用前警察的专业知识，精准预判警方可能的反应路线。团队成员在高速行驶中紧张有序地执行各自任务，成功拦截运钞车并获取目标现金。文森特通过监控录像发现这起案件与之前几起未破的银行抢劫案手法相似，开始怀疑是同一伙人所为。抢劫过程中，尼尔注意到一名路人记录了他们的行动，迅速决定处理这一潜在风险。</p>
+  <div class="events"><span class="ev">拦截运钞车</span><span class="ev">获取现金</span><span class="ev">发现目击者</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">00:52–01:02</span>
+    <h3>第6段</h3>
+  </div>
+  <p>文森特开始调查最新一起运钞车抢劫案，通过现场遗留的蛛丝马迹，他逐渐拼凑出劫匪的行动模式。尼尔团队在安全屋清点战利品，克里斯兴奋地炫耀自己的表现，引起迪恩的不满。尼尔提醒团队成员保持低调，强调行动纪律的重要性。文森特走访了案发现场附近的多位目击者，获得了关于劫匪车辆和成员特征的关键信息。与此同时，尼尔察觉到团队内部气氛紧张，特别是克里斯的冲动行为可能带来隐患，他开始考虑是否需要调整团队构成。</p>
+  <div class="events"><span class="ev">文森特调查</span><span class="ev">团队分歧</span><span class="ev">尼尔担忧</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">01:02–01:12</span>
+    <h3>第7段</h3>
+  </div>
+  <p>文森特通过分析证据，确认尼尔团队就是一系列银行抢劫案的幕后黑手。他开始集中资源追捕这伙职业罪犯，特别关注尼尔这个核心人物。尼尔与女友艾琳相处时，表达了希望金盆洗手、开始正常生活的愿望。艾琳对此表示支持，但也担忧尼尔无法完全脱离犯罪生活。团队内部矛盾进一步加剧，克里斯因迪恩的质疑而愤怒，尼尔不得不出面调解。文森特通过线人得知尼尔团队可能策划下一次更大规模的抢劫，决定提前布下天罗地网。</p>
+  <div class="events"><span class="ev">文森特锁定目标</span><span class="ev">尼尔考虑退出</span><span class="ev">团队内讧</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">01:12–01:23</span>
+    <h3>第8段</h3>
+  </div>
+  <p>文森特采取强硬手段，逮捕了尼尔的女友艾琳，试图以此施压尼尔就范。尼尔得知消息后，情绪激动，原本计划中的金盆洗手念头被打消。他决定提前实施最后一次抢劫，以获取足够资金远走高飞。迪恩察觉到文森特的压力正在增加，提醒团队需要更加谨慎。尼尔召集团队成员，宣布了新的行动计划，并明确表示这是最后一次行动。文森特通过监控发现尼尔团队的活动异常，判断他们可能正在策划重大行动，立即调集所有警力准备应对。</p>
+  <div class="events"><span class="ev">逮捕艾琳</span><span class="ev">尼尔提前行动</span><span class="ev">文森特布防</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">01:23–01:33</span>
+    <h3>团队内部分歧</h3>
+  </div>
+  <p>尼尔召集团队成员宣布提前实施最后抢劫计划，克里斯兴奋不已而迪恩则面露疑虑。迪恩质疑行动时机，认为警方可能已经察觉，但尼尔坚持己见。团队在安全屋中详细讨论抢劫细节，分配任务。尼尔与迪恩单独交谈，暗示怀疑团队中有内鬼，但未明说。艾琳被警方拘留的消息让尼尔更加急迫，他决定无论如何都要完成这次行动。</p>
+  <div class="events"><span class="ev">团队开会</span><span class="ev">迪恩质疑</span><span class="ev">尼尔坚持</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">01:33–01:44</span>
+    <h3>文森特施压调查</h3>
+  </div>
+  <p>文森特审讯艾琳，试图从她口中获取尼尔的信息。艾琳保持沉默，文森特转而调查团队成员背景。他发现迪恩曾是警察，立即将迪恩列为重点怀疑对象。文森特团队监视尼尔团队成员的一举一动，收集证据。同时，文森特向上级申请更多资源，准备对尼尔团队实施抓捕。他意识到这伙罪犯比他想象的更加专业和危险，必须采取更果断的措施。</p>
+  <div class="events"><span class="ev">审讯艾琳</span><span class="ev">调查迪恩</span><span class="ev">申请资源</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">01:44–01:54</span>
+    <h3>迪恩身份暴露</h3>
+  </div>
+  <p>迪恩被文森特团队盯上，处境变得危险。团队成员间气氛紧张，互相猜忌。尼尔察觉到团队内部的不信任，暗中观察每个人的反应。迪恩试图证明自己的清白，但克里斯对他充满敌意。尼尔决定在行动前彻底解决内部分歧，他单独与迪恩谈话，询问他是否与警方有联系。迪恩否认并解释自己离开警队的原因，尼尔表面接受但内心仍有疑虑。团队内部裂痕加深。</p>
+  <div class="events"><span class="ev">迪恩被盯</span><span class="ev">团队猜忌</span><span class="ev">尼尔质问</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">01:54–02:04</span>
+    <h3>最后抢劫准备</h3>
+  </div>
+  <p>尼尔团队开始为最后抢劫做周密准备，购买武器和装备。尼尔与艾琳通电话，安慰她并承诺会尽快解决一切。文森特通过线人获得尼尔团队行动情报，开始部署抓捕计划。两方都在为最终对决做准备，气氛紧张。尼尔在行动前与团队成员最后一次会面，强调纪律和协作的重要性。他表现出对这次行动的信心，但眼神中流露出对未来的不确定。</p>
+  <div class="events"><span class="ev">准备装备</span><span class="ev">文森部署</span><span class="ev">团队会面</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">02:04–02:15</span>
+    <h3>机场对峙</h3>
+  </div>
+  <p>尼尔团队抵达机场准备执行最后抢劫，文森特团队已埋伏到位。尼尔察觉异常，命令团队改变计划。文森特现身与尼尔对峙，双方互相审视。尼尔冷静分析局势，意识到自己已被包围。克里斯冲动想要反抗，被尼尔制止。文森特提出让尼尔投降，承诺不会伤害他的团队。尼尔权衡后同意投降，要求确保团队成员安全。文森特暂时接受条件，下令逮捕所有嫌疑人。警方包围现场，气氛紧张。</p>
+  <div class="events"><span class="ev">尼尔察觉埋伏</span><span class="ev">文森特现身对峙</span><span class="ev">尼尔同意投降</span><span class="ev">警方包围现场</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">02:15–02:25</span>
+    <h3>宿命结束</h3>
+  </div>
+  <p>尼尔团队被警方逮捕，迪恩在混乱中被击毙。文森特与尼尔单独交谈，表达了对尼尔能力的尊重。尼尔询问艾琳的情况，文森特保证她会安全。警方将尼尔带走，文森特继续追捕其他罪犯。数月后，尼尔获释，与艾琳开始新生活。文森特在机场目送尼尔离开，两人互相点头致意，象征着彼此间的职业尊重。文森特转身投入新的案件，尼尔则彻底告别犯罪生涯，两人各自走上不同的人生道路。</p>
+  <div class="events"><span class="ev">迪恩被击毙</span><span class="ev">尼尔获释</span><span class="ev">尼尔与艾琳重逢</span><span class="ev">文森特目送尼尔</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>约第30分钟</td><td>尼尔团队抢劫运钞车，文森目击尼尔样貌</td></tr><tr><td>约第60分钟</td><td>文森逮捕尼尔女友施压，尼尔被迫提前行动</td></tr><tr><td>约第90分钟</td><td>团队内讧，迪恩被怀疑是警方的线人</td></tr><tr><td>约第110分钟</td><td>尼尔团队实施最后抢劫，文森设下埋伏</td></tr><tr><td>约第130分钟</td><td>文森与尼尔在机场对峙，尼尔选择投降</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">忠诚与背叛</span><span class="theme">职业操守</span><span class="theme">宿命对决</span><span class="theme">双重生活</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">尼尔被捕后获释，与女友开始新生活。文森继续追捕罪犯，在机场目送尼尔离开，两人互相点头致意。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-22 07:57 · 模型 glm-4-air,glm-4-flash · 共 14 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>

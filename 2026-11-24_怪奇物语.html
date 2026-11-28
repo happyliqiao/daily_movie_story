@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>怪奇物语 · 分段故事梗概 · 2026-11-24</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --text:#1b1f24; --muted:#666f7a;
+  --line:#e3e7ec; --accent:#b4262b; --accent-soft:#fdf1f1; --chip:#eef1f5;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1b1f26; --text:#e8ecf1; --muted:#9aa4b1;
+    --line:#2b313a; --accent:#e2565b; --accent-soft:#2a1d1f; --chip:#242a33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px 80px}
+header.top{padding:56px 0 28px; border-bottom:1px solid var(--line)}
+h1{margin:0 0 14px; font-size:34px; line-height:1.25; letter-spacing:.5px}
+h1 .year{color:var(--muted); font-size:20px; font-weight:400; margin-left:8px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.chip{
+  background:var(--chip); color:var(--muted); border-radius:999px;
+  padding:3px 12px; font-size:13px; line-height:1.7;
+}
+.chip.hot{background:var(--accent-soft); color:var(--accent)}
+.logline{
+  margin:30px 0 8px; padding:22px 26px; background:var(--panel); border-radius:14px;
+  border-left:4px solid var(--accent); box-shadow:var(--shadow); font-size:18px; line-height:1.9;
+}
+.layout{display:grid; grid-template-columns:230px minmax(0,1fr); gap:36px; margin-top:34px; align-items:start}
+nav.toc{position:sticky; top:24px; max-height:calc(100vh - 60px); overflow:auto; padding-right:6px}
+nav.toc h2{font-size:12px; letter-spacing:1.6px; color:var(--muted); text-transform:uppercase; margin:0 0 12px}
+nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:seg}
+nav.toc li{counter-increment:seg; margin:0}
+nav.toc a{
+  display:block; padding:6px 10px 6px 34px; position:relative; border-radius:8px;
+  font-size:13.5px; color:var(--muted); text-decoration:none; line-height:1.5;
+  border-left:2px solid transparent;
+}
+nav.toc a::before{
+  content:counter(seg); position:absolute; left:10px; top:6px;
+  font-size:11px; color:var(--muted); opacity:.7; font-variant-numeric:tabular-nums;
+}
+nav.toc a:hover{background:var(--chip); color:var(--text)}
+nav.toc a.active{background:var(--accent-soft); color:var(--accent); border-left-color:var(--accent)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2.sec{
+  font-size:15px; letter-spacing:2px; color:var(--muted); font-weight:600;
+  margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--panel);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--chip); font-weight:600; font-size:13px; color:var(--muted); letter-spacing:.5px}
+tr:last-child td{border-bottom:none}
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px}
+.person{background:var(--panel); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+.person .n{font-weight:600}
+.person .r{font-size:12px; color:var(--accent); margin-left:6px}
+.person .d{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.6}
+.acts{counter-reset:act; display:grid; gap:10px}
+.act{display:flex; gap:14px; align-items:baseline; background:var(--panel);
+  border-radius:10px; padding:12px 16px; box-shadow:var(--shadow)}
+.act .idx{font-size:12px; color:var(--accent); font-weight:700; letter-spacing:1px; min-width:22px}
+.act .nm{font-weight:600; min-width:110px}
+.act .ds{color:var(--muted); font-size:14px}
+.seg{
+  background:var(--panel); border-radius:14px; padding:20px 24px; margin-bottom:14px;
+  box-shadow:var(--shadow); scroll-margin-top:20px; border:1px solid transparent;
+}
+.seg:target{border-color:var(--accent)}
+.seg .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+.seg .no{
+  background:var(--accent); color:#fff; border-radius:6px; font-size:12px;
+  padding:1px 8px; font-weight:600; letter-spacing:.5px; font-variant-numeric:tabular-nums;
+}
+.seg .tm{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.seg h3{margin:0; font-size:17.5px; line-height:1.5}
+.seg p{margin:0; font-size:15.5px; line-height:1.95; color:var(--text)}
+.events{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px}
+.ev{background:var(--chip); color:var(--muted); border-radius:6px; padding:3px 10px; font-size:12.5px}
+.themes{display:flex; flex-wrap:wrap; gap:8px}
+.theme{background:var(--accent-soft); color:var(--accent); border-radius:999px; padding:4px 14px; font-size:13.5px}
+.ending{background:var(--panel); border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); line-height:1.95}
+footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr; gap:20px}
+  nav.toc{position:static; max-height:none; display:none}
+  h1{font-size:26px}
+  .wrap{padding:0 16px 60px}
+  header.top{padding:34px 0 20px}
+  .seg{padding:16px 18px}
+}
+@media print{
+  nav.toc{display:none} .layout{grid-template-columns:1fr}
+  body{background:#fff} .seg,.logline,.person,.act,.ending,table{box-shadow:none; border:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>怪奇物语<span class="year">2016</span></h1>
+    <div class="chips"><span class="chip hot">2026-11-24</span><span class="chip">电视剧</span><span class="chip">美国</span><span class="chip">科幻/悬疑</span><span class="chip">2016</span><span class="chip">电视剧共 8 集，单集约 50 分钟，每集拆 2 段，全剧共 16 段</span><span class="chip">1983年美国霍金斯小镇</span></div>
+    <div class="logline">小镇男孩失踪后，朋友们遇见神秘女孩十一，共同对抗来自异世界的怪物和政府实验威胁。</div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <h2>分段导航 · 16 段</h2>
+      <ol><li><a href="#seg1">威尔失踪之夜</a></li>
+<li><a href="#seg2">第2段</a></li>
+<li><a href="#seg3">第3段</a></li>
+<li><a href="#seg4">第4段</a></li>
+<li><a href="#seg5">十一感知威尔位置</a></li>
+<li><a href="#seg6">孩子们进入异世界</a></li>
+<li><a href="#seg7">十一感知威尔位置</a></li>
+<li><a href="#seg8">实验室被毁</a></li>
+<li><a href="#seg9">实验室突袭行动</a></li>
+<li><a href="#seg10">威尔回归现实</a></li>
+<li><a href="#seg11">门洞开启</a></li>
+<li><a href="#seg12">门洞开启</a></li>
+<li><a href="#seg13">实验室决战前夕</a></li>
+<li><a href="#seg14">门洞开启危机</a></li>
+<li><a href="#seg15">魔王现身</a></li>
+<li><a href="#seg16">十一的牺牲</a></li></ol>
+    </nav>
+    <main>
+      <section><h2 class="sec">主要人物</h2><div class="cards"><div class="person"><div><span class="n">威尔</span><span class="r">主角</span></div><div class="d">失踪男孩，被困在异世界求生</div></div>
+<div class="person"><div><span class="n">十一</span><span class="r">关键配角</span></div><div class="d">拥有超能力的实验逃逸女孩</div></div>
+<div class="person"><div><span class="n">迈克</span><span class="r">主角</span></div><div class="d">威尔好友，寻找失踪伙伴</div></div>
+<div class="person"><div><span class="n">霍金斯</span><span class="r">对手</span></div><div class="d">秘密实验室负责人，追捕十一</div></div>
+<div class="person"><div><span class="n">乔伊斯</span><span class="r">主角</span></div><div class="d">威尔母亲，坚信儿子还活着</div></div>
+<div class="person"><div><span class="n">达斯汀</span><span class="r">关键配角</span></div><div class="d">威尔好友，发现怪物踪迹</div></div></div></section>
+      <section><h2 class="sec">故事脉络</h2><div class="acts"><div class="act"><span class="idx">01</span><span class="nm">神秘失踪</span><span class="ds">威尔失踪，朋友们发现十一</span></div>
+<div class="act"><span class="idx">02</span><span class="nm">异世界探索</span><span class="ds">孩子们进入异世界寻找威尔</span></div>
+<div class="act"><span class="idx">03</span><span class="nm">实验室真相</span><span class="ds">揭露政府实验与怪物来源</span></div>
+<div class="act"><span class="idx">04</span><span class="nm">最终决战</span><span class="ds">团队联手对抗怪物与实验室</span></div></div></section>
+      <section>
+        <h2 class="sec">分段梗概</h2>
+        
+<section class="seg" id="seg1">
+  <div class="head">
+    <span class="no">第 1 段</span>
+    <span class="tm">第1集·上</span>
+    <h3>威尔失踪之夜</h3>
+  </div>
+  <p>1983年万圣节前夕，霍金斯小镇男孩威尔与朋友迈克、达斯汀、卢卡斯一起骑自行车回家。夜晚威尔抄近路穿过森林回家，途中遭遇不明黑影袭击。乔伊斯在家中察觉异常，电话联系威尔未果。霍金斯警局接到报警，警长霍珀带队搜查森林，只发现威尔的自行车和一只疑似怪物留下的粘液。乔伊斯在家中不断接到神秘电话，却只能听到电流声。</p>
+  <div class="events"><span class="ev">威尔失踪</span><span class="ev">乔伊斯接神秘电话</span><span class="ev">森林发现粘液</span></div>
+</section>
+
+<section class="seg" id="seg2">
+  <div class="head">
+    <span class="no">第 2 段</span>
+    <span class="tm">第1集·下</span>
+    <h3>第2段</h3>
+  </div>
+  <p>霍珀警长展开调查，询问威尔的朋友们。迈克等人回忆威尔失踪前曾看到奇怪的灯光。乔伊斯在家中经历超自然现象，电器自行开关，墙壁上出现类似蛛网的裂缝。威尔的母亲坚信儿子还活着，与警方和丈夫产生分歧。同时，秘密实验室负责人布雷纳博士发现实验体十一失踪，派出安保人员追捕。达斯汀在附近森林发现一个奇怪的生物，将其命名为&quot; Dart &quot;。</p>
+  <div class="events"><span class="ev">乔伊斯见超自然现象</span><span class="ev">实验室追捕十一</span><span class="ev">达斯汀发现 Dart</span></div>
+</section>
+
+<section class="seg" id="seg3">
+  <div class="head">
+    <span class="no">第 3 段</span>
+    <span class="tm">第2集·上</span>
+    <h3>第3段</h3>
+  </div>
+  <p>乔伊斯在家中继续经历怪事，冰箱门上出现水珠形成威尔的名字。她联系霍珀警长，但警方认为她精神崩溃。迈克在森林深处发现一个浑身赤裸、剃着光头的女孩，将她带回自己家中藏匿。女孩几乎不会说话，只能用简单的手势交流。霍金斯警局接到报案，一名男子在湖边被不明生物拖入水中。霍珀调查时发现湖底有奇怪的结构，怀疑与威尔失踪有关。</p>
+  <div class="events"><span class="ev">乔伊斯见水珠名字</span><span class="ev">迈克收留神秘女孩</span><span class="ev">湖边男子遇害</span></div>
+</section>
+
+<section class="seg" id="seg4">
+  <div class="head">
+    <span class="no">第 4 段</span>
+    <span class="tm">第2集·下</span>
+    <h3>第4段</h3>
+  </div>
+  <p>迈克给神秘女孩取名十一，发现她拥有念力能力。十一通过接触物品感知到威尔的存在，但位置不稳定。乔伊斯在家中与威尔进行超自然交流，确定他还活着。霍珀警长发现湖底有秘密实验室的入口，但入口已被封死。实验室方面加强安保，同时十一的能力开始失控，引发更多异常现象。达斯汀和卢卡斯发现 Dart 实际是一种两栖生物，能够快速繁殖。十一通过感知告诉迈克，威尔被关在一个&quot;颠倒的世界&quot;里。</p>
+  <div class="events"><span class="ev">十一展现念力</span><span class="ev">乔伊斯与威尔交流</span><span class="ev">发现实验室入口</span></div>
+</section>
+
+<section class="seg" id="seg5">
+  <div class="head">
+    <span class="no">第 5 段</span>
+    <span class="tm">第3集·上</span>
+    <h3>十一感知威尔位置</h3>
+  </div>
+  <p>霍珀警长在湖底发现威尔的自行车和手表，确认威尔已遇害。乔伊斯在家中与威尔建立更清晰的超自然联系，通过灯光和声音确定威尔还活着。迈克和朋友们继续照顾十一，发现她需要吃青蛙才能维持体力。十一尝试用念力找到威尔，但能力不稳定。达斯汀在森林里发现一只奇怪的生物，它看起来像青蛙但体型异常大。霍珀警长调查威尔失踪案，发现当地有男孩曾目击发光卡车。乔伊斯在家中与威尔交流更加频繁，墙壁上的蛛网状裂缝扩大，形成类似地图的图案。迈克的朋友们开始怀疑十一知道威尔的下落。</p>
+  <div class="events"><span class="ev">霍珀发现自行车</span><span class="ev">乔伊斯与威尔交流</span><span class="ev">十一尝试定位</span><span class="ev">达斯汀发现怪生物</span></div>
+</section>
+
+<section class="seg" id="seg6">
+  <div class="head">
+    <span class="no">第 6 段</span>
+    <span class="tm">第3集·下</span>
+    <h3>孩子们进入异世界</h3>
+  </div>
+  <p>十一通过接触迈克的自行车，成功感知到威尔被关在一个充满怪物的黑暗世界。乔伊斯在家中通过灯光和声音与威尔交流，确定他正被某种生物追逐。霍珀警长发现当地一家废弃实验室的线索，怀疑与威尔失踪有关。迈克、达斯汀和卢卡斯决定帮助十一寻找威尔，三人带着十一进入森林深处。十一在森林中利用念力打开一道通往异世界的门洞，孩子们看到威尔被困在另一个维度。霍珀警长调查实验室时，遭到不明身份的武装人员阻挠。乔伊斯在家中与威尔交流时，墙壁上出现威尔被怪物追逐的幻象。</p>
+  <div class="events"><span class="ev">十一定位威尔</span><span class="ev">孩子们进森林</span><span class="ev">门洞出现</span><span class="ev">霍珀遇阻挠</span></div>
+</section>
+
+<section class="seg" id="seg7">
+  <div class="head">
+    <span class="no">第 7 段</span>
+    <span class="tm">第4集·上</span>
+    <h3>十一感知威尔位置</h3>
+  </div>
+  <p>霍珀警长在湖底发现威尔的自行车和手表，确认威尔已遇害。乔伊斯在家中与威尔建立更清晰的超自然联系，通过灯光和声音确定威尔还活着。迈克和朋友们继续照顾十一，发现她需要持续进食才能维持体力。十一通过接触迈克的自行车，成功感知到威尔被关在一个充满怪物的黑暗世界。乔伊斯在家中通过灯光和声音与威尔交流，确定他正被某种生物追逐。霍珀警长发现当地一家废弃实验室的线索，开始怀疑政府与威尔失踪有关。</p>
+  <div class="events"><span class="ev">警长发现自行车</span><span class="ev">乔伊斯与威尔交流</span><span class="ev">十一感知威尔位置</span><span class="ev">霍珀发现实验室线索</span></div>
+</section>
+
+<section class="seg" id="seg8">
+  <div class="head">
+    <span class="no">第 8 段</span>
+    <span class="tm">第4集·下</span>
+    <h3>实验室被毁</h3>
+  </div>
+  <p>霍珀警长和乔伊斯进入霍金斯实验室，发现大量实验设备和被囚禁的生物。霍珀释放了被囚禁的实验体，实验室开始自毁程序。十一在迈克家尝试再次开启门洞，成功让威尔从异世界返回，但同时也让恶魔跟随威尔一同来到现实世界。霍珀和乔伊斯在实验室爆炸前逃离，实验室彻底被摧毁。威尔获救但处于昏迷状态，十一在开启门洞后力量耗尽消失。霍珀向乔伊斯透露实验室的秘密，暗示政府掩盖了真相。</p>
+  <div class="events"><span class="ev">实验室自毁</span><span class="ev">威尔获救</span><span class="ev">恶魔现身</span><span class="ev">十一消失</span></div>
+</section>
+
+<section class="seg" id="seg9">
+  <div class="head">
+    <span class="no">第 9 段</span>
+    <span class="tm">第5集·上</span>
+    <h3>实验室突袭行动</h3>
+  </div>
+  <p>霍珀警长带领小队突袭霍金斯国家实验室，发现大量秘密文件和实验设备。十一在迈克家中通过念力感知到威尔的位置更加清晰，但同时也吸引了实验室特工的注意。乔伊斯在家中与威尔的交流更加频繁，她通过灯光和声音与儿子沟通，了解到威尔正在躲避一个可怕生物的追捕。达斯汀和卢卡斯在学校发现新的线索，证实与威尔失踪相关的神秘事件并非孤立。霍珀从实验室文件中发现政府正在进行超自然实验，与威尔失踪事件密切相关。</p>
+  <div class="events"><span class="ev">突袭实验室</span><span class="ev">发现实验文件</span><span class="ev">乔伊斯与威尔交流</span></div>
+</section>
+
+<section class="seg" id="seg10">
+  <div class="head">
+    <span class="no">第 10 段</span>
+    <span class="tm">第5集·下</span>
+    <h3>威尔回归现实</h3>
+  </div>
+  <p>乔伊斯在家中与威尔建立更稳定的联系，通过灯光和声音确定他正在接近现实世界。霍珀警长和乔伊斯发现实验室特工正在追捕十一，决定保护她。迈克和朋友们照顾十一，帮助她集中精神开启门洞。十一成功在迈克家的地下室开启门洞，威尔从异世界爬出，但同时也让一只怪物跟随他一起进入了现实世界。威尔获救但身体状况极差，被送往医院治疗。十一因过度使用能力而虚弱不堪，迈克承诺会保护她。达斯汀和卢卡斯发现小镇上出现奇怪现象，暗示怪物已经逃脱。</p>
+  <div class="events"><span class="ev">威尔获救</span><span class="ev">怪物入侵</span><span class="ev">十一虚弱</span><span class="ev">小镇异象</span></div>
+</section>
+
+<section class="seg" id="seg11">
+  <div class="head">
+    <span class="no">第 11 段</span>
+    <span class="tm">第6集·上</span>
+    <h3>门洞开启</h3>
+  </div>
+  <p>乔伊斯在家中与威尔建立更稳定的联系，通过灯光和声音确定他正在接近现实世界。霍珀警长和乔伊斯发现实验室特工正在追捕十一，决定保护她。迈克和朋友们照顾十一，帮助她集中精神。十一在迈克家尝试再次开启门洞，成功让威尔从异世界短暂现身。然而，门洞开启的同时，一只怪物也趁机从异世界逃到现实世界。乔伊斯和霍珀警长立即采取行动，准备应对这个新威胁。实验室特工追踪到迈克家，展开追捕行动。</p>
+  <div class="events"><span class="ev">威尔短暂现身</span><span class="ev">怪物逃出异世界</span><span class="ev">实验室特工追捕十一</span></div>
+</section>
+
+<section class="seg" id="seg12">
+  <div class="head">
+    <span class="no">第 12 段</span>
+    <span class="tm">第6集·下</span>
+    <h3>门洞开启</h3>
+  </div>
+  <p>乔伊斯在家中通过灯光和声音与威尔建立更稳定的联系，确定他正在接近现实世界。霍珀警长和乔伊斯发现实验室特工正在追捕十一，决定保护她。迈克和朋友们照顾十一，帮助她集中精神。十一在迈克的鼓励下，利用自己与威尔的联系，开启了一扇通往异世界的门洞。门洞打开后，威尔从异世界爬出，但同时也有一只怪物跟随他一起来到了现实世界。霍珀警长赶到现场，准备应对这一突发状况。</p>
+  <div class="events"><span class="ev">威尔回归</span><span class="ev">怪物跟随</span><span class="ev">门洞开启</span><span class="ev">特工追捕</span></div>
+</section>
+
+<section class="seg" id="seg13">
+  <div class="head">
+    <span class="no">第 13 段</span>
+    <span class="tm">第7集·上</span>
+    <h3>实验室决战前夕</h3>
+  </div>
+  <p>霍珀警长带领小队突袭霍金斯国家实验室，发现大量秘密文件和实验设备。十一在迈克家中通过念力感知到威尔的位置更加清晰，但同时也吸引了实验室特工的注意。乔伊斯在家中与威尔的联系更加频繁，发现威尔正被一个名为魔王的怪物追逐。达斯汀和卢卡斯在废弃工厂发现怪物踪迹，意识到它即将进入现实世界。霍珀发现实验室正在研究通往异世界的门洞，并计划将其关闭。霍珀联系乔伊斯，告知她实验室即将被摧毁，十一必须帮助关闭门洞。</p>
+  <div class="events"><span class="ev">实验室突袭</span><span class="ev">十一感应威尔</span><span class="ev">发现门洞真相</span></div>
+</section>
+
+<section class="seg" id="seg14">
+  <div class="head">
+    <span class="no">第 14 段</span>
+    <span class="tm">第7集·下</span>
+    <h3>门洞开启危机</h3>
+  </div>
+  <p>霍珀和乔伊斯在实验室相遇，共同制定救援威尔的计划。十一在迈克家中逐渐失去控制，她的能力波动导致门洞不稳定，怪物开始从异世界渗透到现实世界。迈克、达斯汀和卢卡斯在学校发现怪物踪迹，被迫逃离。十一最终成功定位威尔的位置，但需要前往实验室才能关闭门洞。霍珀和乔伊斯进入实验室深处，发现威尔被束缚在实验设备上，周围布满怪物。十一跟随霍珀和乔伊斯前往实验室，准备关闭门洞。实验室突然被怪物袭击，霍珀和乔伊斯陷入危险。</p>
+  <div class="events"><span class="ev">门洞不稳定</span><span class="ev">怪物渗透</span><span class="ev">定位威尔位置</span></div>
+</section>
+
+<section class="seg" id="seg15">
+  <div class="head">
+    <span class="no">第 15 段</span>
+    <span class="tm">第8集·上</span>
+    <h3>魔王现身</h3>
+  </div>
+  <p>实验室被怪物袭击，霍珀和乔伊斯陷入危险。十一使用能力暂时控制局面，但魔王已经通过门洞进入现实世界。迈克、达斯汀和卢卡斯在学校遭遇怪物，达斯汀发现怪物弱点是对噪音敏感。十一、霍珀和乔伊斯成功救出威尔，但门洞仍然开启。威尔告诉他们魔王正在寻找他，因为他是连接两个世界的钥匙。霍珀决定炸毁实验室来关闭门洞，但需要时间设置炸药。十一意识到自己必须牺牲才能彻底关闭门洞。迈克和朋友们在学校制定对抗怪物的计划，利用达斯汀发现的弱点。</p>
+  <div class="events"><span class="ev">魔王现身</span><span class="ev">救出威尔</span><span class="ev">十一决定牺牲</span></div>
+</section>
+
+<section class="seg" id="seg16">
+  <div class="head">
+    <span class="no">第 16 段</span>
+    <span class="tm">第8集·下</span>
+    <h3>十一的牺牲</h3>
+  </div>
+  <p>霍珀设置炸药准备摧毁实验室，十一决定牺牲自己来关闭门洞。迈克和朋友们在学校对抗怪物，利用达斯汀发现的弱点制造噪音成功击退怪物。十一与迈克告别后，进入门洞与魔王对抗。乔伊斯和威尔在实验室等待，霍珀准备引爆炸药。十一在异世界中与魔王展开殊死搏斗，最终成功关闭门洞。实验室爆炸，霍珀被困其中。迈克和朋友们发现威尔安全返回，但十一生死不明。小镇暂时安全，但所有人都知道这只是暂时的。乔伊斯和威尔拥抱，霍珀的警徽被发现，暗示他可能幸存。迈克在家中等待十一归来，坚信她还活着。</p>
+  <div class="events"><span class="ev">十一对抗魔王</span><span class="ev">实验室爆炸</span><span class="ev">小镇暂时安全</span></div>
+</section>
+      </section>
+      
+<section>
+  <h2 class="sec">关键转折</h2>
+  <table><thead><tr><th style="width:150px">位置</th><th>转折</th></tr></thead>
+  <tbody><tr><td>第1集结尾</td><td>威尔失踪，乔伊斯感知到儿子还活着</td></tr><tr><td>第3集中间</td><td>十一帮助孩子们找到威尔位置</td></tr><tr><td>第4集结尾</td><td>达斯汀发现怪物是来自异世界的恶魔</td></tr><tr><td>第6集中间</td><td>十一开启门洞，威尔回归但带回怪物</td></tr><tr><td>第7集结尾</td><td>实验室爆炸，怪物逃离</td></tr></tbody></table>
+</section>
+      <section><h2 class="sec">主题关键词</h2><div class="themes"><span class="theme">友情</span><span class="theme">家庭</span><span class="theme">政府阴谋</span><span class="theme">异世界威胁</span></div></section>
+      <section><h2 class="sec">结局走向</h2><div class="ending">威尔获救，但恶魔通过门洞逃到现实世界，十一牺牲自己关闭门洞，实验室被摧毁，小镇暂时安全。</div></section>
+    </main>
+  </div>
+
+  <footer>
+    生成时间 2026-11-24 10:52 · 模型 glm-4-air,glm-4-flash · 共 16 段<br>
+    内容由 AI 依据作品公开剧情整理，仅作阅读参考。
+  </footer>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current) current.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-10% 0px -75% 0px', threshold:0});
+  document.querySelectorAll('section.seg').forEach(function(s){ io.observe(s); });
+})();
+</script>
+</body>
+</html>
